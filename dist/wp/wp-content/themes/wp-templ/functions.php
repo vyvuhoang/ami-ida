@@ -287,3 +287,11 @@ add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css' );
 
 // Disable auto redirect with same post_name
 remove_action('template_redirect', 'redirect_canonical');
+
+add_action('init', 'start_session_wp', 1);
+function start_session_wp()
+{
+  if (session_status() == PHP_SESSION_NONE){
+    session_start();
+  }
+}
