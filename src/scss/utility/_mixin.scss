@@ -412,15 +412,53 @@ $browser_prefix: ("-webkit-", "-moz-", "-ms-", "-o-", "");
 @mixin font($size: "", $lh: "", $letter: "", $fw: ""){
   @if ($size != ''){
     font-size: $size + px;
-    font-size: ($size / 10) + rem;
   }
   @if ($lh != ''){
-    line-height: $lh;
+    line-height: $lh + px;
   }
   @if ($letter != ''){
-    letter-spacing: $letter;
+    letter-spacing: $letter + em;
   }
   @if ($fw != ''){
     font-weight: $fw;
   }
+}
+
+@mixin absolute($content: '', $width: '', $height: '', $top: '', $bottom: '', $right: '', $left: ''){
+  position: absolute;
+  @if($content!=0){
+    content: $content;
+  }
+  @if($width!=''){
+    width: $width;
+  }
+  @if($height!=''){
+    height: $height;
+  }
+  @if($top!=''){
+    top: $top;
+  }
+  @if($bottom!=''){
+    bottom: $bottom;
+  }
+  @if($right!=''){
+    right: $right;
+  }
+  @if($left!=''){
+    left: $left;
+  }
+}
+
+@mixin flex($align: 0, $justify: 0){
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	@if($align==1){
+		align-items: center;
+	}
+	@if($justify==1){
+		justify-content: center;
+	}
 }

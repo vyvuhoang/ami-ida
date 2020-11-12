@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42">
+  <g id="Group_1685" data-name="Group 1685" transform="translate(-186 -2160)">
+    <circle id="Ellipse_6857" data-name="Ellipse 6857" cx="21" cy="21" r="21" transform="translate(186 2160)" fill="#fff"/>
+    <g id="coin" transform="translate(190.211 2164.211)">
+      <g id="color" transform="translate(0.715 0.715)">
+        <g id="Group_1549" data-name="Group 1549" transform="translate(0 0)">
+          <circle id="Ellipse_6858" data-name="Ellipse 6858" cx="16" cy="16" r="16" transform="translate(0.073 0.074)" fill="#920783"/>
+        </g>
+      </g>
+      <g id="regular" transform="translate(1.01 1.01)">
+        <path id="Union_7" data-name="Union 7" d="M3.944,13.269v-2.51H1.793a1.076,1.076,0,0,1,0-2.152H3.944V7.173H1.793a1.076,1.076,0,0,1,0-2.152H3L.253,1.769A1.077,1.077,0,0,1,1.9.378L5.02,4.069,8.142.378A1.077,1.077,0,0,1,9.787,1.769L7.036,5.02H8.247a1.076,1.076,0,0,1,0,2.152H6.1V8.606H8.247a1.076,1.076,0,0,1,0,2.152H6.1v2.51a1.076,1.076,0,0,1-2.152,0Z" transform="translate(10.759 8.609)" fill="#fff"/>
+        <g id="Group_1554" data-name="Group 1554">
+          <path id="Path_635" data-name="Path 635" d="M16.779,32.558A15.779,15.779,0,1,1,32.558,16.779,15.8,15.8,0,0,1,16.779,32.558Zm0-29.406A13.627,13.627,0,1,0,30.406,16.779,13.643,13.643,0,0,0,16.779,3.152Z" transform="translate(-1 -1)" fill="#ae70ac"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
