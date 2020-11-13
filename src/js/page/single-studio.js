@@ -12,6 +12,14 @@ function slider(){
     cssEase: 'linear',
     slidesToShow: 2.75,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 500,
+        settings: {
+          slidesToShow: 1.5,
+        }
+      },
+    ]
   })
 }
 

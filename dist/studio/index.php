@@ -1,19 +1,20 @@
 <?php
-$thisPageName = 'top';
+$thisPageName = 'single-studio';
 include_once(dirname(__DIR__) . '/app_config.php');
 include(APP_PATH.'libs/head.php');
 ?>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/form/validationEngine.jquery.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
-<body id="top" class="top">
+<body id="single-studio" class="single-studio step2">
 <?php include(APP_PATH.'libs/header.php'); ?>
 <div id="wrap">
   <main>
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">
-          <h3 class="topic-ttl">９月限定！〇〇店の入会特典</h3>
+          <h3 class="topic-ttl">９月限定！<br class="sp">〇〇店の入会特典</h3>
           <ul class="lst-intro">
             <li class="item">
               <div class="txt">
@@ -61,18 +62,24 @@ include(APP_PATH.'libs/head.php');
             <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
               <div class="row">
                 <p class="th">タオル</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
+                </div>用可能</p>
               </div>
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
             </div>
           </li>
@@ -83,18 +90,24 @@ include(APP_PATH.'libs/head.php');
             <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
               <div class="row">
                 <p class="th">タオル</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
+                </div>用可能</p>
               </div>
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
             </div>
           </li>
@@ -106,18 +119,24 @@ include(APP_PATH.'libs/head.php');
             <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
               <div class="row">
                 <p class="th">タオル</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
+                </div>用可能</p>
               </div>
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
             </div>
           </li>
@@ -129,18 +148,24 @@ include(APP_PATH.'libs/head.php');
             <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
               <div class="row">
                 <p class="th">タオル</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
+                </div>用可能</p>
               </div>
               <div class="row">
                 <p class="th">水素水</p>
-                <p class="td01">1,000円</p>
-                <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                <div class="td">
+                  <p class="td01">1,000円</p>
+                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                </div>
               </div>
             </div>
           </li>
@@ -150,7 +175,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-stuff">
       <div class="container-1080">
-        <h3 class="topic-ttl">体験レッスンに必要な物追加</h3>
+        <h3 class="topic-ttl">体験レッスンに<br class="sp">必要な物追加</h3>
         <ul class="lst-stuff">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
@@ -172,7 +197,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-feeling">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダの溶岩ホットヨガで、<br>感じられている効果</h3>
+        <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
         <ul class="lst-feeling">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
@@ -190,7 +215,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-voice">
-      <h3 class="topic-ttl">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
+      <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
         <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
         <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
@@ -239,7 +264,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-reason">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダ〇〇店が選ばれる理由</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
         <ul class="lst-reason">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
@@ -273,7 +298,7 @@ include(APP_PATH.'libs/head.php');
       <div class="bg"></div>
       <div class="container-1170">
         <div class="outside">
-          <h3 class="topic-ttl">アミーダ〇〇店 レッスンスケジュール</h3>
+          <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
           <div class="inside">
             <ul class="lst-lesson">
               <li class="item">
@@ -302,9 +327,142 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
+    <div class="sec-form">
+      <div class="container-750">
+        <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
+          <div class="stepImg">
+            <picture>
+              <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step01SP.svg">
+              <img src="<?php echo APP_ASSETS; ?>img/common/form/img_step01.svg" alt="フォームからのお問い合わせ　Step">
+            </picture>
+          </div>
+          <p class="hid_url">Leave this empty: <input type="text" name="url"></p><!-- Anti spam part1: the contact form -->
+          <table class="tableContact">
+            <tr>
+              <th>体験内容</th>
+              <td>
+                <p class="txt">溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】</p>
+                <input placeholder="例)田中 花子" type="hidden" name="single_ttl" id="single_ttl" value="溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】">
+              </td>
+            </tr>
+            <tr>
+              <th>体験希望日</th>
+              <td>
+                <p class="half">
+                  <input placeholder="2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required]">
+                </p>
+                <p class="half">
+                  <select name="hopetime" id="hopetime" class="validate[required]">
+                    <option value="10:15~10:45">10:15~10:45</option>
+                    <option value="11：45～12：30 はじめて・ヨーガ">11：45～12：30 はじめて・ヨーガ</option>
+                  </select>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <th>お名前</th>
+              <td><input placeholder="例)田中 花子" type="text" name="nameuser" id="nameuser" class="validate[required]"></td>
+            </tr>
+            <tr>
+              <th>お名前（ふりがな）</th>
+              <td><input placeholder="例：たなか はなこ" type="text" name="nameuser_furigana" id="nameuser_furigana" class="validate[required,custom[furigana]]"></td>
+            </tr>
+            <tr>
+              <th class="norequire">年齢</th>
+              <td>
+                <p class="half fullsp">
+                  <select name="age" id="age">
+                    <option value="">選択してください</option>
+                    <?php for($i=10;$i<=120;$i++){?>
+                      <option value="<?php echo $i;?>"><?php echo $i;?></option>
+                    <?php }?>
+                  </select>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><input placeholder="例) 03-1234-5678" type="tel" name="tel" id="tel" class="validate[required,custom[phone]]"></td>
+            </tr>
+            <tr>
+              <th>メールアドレス</th>
+              <td><input placeholder="例：abc@efg.jp（半角英数字）" type="email" name="email" id="email" class="validate[required,custom[email]]"></td>
+            </tr>
+            <tr>
+              <th>メールアドレス(確認)</th>
+              <td><input placeholder="例：abc@efg.jp（半角英数字）" type="email"  name="cemail" id="cemail" value="" class="validate[equals[email]]"></td>
+            </tr>
+            <tr>
+              <th>アミーダを知った<br class="pc">きっかけ</th>
+              <td>
+                  <label for="method01">
+                    <input type="radio" id="method01" name="method" value="Google広告・Yahoo広告" class="validate[required]">
+                    <span>Google広告・Yahoo広告</span>
+                  </label>
+                  <label for="method02">
+                    <input type="radio" id="method02" name="method" value="Instagram・Twitter " class="validate[required]">
+                    <span>Instagram・Twitter </span>
+                  </label>
+                  <label for="method03">
+                    <input type="radio" id="method03" name="method" value="ホットペッパービューティー " class="validate[required]">
+                    <span>ホットペッパービューティー </span>
+                  </label>
+                  <label for="method04">
+                    <input type="radio" id="method04" name="method" value="LINE" class="validate[required]">
+                    <span>LINE</span>
+                  </label>
+                  <label for="method05">
+                    <input type="radio" id="method05" name="method" value="店舗前（チラシ・ポスター・看板）" class="validate[required]">
+                    <span>店舗前（チラシ・ポスター・看板）</span>
+                  </label>
+                  <label for="method06">
+                    <input type="radio" id="method06" name="method" value="チラシ（ポスティング・新聞折込） " class="validate[required]">
+                    <span>チラシ（ポスティング・新聞折込） </span>
+                  </label>
+                  <label for="method07">
+                    <input type="radio" id="method07" name="method" value="駅広告（看板・ポスター）" class="validate[required]">
+                    <span>駅広告（看板・ポスター）</span>
+                  </label>
+                  <label for="method08">
+                    <input type="radio" id="method08" name="method" value="雑誌（フリーペーパー・タウン誌・情報誌）" class="validate[required]">
+                    <span>雑誌（フリーペーパー・タウン誌・情報誌）</span>
+                  </label>
+                  <label for="method09">
+                    <input type="radio" id="method09" name="method" value="ハガキ" class="validate[required]">
+                    <span>ハガキ</span>
+                  </label>
+                  <label for="method10">
+                    <input type="radio" id="method10" name="method" value="ラジオ" class="validate[required]">
+                    <span>ラジオ</span>
+                  </label>
+                  <label for="method11">
+                    <input type="radio" id="method11" name="method" value="紹介" class="validate[required]">
+                    <span>紹介</span>
+                  </label>
+                  <label for="method12">
+                    <input type="radio" id="method12" name="method" value="その他" class="validate[required]">
+                    <span>その他</span>
+                  </label>
+                  <p class="row row--other">
+                    <input placeholder="その他を選択された場合、こちらへご記入ください" type="text" name="other_method" id="other_method">
+                  </p>
+                  <p class="row">
+                    <textarea name="content" id="content" placeholder="ご質問内容をご記入ください"></textarea>
+                  </p>
+              </td>
+            </tr>
+          </table>
+          <p class="btn-row">
+            <button id="btnConfirm" class="btn-confirm"><span>確認画面へ</span></button>
+            <input type="hidden" name="actionFlag" value="confirm">
+          </p>
+        </form>
+      </div>
+    </div>
     <div class="sec-access">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダ〇〇店へのアクセス</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.604743966393!2d139.74546941539734!3d35.7359381345767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d77608f7d37%3A0xe6baada2046b743e!2z5rq25bKp44Ob44OD44OI44Oo44Ks44K544K_44K444KqIOOCouODn-ODvOODgOmnkui-vOW6lw!5e0!3m2!1sen!2s!4v1605192912814!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -313,7 +471,7 @@ include(APP_PATH.'libs/head.php');
             <div class="inside">
               <div class="row">
                 <div class="th">所在地</div>
-                <div class="td">〒170-0003 <br>東京都豊島区駒込1-38-2 <br>駒込TRビル4階</div>
+                <div class="td">〒170-0003 <br class="pc">東京都豊島区駒込1-38-2 <br class="pc">駒込TRビル4階</div>
               </div>
               <div class="row">
                 <div class="th">TEL</div>
@@ -334,7 +492,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-faq">
       <div class="container-900">
-        <h3 class="topic-ttl">溶岩ホットヨガ / アミーダに関するよくある質問</h3>
+        <h3 class="topic-ttl">溶岩ホットヨガ / <br class="sp">アミーダに関する<br class="sp">よくある質問</h3>
         <ul class="lst-faq js-lst-faq">
           <li class="item">
             <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
@@ -386,6 +544,22 @@ include(APP_PATH.'libs/head.php');
 </div>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="<?php echo APP_ASSETS; ?>js/form/jquery.validationEngine.js"></script>
+<script src="<?php echo APP_ASSETS; ?>js/form/languages/jquery.validationEngine-ja.js"></script>
 <script src="<?php echo APP_ASSETS ?>js/page/single-studio.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#studioform").validationEngine({
+      promptPosition: "topLeft",
+      scrollOffset: ($('.header').outerHeight() + 5),
+    });
+  })
+  function check() {
+    if (!document.form1.check1.checked) {
+      window.alert('「個人情報保護方針に同意する」にチェックを入れて下さい');
+      return false;
+    }
+  }
+</script>
 </body>
 </html>
