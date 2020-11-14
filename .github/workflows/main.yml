@@ -1,0 +1,18 @@
+on: push
+name: Publish Website
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp://163.44.194.62:21/
+        ftp-username: cp135508
+        ftp-password: BbqChicken@0141
+        local-dir: dist/
+        server-dir: public_html/test.chaulongsaigonhotel.com/
