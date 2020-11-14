@@ -343,7 +343,7 @@ include(APP_PATH.'libs/head.php');
               <th>体験内容</th>
               <td>
                 <p class="txt">溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】</p>
-                <input placeholder="例)田中 花子" type="hidden" name="single-ttl" id="single-ttl" value="溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】">
+                <input placeholder="例)田中 花子" type="hidden" name="single_ttl" id="single_ttl" value="溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】">
               </td>
             </tr>
             <tr>
@@ -383,7 +383,7 @@ include(APP_PATH.'libs/head.php');
             </tr>
             <tr>
               <th>電話番号</th>
-              <td><input placeholder="例) 03-1234-5678" type="tel"  name="tel" id="tel" class="validate[required,custom[phone]]"></td>
+              <td><input placeholder="例) 03-1234-5678" type="tel" name="tel" id="tel" class="validate[required,custom[phone]]"></td>
             </tr>
             <tr>
               <th>メールアドレス</th>
@@ -448,7 +448,7 @@ include(APP_PATH.'libs/head.php');
                     <input placeholder="その他を選択された場合、こちらへご記入ください" type="text" name="other_method" id="other_method">
                   </p>
                   <p class="row">
-                    <textarea name="comment" id="comment" placeholder="ご質問内容をご記入ください"></textarea>
+                    <textarea name="content" id="content" placeholder="ご質問内容をご記入ください"></textarea>
                   </p>
               </td>
             </tr>
