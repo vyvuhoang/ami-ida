@@ -172,8 +172,7 @@ $msgBody
   }
 
   $_SESSION['statusFlag'] = 1;
-  // header("Location: ".APP_URL."studio/complete/");
-  echo $body_admin;
+  header("Location: ".APP_URL."studio/complete/");
   exit;
 }
 
