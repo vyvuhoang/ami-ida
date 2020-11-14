@@ -1,18 +1,17 @@
 on: push
-name: 🚀 Deploy website on push
+name: Publish Website
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+    - uses: actions/checkout@v2.1.0
       with:
-        server: ftp.chaulongsaigonhotel.webstarterz.com
-        username: cp135508
-        password: BbqChicken@0141
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ftp://ftp.chaulongsaigonhotel.webstarterz.com/public_html/test.chaulongsaigonhotel.com/
+        ftp-username: cp135508
+        ftp-password: BbqChicken@0141
         local-dir: dist/
-        server-dir: public_html/test.chaulongsaigonhotel.com/
