@@ -59,7 +59,7 @@ if($actionFlag == "confirm") {
       <div class="sec-form">
         <div class="container-750">
           <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
+          <form method="post" class="studioform" id="studioform" action="../complete/?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
             <div class="stepImg">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step02SP.svg">

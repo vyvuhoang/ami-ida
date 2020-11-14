@@ -1,20 +1,5 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-```
-    ___          _  _
-   / _ \    _   | |(_)
-  / /_\ \ _| |_ | | _ __   __  ___
-  |  _  ||_   _|| || |\ \ / / / _ \
-  | | | |  |_|  | || | \ V / |  __/
-  \_| |_/       |_||_|  \_/   \___|
-
-
-```
----
-## This repository for Alive Template ##
-
 ### 1 Install Node.js ###
 Get the installer from the following link,
 Please install in accordance with the procedure.
