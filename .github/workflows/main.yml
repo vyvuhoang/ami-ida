@@ -11,8 +11,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        server: ftp://163.44.194.62:21/
+        server: 163.44.194.62:21
         username: cp135508
         password: BbqChicken@0141
         local-dir: dist/
-        server-dir: /public_html/test.chaulongsaigonhotel.com/
+        server-dir: public_html/test.chaulongsaigonhotel.com/
