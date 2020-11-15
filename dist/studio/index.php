@@ -294,14 +294,14 @@ include(APP_PATH.'libs/head.php');
         </ul>
       </div>
     </div>
-    <div class="sec-schedule">
+    <!-- <div class="sec-schedule">
       <div class="container-1080">
         <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <ul class="lst-schedule">
           <li class="item"></li>
         </ul>
       </div>
-    </div>
+    </div> -->
     <div class="sec-lesson">
       <div class="bg"></div>
       <div class="container-1170">

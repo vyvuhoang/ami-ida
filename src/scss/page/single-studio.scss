@@ -20,6 +20,9 @@
 $pinkpurple: #920783;
 $lightpurple: #AE70AC;
 
+.hid_url{
+  display: none;
+}
 body {
   @include notoserif;
 }
@@ -843,7 +846,7 @@ body {
     margin-bottom: 91px;
 
     @include SP {
-      margin-bottom: 55px;
+      margin-bottom: 80px;
     }
   }
 
@@ -890,18 +893,19 @@ body {
 
         &:after {
           @include absolute('0'counter(item), 110px, 110px, -50px, '', '', 0);
-          @include font(60, 110, 0.05, bold);
+          @include font(90, 122, 0);
           color: #D35D46;
           background-color: #fff;
           border-radius: 50%;
           text-align: center;
+          @include fontCol;
 
           @include SP {
             width: 80px;
             height: 80px;
             top: -40px;
             left: -15px;
-            @include font(42, 80, '');
+            @include font(62, 86, '');
           }
         }
       }
@@ -949,6 +953,16 @@ body {
             padding-left: 15px;
             padding-right: 35px;
             text-align: right;
+          }
+        }
+      }
+      @include SP{
+        &:nth-child(2n) {
+          .img {
+            &:after {
+              left: auto;
+              right: -15px;
+            }
           }
         }
       }
