@@ -19,6 +19,7 @@
 
 $pinkpurple: #920783;
 $lightpurple: #AE70AC;
+$purple1: #6D2E81;
 
 .hid_url{
   display: none;
@@ -741,6 +742,10 @@ body {
 }
 
 .sec-reason {
+  margin-bottom: 76px;
+  @include SP{
+    margin-bottom: 35px;
+  }
   .topic-ttl {
     margin-bottom: 66px;
 
@@ -821,6 +826,176 @@ body {
       //     }
       //   }
       // }
+    }
+  }
+}
+
+.sec-schedule{
+  margin-bottom: 150px;
+  @include SP{
+    margin-bottom: 80px;
+  }
+  .topic-ttl{
+    margin-bottom: 46px;
+    @include SP{
+      margin-bottom: 29px;
+    }
+  }
+  .calendar{
+    @include notosans;
+    @include SP{
+      width: calc(100% + 30px);
+      margin: 0 -15px;
+    }
+    .calendar-head{
+      font-size: 0;
+      .prev,
+      .next,
+      .txt{
+        display: inline-block;
+        vertical-align: top;
+      }
+      .prev,
+      .next{
+        position: relative;
+        &:before{
+          @include absolute('',10px,10px,calc(50% - 4px),'','','');
+          border-top: 3px solid $purple1;
+          border-left: 3px solid $purple1;
+          @include SP{
+            @include absolute('',7px,7px,calc(50% - 4px),'','','');
+            border-width: 2px;
+          }
+        }
+      }
+      .prev{
+        width: 47px;
+        height: 47px;
+        &:before{
+          @include transform_c(rotate(-45deg));
+          left: calc(50% - 10px);
+          @include SP{
+            left: calc(50% - 5px);
+          }
+        }
+      }
+      .txt{
+        width: calc(100% - 94px);
+        @include font(15,47,0.05);
+        text-align: center;
+      }
+      .next{
+        width: 47px;
+        height: 47px;
+        &:before{
+          @include transform_c(rotate(135deg));
+          right: calc(50% - 10px);
+          @include SP{
+            right: calc(50% - 5px);
+          }
+        }
+      }
+    }
+  }
+  .lst-date{
+    font-size: 0;
+    margin-bottom: 11px;
+    @include SP{
+      margin-bottom: 9px;
+    }
+    .item{
+      width: 14.28%;
+      color: #fff;
+      text-align: center;
+      background-color: rgba($color: #6B6B6B, $alpha: 0.8);
+      display: inline-block;
+      @include font(15,'',0.05);
+      padding: 12px 10px;
+      @include SP{
+        font-size: 12px;
+        padding: 7px 10px;
+      }
+      &:first-child{
+        background-color: $purple1;
+      }
+    }
+  }
+  .out-lst{
+    overflow: auto;
+    width: 100%;
+    @include SP{
+      width: calc(100% + 30px);
+      margin: 0 -15px;
+    }
+  }
+  .lst-schedule{
+    @include notosans;
+    @include SP{
+      width: 770px;
+    }
+    .row{
+      font-size: 0;
+      margin-bottom: 6px;
+      @include flex();
+      flex-wrap: wrap;
+      .lesson{
+        width: 14.28%;
+        display: inline-block;
+        padding: 0 3px;
+        .bg{
+          padding: 17px 5px;
+          text-align: center;
+          border: 1px solid $purple1;
+          position: relative;
+          height: 100%;
+          @include SP{
+            padding: 6px 5px;
+          }
+        }
+        .time{
+          @include font(15,'',0.05);
+          margin-bottom: 10px;
+          @include SP{
+            font-size: 12px;
+            margin-bottom: 7px;
+          }
+        }
+        .pic{
+          max-width: 64px;
+          width: 100%;
+          margin: 0 auto;
+          @include aspect-ratio(1,1);
+          background: center/cover no-repeat, #E0E0E0;
+          border-radius: 50%;
+          margin-bottom: 10px;
+          @include SP{
+            max-width: 48px;
+            margin-bottom: 5px;
+          }
+        }
+        .ttl{
+          @include font(15,'',0.05);
+          @include SP{
+            font-size: 12px;
+          }
+        }
+        .level{
+          color: $pinkpurple;
+          @include font(12,'',0.05);
+          @include SP{
+            font-size: 10px;
+          }
+        }
+        &.disabled{
+          .bg{
+            border-color: rgba($color: #000, $alpha: 0.3);
+            &:before{
+              @include absolute('',100%,100%,0,'','',0);
+              background: rgba($color: #000, $alpha: 0.3);
+            }
+          }
+        }
+      }
     }
   }
 }

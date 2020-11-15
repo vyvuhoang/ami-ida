@@ -294,14 +294,209 @@ include(APP_PATH.'libs/head.php');
         </ul>
       </div>
     </div>
-    <!-- <div class="sec-schedule">
+    <div class="sec-schedule">
       <div class="container-1080">
         <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-        <ul class="lst-schedule">
-          <li class="item"></li>
-        </ul>
+        <div class="calendar">
+          <div class="calendar-head">
+            <span class="prev js-prev"></span>
+            <span class="txt js-date">10/12 - 10/18</span>
+            <span class="next js-next"></span>
+          </div>
+        </div>
+        <div class="out-lst">
+          <div class="lst-schedule">
+            <ul class="lst-date">
+              <li class="item">10/12 (月)</li>
+              <li class="item">10/13 (火)</li>
+              <li class="item">10/14 (水)</li>
+              <li class="item">10/15 (木)</li>
+              <li class="item">10/16 (金)</li>
+              <li class="item">10/17 (土)</li>
+              <li class="item">10/18 (日)</li>
+            </ul>
+            <div class="active-schedule">
+              <div class="row">
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスンレッスンレッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson"></div>
+                <div class="lesson"></div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson disabled">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="lesson"></div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson"></div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson disabled">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson disabled">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson"></div>
+                <div class="lesson"></div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="lesson disabled">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+                <div class="lesson"></div>
+                <div class="lesson"></div>
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div> -->
+    </div>
     <div class="sec-lesson">
       <div class="bg"></div>
       <div class="container-1170">
