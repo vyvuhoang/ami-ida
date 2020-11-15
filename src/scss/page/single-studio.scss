@@ -1692,6 +1692,10 @@ body {
 }
 
 .sec-thanks {
+  margin-bottom: 93px;
+  @include SP {
+    margin-bottom: 83px;
+  }
   .topic-ttl {
     margin-bottom: 71px;
 
@@ -1764,5 +1768,13 @@ body {
         @include transform_c(rotate(-45deg));
       }
     }
+  }
+}
+
+.single-studio.step2,
+.single-studio.indexThx{
+  padding-top: 175px;
+  @include SP{
+    padding-top: 130px;
   }
 }
