@@ -1,7 +1,14 @@
 @charset 'UTF-8';
 @import '../utility/*';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;700&display=swap');
+@font-face {
+  font-family: CollectionFree;
+  src: url(../../font/CollectionFree.otf);
+}
 
+@mixin fontCol {
+  font-family: CollectionFree;
+}
 @mixin notoserif {
   font-family: 'Noto Serif JP', serif;
 }
@@ -292,7 +299,6 @@ body {
 
           .th,
           .td {
-            @include font(15, '', 0.1, bold);
             padding: 17px 0px;
 
             @include SP {
@@ -305,6 +311,7 @@ body {
           .td02 {
             display: inline-block;
             vertical-align: top;
+            @include font(15, '', 0.1, bold);
           }
 
           .td {
@@ -483,7 +490,7 @@ body {
     margin-bottom: 97px;
 
     @include SP {
-      margin-bottom: 65px;
+      margin-bottom: 58px;
     }
   }
 
@@ -513,12 +520,13 @@ body {
         margin-bottom: 43px;
 
         &:after {
-          @include absolute('0'counter(item), '', '', '', 10px, -10px, '');
-          @include font(60, '', 0.05, bold);
+          @include absolute('0'counter(item),'','','',5px,5px,'');
+          @include font(100,70,'');
           color: #D35D46;
+          @include fontCol;
 
           @include SP {
-            right: 10px;
+            right: 30px;
           }
         }
       }
@@ -740,7 +748,7 @@ body {
 
   .lst-reason {
     font-size: 0;
-
+    counter-reset: item;
     .item {
       width: calc(50% - 30px);
       display: inline-block;
@@ -748,6 +756,7 @@ body {
       padding-left: 33px;
       margin-bottom: 68px;
       position: relative;
+      counter-increment: item;
 
       @include SP {
         width: calc(100% - 17px);
@@ -756,12 +765,15 @@ body {
       }
 
       &:before {
-        @include absolute('', 160px, 72px, 10px, '', '', 0);
-        background: center top/cover no-repeat;
+        @include absolute('point 0'counter(item), auto, auto, 8px, '', '', 8px);
+        @include fontCol;
+        @include font(60,70,'');
+        color: #E083A8;
+        @include transform_c(skew(-10deg) rotate(-10deg));
 
         @include SP {
-          width: 114px;
-          height: 52px;
+          font-size: 43px;
+          top: 0px;
         }
       }
 
@@ -799,13 +811,13 @@ body {
         @include font(15, 24, 0.15, 500);
       }
 
-      @for $i from 1 through 5 {
-        &:nth-child(#{$i}) {
-          &:before {
-            background-image: url(../../img/studio/txt_point#{$i}.svg);
-          }
-        }
-      }
+      // @for $i from 1 through 5 {
+      //   &:nth-child(#{$i}) {
+      //     &:before {
+      //       background-image: url(../../img/studio/txt_point#{$i}.svg);
+      //     }
+      //   }
+      // }
     }
   }
 }
