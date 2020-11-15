@@ -1,16 +1,57 @@
 <?php
 $thisPageName = 'single-studio';
-include_once(dirname(__DIR__) . '/app_config.php');
+include_once(dirname(dirname(__DIR__)) . '/app_config.php');
 include(APP_PATH.'libs/head.php');
 ?>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/form/validationEngine.jquery.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
-<body id="single-studio" class="single-studio step2">
+<body id="single-studio" class="single-studio">
 <?php include(APP_PATH.'libs/header.php'); ?>
 <div id="wrap">
   <main>
+    <div class="visual">
+      <div class="visual">
+        <div class="visual__scroll">
+          <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
+        </div>
+        <div class="visual__txt">
+          <picture>
+            <source srcset="<?php echo APP_ASSETS; ?>img/common/visual_txt_sp.svg" media="(max-width: 767px)">
+            <img src="<?php echo APP_ASSETS; ?>img/common/visual_txt.svg" alt="Amiida">
+          </picture>
+        </div>
+      </div>
+    </div>
+    <div class="breadcrumb wcm" id="breadcrumb">
+      <li><a href="">TOP</a></li>
+      <li><a href="">店舗情報</a></li>
+      <li><p>xxxxxxxx</p></li>
+    </div>
+    <div class="c-news">
+      <div class="wcm">
+        <p class="c-news__ttl">NEWS</p>
+        <div class="c-news__lst">
+          <a href="" class="c-news__lst--item">
+            <p class="date">2020/10/10</p>
+            <p class="cat"><em>お知らせ</em></p>
+            <p class="ttl"><em>【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】</em></p>
+          </a>
+          <a href="" class="c-news__lst--item">
+            <p class="date">2020/10/09</p>
+            <p class="cat"><em>お知らせ</em></p>
+            <p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
+          </a>
+          <a href="" class="c-news__lst--item">
+            <p class="date">2020/10/08</p>
+            <p class="cat"><em>お知らせ</em></p>
+            <p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
+          </a>
+        </div>
+      </div>
+    </div>
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">

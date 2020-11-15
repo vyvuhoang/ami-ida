@@ -193,6 +193,7 @@ window.onhashchange = function (event) {
   window.location.hash = "#noback";
 };
 </script> -->
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
 <body id="single-studio" class="single-studio indexThx">

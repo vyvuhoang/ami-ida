@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-include_once(dirname(__DIR__) . '/app_config.php');
+include_once(dirname(dirname(__DIR__)) . '/app_config.php');
 if(empty($_POST['actionFlag']) && empty($_SESSION['statusFlag'])) header('location: '.APP_URL);
 
 $gtime = time();
@@ -33,6 +33,7 @@ if($actionFlag == "confirm") {
 ?>
 <meta http-equiv="Expires" content="86400">
 <meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 <!-- Anti spam part1: the contact form start -->
 
@@ -59,7 +60,7 @@ if($actionFlag == "confirm") {
       <div class="sec-form">
         <div class="container-750">
           <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <form method="post" class="studioform" id="studioform" action="../complete/?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
+          <form method="post" class="studioform" id="studioform" action="../../complete/?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
             <div class="stepImg">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step02SP.svg">
