@@ -13,6 +13,7 @@ include(APP_PATH.'libs/head.php');
 <div id="wrap">
   <main>
     <div class="visual">
+      <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
       <div class="visual">
         <div class="visual__scroll">
           <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
@@ -55,7 +56,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">
-          <h3 class="topic-ttl">９月限定！<br class="sp">〇〇店の入会特典</h3>
+          <h3 class="the-title">９月限定！<br class="sp">〇〇店の入会特典</h3>
           <ul class="lst-intro">
             <li class="item">
               <div class="txt">
@@ -93,7 +94,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-charge">
       <div class="container-900">
-        <h3 class="topic-ttl">プラン・料金のご説明</h3>
+        <h3 class="the-title">プラン・料金のご説明</h3>
         <ul class="lst-price js-lst-price">
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
@@ -216,7 +217,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-stuff">
       <div class="container-1080">
-        <h3 class="topic-ttl">体験レッスンに<br class="sp">必要な物追加</h3>
+        <h3 class="the-title">体験レッスンに<br class="sp">必要な物追加</h3>
         <ul class="lst-stuff">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
@@ -238,7 +239,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-feeling">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
+        <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
         <ul class="lst-feeling">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
@@ -256,7 +257,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-voice">
-      <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
+      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
         <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
         <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
@@ -305,30 +306,30 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-reason">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
+        <h3 class="the-title">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
         <ul class="lst-reason">
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature1.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！！初心者の方が安心して受けられるプログラムが多数。</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature2.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature3.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature4.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature5.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
@@ -337,7 +338,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-schedule">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <div class="calendar">
           <div class="calendar-head">
             <span class="prev js-prev"></span>
@@ -542,7 +543,7 @@ include(APP_PATH.'libs/head.php');
       <div class="bg"></div>
       <div class="container-1170">
         <div class="outside">
-          <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
           <div class="inside">
             <ul class="lst-lesson">
               <li class="item">
@@ -573,7 +574,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-form">
       <div class="container-750">
-        <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
           <div class="stepImg">
             <picture>
@@ -706,7 +707,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-access">
       <div class="container-1080">
-        <h3 class="topic-ttl">アミーダ〇〇店への<br class="sp">アクセス</h3>
+        <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.604743966393!2d139.74546941539734!3d35.7359381345767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d77608f7d37%3A0xe6baada2046b743e!2z5rq25bKp44Ob44OD44OI44Oo44Ks44K544K_44K444KqIOOCouODn-ODvOODgOmnkui-vOW6lw!5e0!3m2!1sen!2s!4v1605192912814!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -734,41 +735,7 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <div class="sec-faq">
-      <div class="container-900">
-        <h3 class="topic-ttl">溶岩ホットヨガ / <br class="sp">アミーダに関する<br class="sp">よくある質問</h3>
-        <ul class="lst-faq js-lst-faq">
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-          <li class="item">
-            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
-            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <?php include(APP_PATH.'libs/faq.php'); ?>
     <div class="sec-ins">
       <div class="container-1080">
         <h3 class="topic-ttl">インスタグラム反映</h3>

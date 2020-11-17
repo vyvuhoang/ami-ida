@@ -29,11 +29,11 @@ body {
 }
 
 .topic-ttl {
-  @include font(36, 51, 0.1, bold);
+  @include font(36, 51/36, 0.1, bold);
   text-align: center;
 
   @include SP {
-    @include font(28, 46, '');
+    @include font(28, 46/28, '');
   }
 }
 
@@ -134,11 +134,11 @@ body {
       }
 
       .txt01 {
-        @include font(24, 40, 0.15, 500);
+        @include font(24, 40/24, 0.15, 500);
       }
 
       .txt02 {
-        @include font(42, 63, 0.06, 500);
+        @include font(42, 63/42, 0.06, 500);
       }
 
       .price {
@@ -150,11 +150,11 @@ body {
         }
 
         .number {
-          @include font(68, 68, 0.06, 500);
+          @include font(68, 68/68, 0.06, 500);
         }
 
         .unit {
-          @include font(32, 51, 0.06, 500);
+          @include font(32, 51/32, 0.06, 500);
         }
       }
     }
@@ -173,7 +173,7 @@ body {
 
   .btn {
     width: calc(50% - 30px);
-    @include font(18, 20, 0.15, 600);
+    @include font(18, 20/18, 0.15, 600);
     background-color: #fff;
     display: inline-block;
     text-align: center;
@@ -475,7 +475,7 @@ body {
 
       .item-txt {
         @include ffYM;
-        @include font(15, 27, 0.1, 500);
+        @include font(15, 27/15, 0.1, 500);
         color: #333;
       }
     }
@@ -484,14 +484,16 @@ body {
 
 .sec-feeling {
   background-color: #F8EDF1;
-  padding: 118px 0 105px;
+  // padding: 118px 0 105px;
+  padding: 60px 0 100px;
 
   @include SP {
     padding: 80px 0 18px;
   }
 
-  .topic-ttl {
-    margin-bottom: 97px;
+  .the-title {
+    // margin-bottom: 97px;
+    margin-bottom: 50px;
 
     @include SP {
       margin-bottom: 58px;
@@ -525,7 +527,7 @@ body {
 
         &:after {
           @include absolute('0'counter(item),'','','',5px,5px,'');
-          @include font(100,70,'');
+          @include font(100,70/100,'');
           color: #D35D46;
           @include fontCol;
 
@@ -536,7 +538,7 @@ body {
       }
 
       .name {
-        @include font(22, 35, 0.06, bold);
+        @include font(22, 35/22, 0.06, bold);
         color: #333;
         text-align: center;
       }
@@ -551,7 +553,7 @@ body {
     padding: 108px 0 74px;
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 74px;
 
     @include SP {
@@ -653,24 +655,24 @@ body {
         }
 
         .voice-ttl {
-          @include font(20, 32, 0.05, bold);
+          @include font(20, 32/20, 0.05, bold);
           text-align: center;
           @include ffYG();
           margin-bottom: 8px;
 
           @include SP {
-            @include font(18, 26, '');
+            @include font(18, 26/18, '');
           }
         }
 
         .voice-txt {
-          @include font(15, 27, 0.06, 500);
+          @include font(15, 27/15, 0.06, 500);
           @include ffYG();
         }
 
         .info {
           @include ffYG();
-          @include font(15, 27, 0.06, bold);
+          @include font(15, 27/15, 0.06, bold);
           color: $lightpurple;
           text-align: right;
 
@@ -723,7 +725,7 @@ body {
       color: #fff;
       text-align: center;
       padding: 22px 10px;
-      @include font(22, 35, 0.06, bold);
+      @include font(22, 35/22, 0.06, bold);
 
       @include PC {
         &:nth-child(2) {
@@ -746,7 +748,7 @@ body {
   @include SP{
     margin-bottom: 35px;
   }
-  .topic-ttl {
+  .the-title {
     margin-bottom: 66px;
 
     @include SP {
@@ -775,7 +777,7 @@ body {
       &:before {
         @include absolute('point 0'counter(item), auto, auto, 8px, '', '', 8px);
         @include fontCol;
-        @include font(60,70,'');
+        @include font(60,70/60,'');
         color: #E083A8;
         @include transform_c(skew(-10deg) rotate(-10deg));
 
@@ -802,13 +804,13 @@ body {
 
       .item-ttl {
         @include ffYM;
-        @include font(24, 36, 0.15, 500);
+        @include font(24, 36/24, 0.15, 500);
         padding-left: 16px;
         border-left: 4px solid #E083A8;
         margin-bottom: 20px;
 
         @include SP {
-          @include font(20, 33, '');
+          @include font(20, 33/20, '');
           padding-left: 7px;
           margin-bottom: 10px;
         }
@@ -816,7 +818,7 @@ body {
 
       .item-txt {
         @include ffYM;
-        @include font(15, 24, 0.15, 500);
+        @include font(15, 24/15, 0.15, 500);
       }
 
       // @for $i from 1 through 5 {
@@ -835,7 +837,7 @@ body {
   @include SP{
     margin-bottom: 80px;
   }
-  .topic-ttl{
+  .the-title{
     margin-bottom: 46px;
     @include SP{
       margin-bottom: 29px;
@@ -881,7 +883,7 @@ body {
       }
       .txt{
         width: calc(100% - 94px);
-        @include font(15,47,0.05);
+        @include font(15,47/15,0.05);
         text-align: center;
       }
       .next{
@@ -1017,7 +1019,7 @@ body {
     }
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 91px;
 
     @include SP {
@@ -1068,7 +1070,7 @@ body {
 
         &:after {
           @include absolute('0'counter(item), 110px, 110px, -50px, '', '', 0);
-          @include font(90, 122, 0);
+          @include font(90, 122/90, 0);
           color: #D35D46;
           background-color: #fff;
           border-radius: 50%;
@@ -1080,7 +1082,7 @@ body {
             height: 80px;
             top: -40px;
             left: -15px;
-            @include font(62, 86, '');
+            @include font(62, 86/62, '');
           }
         }
       }
@@ -1096,7 +1098,7 @@ body {
 
         .content-ttl {
           @include ffYG;
-          @include font(20, 30, 0.1, bold);
+          @include font(20, 30/20, 0.1, bold);
           margin-bottom: 16px;
 
           @include SP {
@@ -1105,7 +1107,7 @@ body {
         }
 
         .content-txt {
-          @include font(15, 24, 0.06, 500);
+          @include font(15, 24/15, 0.06, 500);
           @include ffYG;
         }
       }
@@ -1152,7 +1154,7 @@ body {
     margin-bottom: 137px;
   }
 
-  .topic-ttl {
+  .the-title{
     margin-bottom: 71px;
 
     @include SP {
@@ -1200,7 +1202,7 @@ body {
         padding-top: 10px;
         position: relative;
         text-align: left;
-        @include font(15, 24, 0.15, 500);
+        @include font(15, 24/15, 0.15, 500);
 
         @include SP {
           width: 100%;
@@ -1210,7 +1212,7 @@ body {
 
         &:after {
           @include absolute('必須', 40px, 20px, 10px, '', 0, '');
-          @include font(12, 20, 0.15, 500);
+          @include font(12, 20/12, 0.15, 500);
           color: #fff;
           background-color: $pinkpurple;
           text-align: center;
@@ -1244,7 +1246,7 @@ body {
         select,
         input,
         textarea {
-          @include font(15, 24, 0.15);
+          @include font(15, 24/15, 0.15);
           height: 42px;
           background-color: #EFEFEF;
           width: 100%;
@@ -1308,7 +1310,7 @@ body {
           }
 
           span {
-            @include font(14, 24, 0.15);
+            @include font(14, 24/14, 0.15);
             width: calc(100% - 20px);
             padding-left: 10px;
           }
@@ -1371,7 +1373,7 @@ body {
         }
 
         .txt {
-          @include font(15, 24, 0.15);
+          @include font(15, 24/15, 0.15);
           padding-top: 7px;
         }
       }
@@ -1395,7 +1397,7 @@ body {
   .btn-confirm {
     max-width: 340px;
     width: 100%;
-    @include font(18, 20, 0.15, 600);
+    @include font(18, 20/18, 0.15, 600);
     background-color: #000;
     display: inline-block;
     text-align: center;
@@ -1446,7 +1448,7 @@ body {
     margin-bottom: 90px;
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 62px;
 
     @include SP {
@@ -1511,7 +1513,7 @@ body {
 
         .th,
         .td {
-          @include font(15, 25, 0.06);
+          @include font(15, 25/15, 0.06);
           display: inline-block;
           vertical-align: top;
         }
@@ -1540,103 +1542,6 @@ body {
 
         &:last-child {
           border-bottom: 1px solid #A7A7A7;
-        }
-      }
-    }
-  }
-}
-
-.sec-faq {
-  margin-bottom: 155px;
-
-  @include SP {
-    margin-bottom: 95px;
-  }
-
-  .topic-ttl {
-    margin-bottom: 71px;
-
-    @include PC {
-      letter-spacing: 0;
-    }
-
-    @include SP {
-      margin-bottom: 50px;
-    }
-  }
-
-  .lst-faq {
-    .item {
-      @include ffYM;
-      margin-bottom: 18px;
-
-      @include SP {
-        margin-bottom: 9px;
-      }
-
-      .ques {
-        background-color: $lightpurple;
-        @include font(16, 26, 0.15, 500);
-        color: #fff;
-        padding: 14px 53px;
-        position: relative;
-        cursor: pointer;
-        transition: 0.5s ease;
-
-        @include PC {
-          &:hover {
-            opacity: 0.5;
-          }
-        }
-
-        @include SP {
-          padding: 15px 44px;
-        }
-
-        &:before,
-        &:after {
-          @include absolute('', 17px, 1px, 50%, '', 20px, '');
-          background-color: #fff;
-          transition: 0.5s ease;
-
-          @include SP {
-            top: 27px
-          }
-        }
-
-        &:after {
-          @include transform_c(rotate(90deg));
-        }
-
-        span {
-          display: block;
-          position: relative;
-
-          &:before {
-            @include absolute('Q.', '', '', 0, '', '', -35px);
-            @include font(18, 26, 0.15, 600);
-
-            @include SP {
-              left: -30px;
-            }
-          }
-        }
-      }
-
-      .ans {
-        background-color: #F8EDF1;
-        @include font(15, 24, 0.15, 500);
-        padding: 13px 20px;
-        display: none;
-      }
-
-      &.active {
-        .ques {
-
-          &:before,
-          &:after {
-            @include transform_c(rotate(180deg));
-          }
         }
       }
     }
@@ -1696,7 +1601,7 @@ body {
   @include SP {
     margin-bottom: 83px;
   }
-  .topic-ttl {
+  .the-title{
     margin-bottom: 71px;
 
     @include SP {

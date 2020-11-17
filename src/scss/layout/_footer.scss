@@ -1,65 +1,109 @@
 @charset 'UTF-8';
-
-.tab {
-  @include min-screen(1024px) {display: none;}
-  @include max-screen(767px) {display: none;}
-}
-.taC {text-align: center;}
-
-#footer {
-  @include max-screen(767px) {padding: 0;}
-  padding: 30px 10px 0;
-  .footerInner {
-    margin: 0 auto;
-    max-width: 1000px;
-    padding: 40px 0;
-    @include max-screen(767px) {padding: 0; border-bottom: 1px solid #ccc; margin-bottom: 45px;}
-    *[class^="col"] { float: left; margin-right: 3%; font-size: 12px; letter-spacing: 2px;
-      @include max-screen(767px) {float: none; margin-right: 0; font-size: 14px; width: auto;}
-      li {margin-bottom: 15px;
-        @include max-screen(767px) {margin-bottom: 0;}
-        a {
-          @include max-screen(767px) {display: block; padding: 14px 25px 13px; border-bottom: 1px solid #ccc; position: relative;}
-          &:before {
-            @include max-screen(767px) { display: block; content: ""; position: absolute; top: 45%; right: 18px; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 8px solid #b3b3b3; }
+$gray: rgba(255,255,255,0.5);
+.footer{
+  width: 100%;
+  background: #000;
+  padding: 36px 0 50px;
+  @include max-screen(767px){
+    padding: 20px 0;text-align: center;
+  }
+  .wcm{
+    display: flex;justify-content: space-between;flex-wrap:wrap;
+  }
+  &__left{
+    width: calc(100% - 429px);
+    @include max-screen(767px){width: 100%;}
+    &--logo{
+      width: 91px;
+      display: block;
+      margin: 20px 0 29px;
+      @include max-screen(767px){
+        width: 76px;
+        margin: 10px auto;
+      }
+      img{width:100%;}
+    }
+  }
+  &__right{
+    width: 429px;
+    @include max-screen(767px){width: 100%;}
+    &--col{
+      display: flex;justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;width:100%;
+      @include max-screen(767px){margin-top: 10px;}
+      .item{
+        @include font(12,1.6,0.06);
+        @include min-screen(768px){
+          &:nth-child(2n+1){width: 55%;}
+          &:nth-child(2n){width: 45%;text-align: right;}
+        }
+        @include max-screen(767px){
+          width: 100%;line-height: 19px;
+          &:nth-child(2){margin-top: 8px;}
+        }
+        p{display: block;width:100%;}
+        .ttl{
+          font-weight: bold;color: $gray;
+          text-align: left;
+          @include max-screen(767px){text-align: center;}
+          &:nth-child(3){
+            margin-top: 20px;
+            @include max-screen(767px){margin-top: 7px;}
           }
         }
-        ul {padding: 15px 0 0 13px;
-          @include max-screen(767px) {padding: 0; text-align: left;}
+        .txt{
+          color: #fff;display: inline-block;
+          @include max-screen(767px){margin-top: 2px;}
         }
       }
-      @include min-screen(768px) {
-        &.col1 {width: 19%;}
-        &.col2 {width: 14%;}
-        &.col3 {width: 22%;}
-        &.col4 {width: 36%; padding-top: 3px; margin-right: 0;}
-      }
-      .text1 {margin: 0 0 20px;
-        a, span {display: inline-block; vertical-align: middle; font-size: 10px; letter-spacing: 2px; margin-right: 10px;
-          img {display: block;}
+      .link{
+        width: 100%;
+        text-align: right;
+        margin-top: 21px;
+        @include max-screen(767px){
+          text-align: center;
+          margin-top: 16px;
         }
-      }
-      .text2 {font-size: 13px; line-height: 1.5; letter-spacing: 2px; margin-bottom: 5px;}
-      .text3 {margin: 0 -5px 15px 0; line-height: 1.8;
-        span {display: inline-block; vertical-align: middle; font-size: 25px; font-family: Arial, sans-serif;}
-        .fTime {font-size: 10px; line-height: 1.5; width: 48%; letter-spacing: 1px; margin-left: 2%;}
-      }
-      .text4 {margin-bottom: 10px;
-        a { display: block; font-size: 14px; font-family: 'Montserrat'; font-weight: bold; color: #fff; letter-spacing: 4px; text-align: center; background: #333; padding: 6px 10px 5px; }
-      }
-      > ul {padding: 15px 0 0 13px; text-align: right;
-        @include max-screen(767px) {padding: 0;}
-        li {display: inline-block; vertical-align: middle; color: #b3b3b3;
-          @include max-screen(767px) {display: block;}
-          a {font-size: 10px; letter-spacing: 2px;
-            @include max-screen(767px) {font-size: 14px;}
+        a{
+          display: inline-block;
+          vertical-align: middle;
+          width:30px;
+          &:not(:last-child){
+            margin-right: 11px;
+            @include max-screen(767px){margin-right: 15px;}
           }
+          img{width: 100%;}
         }
       }
     }
+    a.btn-ctc{
+      display: block;width: 100%;color: #fff;
+      text-align: center;
+      @include font(14,1,0.1,500);
+      margin-top: 20px;
+      padding: 16px 50px 16px 10px;
+      background: $purple url(../img/common/header/ico_entry.svg) right 15px center/17px 17px no-repeat;
+      @include min-screen(768px){
+        &:hover{opacity: 1;background-color:#B352A8;}
+      }
+      @include max-screen(767px){
+        max-width: 311px;letter-spacing: 0.15em;
+        margin: 20px auto 0;
+        line-height: 20px;
+        padding: 8px 10px;
+        background-size: 20px 20px;
+        background-position: top 15px right 15px;
+      }
+    }
   }
-  .copyright { clear: both; font-size: 10px; color: #999; font-family: 'Montserrat'; letter-spacing: 3px; text-align: center; padding: 15px 0; margin: 0 -10px; position: relative;
-    :before { content: ''; position: absolute; left: 0; top: 50%; width: 100%; height: 2px; background-color: #ccc; margin-top: -1px; z-index: -1; }
-    span {display: inline-block; background: #fff; padding: 0 30px;}
+  .footer__left--copy{
+    @include font(12,2,0.15,500);
+    color: $gray;
+    @include max-screen(767px){
+      text-align: center;
+      width:100%;font-size: 12px;
+      padding-top: 23px;
+    }
   }
 }

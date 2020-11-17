@@ -1,0 +1,145 @@
+@charset 'UTF-8';
+@import '../utility/*';
+/*-----------------------------------------------------------
+reset
+------------------------------------------------------------*/
+body,html{height:100%;}
+#wrap{
+	width: 100%;height: 100%;
+	text-align: right;
+	margin: auto;
+	background-image: url(../../img/login/bg_login.jpg),
+										url(../../img/login/bg.jpg);
+	background-size: 50% auto, 50% auto;
+	background-position: bottom left, top left;
+	background-repeat: no-repeat, repeat-y;
+	//background: #F4695F url(../../img/login/bg_login.jpg) bottom left/ 50% auto no-repeat;
+}
+.login{
+	@include font(0,0,0);
+	width: 50%;min-height: 100%;
+	background: #fff;
+	text-align: center;
+	// max-width: 840px;
+	display: inline-block;
+	padding: 15px 25px;
+	position: relative;
+	&:before{
+		content: "";position: absolute;
+		width: 27.7%;height: calc(100% + 2px);
+		top: 0;right: calc(100% - 1px);
+		background: url(../../img/login/bg_white.png) top right /100% 100% no-repeat;
+	}
+	.inner{
+		width: 100%;max-width: 625px;
+		height: 100%;
+		display: inline-block;
+		padding: 0 20px;
+	}
+	&__logo{
+		text-align: right;
+		position: absolute;
+		top: 0;right: 0;padding: 20px;
+		img{width: 65px;}
+	}
+	&__form{
+		width: 100%;
+		max-width: 410px;
+		display: block;
+		text-align: center;
+		margin: auto;
+		padding: 58px 0 163px;
+		&--ttl{
+			@include font(45,60,0.15,bold);
+			@include ffM;
+		}
+		&--field{
+			text-align: left;
+			margin: 45px auto 0;
+			.item{
+				width: 100%;
+				position: relative;
+				border-bottom: 2px solid $main;
+				margin-bottom: 30px;
+				textarea:focus, input:focus {
+				    color: #ff0000;
+				    background: #fff;
+				}
+				input{
+					@include add_prefix(appearance, none);
+					@include add_prefix(border,none);
+					@include add_prefix(box-shadow,none);
+					background: #fff;		
+					width: 100%;
+					padding: 9px 20px 9px 35px;
+					@include font(14,24,0.1,bold);
+					&:-webkit-input-placeholder{color: #767778;}
+					&:-ms-input-placeholder{color: #767778;}
+					&:placeholder{color: #767778;}
+				}
+				.ico{
+					position: absolute;
+					&--user{
+						width: 19px;height: 23px;
+						background: url(../../img/login/ico_user.svg)  center/100% no-repeat;
+						top: calc(50% - 13px);left: 3px;
+					}
+					&--key{
+						width: 21px;height: 21px;
+						background: url(../../img/login/ico_key.svg)  center/100% no-repeat;
+						top: calc(50% - 10.5px);left: 3px;
+					}
+				}
+			}
+		}
+		&--check{
+			display: block;
+			width: 100%;
+			position: relative;
+			text-align: left;
+			margin: 20px auto;
+			input{
+				opacity: 0;
+				top:0;left:0;
+				position: absolute;
+				&:checked + .txt:before{
+					background: $main url(../../img/login/ico_check.svg) center/12px 9px no-repeat;
+				}
+			}
+			.txt{
+				padding-left: 35px;
+				position: relative;
+				color: #767778;
+				@include font(14,24,0.1,bold);
+				display: inline-block;
+				&:before{
+					content: "";position: absolute;
+					width: 16px;height: 16px;
+					border: 1px solid $main;
+					background: #fff;
+					top: calc(50% - 8px);left:0;
+				}
+			}
+		}
+		&--btn{
+			text-align: center;
+			padding-top: 30px;
+			.btn-purple{
+				width: 100%;
+				max-width: 360px;
+				display: inline-block;
+				background: $main;
+				color: #fff;
+				@include font(17,30,0.1,bold);
+				padding: 10px 20px;
+				@include add_prefix(appearance, none);
+				@include add_prefix(border,none);
+				@include add_prefix(box-shadow,none);
+			}
+		}
+	}
+}
+
+/*-----------------------------------------------------------
+reset
+------------------------------------------------------------*/

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.82" y1="0.236" x2="0.403" y2="0.939" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#aa2593"/>
+      <stop offset="1" stop-color="#af2497" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.186" y1="0.281" x2="0.852" y2="1.018" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ad2095"/>
+      <stop offset="1" stop-color="#ad2095" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_43738" data-name="Group 43738" transform="translate(1718 15954)">
+    <g id="Group_43729" data-name="Group 43729" transform="translate(1127 -283)">
+      <text id="店舗情報" transform="translate(-2801.625 -15600)" fill="#fff" font-size="15" font-family="HiraMinProN-W6, Hiragino Mincho ProN" letter-spacing="0.06em"><tspan x="-31.35" y="0">店舗情報</tspan></text>
+      <rect id="Rectangle_7680" data-name="Rectangle 7680" width="90" height="90" transform="translate(-2845 -15671)" fill="#9f0d86"/>
+      <path id="Path_193" data-name="Path 193" d="M90,0,0,90H90Z" transform="translate(-2845 -15671)" fill="url(#linear-gradient)"/>
+      <path id="Path_192" data-name="Path 192" d="M0,0,90,90H0Z" transform="translate(-2845 -15671)" fill="url(#linear-gradient-2)"/>
+      <g id="Group_106" data-name="Group 106" transform="translate(-2811 -15653.683)">
+        <g id="Group_105" data-name="Group 105">
+          <path id="Path_196" data-name="Path 196" d="M235,0a11.012,11.012,0,0,0-11,11c0,5.645,8.825,15.642,9.831,16.764a1.571,1.571,0,0,0,2.338,0C237.177,26.642,246,16.645,246,11A11.012,11.012,0,0,0,235,0Zm0,15.714A4.714,4.714,0,1,1,239.716,11,4.716,4.716,0,0,1,235,15.714Z" transform="translate(-224.002)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
