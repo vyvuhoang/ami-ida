@@ -220,19 +220,38 @@ SLIDE
 		@include SP {
 		  margin-block-end: 96px;
 		}
-		.item {
-			// height: 300px;
-			// max-width: 450px !important;
-		  width: auto !important;
-      // width: 450px !important;
-		  margin-right: 8px;
-		  @include aspect-ratio(450, 300);
-		  background: center/cover no-repeat;
-      &:before{
-        padding:0;
-        width:450px;height: 300px;
-      }
-		}
+		// .item {
+		// 	// height: 300px;
+		// 	// max-width: 450px !important;
+		//   width: auto !important;
+  //     // width: 450px !important;
+		//   margin-right: 8px;
+		//   @include aspect-ratio(450, 300);
+		//   background: center/cover no-repeat;
+  //     @include max-screen(767px){
+
+  //     }
+  //     &:before{
+  //       padding:0;
+  //       width:450px;height: 300px;
+  //       @include max-screen(767px){
+  //         width: 242px;height: 161px;
+  //       }
+  //     }
+		// }
+    .item {
+      // height: 300px;
+      // // max-width: 450px !important;
+      // width: auto !important;
+      max-width: 450px;
+      margin-right: 8px;
+      @include aspect-ratio(450, 300);
+      background: center/cover no-repeat;
+      // &:before{
+      //   padding:0;
+      //   width:450px;height: 300px;
+      // }
+    }
 	}
   .lst-voice {
     margin-bottom: 99px;

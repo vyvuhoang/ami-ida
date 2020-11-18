@@ -570,16 +570,17 @@ body {
 
     .item {
       // height: 300px;
-      // max-width: 450px !important;
-      width: auto !important;
-      // width: 450px !important;
+      // // max-width: 450px !important;
+      // width: auto !important;
+      // // width: 450px !important;
+      max-width: 450px;
       margin-right: 8px;
       @include aspect-ratio(450, 300);
       background: center/cover no-repeat;
-      &:before{
-        padding:0;
-        width:450px;height: 300px;
-      }
+      // &:before{
+      //   padding:0;
+      //   width:450px;height: 300px;
+      // }
     }
   }
 

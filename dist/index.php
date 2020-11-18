@@ -83,15 +83,28 @@ include(APP_PATH.'libs/head.php');
 		</div>
 	</div>
 	<div class="feature wcm" id="feature">
-		<h3 class="the-title">体験レッスン受付中の<br class="sp">スタジオ一覧</h3>
+		<h3 class="the-title">アミーダ溶岩ホットヨガの特徴</h3>
 		<div class="feature__lst">
-			<?php for($i=0;$i<4;$i++){ ?>
 			<div class="feature__lst--item">
-				<img src="<?php echo APP_ASSETS; ?>img/top/feature<?php echo $i+1; ?>.jpg" alt="">
-				<p class="ttl">ここに新しく打ち出すアミーダの特徴が入りま</p>
-				<p class="txt">ここに新しく打ち出すアミーダの特徴が入ります。<br>ここに新しく打ち出すアミーダの特徴が入ります。<br>ここに新しく打ち出すアミーダの特徴が入ります。</p>
+				<img src="<?php echo APP_ASSETS; ?>img/top/feature1.jpg" alt="天然溶岩石を使用">
+				<p class="ttl">天然溶岩石を使用</p>
+				<p class="txt">溶岩石の遠赤外線で身体の芯から自然に温めるので、呼吸もしやすく身体への負担も少ないです。<br>天然の溶岩石で温めるスタジオはミネラルとマイナスイオン、サラサラした大量の汗が噴き出します。</p>
 			</div>
-		<?php } ?>
+			<div class="feature__lst--item">
+				<img src="<?php echo APP_ASSETS; ?>img/top/feature2.jpg" alt="未経験でも安心のプログラム">
+				<p class="ttl">未経験でも安心のプログラム</p>
+				<p class="txt">良質で経験豊富なインストラクターが、個人のレベルや、一人一人のお悩みに適した「パーソナル型サポート」を実施。綺麗で通いやすい好立地なスタジオもご好評いただいております。</p>
+			</div>
+			<div class="feature__lst--item">
+				<img src="<?php echo APP_ASSETS; ?>img/top/feature3.jpg" alt="”美”と”健康”への高い効果">
+				<p class="ttl">”美”と”健康”への高い効果</p>
+				<p class="txt">身体を内側から温め、基礎体温が上がるのが溶岩石ヨガの特徴です。美容・美肌やダイエットなどの効果だけでなく、生理痛、便秘、冷え性、肩こりなどの根本的な改善にも効果があります。</p>
+			</div>
+			<div class="feature__lst--item">
+				<img src="<?php echo APP_ASSETS; ?>img/top/feature4.jpg" alt="心の健康とリラックス効果">
+				<p class="ttl">心の健康とリラックス効果</p>
+				<p class="txt">よくいただくお客様のお声として、「イライラしなくなった」「心が穏やかになった」「よく眠れるようになった」と言うお声があります。家庭や職場とは違う、もう一つの私の居場所として、生活の一部としてご利用いただいています。</p>
+			</div>
 		</div>
 	</div>
 	<div class="slide">
