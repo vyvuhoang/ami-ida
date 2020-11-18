@@ -1,5 +1,7 @@
 <?php
-include_once(dirname(__FILE__) . '/step_confirm.php');
+session_start();
+$thisPageName = 'single-studio';
+
 if($actionFlag == 'send') {
   require(APP_PATH."libs/form/jphpmailer.php");
   $aMailto = $aMailtoContact;
@@ -186,13 +188,13 @@ unset($_SESSION['ses_gtime_step2']);
 unset($_SESSION['ses_from_step2']);
 unset($_SESSION['ses_step3']);
 ?>
-<!-- <meta http-equiv="refresh" content="15; url=<?php echo APP_URL ?>">
+<meta http-equiv="refresh" content="15; url=<?php echo APP_URL ?>">
 <script type="text/javascript">
 history.pushState({ page: 1 }, "title 1", "#noback");
 window.onhashchange = function (event) {
   window.location.hash = "#noback";
 };
-</script> -->
+</script>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
@@ -200,7 +202,7 @@ window.onhashchange = function (event) {
   <?php include(APP_PATH."libs/header.php") ?>
   <div class="sec-thanks">
     <div class="container-750">
-      <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+      <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
       <div class="stepImg">
         <picture>
           <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step03SP.svg">
