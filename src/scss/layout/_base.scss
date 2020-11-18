@@ -193,7 +193,7 @@ html {
   }
 }
 body {
-  @include ffN;
+  @include ffYG;
   @include font-size(16);
   width: 100%;
   color: $color_body;
@@ -224,8 +224,11 @@ common
 }
 
 .wcm {
-  width: $widthcm;
+  max-width: 1106px;
   margin:auto;
+  padding: 0 20px;
+  width: 100%;
+  @include max-screen(767px){padding: 0 16px;}
 }
 /*-----------------------------------------------------------
 Some stuff from bootstrap
@@ -368,7 +371,4 @@ tbody.collapse.in { display: table-row-group; }
 }
 @media (min-width: 992px) {
   .modal-lg { width: 900px; }
-}
-.hid_url{
-  display: none;
 }
