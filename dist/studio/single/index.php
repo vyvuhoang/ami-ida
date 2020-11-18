@@ -259,11 +259,9 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-voice">
       <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
+        <?php for($i=0;$i<10;$i++){ ?>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
+        <?php } ?>
       </div>
       <div class="container-1080">
         <ul class="lst-voice">

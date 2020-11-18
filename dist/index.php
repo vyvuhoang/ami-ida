@@ -24,7 +24,7 @@ include(APP_PATH.'libs/head.php');
 			</div>
 		</div>
 	</div>
-	<div class="intro wcm">
+	<div class="intro wcm" id="intro">
 		<div class="intro__img">
 			<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.png" alt="">
 		</div>
@@ -97,7 +97,7 @@ include(APP_PATH.'libs/head.php');
 	<div class="slide">
 		<h3 class="the-title wcm">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
 		<div class="slide__img js-voice-slider">
-			<?php for($i=0;$i<3;$i++){ ?>
+			<?php for($i=0;$i<10;$i++){ ?>
 		  <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
 			<?php } ?>
 		</div>
@@ -111,9 +111,6 @@ include(APP_PATH.'libs/head.php');
       <a href="" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
     </div>
   </div>
-  <!-- <div class="teacher wcm">
-  	<h3 class="the-title">アミーダ溶岩ホットヨガの特徴</h3>
-  </div> -->
   <div class="studio wcm">
   	<h3 class="the-title">体験レッスン受付中の<br class="sp">スタジオ一覧</h3>
   	<p class="studio__txt">※店舗により体験内容・キャンペーン内容が異なります。<br>詳細は、 各店舗ページをご覧ください。</p>

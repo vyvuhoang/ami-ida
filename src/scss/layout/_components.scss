@@ -162,9 +162,9 @@ a.btn-viewmore,.btn-viewmore{
 	}
 }
 .visual{
-	width: 100%;
-	height: 600px;
+	width: 100%;height: 600px;
 	min-height: calc(100vh - 80px);
+	overflow: hidden;
 	// background: url(../img/common/visual.jpg) center/cover no-repeat;
 	position: relative;
 	@include max-screen(767px){

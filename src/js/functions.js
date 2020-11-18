@@ -1,3 +1,4 @@
+
 // 
 function getHeaderHeight() {
   var h = 0;

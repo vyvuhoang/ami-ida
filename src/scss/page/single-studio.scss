@@ -89,7 +89,7 @@ body {
     }
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 76px;
 
     @include SP {
@@ -230,7 +230,7 @@ body {
     margin-bottom: 83px;
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 54px;
 
     @include SP {
@@ -403,7 +403,7 @@ body {
     margin-bottom: 22px;
   }
 
-  .topic-ttl {
+  .the-title {
     margin-bottom: 88px;
 
     @include SP {
@@ -569,9 +569,17 @@ body {
     }
 
     .item {
-      width: calc(33.33%);
-      @include aspect-ratio(500, 400);
+      // height: 300px;
+      // max-width: 450px !important;
+      width: auto !important;
+      // width: 450px !important;
+      margin-right: 8px;
+      @include aspect-ratio(450, 300);
       background: center/cover no-repeat;
+      &:before{
+        padding:0;
+        width:450px;height: 300px;
+      }
     }
   }
 

@@ -223,10 +223,15 @@ SLIDE
 		.item {
 			// height: 300px;
 			// max-width: 450px !important;
-		  width: calc(33.33% - 8px);
+		  width: auto !important;
+      // width: 450px !important;
 		  margin-right: 8px;
 		  @include aspect-ratio(450, 300);
 		  background: center/cover no-repeat;
+      &:before{
+        padding:0;
+        width:450px;height: 300px;
+      }
 		}
 	}
   .lst-voice {
