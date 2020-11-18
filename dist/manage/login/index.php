@@ -1,6 +1,6 @@
 <?php
 $thisPageName = 'managelogin';
-include_once(dirname(__FILE__) . '/app_config.php');
+include_once(dirname(dirname(dirname(__FILE__))) . '/app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
 session_start();
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
