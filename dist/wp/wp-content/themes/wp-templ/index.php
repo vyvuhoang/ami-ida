@@ -150,6 +150,13 @@ include(APP_PATH.'libs/head.php');
   	</div>
   </div>
 	<?php include(APP_PATH.'libs/faq.php'); ?>
+	<div class="sns wcm">
+		<h3 class="the-title">SNS</h3>
+		<div class="grBtn">
+			<a href="" class="grBtn__item ins"><p>Instagram</p></a>
+			<a href="" class="grBtn__item twitter"><p>Twitter</p></a>
+		</div>
+	</div>
 </main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

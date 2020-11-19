@@ -29,3 +29,9 @@ $(window).on('scroll load', function(){
 $(document).ready(function() {
   ParallaxScroll.init();
 });
+$('.header__menu .header__studio .header__studio--item a').click( function() {
+  $('body').removeClass('menu-open');
+  $('.hamburger').removeClass('open');
+  $('body').css('top', -st);
+  $('.header__menu').fadeOut();
+})

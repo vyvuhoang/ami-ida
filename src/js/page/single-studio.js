@@ -1,10 +1,13 @@
 var calendar = $('.js-calendar'),
-    schedule = $('.js-schedule');
+    schedule = $('.js-schedule'),
+    schedule_popup = $('.js-popup');
 $(document).ready(function () {
   slider();
   faq();
   price();
   ajaxSchedule();
+  popup();
+  autoCompleteForm();
 })
 
 function slider(){
@@ -69,6 +72,7 @@ function getAjax(_post_id, _date_start){
     },
   }).success(function(data) {
     schedule.html(data.html);
+    schedule_popup.html(data.html_popup);
   }).error(function (xhr, ajaxOptions, thrownError) {
     console.log(xhr.status);
     console.log(thrownError);
@@ -106,5 +110,86 @@ function ajaxSchedule(){
   $('body').on('click', '.js-next', function(){
     _date = get7DaysAfter(_date);
     getAjax(_post_id, _date);
+  })
+}
+
+function popup(){
+  $('body').on('click', '.js-lesson', function(){
+    var dataPopup = $(this).attr('data-popup'),
+        dataID = $(this).attr('data-id'),
+        popupEl = $('.js-popup[data-popup='+dataPopup+']');
+    popupEl.addClass('active');
+    popupEl.find('[data-id="'+dataID+'"]').addClass('active').siblings().removeClass('active');
+
+    var __cur_p = $(window).scrollTop();
+    var __cur_h = $("body").outerHeight();
+
+    $("body").attr("data-position", __cur_p);
+    $("body").css({
+        "top": "-" + __cur_p + "px",
+        "left": 0,
+        "width": "100%",
+        "height": __cur_h + "px",
+        "position": "fixed",
+        "z-index": "-1",
+        "touch-action": "none",
+        "overflow": "hidden",
+    });
+  })
+
+  $(".js-popup").on("click", function(e){
+    if (e.target !== this)
+      return;
+    $('.btn_close').trigger('click');
+  });
+
+  $('body').on('click', '.btn_close', function(){
+    $(".js-popup").removeClass("active");
+    var __cur_p = $(window).scrollTop();
+    var __cur_h = $("body").outerHeight();
+    var pos_position = $("body").attr("data-position");
+    $("body").css({
+      "touch-action": "auto",
+      "overflow-x": "hidden",
+      "overflow-y": "auto",
+      "position": "static",
+      "top": "auto",
+      "height": "auto"
+    });
+    $("html,body").scrollTop(Math.abs(Number(pos_position)));
+  })
+}
+
+function autoCompleteForm(){
+  $('body').on('click', '.js-btn-box', function(e){
+    $('.js-popup').removeClass('active');
+    $("body").css({
+      "touch-action": "auto",
+      "overflow-x": "hidden",
+      "overflow-y": "auto",
+      "position": "static",
+      "top": "auto",
+      "height": "auto"
+    });
+
+    var _lesson = $(this).attr('data-lesson'),
+        _date = $(this).attr('data-date'),
+        _time = $(this).attr('data-time');
+    $('.js-lesson-ttl').text(_lesson);
+    $('.input-lesson').val(_lesson);
+    $('.js-schedule-time').text(_date +' '+ _time);
+    $('.input-date').val(_date);
+    $('.input-time').val(_time);
+
+    //scroll
+    var headerh = getHeaderHeight();
+    e.preventDefault();
+    var target = this.hash,
+        $target = $(target);
+    if ($target.length > 0) {
+      $('html, body').stop().animate({
+        'scrollTop': $target.offset().top - headerh
+      }, 300, 'swing', function () {});
+    }
   })
 }

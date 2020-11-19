@@ -33,7 +33,7 @@ include(APP_PATH.'libs/head.php');
 				<p class="ttl">スタジオタイトル</p>
 				<p class="txt">〒170-0003<br>東京都豊島区駒込1-38-2<br>駒込TRビル4階<br>TEL：03-5981-9027<br>FAX：03-5981-9028</p>
 				<div class="btn">
-					<a href="<?php echo APP_URL; ?>studio/single/" class="btn-detail">店舗ページへ</a>
+					<a href="<?php echo APP_URL; ?>studio/shinozaki/" class="btn-detail">店舗ページへ</a>
 					<a href="" class="btn-location">地図をみる</a>
 				</div>
 			</div>

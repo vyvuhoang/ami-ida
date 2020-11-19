@@ -13,7 +13,7 @@ body.single-studio{
     &:before{
       content:"";position: inherit;
       width: 100%;height: 100%;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0,0,0,0.1);
       top:0;left:0;
     }
 		@include max-screen(767px){
@@ -32,7 +32,7 @@ body.top,body.single-studio{
 			&__logo a{
 				background: url(../img/common/header/logo_w.png) center/100% 100% no-repeat;
 			}
-			.inner{
+			>.inner{
 				box-shadow: none;
 			}
 			.hamburger{
@@ -51,8 +51,17 @@ body.top,body.single-studio{
 				&__logo a{
 					background: url(../img/common/header/logo.png) center/100% 100% no-repeat;
 				}
-				.inner{
+				>.inner{
 					box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+				}
+				&__studio{
+					a{
+						color: #000;
+						&:before{content: none;}
+						@include min-screen(768px){
+						  &:hover{ color: $purple;}
+						}
+					}
 				}
 				.hamburger{
 					&:before{color: #000;}
