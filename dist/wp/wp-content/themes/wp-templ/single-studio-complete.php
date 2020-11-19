@@ -81,6 +81,11 @@ $msgBody
 ".$email_body_footer."
 ---------------------------------------------------------------";
 
+
+include_once(APP_PATH.'csv/read_write_csv.php');
+// csv format
+// reg_single_ttl,reg_hopedate,reg_hopetime,reg_name,reg_nameuser_furigana,reg_age,reg_tel,reg_email,reg_method,reg_content
+
   // ▼ ▼ ▼ START Detect SPAMMER ▼ ▼ ▼ //
   try {
     $allow_send_email = 1;
@@ -148,6 +153,7 @@ $msgBody
     //////// メール送信
     mb_language("ja");
     mb_internal_encoding("UTF-8");
+    $timesend = date("Y.m.d H:i",time());
 
     //////// お客様受け取りメール送信
     $email = new JPHPmailer();
@@ -156,7 +162,41 @@ $msgBody
     $email->setSubject($subject_user);
     $email->setBody($body_user);
 
-    if($email->send()) { /*Do you want to debug somthing?*/ }
+    if($email->send()) {
+      $new_csv = new CSVT();
+      $data_ex = array(array(
+          "{$reg_single_ttl} ",
+          "{$reg_hopedate} {$reg_hopetime}",
+          "{$reg_name} ",
+          "{$reg_nameuser_furigana} ",
+          "{$reg_age} ",
+          "{$reg_tel} ",
+          "{$reg_email} ",
+          "{$reg_method} {$reg_other_method} ",
+          "{$reg_content} ",
+          "{$timesend} "
+      ));
+      $new_csv->export_csv($data_ex);
+    }
+    $dataLog = "
+$timesend
+$reg_single_ttl
+$reg_hopedate $reg_hopetime
+$reg_name
+$reg_nameuser_furigana
+$reg_age
+$reg_tel
+$reg_email
+$reg_method $reg_other_method
+$reg_content
+";
+    $ret = file_put_contents(APP_PATH.'csv/log/registerData.log', $dataLog, FILE_APPEND | LOCK_EX);
+    if($ret === false) {
+        // die('There was an error writing this file');
+    }
+    else {
+        // echo "$ret bytes written to file";
+    }
 
     //////// メール送信
     $email->clearAddresses();
