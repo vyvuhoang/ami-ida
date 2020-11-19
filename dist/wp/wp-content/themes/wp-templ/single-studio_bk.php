@@ -1,7 +1,18 @@
 <?php
+function sortByOrder($a, $b) {
+  return $b[1] - $a[1];
+}
+
 $thisPageName = 'single-studio';
-include_once(dirname(dirname(__DIR__)) . '/app_config.php');
+$thisStudioID = get_the_ID();
 include(APP_PATH.'libs/head.php');
+$stars = array(
+  1 => '★',
+  2 => '★★',
+  3 => '★★★',
+  4 => '★★★★',
+  5 => '★★★★★',
+)
 ?>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -13,7 +24,6 @@ include(APP_PATH.'libs/head.php');
 <div id="wrap">
   <main>
     <div class="visual">
-      <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
       <div class="visual">
         <div class="visual__scroll">
           <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
@@ -56,7 +66,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">
-          <h3 class="the-title">９月限定！<br class="sp">〇〇店の入会特典</h3>
+          <h3 class="topic-ttl">９月限定！<br class="sp">〇〇店の入会特典</h3>
           <ul class="lst-intro">
             <li class="item">
               <div class="txt">
@@ -94,7 +104,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-charge">
       <div class="container-900">
-        <h3 class="the-title">プラン・料金のご説明</h3>
+        <h3 class="topic-ttl">プラン・料金のご説明</h3>
         <ul class="lst-price js-lst-price">
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
@@ -217,7 +227,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-stuff">
       <div class="container-1080">
-        <h3 class="the-title">体験レッスンに<br class="sp">必要な物追加</h3>
+        <h3 class="topic-ttl">体験レッスンに<br class="sp">必要な物追加</h3>
         <ul class="lst-stuff">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
@@ -239,7 +249,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-feeling">
       <div class="container-1080">
-        <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
+        <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
         <ul class="lst-feeling">
           <li class="item">
             <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
@@ -257,11 +267,13 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-voice">
-      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
+      <h3 class="topic-ttl">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
-        <?php for($i=0;$i<10;$i++){ ?>
-        <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
-        <?php } ?>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
+        <div class="item" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img06.jpg);"></div>
       </div>
       <div class="container-1080">
         <ul class="lst-voice">
@@ -304,30 +316,30 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-reason">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
         <ul class="lst-reason">
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature1.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！！初心者の方が安心して受けられるプログラムが多数。</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature2.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature3.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature4.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
           <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature5.jpg" alt=""></div>
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img09.jpg" alt=""></div>
             <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
             <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
           </li>
@@ -336,7 +348,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-schedule">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <div class="calendar">
           <div class="calendar-head">
             <span class="prev js-prev"></span>
@@ -356,7 +368,98 @@ include(APP_PATH.'libs/head.php');
               <li class="item">10/18 (日)</li>
             </ul>
             <div class="active-schedule">
-              <div class="row">
+              <?php
+              $today = date('Y/m/d');
+              $lesson = array();
+              $wp_lesson = new WP_Query();
+              $param=array(
+                'post_type'                => 'lesson',
+                'order'                    => 'DESC',
+                'post_status'              => 'publish',
+                'posts_per_page'           => -1,
+                'meta_query' => array(
+                  array(
+                    'key' => 'lesson_studio',
+                    'value' => $thisStudioID,
+                    'compare' => '==',
+                  )
+                ),
+              );
+
+              $wp_lesson->query($param);
+              if($wp_lesson->have_posts()):while($wp_lesson->have_posts()) : $wp_lesson->the_post();
+                $lesson_studio = get_field('lesson_studio');
+                $lesson_master = get_field('lesson_master');
+
+                $lesson_ttl = $lesson_master->post_title;
+                $lesson_level = get_field('lesson_level', $lesson_master->ID);
+
+                $lesson_date = get_field('lesson_date');
+                $time_start = get_field('lesson_time_start');
+                $time_end = get_field('lesson_time_end');
+                $instructor = get_field('lesson_instructor');
+                $lesson_id = get_the_id();
+                if(!empty($lesson[$lesson_date])){
+                  array_push($lesson[$lesson_date], [$lesson_id, $time_start, $time_end, $instructor, $lesson_ttl, $lesson_level]);
+                }else{
+                  $lesson[$lesson_date] = [[$lesson_id, $time_start, $time_end, $instructor, $lesson_ttl, $lesson_level]];
+                }
+              endwhile;endif;
+              ksort($lesson);
+              $min_time = '24:24';
+              $max_time = '0:0';
+              foreach($lesson as $key => $value){
+                // usort($value, 'sortByOrder');
+                foreach($value as $ckey => $cvalue){
+                  if(strtotime($cvalue[1]) < strtotime($min_time)){
+                    $min_time = $cvalue[1];
+                  }
+                  if(strtotime($cvalue[1]) > strtotime($max_time)){
+                    $max_time = $cvalue[1];
+                  }
+                }
+              }
+              var_dump($lesson);
+              $min_hour = explode(':', $min_time);
+              $min_hour = $min_hour[0];
+
+              $max_hour = explode(':', $max_time);
+              $max_hour = $max_hour[0];
+              ?>
+              <?php foreach($lesson as $key => $value){?>
+                <div class="col">
+                <?php foreach($value as $ckey => $cvalue){
+                  $lhour = explode(':', $cvalue[1]);
+                  $lhour = $lhour[0];
+                  for($i = $min_hour;$i<= $max_hour;$i++){
+                    if($lhour != $i){
+                      echo '<div class="lesson"></div>';
+                    }else{
+                      ?>
+                  <div class="lesson">
+                    <div class="bg">
+                      <p class="time" data-date="<?php echo $key?>"><?php echo $cvalue[1].' - '.$cvalue[2];?></p>
+                      <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                      <p class="ttl"><?php echo $cvalue[4].$key;?></p>
+                      <p class="level"><?php echo $stars[$cvalue[5]];?></p>
+                    </div>
+                  </div>
+                    <?php
+                    }
+                  }
+                ?>
+                <?php }?>
+                </div>
+              <?php }?>
+              <!-- <div class="col">
+                <div class="lesson">
+                  <div class="bg">
+                    <p class="time">9:30 - 10:15</p>
+                    <div class="pic" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+                    <p class="ttl">レッスンレッスンレッスン</p>
+                    <p class="level">★★★★</p>
+                  </div>
+                </div>
                 <div class="lesson">
                   <div class="bg">
                     <p class="time">9:30 - 10:15</p>
@@ -400,7 +503,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="col">
                 <div class="lesson"></div>
                 <div class="lesson">
                   <div class="bg">
@@ -444,7 +547,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="col">
                 <div class="lesson">
                   <div class="bg">
                     <p class="time">9:30 - 10:15</p>
@@ -488,7 +591,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
               </div>
-              <div class="row">
+              <div class="col">
                 <div class="lesson disabled">
                   <div class="bg">
                     <p class="time">9:30 - 10:15</p>
@@ -531,7 +634,7 @@ include(APP_PATH.'libs/head.php');
                     <p class="level">★★★★</p>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -541,7 +644,7 @@ include(APP_PATH.'libs/head.php');
       <div class="bg"></div>
       <div class="container-1170">
         <div class="outside">
-          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+          <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
           <div class="inside">
             <ul class="lst-lesson">
               <li class="item">
@@ -572,7 +675,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-form">
       <div class="container-750">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
           <div class="stepImg">
             <picture>
@@ -705,7 +808,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-access">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
+        <h3 class="topic-ttl">アミーダ〇〇店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.604743966393!2d139.74546941539734!3d35.7359381345767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d77608f7d37%3A0xe6baada2046b743e!2z5rq25bKp44Ob44OD44OI44Oo44Ks44K544K_44K444KqIOOCouODn-ODvOODgOmnkui-vOW6lw!5e0!3m2!1sen!2s!4v1605192912814!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
@@ -733,7 +836,41 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <?php include(APP_PATH.'libs/faq.php'); ?>
+    <div class="sec-faq">
+      <div class="container-900">
+        <h3 class="topic-ttl">溶岩ホットヨガ / <br class="sp">アミーダに関する<br class="sp">よくある質問</h3>
+        <ul class="lst-faq js-lst-faq">
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+          <li class="item">
+            <div class="ques js-ques"><span>溶岩石ホットヨガの「痩せる効果」が高い理由は？</span></div>
+            <div class="ans js-ans">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</div>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="sec-ins">
       <div class="container-1080">
         <h3 class="topic-ttl">インスタグラム反映</h3>

@@ -1,8 +1,10 @@
 <?php
 session_start();
 ob_start();
-include_once(dirname(dirname(__DIR__)) . '/app_config.php');
-if(empty($_POST['actionFlag']) && empty($_SESSION['statusFlag'])) header('location: '.APP_URL);
+if(empty($_POST['actionFlag'])) header('location: '.APP_URL);
+
+include(APP_PATH.'libs/head.php');
+require(APP_PATH."libs/form/jphpmailer.php");
 
 $gtime = time();
 
@@ -25,9 +27,9 @@ $reg_other_method        = (!empty($_POST['other_method'])) ? htmlspecialchars($
 $reg_content = (!empty($_POST['content'])) ? $_POST['content'] : '';
 $br_reg_content   = nl2br($reg_content);
 
+$_SESSION['statusFlag'] = 1;
+
 if($actionFlag == "confirm") {
-	$thisPageName = 'contactstep2';
-	include(APP_PATH.'libs/head.php');
 	$_SESSION['ses_from_step2'] = true;
 	if(!isset($_SESSION['ses_gtime_step2'])) $_SESSION['ses_gtime_step2'] = $gtime;
 ?>
@@ -59,8 +61,8 @@ if($actionFlag == "confirm") {
 		<main>
       <div class="sec-form">
         <div class="container-750">
-          <h3 class="topic-ttl">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <form method="post" class="studioform" id="studioform" action="../../complete/?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
+          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+          <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
             <div class="stepImg">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step02SP.svg">
@@ -151,4 +153,6 @@ if($actionFlag == "confirm") {
 	<?php include(APP_PATH.'libs/footer.php'); ?>
 </body>
 </html>
-<?php } ?>
+<?php } elseif($actionFlag == "send") {
+  include_once('single-event-complete.php');
+} ?>

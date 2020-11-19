@@ -869,6 +869,11 @@ body {
       .prev,
       .next{
         position: relative;
+        cursor: pointer;
+        transition: 0.5s ease;
+        &:hover{
+          opacity: 0.5;
+        }
         &:before{
           @include absolute('',10px,10px,calc(50% - 4px),'','','');
           border-top: 3px solid $purple1;
@@ -941,18 +946,19 @@ body {
   }
   .lst-schedule{
     @include notosans;
+    font-size: 0;
     @include SP{
       width: 770px;
     }
-    .row{
-      font-size: 0;
-      margin-bottom: 6px;
-      @include flex();
-      flex-wrap: wrap;
+    .col{
+      width: 14.28%;
+      display: inline-block;
+      vertical-align: top;
+      // @include flex();
+      // flex-wrap: wrap;
       .lesson{
-        width: 14.28%;
-        display: inline-block;
         padding: 0 3px;
+        margin-bottom: 6px;
         .bg{
           padding: 17px 5px;
           text-align: center;

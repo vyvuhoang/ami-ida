@@ -1,6 +1,5 @@
 <?php
 $thisPageName = 'studio';
-include_once(dirname(__FILE__) . '../../app_config.php');
 include(APP_PATH.'libs/head.php');
 ?>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/studio.min.css">
