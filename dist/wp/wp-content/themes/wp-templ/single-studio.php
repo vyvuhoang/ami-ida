@@ -398,22 +398,16 @@ include(APP_PATH.'libs/head.php');
             <tr>
               <th>体験内容</th>
               <td>
-                <p class="txt">溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】</p>
-                <input placeholder="例)田中 花子" type="hidden" name="single_ttl" id="single_ttl" value="溶岩石ホットヨガ体験【500円（税込） ※お一人様1回限り】">
+                <p class="txt js-lesson-ttl">レッスンを選択するとオートコンプリート</p>
+                <input type="hidden" name="single_ttl" id="single_ttl" class="input-lesson" value="">
               </td>
             </tr>
             <tr>
               <th>体験希望日</th>
               <td>
-                <p class="half">
-                  <input placeholder="2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required]">
-                </p>
-                <p class="half">
-                  <select name="hopetime" id="hopetime" class="validate[required]">
-                    <option value="10:15~10:45">10:15~10:45</option>
-                    <option value="11：45～12：30 はじめて・ヨーガ">11：45～12：30 はじめて・ヨーガ</option>
-                  </select>
-                </p>
+                <p class="txt js-schedule-time">レッスンを選択するとオートコンプリート</p>
+                <input type="hidden" name="hopedate" id="hopedate" class="validate[required] input-date" value="">
+                <input type="hidden" name="hopetime" id="hopetime" class="validate[required] input-time" value="">
               </td>
             </tr>
             <tr>
@@ -563,6 +557,67 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
   </main>
+</div>
+
+<div class="sec-schedule-popup js-popup" data-popup="schedule">
+  <!-- <div class="wrap_bg">
+    <div class="wrap_container">
+      <div class="btn_close"></div>
+      <div class="box-info">
+        <div class="each active" data-id="">
+          <div class="img" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+          <ul class="lst-info">
+            <li class="item">
+              <div class="item-ttl">スタジオ</div>
+              <div class="item-txt">篠崎店</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">日時</div>
+              <div class="item-txt">11/22 (日) 9:50 - 10:35</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">インストラクター</div>
+              <div class="item-txt">竹内健二</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">難易度</div>
+              <div class="item-txt">★★★</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">内容</div>
+              <div class="item-txt">リラックスレッスン内容</div>
+            </li>
+          </ul>
+          <a href="#anchor04" class="btn-box js-btn-box" data-lesson="篠崎店" data-date="2020/10/10" data-time="10:10 - 11:10"><span>体験する</span></a>
+        </div>
+        <div class="each" data-id="">
+          <div class="img" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
+          <ul class="lst-info">
+            <li class="item">
+              <div class="item-ttl">スタジオ</div>
+              <div class="item-txt">篠崎店</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">日時</div>
+              <div class="item-txt">11/22 (日) 9:50 - 10:35</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">インストラクター</div>
+              <div class="item-txt">竹内健二</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">難易度</div>
+              <div class="item-txt">★★★</div>
+            </li>
+            <li class="item">
+              <div class="item-ttl">内容</div>
+              <div class="item-txt">リラックスレッスン内容</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> -->
 </div>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

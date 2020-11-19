@@ -248,10 +248,16 @@ function add_rewrites_init(){
     $slug = $ar->rewrite['slug'];
     $sgc = get_template_directory() . "/single-" . $posttype . ".php";
     $agr = get_template_directory() . "/archive-" . $posttype . ".php";
+
     if(@file_exists($sgc)){
+      if($posttype == 'studio'){
+        add_rewrite_rule($slug.'/(.*)/confirm/?', 'index.php?post_type='.$posttype.'&name=$matches[1]&actionFlag=confirm', 'top');
+        add_rewrite_rule($slug.'/(.*)/complete/?', 'index.php?post_type='.$posttype.'&name=$matches[1]&actionFlag=complete', 'top');
+      }else{
+        add_rewrite_rule($slug.'/p([0-9]+)?/confirm/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=confirm', 'top');
+        add_rewrite_rule($slug.'/p([0-9]+)?/complete/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=complete', 'top');
+      }
       add_rewrite_rule($slug.'/p([0-9]+)?$', 'index.php?post_type='.$posttype.'&p=$matches[1]', 'top');
-      add_rewrite_rule($slug.'/p([0-9]+)?/confirm/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=confirm', 'top');
-      add_rewrite_rule($slug.'/p([0-9]+)?/complete/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=complete', 'top');
       add_rewrite_rule($slug.'/p([0-9]+)?/([0-9]+)/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&page=$matches[2]', 'top');
     }
     if(@file_exists($agr)){
