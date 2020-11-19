@@ -55,13 +55,16 @@
       $lesson[$lesson_date] = [];
       while( have_rows('lesson', $post_id) ){
         the_row();
-        $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = '';
+        $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
         $lesson_master = get_sub_field('lesson_master');
         if($lesson_master){
           $lesson_ttl = $lesson_master->post_title;
           $lesson_level = get_field('lesson_level', $lesson_master->ID);
         }
+        $lesson_picture = get_sub_field('lesson_picture');
+        $lesson_picture = $lesson_picture['url'];
         $lesson_time = get_sub_field('lesson_time');
+        $lesson_status = get_sub_field('lesson_status');
         $time_arr = explode(':', $lesson_time);
         $start_hour = $time_arr[0];
         if(intval($start_hour) < $min_hour){
@@ -72,9 +75,9 @@
         }
         $lesson_instructor = get_sub_field('lesson_instructor');
         if(!empty($lesson[$lesson_date])){
-          array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level]);
+          array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]);
         }else{
-          $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level]];
+          $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]];
         }
       }
     }
@@ -82,9 +85,9 @@
 
   $keyIndex = array_search($date_start,array_keys($lesson));
   $lesson = array_slice($lesson, $keyIndex, $keyIndex + 7);
-  // foreach(){}
   foreach($lesson as $key => $value){
     $j = 0;
+    $classDisable = ($value[$j][5] && $value[$j][5] == 'unavailable') ? ' disabled' : '';
     $html .= '<div class="col">';
     for($i=$min_hour;$i<=$max_hour;$i++){
       $lhour = explode(':', $value[$j][0]);
@@ -93,12 +96,12 @@
         $html .= '<div class="lesson"></div>';
       }else{
         $html .= '
-          <div class="lesson">
+          <div class="lesson'.$classDisable.'">
             <div class="bg">
               <p class="time" data-date="'.$key.'">'.$value[$j][0].'</p>
-              <div class="pic" style="background-image: url('.APP_ASSETS.'img/studio/img11.jpg);"></div>
+              <div class="pic" style="background-image: url('.$value[$j][4].');"></div>
               <p class="ttl">'.$value[$j][2].'</p>
-              <p class="level">'.$stars[$value[$j][3]].$key.'</p>
+              <p class="level">'.$stars[$value[$j][3]].'</p>
             </div>
           </div>';
         $j++;

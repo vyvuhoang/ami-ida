@@ -99,7 +99,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-btns">
       <div class="container-1080">
         <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
-        <a href="" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
+        <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
     <div class="sec-charge" id="anchor01">
