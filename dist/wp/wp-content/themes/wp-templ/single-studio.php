@@ -1,6 +1,7 @@
 <?php
 $thisPageName = 'single-studio';
 $thisStudioID = get_the_ID();
+$pslug = $post->post_name;
 if(!empty($_POST['actionFlag'])) {
   include_once('single-studio-confirm.php');
   exit();
@@ -398,7 +399,7 @@ include(APP_PATH.'libs/head.php');
             <tr>
               <th>体験内容</th>
               <td>
-                <!-- <p class="txt js-lesson-ttl">レッスンを選択するとオートコンプリート</p> -->
+                <input type="hidden" name="studio_slug" id="studio_slug" value="<?php echo $pslug;?>">
                 <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="">
               </td>
             </tr>
@@ -411,9 +412,6 @@ include(APP_PATH.'libs/head.php');
                 <p class="half">
                   <input placeholder="10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="">
                 </p>
-                <!-- <p class="txt js-schedule-time">レッスンを選択するとオートコンプリート</p>
-                <input type="hidden" name="hopedate" id="hopedate" class="validate[required] input-date" value="">
-                <input type="hidden" name="hopetime" id="hopetime" class="validate[required] input-time" value=""> -->
               </td>
             </tr>
             <tr>

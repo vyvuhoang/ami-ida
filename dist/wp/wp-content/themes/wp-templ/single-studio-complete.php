@@ -176,9 +176,10 @@ include_once(APP_PATH.'csv/read_write_csv.php');
           "{$reg_content} ",
           "{$timesend} "
       ));
-      $new_csv->export_csv($data_ex);
+      $new_csv->export_csv($reg_studio_slug, $data_ex);
     }
     $dataLog = "
+$reg_studio_slug
 $timesend
 $reg_single_ttl
 $reg_hopedate $reg_hopetime

@@ -9,16 +9,17 @@ Class CSVT{
 	private $file_name = "data_entry.csv";
 	private $datalist = array();
 
-	public function export_csv($list = array()){
+	public function export_csv($reg_studio_slug = '', $list = array()){
 		if(empty($list)){
 			return;
 		}
 		$this->datalist = $list;
-		$this->write_file($this->create_month());
+		$this->write_file($this->create_month($reg_studio_slug));
 	}
-	public function create_month(){
-		$listd = array();
-		$time = time();
+	public function create_month($reg_studio_slug){
+    $listd = array();
+    $time = time();
+    $listd['P'] = $reg_studio_slug;
 		$listd['Y'] = date('Y',$time);
 		$listd['m'] = date('m',$time);
 		return $this->check_mdir($listd);
@@ -28,12 +29,12 @@ Class CSVT{
 			mkdir($this->folder_root);
 		}
 		if(!empty($listd)){
-			if(!(@is_dir($this->folder_root."/".$listd["Y"]))){
-				mkdir($this->folder_root."/".$listd["Y"]);
+			if(!(@is_dir($this->folder_root."/".$listd['Y']))){
+				mkdir($this->folder_root."/".$listd['Y']);
 			}
-			if(!(@is_dir($this->folder_root."/".$listd['Y']."/".$listd['m']))){
-        mkdir($this->folder_root."/".$listd['Y']."/".$listd['m']);
-				$file = fopen($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$this->file_name,"a");
+			if(!(@is_dir($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']))){
+        mkdir($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']);
+				$file = fopen($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']."/".$this->file_name,"a");
         fputcsv($file,array(
           "体験内容",
           "体験希望日",
@@ -49,7 +50,7 @@ Class CSVT{
         fclose($file);
 			}
     }
-		return $this->folder_root."/".$listd['Y']."/".$listd['m'];
+		return $this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P'];
 	}
 	public function write_file($file_path){
 		if(empty($this->datalist)){
