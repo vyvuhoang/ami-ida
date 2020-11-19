@@ -224,7 +224,7 @@ function wp_post_type_archive($options){
 
 // for rewrite - this is alway at bottom of page
 add_filter('post_type_link', 'custom_blog_permalink', 1, 3);
- function custom_blog_permalink($post_link, $id = 0, $leavename) {
+function custom_blog_permalink($post_link, $id = 0, $leavename) {
   if ( strpos('%post_id%', $post_link) === 'FALSE' ) {
     return $post_link;
   }
@@ -233,8 +233,13 @@ add_filter('post_type_link', 'custom_blog_permalink', 1, 3);
     return $post_link;
   }
   $post_type = get_post_type_object($post->post_type);
-  return home_url($post_type->rewrite['slug'].'/p'.$post->ID.'/');
- }
+  if($post_type->name == 'studio'){
+    return $post_link;
+  }else{
+    return home_url($post_type->rewrite['slug'].'/p'.$post->ID.'/');
+  }
+}
+
 function add_rewrites_init(){
   global $wp_rewrite;
   $postoj =  get_post_types( '', 'object' );
