@@ -99,7 +99,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-btns">
       <div class="container-1080">
         <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
-        <a href="" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
+        <a href="#form" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
     <div class="sec-charge">
@@ -383,7 +383,7 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <div class="sec-form">
+    <div class="sec-form" id="form">
       <div class="container-750">
         <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">

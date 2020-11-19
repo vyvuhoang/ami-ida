@@ -1018,10 +1018,10 @@ body {
 }
 
 .sec-lesson {
-  margin-bottom: 176px;
+  margin-bottom: 116px;
 
   @include SP {
-    margin-bottom: 105px;
+    margin-bottom: 45px;
   }
 
   .bg {
@@ -1163,6 +1163,7 @@ body {
 }
 
 .sec-form {
+  padding-top: 60px;
   margin-bottom: 160px;
 
   @include SP {
