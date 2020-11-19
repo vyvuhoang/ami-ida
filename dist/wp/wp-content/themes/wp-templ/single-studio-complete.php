@@ -2,8 +2,7 @@
 session_start();
 $thisPageName = 'single-studio';
 
-if($actionFlag == 'send') {
-  require(APP_PATH."libs/form/jphpmailer.php");
+if(!empty($_POST['actionFlag']) && $_POST['actionFlag'] == "send") {
   $aMailto = $aMailtoContact;
   if(count($aBccToContact)) $aBccTo = $aBccToContact;
   $from = $fromContact;
@@ -65,9 +64,8 @@ $email_head_ctm_admin
 
 $msgBody
 
----------------------------------------------------------------
-".$email_body_footer."
----------------------------------------------------------------";
+
+";
 
 //お客様用メッセージ
   $body_user = "
@@ -146,7 +144,6 @@ $msgBody
   }
   // ▲ ▲ ▲ END Detect SPAMMER ▼ ▼ ▼ //
 
-
   if($allow_send_email) {
     //////// メール送信
     mb_language("ja");
@@ -174,19 +171,18 @@ $msgBody
   }
 
   $_SESSION['statusFlag'] = 1;
-  header("Location: ".APP_URL."studio/complete/");
+  header("Location: ".get_the_permalink()."complete/");
   exit;
 }
 
-if(!empty($_SESSION['statusFlag'])) unset($_SESSION['statusFlag']);
-else header('location: '.APP_URL);
+if(!empty($_SESSION['statusFlag'])) {
+  unset($_SESSION['statusFlag']);
+  unset($_SESSION['ses_gtime_step2']);
+  unset($_SESSION['ses_from_step2']);
+  unset($_SESSION['ses_step3']);
+} else header('location: '.APP_URL);
 
-$thisPageName = 'single-studio';
 include(APP_PATH."libs/head.php");
-
-unset($_SESSION['ses_gtime_step2']);
-unset($_SESSION['ses_from_step2']);
-unset($_SESSION['ses_step3']);
 ?>
 <meta http-equiv="refresh" content="15; url=<?php echo APP_URL ?>">
 <script type="text/javascript">
@@ -195,7 +191,6 @@ window.onhashchange = function (event) {
   window.location.hash = "#noback";
 };
 </script>
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
 <body id="single-studio" class="single-studio indexThx">

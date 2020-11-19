@@ -62,7 +62,7 @@ if($actionFlag == "confirm") {
       <div class="sec-form">
         <div class="container-750">
           <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
+          <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform">
             <div class="stepImg">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step02SP.svg">
@@ -154,5 +154,5 @@ if($actionFlag == "confirm") {
 </body>
 </html>
 <?php } elseif($actionFlag == "send") {
-  include_once('single-event-complete.php');
+  include_once('single-studio-complete.php');
 } ?>
