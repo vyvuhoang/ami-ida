@@ -222,11 +222,12 @@ body {
 }
 
 .sec-charge {
-  padding-top: 151px;
+  padding-top: 51px;
   margin-bottom: 140px;
-
+  margin-top: 100px;
   @include SP {
-    padding-top: 77px;
+    margin-top: 40px;
+    padding-top: 37px;
     margin-bottom: 83px;
   }
 
@@ -753,9 +754,9 @@ body {
 }
 
 .sec-reason {
-  margin-bottom: 76px;
+  margin-bottom: 26px;
   @include SP{
-    margin-bottom: 35px;
+    margin-bottom: 5px;
   }
   .the-title {
     margin-bottom: 66px;
@@ -842,8 +843,10 @@ body {
 }
 
 .sec-schedule{
+  padding-top: 50px;
   margin-bottom: 150px;
   @include SP{
+    padding-top: 30px;
     margin-bottom: 80px;
   }
   .the-title{
@@ -1018,10 +1021,10 @@ body {
 }
 
 .sec-lesson {
-  margin-bottom: 176px;
+  margin-bottom: 126px;
 
   @include SP {
-    margin-bottom: 105px;
+    margin-bottom: 55px;
   }
 
   .bg {
@@ -1163,7 +1166,8 @@ body {
 }
 
 .sec-form {
-  margin-bottom: 160px;
+  padding-top: 50px;
+  margin-bottom: 110px;
 
   @include SP {
     margin-bottom: 137px;
@@ -1457,6 +1461,7 @@ body {
 }
 
 .sec-access {
+  padding-top: 50px;
   margin-bottom: 146px;
 
   @include SP {

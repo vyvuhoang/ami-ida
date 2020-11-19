@@ -102,7 +102,7 @@ include(APP_PATH.'libs/head.php');
         <a href="" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
-    <div class="sec-charge">
+    <div class="sec-charge" id="anchor01">
       <div class="container-900">
         <h3 class="the-title">プラン・料金のご説明</h3>
         <ul class="lst-price js-lst-price">
@@ -344,7 +344,7 @@ include(APP_PATH.'libs/head.php');
         </ul>
       </div>
     </div>
-    <div class="sec-schedule">
+    <div class="sec-schedule" id="anchor03">
       <div class="container-1080">
         <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <div class="schedule js-schedule"></div>
@@ -383,7 +383,7 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <div class="sec-form">
+    <div class="sec-form" id="anchor04">
       <div class="container-750">
         <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
         <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
@@ -516,7 +516,7 @@ include(APP_PATH.'libs/head.php');
         </form>
       </div>
     </div>
-    <div class="sec-access">
+    <div class="sec-access" id="anchor02">
       <div class="container-1080">
         <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
         <div class="access">

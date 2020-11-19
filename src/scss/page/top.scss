@@ -332,21 +332,21 @@ SLIDE
           }
         }
         .voice-ttl {
-          @include font(20, 32/20, 0.05, bold);
+          @include font(20, 32/20, 0.05em, bold);
           text-align: center;
           @include ffYG();
           margin-bottom: 8px;
           @include SP {
-            @include font(18, 26/18, '');
+            @include font(18, 26/18,0);
           }
         }
         .voice-txt {
-          @include font(15, 27/15, 0.06, 500);
+          @include font(15, 27/15, 0.06em, 500);
           @include ffYG();
         }
         .info {
           @include ffYG();
-          @include font(15, 27/15, 0.06, bold);
+          @include font(15, 27/15, 0.06em, bold);
           color: $lightpurple;
           text-align: right;
 
@@ -452,13 +452,21 @@ INTRO
 ------------------------------------------------------------*/
 .studio{
 	padding: 80px 20px 0;
+  @include max-screen(767px){
+    padding: 70px 15px 0
+  }
 	&__txt{
 		@include font(15,24/15,0.06,500);
 		@include noto;text-align: center;
+    padding-top: 20px;
+    @include max-screen(767px){
+      padding-top: 15px;
+    }
 	}
 	&__select{
 		text-align: center;
 		padding: 40px 0 30px;
+    @include max-screen(767px){padding: 40px 0 0px;}
 		select{
 			width: 360px;@include font(18,34/20,0.1,500);
 			@include noto;border: none;
@@ -468,8 +476,8 @@ INTRO
 			border-radius: 4px;
 			background: $purple url(../../img/top/ico_select.svg) right 13px center/12px auto no-repeat;
 			@include max-screen(767px){
-				font-size: 13px;height: 30px;
-				width: calc(100% - 115px);
+				font-size: 15px;height: 40px;
+				width: calc(100% - 80px);
 				padding: 2px 14px;
 			}
 		}
@@ -478,33 +486,18 @@ INTRO
 /*-----------------------------------------------------------
 INTRO
 ------------------------------------------------------------*/
-/*-----------------------------------------------------------
-INTRO
-------------------------------------------------------------*/
 .sec-faq {
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   .the-title{
-  	margin: 50px 0 50px;
+  	margin: 50px 0 70px;
+    @include max-screen(767px){margin: 40px 0 40px;}
   }
   .wcm{
   	max-width: 940px;
   }
   @include SP {
-    margin-bottom: 95px;
+    margin-bottom: 50px;
   }
-
-  .topic-ttl {
-    margin-bottom: 71px;
-
-    @include PC {
-      letter-spacing: 0;
-    }
-
-    @include SP {
-      margin-bottom: 50px;
-    }
-  }
-
   .lst-faq {
     .item {
       @include ffYM;
@@ -582,3 +575,42 @@ INTRO
     }
   }
 }
+/*-----------------------------------------------------------
+INTRO
+------------------------------------------------------------*/
+.sns{
+  padding-bottom: 80px;
+  @include max-screen(767px){padding-bottom: 50px;}
+  .grBtn{
+    display: flex;justify-content: space-between;
+    width: 100%;max-width: 540px;
+    margin: 50px auto 0;flex-wrap: wrap;
+    @include max-screen(767px){padding: 0 10px;}
+    &__item{
+      width: calc(50% - 10px);
+      border: 2px solid #444;
+      @include font(16,1,0.05,600);
+      display: block;text-align: center;
+      @include max-screen(767px){
+        width: 100%;
+        &:first-child{margin-bottom: 15px;}
+      }
+      p{
+        display: inline-block;
+        padding: 20px 0 20px 38px;
+      }
+      &.ins p{
+        background: url(../../img/common/icon/ico_ins.svg) left center/25px auto no-repeat;
+      }
+      &.twitter p{
+        background: url(../../img/common/icon/ico_twitter.svg) left center/25px auto no-repeat;
+      }
+    }
+  }
+}
+/*-----------------------------------------------------------
+INTRO
+------------------------------------------------------------*/
+/*-----------------------------------------------------------
+INTRO
+------------------------------------------------------------*/
