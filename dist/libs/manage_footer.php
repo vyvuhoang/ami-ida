@@ -1,0 +1,1 @@
+<script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
