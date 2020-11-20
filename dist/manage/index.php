@@ -58,6 +58,12 @@ include(APP_PATH.'libs/manage_head.php');
             <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_id/schedule/" class="btn js-btn">管理ボードを開く</a>
           </div>
         </div>
+        <div class="item">
+          <h3 class="ttl">レッスン内容　登録・管理ボード</h3>
+          <div class="select">
+            <a href="<?php echo APP_URL;?>manage/schedule-format/" class="btn js-btn">レッスン登録画面を開く</a>
+          </div>
+        </div>
       </div>
     </div>
   </main>

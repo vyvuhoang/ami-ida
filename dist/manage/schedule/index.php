@@ -31,19 +31,19 @@ $rp_schedule = [
 //get lesson master data
 $lesson_master_arr = array();
 $wp_lesson_master = new WP_Query();
-$param = array(
+$param_lesson_master = array(
   'post_type'=>'lesson_master',
   'order' => 'DESC',
   'posts_per_page' => '-1',
-  'meta_query' => array(
-    array(
-      'key' => 'lesson_studio',
-      'value' => $studio_id,
-      'compare' => '='
-    )
-  )
+  // 'meta_query' => array(
+  //   array(
+  //     'key' => 'lesson_studio',
+  //     'value' => $studio_id,
+  //     'compare' => '='
+  //   )
+  // )
 );
-$wp_lesson_master->query($param);
+$wp_lesson_master->query($param_lesson_master);
 if($wp_lesson_master->have_posts()){
   $i = 0;
   while($wp_lesson_master->have_posts()){
@@ -54,6 +54,26 @@ if($wp_lesson_master->have_posts()){
       'ttl' => get_the_title(),
       'content' => get_field('lesson_content'),
       'level' => get_field('lesson_level'),
+    );
+  }
+}
+
+//get studio
+$wp_studio = new WP_Query();
+$param_studio = array(
+  'post_type'=>'studio',
+  'order' => 'DESC',
+  'posts_per_page' => '-1',
+);
+$wp_studio->query($param_studio);
+if($wp_studio->have_posts()){
+  $i = 0;
+  while($wp_studio->have_posts()){
+    $wp_studio->the_post();
+    $i++;
+    $studio_arr[$i] = array(
+      'id' => get_the_id(),
+      'ttl' => get_the_title(),
     );
   }
 }
@@ -91,6 +111,34 @@ include(APP_PATH.'libs/manage_head.php');
 <body>
 <?php include(APP_PATH.'libs/manage_header.php');?>
   <main id="wrap">
+    <div class="sec-filter">
+      <div class="lst-filter">
+        <div class="item">
+          <p class="item-ttl">店舗を選択</p>
+          <select name="" id="" class="js-select-redirect">
+            <?php foreach($studio_arr as $studio_key => $studio_val){
+              $isSelected = $studio_id == $studio_val['id'] ? ' selected' : '';
+              ?>
+              <option value="<?php echo APP_URL.'manage/'.$studio_val['id'].'/schedule/';?>"<?php echo $isSelected;?>><?php echo $studio_val['ttl'];?></option>
+            <?php }?>
+          </select>
+        </div>
+        <div class="item">
+          <p class="item-ttl">月を選択</p>
+          <select name="" id="" class="js-select-redirect">
+            <option value="">時間を選択してください</option>
+            <?php for($i=1;$i<=12;$i++){
+                $current_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+                $urlYM = $_GET['ym'];
+                $ym = date("Y").'/'.$i;
+                $isSelected = ($urlYM == $ym) ? ' selected' : '';
+              ?>
+              <option value="<?php echo $current_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected;?>><?php echo date("Y").'/'.$i?></option>
+            <?php }?>
+          </select>
+        </div>
+      </div>
+    </div>
     <form id="form-schedule" class="js-form-schedule" method="POST">
       <div class="sec-create js-new-post">
         <input type="hidden" name="is_create" id="is_create" value="1">
@@ -211,6 +259,8 @@ include(APP_PATH.'libs/manage_head.php');
     deleteRow();
     // addNewRowRP();
     addNewSchedule();
+    yearMonthFilter();
+    selectRedirect();
     // reverseListSchedule();
   })
   function addDatePicker(){
@@ -376,11 +426,53 @@ include(APP_PATH.'libs/manage_head.php');
     })
   }
 
+  function yearMonthFilter(){
+    var ym = getUrlParameter('ym');
+    if(ym !== undefined){
+      console.log(ym);
+      $('.js-rp .js-row').find('.js-datepicker').each(function(){
+        var thisDate = $(this).val(),
+            date = new Date(thisDate),
+            day = date.getDate(),
+            month = date.getMonth()+1,
+            year = date.getFullYear(),
+            thisYM = year+'/'+month;
+        if(ym != thisYM){
+          $(this).closest('.js-row').hide();
+        }
+      });
+    }
+  }
+
+  function selectRedirect(){
+    $('.js-select-redirect').on('change', function () {
+      var url = $(this).val();
+      if (url) {
+        window.location = url;
+      }
+      return false;
+    });
+  }
+
   // function reverseListSchedule(){
   //   var list = $('.js-rp');
   //   var listItems = list.children('.js-row');
   //   list.append(listItems.get().reverse());
   // }
+
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  };
 </script>
 </body>
 </html>

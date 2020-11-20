@@ -26,15 +26,15 @@ Class CSVT{
 	}
 	public function check_mdir($listd = array()){
 		if(!@is_dir($this->folder_root)){
-			mkdir($this->folder_root);
+			mkdir($this->folder_root, 0777);
 		}
 		if(!empty($listd)){
 			if(!(@is_dir($this->folder_root."/".$listd['Y']))){
-				mkdir($this->folder_root."/".$listd['Y']);
+				mkdir($this->folder_root."/".$listd['Y'], 0777);
 			}
-			if(!(@is_dir($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']))){
-        mkdir($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']);
-				$file = fopen($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P']."/".$this->file_name,"a");
+			if(!(@is_dir($this->folder_root."/".$listd['Y']."/".$listd['m']))){
+        mkdir($this->folder_root."/".$listd['Y']."/".$listd['m'], 0777);
+				$file = fopen($this->folder_root."/".$listd['Y']."/".$listd['m']."/".$this->file_name,"a");
         fputcsv($file,array(
           "体験内容",
           "体験希望日",
@@ -50,7 +50,7 @@ Class CSVT{
         fclose($file);
 			}
     }
-		return $this->folder_root."/".$listd['Y']."/".$listd['m']."/".$listd['P'];
+		return $this->folder_root."/".$listd['Y']."/".$listd['m'];
 	}
 	public function write_file($file_path){
 		if(empty($this->datalist)){
