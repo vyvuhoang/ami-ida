@@ -42,4 +42,29 @@ function faq(){
     $(this).siblings('.js-ans').slideToggle()
     .parent().toggleClass('active');
   })
-}
+};
+$('.studio__select select').change( function(){
+  var area = $(this).val();
+  getAjax(area,'');
+});
+function getAjax(area,key){
+  $('#list-studio').css({"opacity": 0});
+  $.ajax({
+    method: 'POST',
+    url: _url+"/libs/ajax-studio-archive.php", 
+    dataType: 'json',
+    data: {
+      area: area,
+      key: key,
+    },
+    success: function(data){
+      console.log(data);
+      $('#list-studio').html('');
+      $('#list-studio').append(data.html);
+      // window.history.pushState({path:_url+'studio/'},'',_url+'studio/?area='+area);
+    },
+    complete: function(){
+      $('#list-studio').css({"opacity": 1});
+    }
+  });
+};

@@ -1,4 +1,6 @@
 <?php
+if(!empty($_GET['area'])) {$_area = $_GET['area'];}
+else{$_area="";}
 $thisPageName = 'studio';
 include(APP_PATH.'libs/head.php');
 ?>
@@ -12,35 +14,114 @@ include(APP_PATH.'libs/head.php');
 		<h1 class="the-title">体験レッスン受付中の<br class="sp">スタジオ一覧</h1>
 		<div class="wcm">
 			<div class="c-search__bar">
-				<input type="text" placeholder="Search..">
-				<div class="c-search__bar--btn"><span>Search</span></div>
+				<div class="btn-clear"></div>
+				<input type="text" placeholder="Search.." id="search_key">
+				<div class="c-search__bar--btn js-search"><span>Search</span></div>
 			</div>
+			<?php $studioarea = array(
+			    'post_type'                => 'studio',
+			    'orderby'                  => 'id',
+			    'order'                    => 'DESC',
+			    'hide_empty'               => 1,
+			    'taxonomy'                 => 'studioarea' ,
+			    'pad_counts'              => false,
+			);
+			$categories = get_categories( $studioarea );?>
 			<div class="c-search__filter">
 				<p class="c-search__filter--ttl">エリア</p>
-				<select class="c-search__filter--select">
-					<option value="">新着順</option>
+				<select class="c-search__filter--select js-select">
+					<option value="">All</option>
+					<?php foreach($categories as $cat){ ?>
+					<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
+					<?php } ?>
 				</select>
 			</div>
 		</div>
 	</div>
-	<div class="lst-studio wcm">
-		<?php for($i=0;$i<6;$i++){ ?>
+	<?php $studio = new WP_Query(array(        
+    'post_type'       => 'studio',
+    'showposts'       => -1,
+    'post_status'     => 'publish',
+    'orderby'         =>'date',
+  ));
+  if ($studio->have_posts()) :?>
+	<div class="lst-studio wcm" id="list-studio">
+		<?php while ($studio->have_posts()) : $studio->the_post();
+       $fields = get_fields();
+    ?>
 		<div class="lst-studio__item">
 			<div class="lst-studio__item--map">
-				<iframe loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.605264550298!2d139.74549521541584!3d35.735925334577544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d95d35120db%3A0x434152d2c43fa62e!2s1-ch%C5%8Dme-38-2%20Komagome%2C%20Toshima%20City%2C%20Tokyo%20170-0003%2C%20Japan!5e0!3m2!1sen!2s!4v1605334591523!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+				<iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
 			</div>
 			<div class="lst-studio__item--info">
-				<p class="ttl">スタジオタイトル</p>
-				<p class="txt">〒170-0003<br>東京都豊島区駒込1-38-2<br>駒込TRビル4階<br>TEL：03-5981-9027<br>FAX：03-5981-9028</p>
+				<p class="ttl"><?php echo get_the_title(); ?></p>
+				<p class="txt">
+					<?php echo $fields['access_zipcode'].'<br>'.$fields['access_address01']; ?>
+					<?php  if(!empty($fields['access_tel'])){ echo '<br>'.$fields['access_address02'];} ?>
+				</p>
+				<?php if(!empty($fields['access_tel'])){ ?>
+				<a href="tel:<?php echo $fields['access_tel']; ?>" class="txt">TEL：<?php echo $fields['access_tel']; ?></a>
+				<?php } if(!empty($fields['access_fax'])){ ?>
+				<p class="txt">FAX：<?php echo $fields['access_fax']; ?></p>
+				<?php } ?>
 				<div class="btn">
-					<a href="<?php echo APP_URL; ?>studio/shinozaki/" class="btn-detail">店舗ページへ</a>
-					<a href="" class="btn-location">地図をみる</a>
+					<a href="<?php the_permalink(); ?>" class="btn-detail">店舗ページへ</a>
+					<a target="_blank" href="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja" class="btn-location">地図をみる</a>
 				</div>
 			</div>
 		</div>
-		<?php } ?>
+		<?php endwhile; ?>
 	</div>
+<?php endif;; ?>
 </main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
+<script>
+	var _url = "<?php echo APP_URL; ?>";
+	var _area = "<?php echo $_area; ?>";
+	$(document).ready(function() {
+	  if(_area != ''){
+	  	getAjax(_area,'');
+	  	$('.js-select option[value="' + _area +'"]').prop("selected", true);
+	  }
+	})
+	function callAjax(){
+		var key = $('#search_key').val();
+		var area = $('.js-select').val();
+		getAjax(area,key);
+	}
+	$('.js-select').change( function(){
+		callAjax();
+	});
+	$('.js-search').click( function(){
+		callAjax();
+	});
+	$('#search_key').change( function(){
+		callAjax();
+	});
+	$('#search_key').keypress( function(event){
+		if ( event.which == 13 ) {callAjax();}
+	});
+	function getAjax(area,key){
+		$('#list-studio').css({"opacity": 0});
+	  $.ajax({
+	    method: 'POST',
+	    url: _url+"/libs/ajax-studio-archive.php", 
+	    dataType: 'json',
+	    data: {
+	    	area: area,
+	    	key: key,
+	    },
+	    success: function(data){
+	      console.log(data);
+	      $('#list-studio').html('');
+	      $('#list-studio').append(data.html);
+	      window.history.pushState({path:_url+'studio/'},'',_url+'studio/?area='+area);
+	    },
+	    complete: function(){
+	    	$('#list-studio').css({"opacity": 1});
+	    }
+	  });
+	};
+</script>	
 </body>
 </html>

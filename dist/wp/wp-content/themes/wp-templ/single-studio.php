@@ -37,9 +37,11 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="breadcrumb wcm" id="breadcrumb">
-      <li><a href="">TOP</a></li>
-      <li><a href="">店舗情報</a></li>
-      <li><p>xxxxxxxx</p></li>
+      <li><a href="<?php echo APP_URL; ?>">
+        <img src="<?php echo APP_ASSETS; ?>img/common/icon/ico_home.svg" alt="HOME" width="24">
+      </a></li>
+      <li><a href="<?php echo APP_URL; ?>studio/">店舗情報</a></li>
+      <li><p><?php echo get_the_title(); ?></p></li>
     </div>
     <div class="c-news">
       <div class="wcm">
@@ -312,36 +314,16 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <div class="sec-reason">
-      <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
-        <ul class="lst-reason">
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature1.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！！初心者の方が安心して受けられるプログラムが多数。</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature2.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature3.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature4.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature5.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-        </ul>
+    <div class="feature wcm">
+      <h3 class="the-title">アミーダ溶岩ホットヨガの特徴</h3>
+      <div class="feature__lst">
+        <?php for($i=0;$i<5;$i++){ ?>
+        <div class="feature__lst--item">
+          <img src="<?php echo APP_ASSETS; ?>img/studio/feature<?php echo $i+1; ?>.jpg" alt="会員様8割がホットヨガ初体験">
+          <p class="ttl">会員様8割がホットヨガ初体験</p>
+          <p class="txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
+        </div>
+      <?php } ?>
       </div>
     </div>
     <div class="sec-schedule" id="anchor03">
@@ -351,7 +333,9 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-lesson">
-      <div class="bg"></div>
+    <!--   <div class="bg">
+        <div class="bg-inner" data-parallax='{"y": -70, "smoothness": 10}'></div>
+      </div> -->
       <div class="container-1170">
         <div class="outside">
           <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>

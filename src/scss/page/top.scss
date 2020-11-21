@@ -165,49 +165,6 @@ INTRO
 	}
 }
 /*-----------------------------------------------------------
-FEATURE
-------------------------------------------------------------*/
-.feature{
-	max-width: 1166px;
-	&__lst{
-		margin-top: 76px;
-		display: flex;justify-content: space-between;
-		flex-wrap: wrap;
-		@include max-screen(767px){margin-top: 44px;}
-		&--item{
-			// width: 46.95%;
-      width:46%;
-			margin-bottom: 32px;
-			@include max-screen(767px){
-				width: 100%;margin-bottom: 26px;
-			}
-			&:nth-child(2n){
-				padding-top: 58px;
-				@include max-screen(767px){padding-top:0;}
-			}
-			img{width: 100%;}
-			.ttl{
-				padding-left: 15px;
-				border-left: 4px solid $purple;
-				@include font(20,34/20,0.05,600);
-				@include noto;
-				margin: 23px 0 13px;
-				@include max-screen(767px){
-					font-size: 16px;line-height: 26px;
-					margin: 18px 0 8px;
-					padding-left: 10px;
-				}
-			}
-			.txt{
-				@include font(15,27/15,0.1,500);
-				@include max-screen(767px){
-					@include font(14,24/14,0.05);
-				}
-			}
-		}
-	}
-}
-/*-----------------------------------------------------------
 SLIDE
 ------------------------------------------------------------*/
 .slide{

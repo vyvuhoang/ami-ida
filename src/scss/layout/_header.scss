@@ -37,7 +37,7 @@ body{
     .inner{
       text-align: right;
       width:100%;
-      max-width: 660px;
+      max-width: 670px;
       padding: 0 10px;
       display: flex;justify-content: flex-end;flex-wrap: wrap;
       @include screen(768px,950px){padding: 0 5px;}
@@ -49,9 +49,9 @@ body{
     .header__studio--item{
       display: inline-block;
       vertical-align: middle;
-      margin: 0 20px;
-      color: #fff;
-      @include font(16,1,0.05,bold);
+      margin: 0 15px;
+      color: #fff;@include noto;
+      @include font(15,1,0.05,600);
       position: relative;
       @include screen(951px,1080px){
         font-size: 14px;
@@ -287,7 +287,7 @@ body{
   }
   .btn-recruit,.btn-studio{
     text-align: center;
-    color: #fff;
+    color: #fff;@include noto;
     @include font(14,20/14,0.06,bold);
     padding: 51px 5px 0;
     @include screen(768px,950px){padding-top: 41px;font-size: 12px;}

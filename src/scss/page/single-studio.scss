@@ -1,10 +1,9 @@
 @charset 'UTF-8';
 @import '../utility/*';
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;700&display=swap');
-@font-face {
-  font-family: CollectionFree;
-  src: url(../../font/CollectionFree.otf);
-}
+// @font-face {
+//   font-family: CollectionFree;
+//   src: url(../../font/CollectionFree.otf);
+// }
 
 @mixin fontCol {
   font-family: CollectionFree;
@@ -12,22 +11,18 @@
 @mixin notoserif {
   font-family: 'Noto Serif JP', serif;
 }
-
 @mixin notosans {
   font-family: 'Noto Sans JP', sans-serif;
 }
-
 $pinkpurple: #920783;
 $lightpurple: #AE70AC;
 $purple1: #6D2E81;
-
 .hid_url{
   display: none;
 }
 body {
-  @include notoserif;
+  // @include notoserif;
 }
-
 .topic-ttl {
   @include font(36, 51/36, 0.1, bold);
   text-align: center;
@@ -36,35 +31,29 @@ body {
     @include font(28, 46/28, '');
   }
 }
-
 .container-1170 {
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
 }
-
 .container-1080 {
   max-width: 1110px;
   padding: 0 15px;
   margin: 0 auto;
 }
-
 .container-900 {
   max-width: 930px;
   padding: 0 15px;
   margin: 0 auto;
 }
-
 .container-750 {
   max-width: 780px;
   padding: 0 15px;
   margin: 0 auto;
 }
-
 .sec-intro {
   background: url(../../img/studio/img01.png) bottom 28% right 5%/auto 75.9% no-repeat, url(../../img/studio/bg01.jpg) center/cover no-repeat;
   overflow: hidden;
-
   @include SP {
     background: url(../../img/studio/img01.png) bottom 30px center/calc(100% - 55px) auto no-repeat, #F8EDF1;
     position: relative;
@@ -77,33 +66,24 @@ body {
       @include transform_c(translate(-50%, -50%));
     }
   }
-
   .inside {
     max-width: 725px;
     padding: 119px 0 174px;
-
     @include SP {
       padding: 65px 0 290px;
       position: relative;
       z-index: 1;
     }
   }
-
   .the-title {
     margin-bottom: 76px;
-
     @include SP {
       margin-bottom: 42px;
     }
   }
-
   .lst-intro {
     font-size: 0;
-
-    @include SP {
-      text-align: center;
-    }
-
+    @include SP {text-align: center;}
     .item {
       width: calc(33.33% - 22px);
       @include aspect-ratio(1, 1);
@@ -114,63 +94,50 @@ body {
       border-radius: 50%;
       color: #fff;
       box-shadow: 0 10px 0 rgba($color: #E0C0DF, $alpha: 0.5);
-
       @include PC {
         &:not(:first-child) {
           margin-left: 32px;
         }
       }
-
       @include SP {
         width: 100%;
         max-width: 220px;
         margin-bottom: 24px;
       }
-
       .txt {
         @include absolute(0, 100%, auto, 50%, '', '', 0);
         text-align: center;
         @include transform_c(translateY(-50%));
       }
-
       .txt01 {
-        @include font(24, 40/24, 0.15, 500);
+        @include font(24, 40/24, 0.15em, 500);
       }
-
       .txt02 {
-        @include font(42, 63/42, 0.06, 500);
+        @include font(42, 63/42, 0.06em, 500);
       }
-
       .price {
-
-        .number,
-        .unit {
+        .number,.unit {
           display: inline-block;
           vertical-align: bottom;
         }
-
         .number {
-          @include font(68, 68/68, 0.06, 500);
+          @include font(68, 68/68, 0.06em, 500);
         }
-
         .unit {
-          @include font(32, 51/32, 0.06, 500);
+          @include font(32, 51/32, 0.06em, 500);
         }
       }
     }
   }
 }
-
 .sec-btns {
   background: url(../../img/studio/bg02.jpg) center/cover no-repeat;
   font-size: 0;
   padding: 110px 15px;
-
   @include SP {
     background-image: url(../../img/studio/bg02_sp.jpg);
     padding: 73px 15px 45px;
   }
-
   .btn {
     width: calc(50% - 30px);
     @include font(18, 20/18, 0.15, 600);
@@ -179,48 +146,33 @@ body {
     text-align: center;
     padding: 42px 15px;
     box-shadow: 8px 8px 0 rgba($color: #000, $alpha: 0.5);
-
     @include PC {
       &:nth-child(2) {
         margin-left: 60px;
       }
     }
-
     @include SP {
       width: 100%;
       padding: 25px 30px;
       text-align: left;
       margin-bottom: 28px;
     }
-
     span {
       position: relative;
       display: inline-block;
       padding-right: 70px;
-
       &:after {
         @include absolute('', 56px, 5px, calc(50% - 2px), '', 0, '');
         background: url(../../img/common/icon/arr_black.svg) center/cover no-repeat;
         transition: 0.5s ease;
       }
     }
-
     @include PC {
-      &:hover {
-        span {
-          &:after {
-            right: -15px;
-          }
-        }
-      }
+      &:hover span:after {right: -15px;}
     }
-
-    &:hover {
-      opacity: 1;
-    }
+    &:hover {opacity: 1;}
   }
 }
-
 .sec-charge {
   padding-top: 51px;
   margin-bottom: 140px;
@@ -230,15 +182,10 @@ body {
     padding-top: 37px;
     margin-bottom: 83px;
   }
-
   .the-title {
     margin-bottom: 54px;
-
-    @include SP {
-      margin-bottom: 36px;
-    }
+    @include SP {margin-bottom: 36px;}
   }
-
   .lst-price {
     .item {
       .item-ttl {
@@ -250,38 +197,30 @@ body {
         position: relative;
         cursor: pointer;
         transition: 0.5s ease;
-
         @include SP {
           background-size: 36px 36px;
           background-position: top 16px left 12px;
           padding: 20px 70px 25px 60px;
         }
-
         @include PC {
-          &:hover {
-            opacity: 0.5;
-          }
+          &:hover {opacity: 0.5;}
         }
-
         &:after {
           @include absolute('', 31px, 13px, calc(50% - 6px), '', 31px, '');
           background: url(../../img/studio/aru_purple.svg) center/cover no-repeat;
           @include transform_c(rotate(180deg));
           transition: 0.5s ease;
-
           @include SP {
             @include absolute('', 26px, 12px, 30px, '', 13px, '');
           }
         }
-
         .txt01 {
-          @include font(18, '', 0.1, bold);
+          @include font(18, '', 0.1em, 600);
+          @include noto;
         }
-
         .txt02 {
           @include font(15, '', 0.1, bold);
           margin-left: 7px;
-
           @include SP {
             margin-left: 0;
             margin-top: 3px;
@@ -289,106 +228,74 @@ body {
           }
         }
       }
-
       .tbl {
         padding-bottom: 16px;
         display: none;
-
-        @include SP {
-          padding-bottom: 9px;
-        }
-
+        @include SP {padding-bottom: 9px; }
         .row {
           @include flex();
           font-size: 0;
-
-          .th,
-          .td {
+          .th,.td {
             padding: 17px 0px;
-
             @include SP {
               padding: 22px 0;
             }
           }
-
-          .th,
-          .td01,
-          .td02 {
+          .th,.td01,.td02 {
             display: inline-block;
             vertical-align: top;
             @include font(15, '', 0.1, bold);
           }
-
           .td {
             display: inline-block;
             vertical-align: top;
             border-bottom: 1px solid #E8CFD8;
           }
-
           .th {
             width: 210px;
             text-align: center;
             border-bottom: 1px solid $pinkpurple;
-
-            @include SP {
-              width: 120px;
-            }
+            @include SP {width: 120px;}
           }
-
           .td {
             width: calc(100% - 210px);
-
             @include SP {
               width: calc(100% - 120px)
             }
           }
-
           .td01 {
             width: 170px;
             text-align: center;
-
             @include SP {
               width: 100%;
               text-align: left;
               margin-bottom: 9px;
             }
           }
-
           .td02 {
             width: calc(100% - 170px);
             font-weight: normal;
-
-            @include SP {
-              width: 100%;
-            }
+            @include SP {width: 100%;}
           }
-
           &:last-child {
-
-            .th,
-            .td {
+            .th,.td {
               border-bottom: 0;
             }
           }
         }
       }
-
       &.active {
-        .item-ttl {
-          &:after {
-            @include transform_c(rotate(0deg));
-          }
+        .item-ttl:after {
+          @include transform_c(rotate(0deg));
         }
       }
     }
   }
-
   .script {
     @include font(13, '', 0.1);
     color: rgba($color: #000, $alpha: 0.5);
     text-align: right;
     margin-top: 12px;
-
     @include SP {
       line-height: 21px;
       text-align: left;
@@ -396,84 +303,65 @@ body {
     }
   }
 }
-
 .sec-stuff {
   margin-bottom: 122px;
-
   @include SP {
     margin-bottom: 22px;
   }
-
   .the-title {
     margin-bottom: 88px;
-
     @include SP {
       margin-bottom: 59px;
     }
   }
-
   .lst-stuff {
     font-size: 0;
-
     .item {
       width: calc(33.33% - 47px);
       display: inline-block;
       vertical-align: top;
-
       @include SP {
         width: 100%;
         margin-bottom: 72px;
       }
-
       @include PC {
         &:not(:nth-child(3n+1)) {
           margin-left: 70px;
         }
       }
-
       .img {
         position: relative;
         margin-bottom: 40px;
-
         @include SP {
           width: calc(100% - 10px);
           margin-bottom: 38px;
         }
-
-        img {
-          width: 100%;
-        }
-
+        img {width: 100%;}
         &:before {
           @include absolute('', 100%, 100%, -10px, '', -10px, '');
           border: 1px solid #000;
         }
       }
-
       .item-ttl {
         @include font(24, '', 0.1, bold);
         position: relative;
         text-align: center;
         padding-bottom: 34px;
         margin-bottom: 30px;
-
         @include SP {
           font-size: 20px;
           padding-bottom: 22px;
           margin-bottom: 19px;
         }
-
         &:before {
           @include absolute('', 50px, 1px, '', 5px, '', calc(50% - 25px));
           background-color: $pinkpurple;
         }
-
         &:after {
           @include absolute('', 25px, 1px, '', 0, '', calc(50% - 13px));
           background-color: $lightpurple;
         }
       }
-
       .item-txt {
         @include ffYM;
         @include font(15, 27/15, 0.1, 500);
@@ -482,62 +370,47 @@ body {
     }
   }
 }
-
 .sec-feeling {
   background-color: #F8EDF1;
   // padding: 118px 0 105px;
   padding: 60px 0 100px;
-
-  @include SP {
-    padding: 80px 0 18px;
-  }
-
+  @include SP {padding: 80px 0 18px;}
   .the-title {
-    // margin-bottom: 97px;
     margin-bottom: 50px;
-
-    @include SP {
-      margin-bottom: 58px;
-    }
+    @include SP {margin-bottom: 58px;}
   }
-
   .lst-feeling {
     font-size: 0;
-    counter-reset: item;
-
+    // counter-reset: item;
     .item {
       width: calc(33.33% - 40px);
       display: inline-block;
       vertical-align: top;
-      counter-increment: item;
-
+      // counter-increment: item;
       @include SP {
         width: 100%;
         margin-bottom: 70px;
       }
-
       @include PC {
         &:not(:first-child) {
           margin-left: 60px;
         }
       }
+      // .img {
+      //   position: relative;
+      //   margin-bottom: 43px;
 
-      .img {
-        position: relative;
-        margin-bottom: 43px;
+      //   &:after {
+      //     @include absolute('0'counter(item),'','','',5px,5px,'');
+      //     @include font(100,70/100,'');
+      //     color: #D35D46;
+      //     @include fontCol;
 
-        &:after {
-          @include absolute('0'counter(item),'','','',5px,5px,'');
-          @include font(100,70/100,'');
-          color: #D35D46;
-          @include fontCol;
-
-          @include SP {
-            right: 30px;
-          }
-        }
-      }
-
+      //     @include SP {
+      //       right: 30px;
+      //     }
+      //   }
+      // }
       .name {
         @include font(22, 35/22, 0.06, bold);
         color: #333;
@@ -546,14 +419,11 @@ body {
     }
   }
 }
-
 .sec-voice {
   padding: 121px 0;
-
   @include SP {
     padding: 108px 0 74px;
   }
-
   .the-title {
     margin-bottom: 74px;
 
@@ -753,98 +623,23 @@ body {
   }
 }
 
-.sec-reason {
-  margin-bottom: 26px;
+.feature{
+  margin-bottom: 80px;
   @include SP{
-    margin-bottom: 5px;
+    margin-bottom: 40px;
   }
   .the-title {
-    margin-bottom: 66px;
-
+    margin-bottom: 80px;
     @include SP {
-      margin-bottom: 33px;
-    }
-  }
-
-  .lst-reason {
-    font-size: 0;
-    counter-reset: item;
-    .item {
-      width: calc(50% - 30px);
-      display: inline-block;
-      vertical-align: top;
-      padding-left: 33px;
-      margin-bottom: 68px;
-      position: relative;
-      counter-increment: item;
-
-      @include SP {
-        width: calc(100% - 17px);
-        padding-left: 17px;
-        margin-bottom: 51px;
-      }
-
-      &:before {
-        @include absolute('point 0'counter(item), auto, auto, 8px, '', '', 8px);
-        @include fontCol;
-        @include font(60,70/60,'');
-        color: #E083A8;
-        @include transform_c(skew(-10deg) rotate(-10deg));
-
-        @include SP {
-          font-size: 43px;
-          top: 0px;
-        }
-      }
-
-      @include PC {
-        &:nth-child(2n) {
-          margin-left: 60px;
-          margin-top: 48px;
-        }
-      }
-
-      .img {
-        margin-bottom: 24px;
-
-        @include SP {
-          margin-bottom: 28px;
-        }
-      }
-
-      .item-ttl {
-        @include ffYM;
-        @include font(24, 36/24, 0.15, 500);
-        padding-left: 16px;
-        border-left: 4px solid #E083A8;
-        margin-bottom: 20px;
-
-        @include SP {
-          @include font(20, 33/20, '');
-          padding-left: 7px;
-          margin-bottom: 10px;
-        }
-      }
-
-      .item-txt {
-        @include ffYM;
-        @include font(15, 24/15, 0.15, 500);
-      }
-
-      // @for $i from 1 through 5 {
-      //   &:nth-child(#{$i}) {
-      //     &:before {
-      //       background-image: url(../../img/studio/txt_point#{$i}.svg);
-      //     }
-      //   }
-      // }
+      margin-bottom: 35px;
     }
   }
 }
 
 .sec-schedule{
-  padding-top: 50px;
-  margin-bottom: 150px;
+  background: rgba(233,233,233,0.1) url(../../img/studio/bg_schedule.jpg) bottom right/auto 250px no-repeat;
+  padding: 50px 20px 150px;
+  min-height: 480px;
   @include SP{
     padding-top: 30px;
     margin-bottom: 80px;
@@ -863,24 +658,20 @@ body {
     }
     .calendar-head{
       font-size: 0;
-      .prev,
-      .next,
-      .txt{
+      background: rgba($color: #E9E9E9, $alpha: 0.5);
+      .prev,.next,.txt{
         display: inline-block;
         vertical-align: top;
       }
-      .prev,
-      .next{
+      .prev,.next{
         position: relative;
         cursor: pointer;
         transition: 0.5s ease;
-        &:hover{
-          opacity: 0.5;
-        }
+        &:hover:before{border-color: $purple;}
         &:before{
           @include absolute('',10px,10px,calc(50% - 4px),'','','');
-          border-top: 3px solid $purple1;
-          border-left: 3px solid $purple1;
+          border-top: 3px solid #000;
+          border-left: 3px solid #000;
           @include SP{
             @include absolute('',7px,7px,calc(50% - 4px),'','','');
             border-width: 2px;
@@ -893,14 +684,12 @@ body {
         &:before{
           @include transform_c(rotate(-45deg));
           left: calc(50% - 10px);
-          @include SP{
-            left: calc(50% - 5px);
-          }
+          @include SP{left: calc(50% - 5px);}
         }
       }
       .txt{
         width: calc(100% - 94px);
-        @include font(15,47/15,0.05);
+        @include font(15,47/15,0.05em);
         text-align: center;
       }
       .next{
@@ -909,24 +698,20 @@ body {
         &:before{
           @include transform_c(rotate(135deg));
           right: calc(50% - 10px);
-          @include SP{
-            right: calc(50% - 5px);
-          }
+          @include SP{right: calc(50% - 5px);}
         }
       }
     }
   }
   .lst-date{
     font-size: 0;
-    margin-bottom: 11px;
-    @include SP{
-      margin-bottom: 9px;
-    }
+    margin-bottom: 15px;
+    @include SP{margin-bottom: 9px;}
     .item{
       width: 14.28%;
       color: #fff;
       text-align: center;
-      background-color: rgba($color: #6B6B6B, $alpha: 0.8);
+      background-color: rgba($color: #000, $alpha: 1);
       display: inline-block;
       @include font(15,'',0.05);
       padding: 12px 10px;
@@ -934,9 +719,7 @@ body {
         font-size: 12px;
         padding: 7px 10px;
       }
-      &:first-child{
-        background-color: $purple1;
-      }
+      &:first-child{background-color: $purple;}
     }
   }
   .out-lst{
@@ -950,18 +733,14 @@ body {
   .lst-schedule{
     @include notosans;
     font-size: 0;
-    @include SP{
-      width: 770px;
-    }
+    @include SP{width: 770px;}
     .col{
       width: 14.28%;
       display: inline-block;
       vertical-align: top;
-      // @include flex();
-      // flex-wrap: wrap;
       .lesson{
-        padding: 0 3px;
-        margin-bottom: 6px;
+        padding: 0 5px;
+        margin-bottom: 10px;
         &:not(.empty){
           cursor: pointer;
           transition: 0.5s ease;
@@ -970,48 +749,57 @@ body {
           }
         }
         .bg{
-          padding: 17px 5px;
+          background: #fff;
+          padding: 15px 5px 10px;
           text-align: center;
-          border: 1px solid $purple1;
+          border: 2px solid #ccc;
           position: relative;
           height: 100%;
+          display: flex;
+          flex-direction: column;
           @include SP{
             padding: 6px 5px;
           }
         }
         .time{
-          @include font(15,'',0.05);
-          margin-bottom: 10px;
+          @include font(13,'',0.1em);
+          order: 2;color: #fff;
+          background: $purple_bg;
+          padding: 1px 10px 3px;
+          border-radius: 4px;
+          margin: 10px auto 5px;
           @include SP{
             font-size: 12px;
             margin-bottom: 7px;
           }
         }
-        .pic{
-          max-width: 64px;
-          width: 100%;
-          margin: 0 auto;
-          @include aspect-ratio(1,1);
-          background: center/cover no-repeat, #E0E0E0;
-          border-radius: 50%;
-          margin-bottom: 10px;
-          @include SP{
-            max-width: 48px;
-            margin-bottom: 5px;
-          }
-        }
+        // .pic{
+        //   width: 100%;
+        //   max-width: 62px;
+        //   margin: 0 auto 12px;
+        //   @include aspect-ratio(1,1);
+        //   border-radius: 50%;
+        //   border: 2px solid #ccc;
+        //   background: url(../../img/studio/avatar.png) center/cover no-repeat !important;
+        //   @include SP{
+        //     max-width: 48px;
+        //     margin-bottom: 5px;
+        //   }
+        // }
         .ttl{
-          @include font(15,'',0.05);
+          @include font(14,1.4,0.05em,600);
+          @include noto;
+          order: 1;
           @include SP{
             font-size: 12px;
           }
         }
         .level{
-          color: $pinkpurple;
+          order: 3;
+          margin-top:3px;
+          color: #FFC700;
           @include font(12,'',0.05);
-          @include SP{
-            font-size: 10px;
-          }
+          @include SP{font-size: 10px;}
         }
         &.disabled{
           .bg{
@@ -1029,48 +817,44 @@ body {
 
 .sec-lesson {
   margin-bottom: 126px;
-
   @include SP {
     margin-bottom: 55px;
   }
-
   .bg {
-    background: $lightpurple;
+    position: relative;
     height: 350px;
     width: 100%;
-
+    overflow: hidden;
+    .bg-inner{
+      width: 100%;height: calc(100% + 70px);
+      background: url(../../img/studio/bg2.jpg) top center/cover no-repeat;
+    }
     @include SP {
       height: 280px;
     }
   }
-
   .the-title {
     margin-bottom: 91px;
-
     @include SP {
       margin-bottom: 80px;
     }
   }
-
   .outside {
+    position: relative;
     background-color: #fff;
-    margin-top: -142px;
+    // margin-top: -110px;
     padding: 59px 0 0;
-
     @include SP {
-      margin-top: -128px;
+      // margin-top: -128px;
       padding: 32px 0 0;
     }
   }
-
   .inside {
     max-width: 876px;
     margin: 0 auto;
   }
-
   .lst-lesson {
     counter-reset: item;
-
     .item {
       font-size: 0;
       margin-bottom: 71px;
