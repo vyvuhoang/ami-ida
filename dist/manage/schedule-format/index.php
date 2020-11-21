@@ -1,6 +1,7 @@
 <?php
 include_once('../../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
+if(isset($_SESSION['logID']) && $_SESSION['logID']){
 include(APP_PATH.'libs/manage_head.php');
 ?>
 <body>
@@ -8,7 +9,7 @@ include(APP_PATH.'libs/manage_head.php');
   <main id="wrap">
     <div class="container">
       <div class="form">
-        <?php 
+        <?php
           // add new or Update
           if(isset( $_POST['postTitle']) ){
             if ( isset( $_GET['post'] ) ){
@@ -45,9 +46,9 @@ include(APP_PATH.'libs/manage_head.php');
             }
           }
         ?>
-        <?php 
+        <?php
           if ( isset( $_GET['post'] ) ) {
-            
+
             if ( $_GET['action'] == 'edit' ){
               $current_post = get_post($_GET['post']);
               $title = $current_post->post_title;
@@ -55,13 +56,13 @@ include(APP_PATH.'libs/manage_head.php');
               $level = get_field('lesson_level',$current_post->ID);
         ?>
             <form action="" id="primaryPostForm" method="POST">
-              
+
               <p>
                 <label for="postTitle">レッスンタイトル</label>
                 <input type="text" name="postTitle" id="postTitle" value="<?php echo $title; ?>" class="required" />
               </p>
-            
-              <p>      
+
+              <p>
                 <label for="postContent">レッスン内容</label>
                 <textarea name="postContent" id="postContent" rows="8" cols="30"><?php echo strip_tags($content); ?></textarea>
               </p>
@@ -74,25 +75,25 @@ include(APP_PATH.'libs/manage_head.php');
                   } ?>
                 </select>
               </p>
-            
+
               <p>
                 <input type="hidden" name="submitted" id="submitted" value="true" />
                 <button type="submit">Update Post</button>
               </p>
-             
+
             </form>
         <?php
             }
           }else{
         ?>
             <form action="" id="primaryPostForm" method="POST">
-              
+
               <p>
                 <label for="postTitle">レッスンタイトル</label>
                 <input type="text" name="postTitle" id="postTitle" value="" class="required" />
               </p>
-            
-              <p>      
+
+              <p>
                 <label for="postContent">レッスン内容</label>
                 <textarea name="postContent" id="postContent" rows="8" cols="30"></textarea>
               </p>
@@ -107,18 +108,18 @@ include(APP_PATH.'libs/manage_head.php');
                   <option value="5">★5</option>
                 </select>
               </p>
-            
+
               <p>
                 <input type="hidden" name="submitted" id="submitted" value="true" />
                 <button type="submit">Add Post</button>
               </p>
-             
+
             </form>
         <?php
           }
          ?>
       </div>
-      
+
       <div class="list">
         <?php
         $query = new WP_Query( array(
@@ -140,7 +141,7 @@ include(APP_PATH.'libs/manage_head.php');
                 <td><?php echo get_the_title(); ?></td>
                 <td><?php echo get_field('lesson_content'); ?></td>
                 <td>
-                  <a href="<?php echo APP_URL ?>manage/schedule-format/?post=<?php echo get_the_ID() ?>&action=edit">Edit</a> 
+                  <a href="<?php echo APP_URL ?>manage/schedule-format/?post=<?php echo get_the_ID() ?>&action=edit">Edit</a>
                   <a href="<?php echo APP_URL ?>manage/schedule-format/?post=<?php echo get_the_ID() ?>&action=delete">Delete</a>
                 </td>
             </tr>
@@ -152,3 +153,7 @@ include(APP_PATH.'libs/manage_head.php');
   <?php include(APP_PATH.'libs/manage_footer.php');?>
 </body>
 </html>
+<?php }else{
+    header('Location: '.APP_URL.'manage/');
+  }
+?>
