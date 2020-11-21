@@ -305,7 +305,7 @@ include(APP_PATH.'libs/manage_head.php');
         inputs.each(function(key, value) {
           var name = $(this).attr('name'),
               val = $(this).val();
-          if(name == 'schedule'){
+          if(name == 'schedule_delete'){
             data['schedule_delete'] = '';
           }else{
             data[name] = val;
