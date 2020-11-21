@@ -7,8 +7,15 @@
     padding-bottom: 35px;
     border-bottom: 1px solid #E2E2E2;
     font-size: 0;
+    @include SP{
+      padding-bottom: 10px;
+    }
     .item{
       display: inline-block;
+      @include SP{
+        display: block;
+        margin-bottom: 20px;
+      }
       .item-ttl,
       select{
         display: inline-block;
@@ -17,6 +24,9 @@
       .item-ttl{
         font-size: 15px;
         font-weight: 500;
+        @include SP{
+          margin-bottom: 5px;
+        }
       }
       select{
         border: 1px solid #E2E2E2;
@@ -37,20 +47,39 @@
       &--studio{
         width: calc(100% - 315px);
         padding-right: 80px;
+        @include SP{
+          width: 100%;
+          padding-right: 0;
+        }
         .item-ttl{
           width: 120px;
+          @include SP{
+            width: 100%;
+          }
         }
         select{
           width: calc(100% - 120px);
+          @include SP{
+            width: 100%;
+          }
         }
       }
       &--date{
         width: 315px;
+        @include SP{
+          width: 100%;
+        }
         .item-ttl{
           width: 100px;
+          @include SP{
+            width: 100%;
+          }
         }
         select{
           width: calc(100% - 100px);
+          @include SP{
+            width: 100%;
+          }
         }
       }
     }
@@ -68,7 +97,8 @@
   }
   .boxes{
     .box{
-      width: 290px;
+      max-width: 290px;
+      width: 100%;
       text-align: center;
       .box-bg{
         padding: 28px 10px;
@@ -112,5 +142,95 @@
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+  }
+  .tbl-outside{
+    overflow: auto;
+  }
+  .tbl-data{
+    width: 1000px;
+    border-collapse: collapse;
+    tr{
+      th, td{
+        border: 1px solid #E2E2E2;
+        text-align: center;
+        vertical-align: middle;
+        padding: 5px 5px;
+        @include font(14,22px,'',500);
+        // &:nth-child(1){
+        //   width: 40px;
+        // }
+        // &:nth-child(2){
+        //   width: 75px;
+        // }
+        // &:nth-child(3){
+        //   width: 90px;
+        // }
+        // &:nth-child(4){
+        //   width: 100px;
+        // }
+        // &:nth-child(5){
+        //   width: 100px;
+        // }
+        // &:nth-child(6){
+        //   width: 38px;
+        // }
+        // &:nth-child(7){
+        //   width: 90px;
+        // }
+        // &:nth-child(8){
+        //   width: 130px;
+        // }
+        // &:nth-child(9){
+        //   width: 100px;
+        // }
+        // &:nth-child(10){
+        //   width: 157px;
+        // }
+        // &:nth-child(11){
+        //   width: 80px;
+        // }
+
+        &:nth-child(1){
+          width: 40px;
+        }
+        &:nth-child(2){
+          width: 95px;
+        }
+        &:nth-child(3){
+          width: 100px;
+        }
+        &:nth-child(4){
+          width: 95px;
+        }
+        &:nth-child(5){
+          width: 90px;
+        }
+        &:nth-child(6){
+          width: 180px;
+        }
+        &:nth-child(7){
+          width: 150px;
+        }
+        // &:nth-child(8){
+        //   width: 130px;
+        // }
+        // &:nth-child(9){
+        //   width: 100px;
+        // }
+        // &:nth-child(10){
+        //   width: 157px;
+        // }
+        // &:nth-child(11){
+        //   width: 80px;
+        // }
+      }
+      th{
+        background-color: #3C3C3C;
+        color: #fff;
+      }
+      td{
+
+      }
+    }
   }
 }

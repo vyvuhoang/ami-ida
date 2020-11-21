@@ -153,7 +153,7 @@ include_once(APP_PATH.'csv/read_write_csv.php');
     //////// メール送信
     mb_language("ja");
     mb_internal_encoding("UTF-8");
-    $timesend = date("Y.m.d H:i",time());
+    $timesend = date("Y/m/d",time());
 
     //////// お客様受け取りメール送信
     $email = new JPHPmailer();
@@ -165,16 +165,13 @@ include_once(APP_PATH.'csv/read_write_csv.php');
     if($email->send()) {
       $new_csv = new CSVT();
       $data_ex = array(array(
-          "{$reg_single_ttl} ",
-          "{$reg_hopedate} {$reg_hopetime}",
-          "{$reg_name} ",
-          "{$reg_nameuser_furigana} ",
-          "{$reg_age} ",
-          "{$reg_tel} ",
-          "{$reg_email} ",
-          "{$reg_method} {$reg_other_method} ",
-          "{$reg_content} ",
-          "{$timesend} "
+        "{$timesend} ",
+        "{$reg_name} ",
+        "{$reg_hopedate}",
+        "{$reg_hopetime}",
+        "{$reg_single_ttl}",
+        "{$reg_instructor}",
+        "{$reg_method}{$reg_other_method}",
       ));
       $ym = explode('/',$reg_hopedate);
       $y = $ym[0];

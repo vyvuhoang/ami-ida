@@ -16,6 +16,7 @@ $reg_url          = (!empty($_POST['url'])) ? htmlspecialchars($_POST['url']) : 
 //お問い合わせフォーム内容
 $reg_studio_slug = (!empty($_POST['studio_slug'])) ? htmlspecialchars($_POST['studio_slug']) : '';
 $reg_single_ttl = (!empty($_POST['single_ttl'])) ? htmlspecialchars($_POST['single_ttl']) : '';
+$reg_instructor = (!empty($_POST['instructor'])) ? htmlspecialchars($_POST['instructor']) : '';
 $reg_hopedate = (!empty($_POST['hopedate'])) ? htmlspecialchars($_POST['hopedate']) : '';
 $reg_hopetime = (!empty($_POST['hopetime'])) ? htmlspecialchars($_POST['hopetime']) : '';
 $reg_name         = (!empty($_POST['nameuser'])) ? htmlspecialchars($_POST['nameuser']) : '';
@@ -129,6 +130,7 @@ if($actionFlag == "confirm") {
 
             <input type="hidden" name="studio_slug" value="<?php echo $reg_studio_slug ?>">
             <input type="hidden" name="single_ttl" value="<?php echo $reg_single_ttl ?>">
+            <input type="hidden" name="instructor" value="<?php echo $reg_instructor ?>">
             <input type="hidden" name="hopedate" value="<?php echo $reg_hopedate ?>">
             <input type="hidden" name="hopetime" value="<?php echo $reg_hopetime ?>">
             <input type="hidden" name="nameuser" value="<?php echo $reg_name ?>">

@@ -2,6 +2,7 @@
 include_once('../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
 $page_ttl = 'レッスンダッシュボード';
+$thisPageName = 'manage-top';
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $wp_studio = new WP_Query();
   $param = array(
@@ -28,7 +29,7 @@ include(APP_PATH.'libs/head.php');
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage.min.css">
 </head>
-<body class="manage-index">
+<body class="manage manage-top">
   <?php include(APP_PATH.'libs/manage_header.php');?>
   <main id="wrap">
     <div class="container-1140">

@@ -1,6 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
+$thisPageName = 'manage-application';
 $page_ttl = '体験予約者管理ボード';
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $request_uri = $_SERVER['REQUEST_URI'];
@@ -11,6 +12,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $defaultYM = date("Y/m");
 
   $cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+  $studio_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[1].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[2].'/';
 
   $flagValidPage = 0;
   //get studio
@@ -102,30 +104,32 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
           </div>
           <div class="sec-data">
             <h3 class="ttl">体験予約者 管理ボード</h3>
-            <table>
-              <?php
-              foreach($csv as $key => $val){
-                if($key == 0){
-              ?>
-                <tr>
-                  <th>No.</th>
-                  <?php foreach($val as $ckey => $cval){?>
-                  <th><?php echo $cval?></th>
-                  <?php }?>
-                </tr>
+            <div class="tbl-outside">
+              <table class="tbl-data">
                 <?php
-                  }else{
+                foreach($csv as $key => $val){
+                  if($key == 0){
                 ?>
-                <tr>
-                  <th><?php echo $key;?></th>
-                  <?php foreach($val as $ckey => $cval){?>
-                  <th><?php echo $cval?></th>
-                  <?php }?>
-                </tr>
-                <?php
-                }?>
-              <?php  }?>
-            </table>
+                  <tr>
+                    <th>No.</th>
+                    <?php foreach($val as $ckey => $cval){?>
+                    <th><?php echo $cval?></th>
+                    <?php }?>
+                  </tr>
+                  <?php
+                    }else{
+                  ?>
+                  <tr>
+                    <td><?php echo $key;?></td>
+                    <?php foreach($val as $ckey => $cval){?>
+                    <td><?php echo $cval?></td>
+                    <?php }?>
+                  </tr>
+                  <?php
+                  }?>
+                <?php  }?>
+              </table>
+            </div>
           </div>
         </div>
       </div>

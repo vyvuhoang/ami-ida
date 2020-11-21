@@ -41,16 +41,14 @@ Class CSVT{
         mkdir($this->folder_root."/".$listd['P']."/".$listd['Y']."/".$listd['m'], 0777);
 				$file = fopen($this->folder_root."/".$listd['P']."/".$listd['Y']."/".$listd['m']."/".$this->file_name,"a");
         fputcsv($file,array(
-          "体験内容",
-          "体験希望日",
+          "申込み日時",
           "お名前",
-          "お名前（ふりがな）",
-          "年齢",
-          "電話番号",
-          "メールアドレス",
-          "アミーダを知ったきっかけ",
-          "ご質問内容",
-          "Time Send")
+          "体験予約日",
+          "開始時間",
+          "レッスン名",
+          "インストラクター",
+          "経由",
+          )
         );
         fclose($file);
 			}

@@ -2,6 +2,7 @@
 include_once('../../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
 $page_ttl = 'レッスン登録フォーム';
+$thisPageName = 'manage-schedule-format';
 
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   // add new or Update
