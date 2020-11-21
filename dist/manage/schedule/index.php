@@ -200,7 +200,7 @@ include(APP_PATH.'libs/manage_head.php');
       <div class="sec-lst-schedule">
         <h3 class="ttl">登録されているレッスン</h3>
         <?php foreach($schedule_fields as $key=> $value){?>
-        <input type="hidden" id="candidate_exp_com_delete" name="candidate_exp_com_delete" value="" class="js-val-row-delete">
+        <input type="hidden" id="schedule_delete" name="schedule_delete" value="" class="js-val-row-delete">
         <div class="js-rp">
           <?php $i = 0;
             if (have_rows($key, $studio_id)) {
