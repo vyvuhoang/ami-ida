@@ -1,0 +1,113 @@
+@charset 'UTF-8';
+@import '../utility/*';
+
+.manage-index{
+  background-color: #F0F0F0;
+}
+.sec-redirect{
+  margin-top: 25px;
+  border-radius: 18px;
+  background-color: #fff;
+  padding: 44px 0 120px;
+  @include SP{
+    border-radius: 10px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+  .lst-redirect{
+    .item{
+      padding-bottom: 35px;
+      &:not(:last-child){
+        border-bottom: 1px solid #E2E2E2;
+        margin-bottom: 30px;
+        @include SP{
+          margin-bottom: 25px;
+        }
+      }
+      @include SP{
+        padding-bottom: 25px;
+      }
+      .ttl{
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 13px;
+        @include SP{
+          font-size: 14px;
+        }
+      }
+      .select{
+        font-size: 0;
+        max-width: 873px;
+        .lbl,
+        select,
+        .btn{
+          display: inline-block;
+          vertical-align: middle;
+        }
+        .lbl{
+          font-size: 15px;
+          font-weight: 500;
+          width: 120px;
+          padding-right: 10px;
+          @include SP{
+            font-size: 13px;
+            width: 85px;
+          }
+        }
+        select{
+          width: calc(100% - 387px);
+          margin-right: 23px;
+          border: 1px solid #E2E2E2;
+          border-radius: 8px;
+          font-size: 15px;
+          font-weight: 500;
+          height: 48px;
+          padding: 5px 30px 5px 15px;
+          @include add_prefix(appearance, none);
+          background: url(../../img/common/icon/ard_grey.svg) center right 17px/14px 8px no-repeat;
+          @include SP{
+            width: calc(100% - 85px);
+            margin-right: 0;
+            background-size: 10px 6px;
+            background-position: center right 10px;
+          }
+        }
+        .btn{
+          width: 244px;
+          background: url(../../img/common/icon/arr_circle_white.svg) center right 17px/20px 20px no-repeat, $pinkpurple;
+          border-radius: 8px;
+          font-size: 15px;
+          font-weight: bold;
+          color: #fff;
+          display: inline-block;
+          padding: 12px 10px;
+          text-align: center;
+          @include SP{
+            width: 100%;
+            display: block;
+            max-width: 244px;
+            margin: 20px auto 0;
+          }
+        }
+      }
+      &--spec{
+        @include PC{
+          font-size: 0;
+          max-width: 873px;
+          margin-top: 37px;
+          .ttl,
+          .select{
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .ttl{
+            width: calc(100% - 244px);
+          }
+          .select{
+            width: 244px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@charset 'UTF-8';
+@import '../utility/*';
+
+body{
+  padding-top: 30px;
+}
+.container-1140 {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container-1000 {
+  max-width: 1030px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.mheader{
+  font-size: 0;
+  .ttl,
+  .right{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .ttl{
+    font-size: 24px;
+    font-weight: bold;
+    width: 350px;
+    @include SP{
+      font-size: 18px;
+      width: 130px;
+    }
+  }
+  .right{
+    text-align: right;
+    width: calc(100% - 350px);
+    @include SP{
+      width: calc(100% - 130px);
+    }
+  }
+  .btn-setting{
+    background: url(../../img/common/icon/ico_setting.svg) center left 24px/18px 18px no-repeat, $pinkpurple;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 12px 10px 12px 32px;
+    width: 190px;
+    text-align: center;
+    @include SP{
+      width: 170px;
+      font-size: 13px;
+      background-size: 14px 14px;
+    }
+  }
+}
