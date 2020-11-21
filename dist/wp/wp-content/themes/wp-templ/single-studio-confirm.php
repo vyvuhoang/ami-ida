@@ -14,6 +14,7 @@ $reg_url          = (!empty($_POST['url'])) ? htmlspecialchars($_POST['url']) : 
 //end always keep this
 
 //お問い合わせフォーム内容
+$reg_studio_slug = (!empty($_POST['studio_slug'])) ? htmlspecialchars($_POST['studio_slug']) : '';
 $reg_single_ttl = (!empty($_POST['single_ttl'])) ? htmlspecialchars($_POST['single_ttl']) : '';
 $reg_hopedate = (!empty($_POST['hopedate'])) ? htmlspecialchars($_POST['hopedate']) : '';
 $reg_hopetime = (!empty($_POST['hopetime'])) ? htmlspecialchars($_POST['hopetime']) : '';
@@ -62,7 +63,7 @@ if($actionFlag == "confirm") {
       <div class="sec-form">
         <div class="container-750">
           <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform" onSubmit="return check()">
+          <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform">
             <div class="stepImg">
               <picture>
                 <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step02SP.svg">
@@ -126,6 +127,7 @@ if($actionFlag == "confirm") {
               </tr>
             </table>
 
+            <input type="hidden" name="studio_slug" value="<?php echo $reg_studio_slug ?>">
             <input type="hidden" name="single_ttl" value="<?php echo $reg_single_ttl ?>">
             <input type="hidden" name="hopedate" value="<?php echo $reg_hopedate ?>">
             <input type="hidden" name="hopetime" value="<?php echo $reg_hopetime ?>">
@@ -154,5 +156,5 @@ if($actionFlag == "confirm") {
 </body>
 </html>
 <?php } elseif($actionFlag == "send") {
-  include_once('single-event-complete.php');
+  include_once('single-studio-complete.php');
 } ?>

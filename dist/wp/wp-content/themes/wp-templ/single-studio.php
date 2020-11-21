@@ -1,6 +1,7 @@
 <?php
 $thisPageName = 'single-studio';
 $thisStudioID = get_the_ID();
+$pslug = $post->post_name;
 if(!empty($_POST['actionFlag'])) {
   include_once('single-studio-confirm.php');
   exit();
@@ -13,7 +14,7 @@ if(!empty($_POST['actionFlag'])) {
 
 include(APP_PATH.'libs/head.php');
 ?>
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/style.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/form/validationEngine.jquery.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
@@ -370,7 +371,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-form" id="anchor04">
       <div class="container-750">
         <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-        <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
+        <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform">
           <div class="stepImg">
             <picture>
               <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step01SP.svg">
@@ -382,16 +383,21 @@ include(APP_PATH.'libs/head.php');
             <tr>
               <th>体験内容</th>
               <td>
-                <p class="txt js-lesson-ttl">レッスンを選択するとオートコンプリート</p>
-                <input type="hidden" name="single_ttl" id="single_ttl" class="input-lesson" value="">
+                <input type="hidden" name="studio_slug" id="studio_slug" value="<?php echo $pslug;?>">
+                <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="" readonly>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
               </td>
             </tr>
             <tr>
               <th>体験希望日</th>
               <td>
-                <p class="txt js-schedule-time">レッスンを選択するとオートコンプリート</p>
-                <input type="hidden" name="hopedate" id="hopedate" class="validate[required] input-date" value="">
-                <input type="hidden" name="hopetime" id="hopetime" class="validate[required] input-time" value="">
+                <p class="half">
+                  <input placeholder="例) 2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required] input-date" value="" readonly>
+                </p>
+                <p class="half">
+                  <input placeholder="例) 10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="" readonly>
+                </p>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
               </td>
             </tr>
             <tr>
@@ -543,66 +549,7 @@ include(APP_PATH.'libs/head.php');
   </main>
 </div>
 
-<div class="sec-schedule-popup js-popup" data-popup="schedule">
-  <!-- <div class="wrap_bg">
-    <div class="wrap_container">
-      <div class="btn_close"></div>
-      <div class="box-info">
-        <div class="each active" data-id="">
-          <div class="img" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
-          <ul class="lst-info">
-            <li class="item">
-              <div class="item-ttl">スタジオ</div>
-              <div class="item-txt">篠崎店</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">日時</div>
-              <div class="item-txt">11/22 (日) 9:50 - 10:35</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">インストラクター</div>
-              <div class="item-txt">竹内健二</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">難易度</div>
-              <div class="item-txt">★★★</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">内容</div>
-              <div class="item-txt">リラックスレッスン内容</div>
-            </li>
-          </ul>
-          <a href="#anchor04" class="btn-box js-btn-box" data-lesson="篠崎店" data-date="2020/10/10" data-time="10:10 - 11:10"><span>体験する</span></a>
-        </div>
-        <div class="each" data-id="">
-          <div class="img" style="background-image: url(<?php echo APP_ASSETS;?>img/studio/img11.jpg);"></div>
-          <ul class="lst-info">
-            <li class="item">
-              <div class="item-ttl">スタジオ</div>
-              <div class="item-txt">篠崎店</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">日時</div>
-              <div class="item-txt">11/22 (日) 9:50 - 10:35</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">インストラクター</div>
-              <div class="item-txt">竹内健二</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">難易度</div>
-              <div class="item-txt">★★★</div>
-            </li>
-            <li class="item">
-              <div class="item-ttl">内容</div>
-              <div class="item-txt">リラックスレッスン内容</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div> -->
-</div>
+<div class="sec-schedule-popup js-popup" data-popup="schedule"></div>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/form/jquery.validationEngine.js"></script>
@@ -619,12 +566,6 @@ include(APP_PATH.'libs/head.php');
       scrollOffset: ($('.header').outerHeight() + 5),
     });
   })
-  function check() {
-    if (!document.form1.check1.checked) {
-      window.alert('「個人情報保護方針に同意する」にチェックを入れて下さい');
-      return false;
-    }
-  }
 </script>
 </body>
 </html>

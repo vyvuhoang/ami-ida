@@ -19,7 +19,7 @@ body{
   >.inner{
     width: 100%;padding: 0 0 0 20px;
     display: flex;justify-content: space-between;
-    align-items: center;
+    align-items: center;position: relative;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     @include screen(768px,950px){padding-left: 10px;}
     @include max-screen(767px){
@@ -27,8 +27,12 @@ body{
     }
   }
   &__studio{
-    width: calc(100% - 395px);
+    position: fixed;
+    top: 0;right: 240px;height: 80px;
+    z-index:99999;
+    width: calc(100% - 415px);
     display: flex;justify-content: flex-end;
+    align-items: center;
     @include screen(768px,950px){width: calc(100% - 305px);}
     @include max-screen(767px){
       width: 100%;
@@ -37,7 +41,7 @@ body{
     .inner{
       text-align: right;
       width:100%;
-      max-width: 670px;
+      max-width: 660px;
       padding: 0 10px;
       display: flex;justify-content: flex-end;flex-wrap: wrap;
       @include screen(768px,950px){padding: 0 5px;}
@@ -49,9 +53,9 @@ body{
     .header__studio--item{
       display: inline-block;
       vertical-align: middle;
-      margin: 0 15px;
-      color: #fff;@include noto;
-      @include font(15,1,0.05,600);
+      margin: 0 20px;
+      color: #fff;
+      @include font(16,1,0.05,bold);
       position: relative;
       @include screen(951px,1080px){
         font-size: 14px;
@@ -71,7 +75,7 @@ body{
        }
       &:before{
         content:"";position: absolute;
-        width: 0;height: 2px;
+        width: 0;height: 1.5px;
         bottom:-10px;left: 50%;
         @include transform_c(translateX(-50%));
         background: #fff;
@@ -287,7 +291,7 @@ body{
   }
   .btn-recruit,.btn-studio{
     text-align: center;
-    color: #fff;@include noto;
+    color: #fff;
     @include font(14,20/14,0.06,bold);
     padding: 51px 5px 0;
     @include screen(768px,950px){padding-top: 41px;font-size: 12px;}

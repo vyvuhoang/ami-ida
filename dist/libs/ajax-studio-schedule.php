@@ -56,39 +56,78 @@
   $min_hour = 24;
   $max_hour = 0;
 
+  // while( have_rows('schedule', $post_id) ){
+  //   the_row();
+  //   $lesson_date = get_sub_field('schedule_date');
+
+  //   if (in_array($lesson_date, $arr_dates)){
+  //     $lesson[$lesson_date] = [];
+  //     while( have_rows('lesson', $post_id) ){
+  //       the_row();
+  //       $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
+  //       $lesson_master = get_sub_field('lesson_master');
+  //       if($lesson_master){
+  //         $lesson_ttl = $lesson_master->post_title;
+  //         $lesson_level = get_field('lesson_level', $lesson_master->ID);
+  //       }
+  //       $lesson_picture = get_sub_field('lesson_picture');
+  //       $lesson_picture = $lesson_picture['url'];
+  //       $lesson_time = get_sub_field('lesson_time');
+  //       $lesson_status = get_sub_field('lesson_status');
+  //       $time_arr = explode(':', $lesson_time);
+  //       $start_hour = $time_arr[0];
+  //       if(intval($start_hour) < $min_hour){
+  //         $min_hour = intval($start_hour);
+  //       }
+  //       if(intval($start_hour) > $max_hour){
+  //         $max_hour = intval($start_hour);
+  //       }
+  //       $lesson_instructor = get_sub_field('lesson_instructor');
+  //       if(!empty($lesson[$lesson_date])){
+  //         array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]);
+  //       }else{
+  //         $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]];
+  //       }
+  //     }
+  //   }
+  // }
+
   while( have_rows('schedule', $post_id) ){
     the_row();
-    $lesson_date = get_sub_field('schedule_date');
-    if (in_array($lesson_date, $arr_dates)){
-      $lesson[$lesson_date] = [];
-      while( have_rows('lesson', $post_id) ){
-        the_row();
-        $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
-        $lesson_master = get_sub_field('lesson_master');
-        if($lesson_master){
+    $lesson_date = get_sub_field('date');
+
+    if (in_array($lesson_date, $arr_dates)) {
+      $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
+      $lesson_master = get_sub_field('lesson_master');
+      if ($lesson_master) {
           $lesson_ttl = $lesson_master->post_title;
           $lesson_level = get_field('lesson_level', $lesson_master->ID);
-        }
-        $lesson_picture = get_sub_field('lesson_picture');
-        $lesson_picture = $lesson_picture['url'];
-        $lesson_time = get_sub_field('lesson_time');
-        $lesson_status = get_sub_field('lesson_status');
-        $time_arr = explode(':', $lesson_time);
-        $start_hour = $time_arr[0];
-        if(intval($start_hour) < $min_hour){
+      }
+      $lesson_time_start = get_sub_field('time_start');
+      $lesson_time_end = get_sub_field('time_end');
+      $time_arr = explode(':', $lesson_time_start);
+      $start_hour = $time_arr[0];
+      if (intval($start_hour) < $min_hour) {
           $min_hour = intval($start_hour);
-        }
-        if(intval($start_hour) > $max_hour){
+      }
+      if (intval($start_hour) > $max_hour) {
           $max_hour = intval($start_hour);
-        }
-        $lesson_instructor = get_sub_field('lesson_instructor');
-        if(!empty($lesson[$lesson_date])){
-          array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]);
-        }else{
-          $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]];
-        }
+      }
+      $lesson_instructor = get_sub_field('instructor');
+      if (!empty($lesson[$lesson_date])) {
+          array_push($lesson[$lesson_date], [$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level]);
+      } else {
+          $lesson[$lesson_date] = [[$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level]];
       }
     }
+  }
+
+  ksort($lesson);
+  foreach($lesson as $key => $val){
+    usort($val, function($a, $b) {
+      return intval(str_replace(':', '', $a[0])) - intval(str_replace(':', '', $b[0]));
+    });
+    $lesson[$key] = $val;
   }
 
   $keyIndex = array_search($date_start,array_keys($lesson));
@@ -104,17 +143,17 @@
         $html .= '<div class="lesson empty"></div>';
       }else{
         $html .= '
-          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].'">
+          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
             <div class="bg">
-              <p class="time" data-date="'.$key.'">'.$value[$j][0].'</p>
+              <p class="time" data-date="'.$key.'">'.$value[$j][0].' - '.$value[$j][1].'</p>
               <div class="pic" style="background-image: url('.$value[$j][4].');"></div>
-              <p class="ttl">'.$value[$j][2].'</p>
-              <p class="level">'.$stars[$value[$j][3]].'</p>
+              <p class="ttl">'.$value[$j][3].'</p>
+              <p class="level">'.$stars[$value[$j][4]].'</p>
             </div>
           </div>
         ';
         $html_popup .= '
-          <div class="each" data-id="'.$key.'-'.$value[$j][0].'">
+          <div class="each" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
             <div class="img" style="background-image: url('.$value[$j][4].');"></div>
             <ul class="lst-info">
               <li class="item">
@@ -123,7 +162,7 @@
               </li>
               <li class="item">
                 <div class="item-ttl">日時</div>
-                <div class="item-txt">'.$key.' '.$value[$j][0].'</div>
+                <div class="item-txt">'.$key.' '.$value[$j][0].' - '.$value[$j][1].'</div>
               </li>
               <li class="item">
                 <div class="item-ttl">インストラクター</div>
@@ -131,14 +170,14 @@
               </li>
               <li class="item">
                 <div class="item-ttl">難易度</div>
-                <div class="item-txt">'.$stars[$value[$j][3]].'</div>
+                <div class="item-txt">'.$stars[$value[$j][4]].'</div>
               </li>
               <li class="item">
                 <div class="item-ttl">内容</div>
                 <div class="item-txt">リラックスレッスン内容</div>
               </li>
             </ul>
-            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][2].'" data-date="'.$key.'" data-time="'.$value[$j][0].'"><span>体験する</span></a>
+            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][3].'" data-date="'.$key.'" data-time="'.$value[$j][0].' - '.$value[$j][1].'"><span>体験する</span></a>
           </div>
         ';
 

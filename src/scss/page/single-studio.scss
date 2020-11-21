@@ -21,7 +21,7 @@ $purple1: #6D2E81;
   display: none;
 }
 body {
-  // @include notoserif;
+  @include notoserif;
 }
 .topic-ttl {
   @include font(36, 51/36, 0.1, bold);
@@ -110,10 +110,10 @@ body {
         @include transform_c(translateY(-50%));
       }
       .txt01 {
-        @include font(24, 40/24, 0.15em, 500);
+        @include font(24, 40/24, 0.15, 500);
       }
       .txt02 {
-        @include font(42, 63/42, 0.06em, 500);
+        @include font(42, 63/42, 0.06, 500);
       }
       .price {
         .number,.unit {
@@ -121,10 +121,10 @@ body {
           vertical-align: bottom;
         }
         .number {
-          @include font(68, 68/68, 0.06em, 500);
+          @include font(68, 68/68, 0.06, 500);
         }
         .unit {
-          @include font(32, 51/32, 0.06em, 500);
+          @include font(32, 51/32, 0.06, 500);
         }
       }
     }
@@ -215,7 +215,7 @@ body {
           }
         }
         .txt01 {
-          @include font(18, '', 0.1em, 600);
+          @include font(18, '', 0.1, 600);
           @include noto;
         }
         .txt02 {
@@ -593,7 +593,7 @@ body {
   }
 
   .btns {
-    max-width: 810px;
+    max-width: 850px;
     margin: 0 auto;
     font-size: 0;
 
@@ -605,7 +605,7 @@ body {
       color: #fff;
       text-align: center;
       padding: 22px 10px;
-      @include font(22, 35/22, 0.06, bold);
+      @include font(20, 35/22, 0.06, bold);
 
       @include PC {
         &:nth-child(2) {
@@ -639,7 +639,7 @@ body {
 .sec-schedule{
   background: rgba(233,233,233,0.1) url(../../img/studio/bg_schedule.jpg) bottom right/auto 250px no-repeat;
   padding: 50px 20px 150px;
-  min-height: 480px;
+  min-height: 580px;
   @include SP{
     padding-top: 30px;
     margin-bottom: 80px;
@@ -787,7 +787,7 @@ body {
         //   }
         // }
         .ttl{
-          @include font(14,1.4,0.05em,600);
+          @include font(14,1.4,0.05,600);
           @include noto;
           order: 1;
           @include SP{
@@ -1185,6 +1185,13 @@ body {
         .txt {
           @include font(15, 24/15, 0.15);
           padding-top: 7px;
+        }
+
+        .note{
+          @include font(12, 18/12, 0.15);
+          padding-top: 5px;
+          color: #e34d4b;
+          display: block;
         }
       }
     }

@@ -12,7 +12,7 @@ FEATURE
 		&--item{
 			// width: 46.95%;
       width:46%;
-			margin-bottom: 50px;
+			margin-bottom: 40px;
 			@include max-screen(767px){
 				width: 100%;margin-bottom: 26px;
 			}
@@ -49,6 +49,7 @@ STUDIO
 	display: flex;justify-content: flex-start;
 	flex-wrap: wrap;margin-top: 20px;
 	@include max-screen(767px){margin-top: 40px;}
+	.wcm{max-width: 1140px;}
 	&__item{
 		width: calc(50% - 15px);
 		border: 1px solid $border;
@@ -83,6 +84,8 @@ STUDIO
 		}
 		&--info{
 			width: calc(100% - 240px);
+			padding-bottom: 38px;
+			position: relative;@include font(0,0,0);
 			@include screen(768px,990px){width: calc(50% - 20px);}
 			@include max-screen(767px){width: 100%;padding-top: 3px;}
 			.ttl{
@@ -101,12 +104,16 @@ STUDIO
 			}
 			.btn{
 				display: flex; justify-content: flex-end;
-				margin-top: 7px;
+				position: absolute;
+				width: 100%;
+				right: 0;bottom: 0;
 				@include screen(768px,990px){
 					justify-content: flex-start;
 					margin-top: 12px;
 				}
-				@include max-screen(767px){margin-top: 8px;}
+				@include max-screen(767px){
+					
+				}
 				a,p{
 					display: inline-block;
 					width: 100%;max-width: 103px;color: #fff;

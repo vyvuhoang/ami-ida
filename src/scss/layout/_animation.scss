@@ -3,6 +3,15 @@ body.menu-open{
 	overflow: hidden;
 	position: fixed;
 	top: 0;left: 0;
+	.header__studio{
+		a{
+			color: #000;
+			&:before{content: none;}
+			@include min-screen(768px){
+			  &:hover{ color: $purple;}
+			}
+		}
+	}
 }
 body.single-studio{
 	.visual .bg{

@@ -57,7 +57,7 @@ include(APP_PATH.'libs/head.php');
 				<p class="ttl"><?php echo get_the_title(); ?></p>
 				<p class="txt">
 					<?php echo $fields['access_zipcode'].'<br>'.$fields['access_address01']; ?>
-					<?php  if(!empty($fields['access_tel'])){ echo '<br>'.$fields['access_address02'];} ?>
+					<?php  if(!empty($fields['access_address02'])){ echo '<br>'.$fields['access_address02'];} ?>
 				</p>
 				<?php if(!empty($fields['access_tel'])){ ?>
 				<a href="tel:<?php echo $fields['access_tel']; ?>" class="txt">TEL：<?php echo $fields['access_tel']; ?></a>

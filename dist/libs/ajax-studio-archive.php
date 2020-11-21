@@ -82,16 +82,16 @@
   $html .= '
     <div class="lst-studio__item">
       <div class="lst-studio__item--map">
-        <iframe class="lazy" width="600" height="450" frameborder="0" data-src="https://maps.google.com/maps?q='.$zipcode.$address.'&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
+        <iframe class="lazy" width="600" height="450" frameborder="0" data-src="https://maps.google.com/maps?q='.$zipcode.$address01.'&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
       </div>
       <div class="lst-studio__item--info">
         <p class="ttl">'.$ttl.'</p>
-        <p class="txt">'.$zipcode.'<br>'.$address.$address02.'</p>
+        <p class="txt">'.$zipcode.'<br>'.$address01.$address02.'</p>
         <a href="tel:'.$tel.'" class="txt">TEL：'.$tel.'</a>
         <p class="txt">FAX：'.$fax.'</p>
         <div class="btn">
           <a href="'.$link.'" class="btn-detail">店舗ページへ</a>
-          <a href="'.$zipcode.$address.'" class="btn-location">地図をみる</a>
+          <a href="'.$zipcode.$address01.'" class="btn-location">地図をみる</a>
         </div>
       </div>
     </div>';
