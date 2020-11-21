@@ -4,7 +4,7 @@ include_once(APP_PATH.'wp/wp-load.php');
 $request_uri = $_SERVER['REQUEST_URI'];
 $uri_parts = explode("/",$request_uri);
 
-$studio_id = $_GET['studio_id'];
+$studio_slug = $_GET['studio_slug'];
 
 $schedule_fields_wp_id = 91;
 $field_key_rp_schedule = array();
@@ -58,6 +58,7 @@ if($wp_lesson_master->have_posts()){
   }
 }
 
+$flagValidPage = 0;
 //get studio
 $wp_studio = new WP_Query();
 $param_studio = array(
@@ -74,42 +75,46 @@ if($wp_studio->have_posts()){
     $studio_arr[$i] = array(
       'id' => get_the_id(),
       'ttl' => get_the_title(),
+      'slug' => $post->post_name,
     );
-  }
-}
-
-
-//ajax action
-session_start();
-if (isset($_POST) && !empty($_POST)) {
-  foreach ($_POST as $key => $value) {
-    switch ($key) {
-      case 'schedule':
-        update_post_meta($studio_id, $key, $value);
-        update_post_meta($studio_id, '_'.$key, $field_key_rp_schedule[$key]);
-        break;
-      case 'is_create':
-        break;
-      default:
-        update_field($key, $value, $studio_id);
-        break;
+    if($studio_slug == $post->post_name){
+      $flagValidPage = 1;
+      $studio_id = get_the_id();
     }
   }
-  // $result = array();
-  // $result['status'] = 'success';
-  // echo json_encode($result);
-  if(!isset($_POST['is_create']) || empty($_POST['is_create'])){
-    return;
-  }
 }
+
+//ajax action
+if(isset($_SESSION['logID']) && $_SESSION['logID']){
+  if($flagValidPage) {
+    if (isset($_POST) && !empty($_POST)) {
+      foreach ($_POST as $key => $value) {
+        switch ($key) {
+          case 'schedule':
+            update_post_meta($studio_id, $key, $value);
+            update_post_meta($studio_id, '_'.$key, $field_key_rp_schedule[$key]);
+            break;
+          case 'is_create':
+            break;
+          default:
+            update_field($key, $value, $studio_id);
+            break;
+        }
+      }
+      // $result = array();
+      // $result['status'] = 'success';
+      // echo json_encode($result);
+      if(!isset($_POST['is_create']) || empty($_POST['is_create'])){
+        return;
+      }
+    }
 
 include(APP_PATH.'libs/manage_head.php');
 ?>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
 </head>
 <body>
-<?php include(APP_PATH.'libs/manage_header.php');?>
+  <?php include(APP_PATH.'libs/manage_header.php');?>
   <main id="wrap">
     <div class="sec-filter">
       <div class="lst-filter">
@@ -248,7 +253,7 @@ include(APP_PATH.'libs/manage_head.php');
     </form>
   </main>
   <?php include(APP_PATH.'libs/manage_footer.php');?>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
   var inputs,
       data = {};
@@ -476,3 +481,11 @@ include(APP_PATH.'libs/manage_head.php');
 </script>
 </body>
 </html>
+<?php
+    }else {
+      header('Location: '.APP_URL.'manage/');
+    }
+  }else{
+    header('Location: '.APP_URL.'manage/');
+  }
+?>

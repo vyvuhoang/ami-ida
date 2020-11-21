@@ -1,24 +1,27 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/app_config.php');
+include_once('../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
-$wp_studio = new WP_Query();
-$param = array(
-  'post_type'=>'studio',
-  'order' => 'DESC',
-  'posts_per_page' => '-1',
-);
-$wp_studio->query($param);
-if($wp_studio->have_posts()){
-  $i = 0;
-  while($wp_studio->have_posts()){
-    $wp_studio->the_post();
-    $i++;
-    $studio_arr[$i] = array(
-      'id' => get_the_id(),
-      'ttl' => get_the_title(),
-    );
+if(isset($_SESSION['logID']) && $_SESSION['logID']){
+  $wp_studio = new WP_Query();
+  $param = array(
+    'post_type'=>'studio',
+    'order' => 'DESC',
+    'posts_per_page' => '-1',
+  );
+  $wp_studio->query($param);
+  if($wp_studio->have_posts()){
+    $i = 0;
+    while($wp_studio->have_posts()){
+      $wp_studio->the_post();
+      $i++;
+      $studio_arr[$i] = array(
+        'id' => get_the_id(),
+        'ttl' => get_the_title(),
+        'slug' => $post->post_name,
+      );
+    }
   }
-}
+
 include(APP_PATH.'libs/manage_head.php');
 ?>
 </head>
@@ -34,13 +37,11 @@ include(APP_PATH.'libs/manage_head.php');
             <p class="lbl">店舗を選択</p>
             <select name="" id="" class="js-choose-studio">
               <option value="">スタジオを選ぶ</option>
-              <?php foreach($studio_arr as $studio_key => $studio_val){
-                $selected = (get_sub_field($rp_key, $studio_id)->ID) == $studio_val['id'] ? ' selected' : '';
-                ?>
-                <option value="<?php echo $studio_val['id'];?>"><?php echo $studio_val['ttl'];?></option>
+              <?php foreach($studio_arr as $studio_key => $studio_val){?>
+                <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
               <?php }?>
             </select>
-            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_id/application/" class="btn js-btn">管理ボードを開く</a>
+            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/application/" class="btn js-btn">管理ボードを開く</a>
           </div>
         </div>
         <div class="item">
@@ -49,13 +50,11 @@ include(APP_PATH.'libs/manage_head.php');
             <p class="lbl">店舗を選択</p>
             <select name="" id="" class="js-choose-studio">
               <option value="">スタジオを選ぶ</option>
-              <?php foreach($studio_arr as $studio_key => $studio_val){
-                $selected = (get_sub_field($rp_key, $studio_id)->ID) == $studio_val['id'] ? ' selected' : '';
-                ?>
-                <option value="<?php echo $studio_val['id'];?>"><?php echo $studio_val['ttl'];?></option>
+              <?php foreach($studio_arr as $studio_key => $studio_val){?>
+                <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
               <?php }?>
             </select>
-            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_id/schedule/" class="btn js-btn">管理ボードを開く</a>
+            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/schedule/" class="btn js-btn">管理ボードを開く</a>
           </div>
         </div>
         <div class="item">
@@ -77,11 +76,16 @@ include(APP_PATH.'libs/manage_head.php');
       $('.js-choose-studio').on('change', function(){
         var el_anchor = $(this).siblings('.js-btn'),
             url = el_anchor.attr('data-url'),
-            studio_id = $(this).val();
-        url = (studio_id != '') ? url.replace('studio_id',studio_id) : 'javascript:void(0)';
+            studio_slug = $(this).val();
+        url = (studio_slug != '') ? url.replace('studio_slug',studio_slug) : 'javascript:void(0)';
         el_anchor.attr('href', url);
       })
     }
   </script>
 </body>
 </html>
+<?php
+  }else{
+    header('Location: '.APP_URL.'manage/login/');
+  }
+?>
