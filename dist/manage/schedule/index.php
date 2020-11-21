@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/app_config.php');
+include_once('../../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
 $request_uri = $_SERVER['REQUEST_URI'];
 $uri_parts = explode("/",$request_uri);

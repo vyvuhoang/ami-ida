@@ -1,5 +1,5 @@
 <?php
-include_once($_SERVER['DOCUMENT_ROOT'].'/app_config.php');
+include_once('../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
 $wp_studio = new WP_Query();
 $param = array(
