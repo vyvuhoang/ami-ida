@@ -6,6 +6,8 @@ $uri_parts = explode("/",$request_uri);
 
 $studio_slug = $_GET['studio_slug'];
 
+$cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+
 $schedule_fields_wp_id = 91;
 $field_key_rp_schedule = array();
 foreach(acf_get_fields($schedule_fields_wp_id) as $val){
@@ -96,16 +98,20 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
             break;
           case 'is_create':
             break;
+          case 'schedule_delete':
+            if ($value != '') {
+              delete_row('schedule', $value+1, $studio_id);
+            }
+            break;
           default:
             update_field($key, $value, $studio_id);
             break;
         }
       }
-      // $result = array();
-      // $result['status'] = 'success';
-      // echo json_encode($result);
       if(!isset($_POST['is_create']) || empty($_POST['is_create'])){
         return;
+      }else{
+        header("Location: ".$cur_url, TRUE, 301);
       }
     }
 
@@ -124,7 +130,7 @@ include(APP_PATH.'libs/manage_head.php');
             <?php foreach($studio_arr as $studio_key => $studio_val){
               $isSelected = $studio_id == $studio_val['id'] ? ' selected' : '';
               ?>
-              <option value="<?php echo APP_URL.'manage/'.$studio_val['id'].'/schedule/';?>"<?php echo $isSelected;?>><?php echo $studio_val['ttl'];?></option>
+              <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/schedule/';?>"<?php echo $isSelected;?>><?php echo $studio_val['ttl'];?></option>
             <?php }?>
           </select>
         </div>
@@ -197,7 +203,7 @@ include(APP_PATH.'libs/manage_head.php');
         <p class="btn-add-new js-add-new">この内容でスケジュールを登録する</p>
         <p class="txt-status js-status"><?php if (isset($_POST) && !empty($_POST)) {echo '登録が完了しました！';}?></p>
       </div>
-      <div class="sec-lst-schedule">
+      <div class="sec-lst-schedule js-lst-schedule">
         <h3 class="ttl">登録されているレッスン</h3>
         <?php foreach($schedule_fields as $key=> $value){?>
         <input type="hidden" id="schedule_delete" name="schedule_delete" value="" class="js-val-row-delete">
@@ -293,21 +299,30 @@ include(APP_PATH.'libs/manage_head.php');
     })
 
     $('.js-form-schedule').on('submit', function() {
+      data = {};
       if($(this).is('.creating')){
         inputs = $(this).find('input, textarea, select');
         inputs.each(function(key, value) {
           var name = $(this).attr('name'),
               val = $(this).val();
-          data[name] = val;
+          if(name == 'schedule'){
+            data['schedule_delete'] = '';
+          }else{
+            data[name] = val;
+          }
         })
       }else{
-        inputs = $('.js-rp').find('input, textarea, select');
+        inputs = $('.js-lst-schedule').find('input, textarea, select');
         inputs.each(function(key, value) {
           var name = $(this).attr('name'),
               val = $(this).val();
-          data[name] = val;
+          if(name == 'schedule'){
+            data['schedule'] = parseInt(val) - 1;
+          }else{
+            data[name] = val;
+          }
         })
-        data['schedule'] = parseInt($('input[name=schedule]').val()) - 1;
+
         $.ajax({
           method: 'POST',
           dataType: 'json',
@@ -351,7 +366,7 @@ include(APP_PATH.'libs/manage_head.php');
       var size = $('.js-rp .js-row').length + 1,
           pos = $(this).closest('.js-row').attr('data-row');
       $(this).closest('.js-row').remove();
-      $('.js-val-row-delete').attr('value', $('.js-val-row-delete').attr('value') + ' ' + pos);
+      $('.js-val-row-delete').attr('value', pos);
       $('.js-number-rp').attr('value', size - 1);
       var i = 0;
       $('.js-rp .js-row').each(function(){
