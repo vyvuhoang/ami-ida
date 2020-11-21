@@ -9,19 +9,21 @@ Class CSVT{
 	private $file_name = "data_entry.csv";
 	private $datalist = array();
 
-	public function export_csv($reg_studio_slug = '', $list = array()){
+	public function export_csv($reg_studio_slug = '', $y = '', $m, $list = array()){
 		if(empty($list)){
 			return;
 		}
 		$this->datalist = $list;
-		$this->write_file($this->create_month($reg_studio_slug));
+		$this->write_file($this->create_month($reg_studio_slug, $y, $m));
 	}
-	public function create_month($reg_studio_slug){
+	public function create_month($reg_studio_slug, $y, $m){
     $listd = array();
     $time = time();
     $listd['P'] = $reg_studio_slug;
-		$listd['Y'] = date('Y',$time);
-		$listd['m'] = date('m',$time);
+		$listd['Y'] = $y;
+		$listd['m'] = $m;
+		// $listd['Y'] = date('Y',$time);
+    // $listd['m'] = date('m',$time);
 		return $this->check_mdir($listd);
 	}
 	public function check_mdir($listd = array()){

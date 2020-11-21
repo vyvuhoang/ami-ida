@@ -400,18 +400,20 @@ include(APP_PATH.'libs/head.php');
               <th>体験内容</th>
               <td>
                 <input type="hidden" name="studio_slug" id="studio_slug" value="<?php echo $pslug;?>">
-                <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="">
+                <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="" readonly>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
               </td>
             </tr>
             <tr>
               <th>体験希望日</th>
               <td>
                 <p class="half">
-                  <input placeholder="2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required] input-date" value="">
+                  <input placeholder="例) 2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required] input-date" value="" readonly>
                 </p>
                 <p class="half">
-                  <input placeholder="10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="">
+                  <input placeholder="例) 10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="" readonly>
                 </p>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
               </td>
             </tr>
             <tr>

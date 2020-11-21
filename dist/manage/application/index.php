@@ -6,7 +6,12 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $uri_parts = explode("/",$request_uri);
 
   $studio_slug = $_GET['studio_slug'];
+  $urlYM = isset($_GET['ym']) && !empty($_GET['ym']) ? $_GET['ym'] : '';
+  $defaultYM = date("Y/m");
 
+  $cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+
+  $flagValidPage = 0;
   //get studio
   $wp_studio = new WP_Query();
   $param_studio = array(
@@ -25,45 +30,93 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         'ttl' => get_the_title(),
         'slug' => $post->post_name,
       );
+      if($studio_slug == $post->post_name){
+        $flagValidPage = 1;
+        $studio_id = get_the_id();
+      }
     }
   }
   if($flagValidPage) {
-    include(APP_PATH.'libs/manage_head.php');
+    if($urlYM) {
+      $csv = [];
+      $csv_pname = APP_PATH.'csv/'.$studio_slug.'/'.$urlYM.'/data_entry.csv';
+      if (file_exists($csv_pname)) {
+        $file = fopen($csv_pname, 'r');
+        while (($line = fgetcsv($file)) !== FALSE) {
+          $csv[] = $line;
+        }
+        fclose($file);
+      }
+      include(APP_PATH.'libs/manage_head.php');
 ?>
 </head>
 <body>
-  <?php include(APP_PATH.'libs/manage_header.php');?>
+  <?php include(APP_PATH.'libs/manage_header.php'); ?>
   <main id="wrap">
     <div class="sec-filter">
       <div class="lst-filter">
         <div class="item">
           <p class="item-ttl">店舗を選択</p>
           <select name="" id="" class="js-select-redirect">
-            <?php foreach($studio_arr as $studio_key => $studio_val){
-              $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : '';
-              ?>
-              <option value="<?php echo APP_URL.'manage/'.$studio_val['id'].'/application/';?>"<?php echo $isSelected;?>><?php echo $studio_val['ttl'];?></option>
-            <?php }?>
+            <?php foreach ($studio_arr as $studio_key => $studio_val) {
+            $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
+              <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/application/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
+            <?php
+        } ?>
           </select>
         </div>
         <div class="item">
           <p class="item-ttl">月を選択</p>
           <select name="" id="" class="js-select-redirect">
             <option value="">時間を選択してください</option>
-            <?php for($i=1;$i<=12;$i++){
-                $current_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
-                $urlYM = $_GET['ym'];
-                $ym = date("Y").'/'.$i;
-                $isSelected = ($urlYM == $ym) ? ' selected' : '';
-              ?>
-              <option value="<?php echo $current_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected;?>><?php echo date("Y").'/'.$i?></option>
-            <?php }?>
+            <?php for ($i=1;$i<=12;$i++) {
+              $ym = date("Y").'/'.$i;
+              $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
+              <option value="<?php echo $cur_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected; ?>><?php echo date("Y").'/'.$i?></option>
+            <?php
+        } ?>
           </select>
         </div>
       </div>
     </div>
+    <div class="sec-num-application">
+      <h3 class="ttl">体験予約状況</h3>
+      <div class="boxs">
+        <div class="box">
+          <h4 class="box-ttl">体験レッスン申込み数 </h4>
+          <p class="box-num"><?php echo count($csv) == 0 ? count($csv) : count($csv) - 1;?>人</p>
+        </div>
+      </div>
+    </div>
+    <div class="sec-data">
+      <h3 class="ttl">体験予約者 管理ボード</h3>
+      <table>
+        <?php
+        foreach($csv as $key => $val){
+          if($key == 0){
+        ?>
+          <tr>
+            <th>No.</th>
+            <?php foreach($val as $ckey => $cval){?>
+            <th><?php echo $cval?></th>
+            <?php }?>
+          </tr>
+          <?php
+            }else{
+          ?>
+          <tr>
+            <th><?php echo $key;?></th>
+            <?php foreach($val as $ckey => $cval){?>
+            <th><?php echo $cval?></th>
+            <?php }?>
+          </tr>
+          <?php
+          }?>
+        <?php  }?>
+      </table>
+    </div>
   </main>
-  <?php include(APP_PATH.'libs/manage_footer.php');?>
+  <?php include(APP_PATH.'libs/manage_footer.php'); ?>
   <script>
     $(document).ready(function() {
       selectRedirect();
@@ -81,6 +134,11 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
 </body>
 </html>
 <?php
+    }else{
+      header('Location: '.$cur_url.'?ym='.$defaultYM);
+    }
+  }else{
+    header('Location: '.APP_URL.'manage/');
   }
 }else{
   header('Location: '.APP_URL.'manage/');
