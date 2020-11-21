@@ -1,13 +1,10 @@
 <?php
-$thisPageName = 'managelogin';
-include_once(dirname(dirname(dirname(__FILE__))) . '/app_config.php');
-include_once(APP_PATH.'wp/wp-load.php');
-session_start();
+include_once('../../wp/wp-load.php');
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   header('Location: '.APP_URL);
-  exit;
 }else{
 if(isset($_POST['studio_account_email'], $_POST['studio_account_password'])){
+  $login = array();
   $studio_account_email = $_POST['studio_account_email'];
   $studio_account_password = $_POST['studio_account_password'];
   $studio_accounts = get_posts(array(
@@ -23,11 +20,11 @@ if(isset($_POST['studio_account_email'], $_POST['studio_account_password'])){
     )
   ));
   if($studio_accounts){
-    $thisStudioAccount = $studio_accounts[0];
-    $hashed_password = get_field('studio_account_password', $thisStudioAccount->ID);
-    if(password_verify($studio_account_password,$hashed_password)){
+    $thisstudio_account = $studio_accounts[0];
+    $hashed_password = get_field('studio_account_password', $thisstudio_account->ID);
+    if($studio_account_password == $hashed_password){
       $success = 1;
-      $studioAccountID = $thisStudioAccount->ID;
+      $studio_accountID = $thisstudio_account->ID;
     }else{
       $success = 0;
     }
@@ -35,61 +32,45 @@ if(isset($_POST['studio_account_email'], $_POST['studio_account_password'])){
     $success = 0;
   }
 
-  $login = array();
   $login['success'] = $success;
-  $login['studioAccountID'] = $studioAccountID;
+  $login['logID'] = $studio_accountID;
 
   echo json_encode($login);
-  $_SESSION['studioAccountID'] = strval($studioAccountID);
-  $_SESSION['studioEmail'] = get_field('studio_account_email', $thisStudioAccount->ID);
+  $_SESSION['logID'] = strval($studio_accountID);
+  $_SESSION['logName'] = get_field('studio_account_name', $thisstudio_account->ID);
+  $_SESSION['logEmail'] = get_field('studio_account_email', $thisstudio_account->ID);
+
   return;
 }
-include(APP_PATH.'libs/head.php');
+include(APP_PATH.'libs/manage_head.php');
 ?>
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/top.min.css">
+<!-- <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/login.min.css"> -->
 </head>
-<body id="top" class='top'>
-<?php include(APP_PATH.'libs/header.php'); ?>
-<div id="wrap">
-  <main>
-    <div class="page-login c-pagelogin bgBlue">
-      <div class="wcm">
-        <form class="form-login" name="login-form">
-          <div class="bgWhite">
-            <p class="c-ttl">会員ログイン</p>
-            <div class="tbl">
-              <div class="tbl__row">
-                <p class="c-txt">メールアドレス</p>
-                <input type="email" id="studio_account_email" name="studio_account_email" class="c-input">
-              </div>
-              <div class="tbl__row">
-                <p class="c-txt">パスワード</p>
-                <input type="password" id="studio_account_password" name="studio_account_password" class="c-input">
-              </div>
-              <div class="tbl__row">
-                <label class="c-checkbox">
-                    <input type="checkbox">
-                    <span class="txt-checkbox c-txt">次回から自動でログインする</span>
-                </label>
-                <p class="tbl__row--note">パスワードを忘れた方はこちら</p>
-              </div>
-              <button type="submit" class="c-btn c-btn--blue1">ログインする</button>
-              <div class="re">
-                <p class="re__ttl">会員登録がまだの方</p>
-                <p class="re__txt">1分でカンタン!会員登録(無料)すれば、仕事探しや転職活動が、さらに便利に!</p>
-                <a href="<?php echo APP_URL.'user/register/'?>" class="c-btn c-btn--blue2">無料会員登録はこちら</a>
-              </div>
+<body>
+<?php include(APP_PATH.'libs/manage_header.php');?>
+<main id="wrap">
+  <div class="page-login bgBlue">
+    <div class="wcm">
+      <form class="form-login" name="login-form">
+        <div class="bgWhite">
+          <p class="c-ttl">アカウント設定・編集</p>
+          <div class="tbl">
+            <div class="tbl__row">
+              <p class="c-txt">メールアドレス</p>
+              <input type="text" id="studio_account_email" name="studio_account_email" class="c-input">
             </div>
+            <div class="tbl__row">
+              <p class="c-txt">パスワード</p>
+              <input type="password" id="studio_account_password" name="studio_account_password" class="c-input">
+            </div>
+            <button type="submit" class="c-btn c-btn--blue1">ログインする</button>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
-  </main>
-</div>
-<?php include(APP_PATH.'libs/footer.php'); ?>
-<script src="<?php echo APP_ASSETS ?>js/page/top.min.js"></script>
-</body>
-</html>
+  </div>
+</main>
+<?php include(APP_PATH.'libs/manage_footer.php');?>
 <script>
   $(document).ready(function(){
     checkLogin();
@@ -107,7 +88,7 @@ include(APP_PATH.'libs/head.php');
         if(data.success == 0){
           alert('Wrong email or password');
         }else{
-          window.location.href = '/user/'+data.logID+'/'
+          window.location.href = '/manage/'
         }
       })
       return false;
