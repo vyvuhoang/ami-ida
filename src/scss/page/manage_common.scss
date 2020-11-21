@@ -31,7 +31,7 @@ body{
   .ttl{
     font-size: 24px;
     font-weight: bold;
-    width: 350px;
+    width: 370px;
     padding-left: 12px;
     border-left: 8px solid #000;
     @include SP{
@@ -41,7 +41,7 @@ body{
   }
   .right{
     text-align: right;
-    width: calc(100% - 350px);
+    width: calc(100% - 370px);
     @include SP{
       width: calc(100% - 130px);
     }
