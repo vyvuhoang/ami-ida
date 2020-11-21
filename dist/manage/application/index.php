@@ -1,6 +1,7 @@
 <?php
 include_once($_SERVER['DOCUMENT_ROOT'].'/app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
+$page_ttl = '体験予約者管理ボード';
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $request_uri = $_SERVER['REQUEST_URI'];
   $uri_parts = explode("/",$request_uri);
@@ -47,76 +48,90 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         }
         fclose($file);
       }
-      include(APP_PATH.'libs/manage_head.php');
+      include(APP_PATH.'libs/head.php');
 ?>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_application.min.css">
 </head>
-<body>
+<body class="manage application">
   <?php include(APP_PATH.'libs/manage_header.php'); ?>
   <main id="wrap">
-    <div class="sec-filter">
-      <div class="lst-filter">
-        <div class="item">
-          <p class="item-ttl">店舗を選択</p>
-          <select name="" id="" class="js-select-redirect">
-            <?php foreach ($studio_arr as $studio_key => $studio_val) {
-            $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
-              <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/application/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
-            <?php
-        } ?>
-          </select>
-        </div>
-        <div class="item">
-          <p class="item-ttl">月を選択</p>
-          <select name="" id="" class="js-select-redirect">
-            <option value="">時間を選択してください</option>
-            <?php for ($i=1;$i<=12;$i++) {
-              $ym = date("Y").'/'.$i;
-              $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
-              <option value="<?php echo $cur_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected; ?>><?php echo date("Y").'/'.$i?></option>
-            <?php
-        } ?>
-          </select>
+    <div class="container-1140">
+      <div class="sec-bg">
+        <div class="container-1000">
+          <div class="sec-filter">
+            <div class="lst-filter">
+              <div class="item item--studio">
+                <p class="item-ttl">店舗を選択</p>
+                <select name="" id="" class="js-select-redirect">
+                  <?php foreach ($studio_arr as $studio_key => $studio_val) {
+                  $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
+                    <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/application/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
+                  <?php
+              } ?>
+                </select>
+              </div>
+              <div class="item item--date">
+                <p class="item-ttl">月を選択</p>
+                <select name="" id="" class="js-select-redirect">
+                  <option value="">時間を選択してください</option>
+                  <?php for ($i=1;$i<=12;$i++) {
+                    $ym = date("Y").'/'.$i;
+                    $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
+                    <option value="<?php echo $cur_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected; ?>><?php echo date("Y").'/'.$i?></option>
+                  <?php
+              } ?>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="sec-num-application">
+            <h3 class="ttl">体験予約状況</h3>
+            <div class="boxes">
+              <div class="box">
+                <div class="box-bg">
+                  <h4 class="box-ttl">体験レッスン申込み数 </h4>
+                  <p class="box-num">
+                    <span class="num"><?php echo count($csv) == 0 ? count($csv) : count($csv) - 1;?></span>
+                    <span class="unit">人</span>
+                  </p>
+                </div>
+                <span class="note">※体験レッスンの当月の申込み総数を表示</span>
+              </div>
+            </div>
+          </div>
+          <div class="sec-data">
+            <h3 class="ttl">体験予約者 管理ボード</h3>
+            <table>
+              <?php
+              foreach($csv as $key => $val){
+                if($key == 0){
+              ?>
+                <tr>
+                  <th>No.</th>
+                  <?php foreach($val as $ckey => $cval){?>
+                  <th><?php echo $cval?></th>
+                  <?php }?>
+                </tr>
+                <?php
+                  }else{
+                ?>
+                <tr>
+                  <th><?php echo $key;?></th>
+                  <?php foreach($val as $ckey => $cval){?>
+                  <th><?php echo $cval?></th>
+                  <?php }?>
+                </tr>
+                <?php
+                }?>
+              <?php  }?>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="sec-num-application">
-      <h3 class="ttl">体験予約状況</h3>
-      <div class="boxs">
-        <div class="box">
-          <h4 class="box-ttl">体験レッスン申込み数 </h4>
-          <p class="box-num"><?php echo count($csv) == 0 ? count($csv) : count($csv) - 1;?>人</p>
-        </div>
-      </div>
-    </div>
-    <div class="sec-data">
-      <h3 class="ttl">体験予約者 管理ボード</h3>
-      <table>
-        <?php
-        foreach($csv as $key => $val){
-          if($key == 0){
-        ?>
-          <tr>
-            <th>No.</th>
-            <?php foreach($val as $ckey => $cval){?>
-            <th><?php echo $cval?></th>
-            <?php }?>
-          </tr>
-          <?php
-            }else{
-          ?>
-          <tr>
-            <th><?php echo $key;?></th>
-            <?php foreach($val as $ckey => $cval){?>
-            <th><?php echo $cval?></th>
-            <?php }?>
-          </tr>
-          <?php
-          }?>
-        <?php  }?>
-      </table>
     </div>
   </main>
-  <?php include(APP_PATH.'libs/manage_footer.php'); ?>
+  <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script>
     $(document).ready(function() {
       selectRedirect();

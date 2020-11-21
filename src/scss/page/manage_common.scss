@@ -2,7 +2,12 @@
 @import '../utility/*';
 
 body{
-  padding-top: 30px;
+  padding-top: 50px;
+  padding-bottom: 80px;
+  @include SP{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 .container-1140 {
   max-width: 1170px;
@@ -27,6 +32,8 @@ body{
     font-size: 24px;
     font-weight: bold;
     width: 350px;
+    padding-left: 12px;
+    border-left: 8px solid #000;
     @include SP{
       font-size: 18px;
       width: 130px;
@@ -54,5 +61,22 @@ body{
       font-size: 13px;
       background-size: 14px 14px;
     }
+  }
+}
+
+.manage{
+  background-color: #F0F0F0;
+}
+
+.sec-bg{
+  margin-top: 25px;
+  border-radius: 18px;
+  background-color: #fff;
+  padding: 50px 0 120px;
+  @include SP{
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px 0;
+    margin-bottom: 50px;
   }
 }
