@@ -56,7 +56,6 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
           }
         }
         fclose($file);
-        var_dump($notExpired);
       }
       include(APP_PATH.'libs/head.php');
 ?>
