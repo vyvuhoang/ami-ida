@@ -52,19 +52,19 @@ STUDIO
 	.wcm{max-width: 1140px;}
 	&__item{
 		width: calc(50% - 15px);
-		border: 1px solid $border;
+		border: 1px solid rgba(0,0,0,0.2);
 		padding: 11px;
 		display: flex;justify-content: space-between;
 		margin-bottom: 30px;flex-wrap: wrap;
 		@include screen(768px,990px){width: 100%;padding:20px;}
 		@include max-screen(767px){
-			width: calc(50% - 7.5px);
-			padding: 7px;margin-bottom: 15px;
+			width: calc(50% - 5px);
+			padding: 7px;margin-bottom: 10px;
 		}
 		&:nth-child(2n+1){
 			margin-right: 30px;
 			@include screen(768px,990px){margin-right:0;}
-			@include max-screen(767px){margin-right: 15px;}
+			@include max-screen(767px){margin-right: 10px;}
 		}
 		&--map{
 			width: 218px;
@@ -89,11 +89,12 @@ STUDIO
 			@include screen(768px,990px){width: calc(50% - 20px);}
 			@include max-screen(767px){width: 100%;padding-top: 3px;}
 			.ttl{
-				@include font(20,1.45,0.06,500);
+				@include font(20,1.45,0.06,700);
 				@include noto;margin-bottom: 2px;
 				@include screen(768px,990px){margin-top: -5px;}
 				@include max-screen(767px){
-					font-size: 14px;line-height: 25px;
+					font-size: 13px;line-height: 25px;
+					letter-spacing: 0;
 				}
 			}
 			.txt{

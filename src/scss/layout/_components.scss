@@ -4,8 +4,9 @@
 	padding-bottom: 18px;
 	@include noto;text-align: center;
 	position: relative;
+	@include screen(768px,1024px){font-size: 24px;}
 	@include max-screen(767px){
-		font-size: 24px;padding-bottom: 16px;
+		font-size: 22px;padding-bottom: 16px;
 	}
 	&:before,&:after{
 		content: "";position:absolute;
@@ -46,8 +47,10 @@ a.c-btn,.c-btn{
 		}
 	}
 	@include max-screen(767px){
-		font-size: 14px;padding: 6px 25px 9px 10px;
-		max-width: 180px;
+		font-size: 14px;
+		// padding: 6px 25px 9px 10px;
+		padding: 9px 25px 11px 10px;
+		max-width: 260px;
 	}
 	&:before,&:after{
 		right:22px;
