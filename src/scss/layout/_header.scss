@@ -35,8 +35,10 @@ body{
     align-items: center;
     @include screen(768px,950px){width: calc(100% - 305px);}
     @include max-screen(767px){
-      width: 100%;
-      margin: 0 0 -25px;
+      width: 100%; display: block;
+      position: static !important;
+      padding: 0;
+      margin: 0 0 -20px;height: auto;
     }
     .inner{
       text-align: right;

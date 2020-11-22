@@ -22,6 +22,10 @@ include(APP_PATH.'libs/head.php');
 <body id="single-studio" class="single-studio">
 <?php include(APP_PATH.'libs/header.php'); ?>
 <div id="wrap">
+  <?php if (have_posts()) :
+    while (have_posts()) : the_post();
+    $fields = get_fields();
+  ?>
   <main>
     <div class="visual">
       <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
@@ -460,22 +464,25 @@ include(APP_PATH.'libs/head.php');
         <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.604743966393!2d139.74546941539734!3d35.7359381345767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d77608f7d37%3A0xe6baada2046b743e!2z5rq25bKp44Ob44OD44OI44Oo44Ks44K544K_44K444KqIOOCouODn-ODvOODgOmnkui-vOW6lw!5e0!3m2!1sen!2s!4v1605192912814!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
           </div>
           <div class="info">
             <div class="inside">
               <div class="row">
                 <div class="th">所在地</div>
-                <div class="td">〒170-0003 <br class="pc">東京都豊島区駒込1-38-2 <br class="pc">駒込TRビル4階</div>
+                <div class="td"><?php echo $fields['access_zipcode'].'<br>'.$fields['access_address01']; ?><?php  if(!empty($fields['access_address02'])){ echo '<br>'.$fields['access_address02'];} ?></div>
               </div>
+              <?php if(!empty($fields['access_tel'])){ ?>
               <div class="row">
                 <div class="th">TEL</div>
-                <div class="td">03-5981-9027</div>
+                <div class="td"><?php echo $fields['access_tel']; ?></div>
               </div>
+              <?php } if(!empty($fields['access_fax'])){ ?>
               <div class="row">
                 <div class="th">FAX</div>
-                <div class="td">03-5981-9028</div>
+                <div class="td"><?php echo $fields['access_fax']; ?></div>
               </div>
+              <?php } ?>
               <div class="row">
                 <div class="th"></div>
                 <div class="td">最寄駅		1<br>最寄駅		2<br>最寄駅		3</div>
@@ -504,6 +511,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
   </main>
+<?php endwhile;endif; ?>
 </div>
 
 <div class="sec-schedule-popup js-popup" data-popup="schedule"></div>

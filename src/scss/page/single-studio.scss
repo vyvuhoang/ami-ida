@@ -24,7 +24,7 @@ body {
   @include notoserif;
 }
 .topic-ttl {
-  @include font(36, 51/36, 0.1, bold);
+  @include font(36, 51/36, 0.1, 600);
   text-align: center;
 
   @include SP {
@@ -724,7 +724,7 @@ body {
   margin-bottom: 110px;
 
   @include SP {
-    margin-bottom: 80px;
+    margin-bottom: 30px;
   }
 
   .the-title{
@@ -1102,7 +1102,7 @@ body {
         .th {
           font-weight: bold;
           width: 140px;
-          padding: 13px 15px;
+          padding: 23px 15px;
 
           @include SP {
             padding: 0;
@@ -1130,16 +1130,15 @@ body {
 }
 
 .sec-ins {
-  margin-bottom: 93px;
-
+  padding: 70px 0;
   @include SP {
-    margin-bottom: 50px;
+    padding: 50px 0;
   }
 
   .topic-ttl {
     padding-top: 47px;
     background: url(../../img/studio/ico_ins.svg) top center/29px 29px no-repeat;
-    margin-bottom: 57px;
+    margin-bottom: 70px;
 
     @include PC {
       letter-spacing: 0;
@@ -1148,6 +1147,7 @@ body {
 
     @include SP {
       padding-top: 40px;
+      margin-bottom: 40px;
     }
   }
 
