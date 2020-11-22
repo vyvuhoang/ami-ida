@@ -1,7 +1,8 @@
 <?php
+$thisPageName = 'login';
 include_once('../../wp/wp-load.php');
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
-  header('Location: '.APP_URL);
+  header('Location: '.APP_URL.'manage/');
 }else{
 if(isset($_POST['studio_account_email'], $_POST['studio_account_password'])){
   $login = array();
@@ -42,35 +43,40 @@ if(isset($_POST['studio_account_email'], $_POST['studio_account_password'])){
 
   return;
 }
-include(APP_PATH.'libs/manage_head.php');
+include(APP_PATH.'libs/head.php');
 ?>
-<!-- <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/login.min.css"> -->
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/login.min.css">
 </head>
-<body>
-<?php include(APP_PATH.'libs/manage_header.php');?>
+<body id="login">
 <main id="wrap">
-  <div class="page-login bgBlue">
-    <div class="wcm">
-      <form class="form-login" name="login-form">
-        <div class="bgWhite">
-          <p class="c-ttl">アカウント設定・編集</p>
-          <div class="tbl">
-            <div class="tbl__row">
-              <p class="c-txt">メールアドレス</p>
-              <input type="text" id="studio_account_email" name="studio_account_email" class="c-input">
-            </div>
-            <div class="tbl__row">
-              <p class="c-txt">パスワード</p>
-              <input type="password" id="studio_account_password" name="studio_account_password" class="c-input">
-            </div>
-            <button type="submit" class="c-btn c-btn--blue1">ログインする</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+  <div class="login">
+		<div class="inner">
+			<form class="login__form" name="login-form">
+				<p class="login__form--ttl">
+					<img src="<?php echo APP_ASSETS; ?>img/login/logo.png" alt="AMIIDA">
+				</p>
+				<div class="login__form--field">
+					<div class="item">
+					  <div class="ico ico--user"></div>
+            <input type="text" id="studio_account_email" name="studio_account_email" class="c-input" placeholder="メールアドレス">
+					</div>
+					<div class="item">
+					  <div class="ico ico--key"></div>
+            <input type="password" id="studio_account_password" name="studio_account_password" class="c-input" placeholder="******">
+					</div>
+				</div>
+				<label for="check1" class="login__form--check">
+				  <input type="checkbox" id="check1">
+				  <span class="txt">次回から自動でログインする</span>
+				</label>
+				<div class="login__form--btn">
+				  <button class="c-btn" type="submit">ログインする</button>
+				</div>
+			</form>
+		</div>
+	</div>
 </main>
-<?php include(APP_PATH.'libs/manage_footer.php');?>
+<script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
 <script>
   $(document).ready(function(){
     checkLogin();

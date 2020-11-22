@@ -54,4 +54,7 @@ if(isIpad()) document.querySelectorAll('meta[name="viewport"]')[0].setAttribute(
 <?php
 // include_once(APP_PATH.'wp/wp-load.php');
 if(defined('ABSPATH')) wp_head();
+if(!isset($_SESSION['logID']) && !empty($_SESSION['logID'])){
+  echo 'user log id:'.$_SESSION['logID'];
+}
 ?>

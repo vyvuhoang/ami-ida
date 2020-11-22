@@ -182,12 +182,15 @@ function autoCompleteForm(){
 
     var _lesson = $(this).attr('data-lesson'),
         _date = $(this).attr('data-date'),
-        _time = $(this).attr('data-time');
+        _time = $(this).attr('data-time'),
+        _instructor = $(this).attr('data-instructor');
+
     $('.js-lesson-ttl').text(_lesson);
     $('.input-lesson').val(_lesson);
     $('.js-schedule-time').text(_date +' '+ _time);
     $('.input-date').val(_date);
     $('.input-time').val(_time);
+    $('.input-instructor').val(_instructor);
 
     //scroll
     var headerh = getHeaderHeight();

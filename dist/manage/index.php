@@ -1,6 +1,8 @@
 <?php
 include_once('../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
+$page_ttl = 'レッスンダッシュボード';
+$thisPageName = 'manage-top';
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $wp_studio = new WP_Query();
   $param = array(
@@ -22,51 +24,56 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
     }
   }
 
-include(APP_PATH.'libs/manage_head.php');
+include(APP_PATH.'libs/head.php');
 ?>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage.min.css">
 </head>
-
-<body>
+<body class="manage manage-top">
   <?php include(APP_PATH.'libs/manage_header.php');?>
   <main id="wrap">
-    <div class="sec-redirect">
-      <div class="lst-redirect">
-        <div class="item">
-          <h3 class="ttl">体験レッスン申込み者 管理ボード</h3>
-          <div class="select">
-            <p class="lbl">店舗を選択</p>
-            <select name="" id="" class="js-choose-studio">
-              <option value="">スタジオを選ぶ</option>
-              <?php foreach($studio_arr as $studio_key => $studio_val){?>
-                <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
-              <?php }?>
-            </select>
-            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/application/" class="btn js-btn">管理ボードを開く</a>
-          </div>
-        </div>
-        <div class="item">
-          <h3 class="ttl">レッスンスケジュール　登録・管理ボード</h3>
-          <div class="select">
-            <p class="lbl">店舗を選択</p>
-            <select name="" id="" class="js-choose-studio">
-              <option value="">スタジオを選ぶ</option>
-              <?php foreach($studio_arr as $studio_key => $studio_val){?>
-                <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
-              <?php }?>
-            </select>
-            <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/schedule/" class="btn js-btn">管理ボードを開く</a>
-          </div>
-        </div>
-        <div class="item">
-          <h3 class="ttl">レッスン内容　登録・管理ボード</h3>
-          <div class="select">
-            <a href="<?php echo APP_URL;?>manage/schedule-format/" class="btn js-btn">レッスン登録画面を開く</a>
+    <div class="container-1140">
+      <div class="sec-redirect">
+        <div class="container-1000">
+          <div class="lst-redirect">
+            <div class="item">
+              <h3 class="ttl">体験レッスン申込み者 管理ボード</h3>
+              <div class="select">
+                <p class="lbl">店舗を選択</p>
+                <select name="" id="" class="js-choose-studio">
+                  <option value="">イオンモール多摩平の森店</option>
+                  <?php foreach($studio_arr as $studio_key => $studio_val){?>
+                    <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
+                  <?php }?>
+                </select>
+                <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/application/" class="btn js-btn">管理ボードを開く</a>
+              </div>
+            </div>
+            <div class="item">
+              <h3 class="ttl">レッスンスケジュール　登録・管理ボード</h3>
+              <div class="select">
+                <p class="lbl">店舗を選択</p>
+                <select name="" id="" class="js-choose-studio">
+                  <option value="">イオンモール多摩平の森店</option>
+                  <?php foreach($studio_arr as $studio_key => $studio_val){?>
+                    <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
+                  <?php }?>
+                </select>
+                <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/schedule/" class="btn js-btn">管理ボードを開く</a>
+              </div>
+            </div>
+            <div class="item item--spec">
+              <h3 class="ttl">レッスン内容　登録・管理ボード</h3>
+              <div class="select">
+                <a href="<?php echo APP_URL;?>manage/schedule-format/" class="btn js-btn">レッスン登録画面を開く</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </main>
-  <?php include(APP_PATH.'libs/manage_footer.php'); ?>
+  <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script>
     $(document).ready(function() {
       changeLink();

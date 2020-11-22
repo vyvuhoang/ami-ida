@@ -384,6 +384,7 @@ include(APP_PATH.'libs/head.php');
               <th>体験内容</th>
               <td>
                 <input type="hidden" name="studio_slug" id="studio_slug" value="<?php echo $pslug;?>">
+                <input type="hidden" name="instructor" id="instructor" class="input-instructor" value="">
                 <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="" readonly>
                 <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
               </td>

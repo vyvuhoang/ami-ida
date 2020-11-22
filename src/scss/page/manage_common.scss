@@ -1,0 +1,102 @@
+@charset 'UTF-8';
+@import '../utility/*';
+
+body{
+  padding-top: 50px;
+  padding-bottom: 80px;
+  @include SP{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+.container-1140 {
+  max-width: 1170px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.container-1000 {
+  max-width: 1030px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.mheader{
+  font-size: 0;
+  .ttl,
+  .right{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .ttl{
+    font-size: 24px;
+    font-weight: bold;
+    width: 370px;
+    padding-left: 12px;
+    border-left: 8px solid #000;
+    @include SP{
+      font-size: 18px;
+      width: 130px;
+    }
+  }
+  .right{
+    text-align: right;
+    width: calc(100% - 370px);
+    @include SP{
+      width: calc(100% - 130px);
+    }
+  }
+  .btn-schedule{
+    background: url(../../img/common/icon/ico_calendar.svg) center left 24px/18px 18px no-repeat, #1D1D1D;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 12px 10px 12px 55px;
+    text-align: center;
+    margin-right: 10px;
+    @include SP{
+      width: 170px;
+      font-size: 13px;
+      background-size: 14px 14px;
+      background-position: center left 15px;
+      margin-bottom: 7px;
+      padding-left: 38px;
+    }
+  }
+  .btn-setting{
+    background: url(../../img/common/icon/ico_setting.svg) center left 24px/18px 18px no-repeat, $pinkpurple;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 12px 10px 12px 32px;
+    width: 190px;
+    text-align: center;
+    @include SP{
+      width: 170px;
+      font-size: 13px;
+      background-size: 14px 14px;
+      background-position: center left 15px;
+    }
+  }
+}
+
+.manage{
+  background-color: #F0F0F0;
+}
+
+.sec-bg{
+  margin-top: 25px;
+  border-radius: 18px;
+  background-color: #fff;
+  padding: 50px 0 120px;
+  @include SP{
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px 0;
+    margin-bottom: 50px;
+  }
+}
