@@ -92,7 +92,7 @@ include(APP_PATH.'libs/head.php');
         },
       }).success(function(data) {
         if(data.success == 0){
-          alert('Wrong email or password');
+          alert('メールアドレスまたはパスワードが間違っています');
         }else{
           window.location.href = '/manage/'
         }

@@ -100,6 +100,16 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 </div>
                 <span class="note">※体験レッスンの当月の申込み総数を表示</span>
               </div>
+              <!-- <div class="box">
+                <div class="box-bg">
+                  <h4 class="box-ttl">体験レッスン申込み数 </h4>
+                  <p class="box-num">
+                    <span class="num"><?php echo count($csv) == 0 ? count($csv) : count($csv) - 1;?></span>
+                    <span class="unit">人</span>
+                  </p>
+                </div>
+                <span class="note">※体験レッスンの当月の申込み総数を表示</span>
+              </div> -->
             </div>
           </div>
           <div class="sec-data">
