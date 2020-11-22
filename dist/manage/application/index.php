@@ -39,6 +39,8 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
       }
     }
   }
+  $cur_date = date('Y/m/d');
+  $notExpired = 0;
   if($flagValidPage) {
     if($urlYM) {
       $csv = [];
@@ -47,6 +49,11 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         $file = fopen($csv_pname, 'r');
         while (($line = fgetcsv($file)) !== FALSE) {
           $csv[] = $line;
+          if (DateTime::createFromFormat('Y/m/d', $line[2]) !== FALSE) {
+            if(strtotime($line[2]) >= strtotime($cur_date)){
+              $notExpired++;
+            }
+          }
         }
         fclose($file);
       }
@@ -99,6 +106,16 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   </p>
                 </div>
                 <span class="note">※体験レッスンの当月の申込み総数を表示</span>
+              </div>
+              <div class="box">
+                <div class="box-bg">
+                  <h4 class="box-ttl">体験レッスン予定人数 </h4>
+                  <p class="box-num">
+                    <span class="num"><?php echo $notExpired;?></span>
+                    <span class="unit">人</span>
+                  </p>
+                </div>
+                <span class="note">※体験レッスンの当月の予定者数を表示</span>
               </div>
             </div>
           </div>

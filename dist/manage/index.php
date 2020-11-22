@@ -41,7 +41,7 @@ include(APP_PATH.'libs/head.php');
               <div class="select">
                 <p class="lbl">店舗を選択</p>
                 <select name="" id="" class="js-choose-studio">
-                  <option value="">イオンモール多摩平の森店</option>
+                  <option value="">スタジオをお選びください</option>
                   <?php foreach($studio_arr as $studio_key => $studio_val){?>
                     <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
                   <?php }?>
@@ -54,7 +54,7 @@ include(APP_PATH.'libs/head.php');
               <div class="select">
                 <p class="lbl">店舗を選択</p>
                 <select name="" id="" class="js-choose-studio">
-                  <option value="">イオンモール多摩平の森店</option>
+                  <option value="">スタジオをお選びください</option>
                   <?php foreach($studio_arr as $studio_key => $studio_val){?>
                     <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
                   <?php }?>

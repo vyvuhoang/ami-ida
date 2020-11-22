@@ -1,6 +1,8 @@
 <?php
 include_once('../../app_config.php');
 include_once(APP_PATH.'wp/wp-load.php');
+$thisPageName = 'manage-schedule';
+
 $page_ttl = 'レッスンスケジュール登録画面';
 $request_uri = $_SERVER['REQUEST_URI'];
 $uri_parts = explode("/",$request_uri);
@@ -8,6 +10,7 @@ $uri_parts = explode("/",$request_uri);
 $studio_slug = $_GET['studio_slug'];
 
 $cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
+$studio_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[1].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[2].'/';
 
 $schedule_fields_wp_id = 91;
 $field_key_rp_schedule = array();
