@@ -133,22 +133,22 @@ body {
 .sec-btns {
   background: url(../../img/studio/bg02.jpg) center/cover no-repeat;
   font-size: 0;
-  padding: 110px 15px;
+  padding: 80px 15px;
   @include SP {
     background-image: url(../../img/studio/bg02_sp.jpg);
     padding: 73px 15px 45px;
   }
   .btn {
-    width: calc(50% - 30px);
+    width: calc(50% - 20px);
     @include font(18, 20/18, 0.15, 600);
     background-color: #fff;
     display: inline-block;
     text-align: center;
-    padding: 42px 15px;
+    padding: 35px 15px;
     box-shadow: 8px 8px 0 rgba($color: #000, $alpha: 0.5);
     @include PC {
       &:nth-child(2) {
-        margin-left: 60px;
+        margin-left: 40px;
       }
     }
     @include SP {
@@ -180,7 +180,7 @@ body {
   @include SP {
     margin-top: 40px;
     padding-top: 37px;
-    margin-bottom: 83px;
+    margin-bottom: 50px;
   }
   .the-title {
     margin-bottom: 54px;
@@ -200,7 +200,7 @@ body {
         @include SP {
           background-size: 36px 36px;
           background-position: top 16px left 12px;
-          padding: 20px 70px 25px 60px;
+          padding: 20px 40px 25px 60px;
         }
         @include PC {
           &:hover {opacity: 0.5;}
@@ -372,47 +372,31 @@ body {
 }
 .sec-feeling {
   background-color: #F8EDF1;
-  // padding: 118px 0 105px;
-  padding: 60px 0 100px;
-  @include SP {padding: 80px 0 18px;}
+  padding: 60px 0 80px;
+  @include SP {padding: 50px 0 18px;}
   .the-title {
     margin-bottom: 50px;
-    @include SP {margin-bottom: 58px;}
+    @include SP {margin-bottom: 40px;}
   }
   .lst-feeling {
     font-size: 0;
-    // counter-reset: item;
     .item {
       width: calc(33.33% - 40px);
       display: inline-block;
       vertical-align: top;
-      // counter-increment: item;
       @include SP {
+        text-align: center;
         width: 100%;
-        margin-bottom: 70px;
+        margin-bottom: 30px;
+        img{max-width: 240px;}
       }
       @include PC {
         &:not(:first-child) {
           margin-left: 60px;
         }
       }
-      // .img {
-      //   position: relative;
-      //   margin-bottom: 43px;
-
-      //   &:after {
-      //     @include absolute('0'counter(item),'','','',5px,5px,'');
-      //     @include font(100,70/100,'');
-      //     color: #D35D46;
-      //     @include fontCol;
-
-      //     @include SP {
-      //       right: 30px;
-      //     }
-      //   }
-      // }
       .name {
-        @include font(22, 35/22, 0.06, bold);
+        @include font(19, 1.6, 0.06, 600);
         color: #333;
         text-align: center;
       }
@@ -420,13 +404,12 @@ body {
   }
 }
 .sec-voice {
-  padding: 121px 0;
+  padding: 90px 0;
   @include SP {
-    padding: 108px 0 74px;
+    padding: 50px 0 50px;
   }
   .the-title {
     margin-bottom: 74px;
-
     @include SP {
       margin-bottom: 45px;
     }
@@ -434,9 +417,8 @@ body {
 
   .slider {
     margin-bottom: 108px;
-
     @include SP {
-      margin-block-end: 96px;
+      margin-block-end: 50px;
     }
 
     .item {
@@ -455,148 +437,10 @@ body {
     }
   }
 
-  .lst-voice {
-    margin-bottom: 99px;
-
-    @include SP {
-      margin-bottom: 68px;
-    }
-
-    .item {
-      font-size: 0;
-      @include flex(1, 0);
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-
-      @include SP {
-        justify-content: center;
-        margin-bottom: 87px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-
-      .avatar,
-      .voice {
-        display: inline-block;
-        vertical-align: top;
-      }
-
-      .avatar {
-        position: relative;
-        width: 191px;
-        margin-left: 30px;
-
-        @include SP {
-          margin-left: 0;
-        }
-
-        &:before {
-          @include absolute('', 120%, 120%, -10%, '', '', -10%);
-          background: url(../../img/studio/img08.png) center/cover no-repeat
-        }
-      }
-
-      .voice {
-        width: calc(100% - 191px);
-        max-width: 695px;
-        padding-left: 70px;
-
-        @include SP {
-          width: 100%;
-          padding-left: 0;
-          max-width: 100%;
-          margin-top: 53px;
-        }
-
-        .bg {
-          background-color: #F5F1F7;
-          border-radius: 20px;
-          padding: 20px 30px 13px;
-          position: relative;
-
-          @include SP {
-            padding: 20px 15px 23px;
-          }
-
-          &:before {
-            @include absolute('', 0, 0, calc(50% - 12px), '', '', -24px);
-            border-right: 24px solid #F5F1F7;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-
-            @include SP {
-              top: -20px;
-              left: calc(50% - 12px);
-              @include transform_c(rotate(90deg));
-            }
-          }
-        }
-
-        .voice-ttl {
-          @include font(20, 32/20, 0.05, bold);
-          text-align: center;
-          @include ffYG();
-          margin-bottom: 8px;
-
-          @include SP {
-            @include font(18, 26/18, '');
-          }
-        }
-
-        .voice-txt {
-          @include font(15, 27/15, 0.06, 500);
-          @include ffYG();
-        }
-
-        .info {
-          @include ffYG();
-          @include font(15, 27/15, 0.06, bold);
-          color: $lightpurple;
-          text-align: right;
-
-          @include SP {
-            margin-top: 7px;
-          }
-        }
-      }
-
-      @include PC {
-        &:nth-child(2n) {
-          flex-direction: row-reverse;
-
-          .avatar {
-            margin-left: 0;
-            margin-right: 39px;
-          }
-
-          .voice {
-            padding-left: 0;
-            padding-right: 70px;
-
-            .bg {
-              &:before {
-                left: auto;
-                right: -24px;
-                @include transform_c(rotate(180deg));
-              }
-            }
-
-            .info {
-              text-align: left;
-            }
-          }
-        }
-      }
-    }
-  }
-
   .btns {
     max-width: 850px;
     margin: 0 auto;
     font-size: 0;
-
     .btn {
       width: calc(50% - 15px);
       display: inline-block;
@@ -642,7 +486,6 @@ body {
   min-height: 580px;
   @include SP{
     padding-top: 30px;
-    margin-bottom: 80px;
   }
   .the-title{
     margin-bottom: 46px;
@@ -814,154 +657,74 @@ body {
     }
   }
 }
-
-.sec-lesson {
-  margin-bottom: 126px;
-  @include SP {
-    margin-bottom: 55px;
-  }
-  .bg {
-    position: relative;
-    height: 350px;
-    width: 100%;
-    overflow: hidden;
-    .bg-inner{
-      width: 100%;height: calc(100% + 70px);
-      background: url(../../img/studio/bg2.jpg) top center/cover no-repeat;
-    }
-    @include SP {
-      height: 280px;
-    }
-  }
-  .the-title {
-    margin-bottom: 91px;
-    @include SP {
-      margin-bottom: 80px;
-    }
-  }
-  .outside {
-    position: relative;
-    background-color: #fff;
-    // margin-top: -110px;
-    padding: 59px 0 0;
-    @include SP {
-      // margin-top: -128px;
-      padding: 32px 0 0;
-    }
-  }
-  .inside {
-    max-width: 876px;
-    margin: 0 auto;
-  }
-  .lst-lesson {
-    counter-reset: item;
-    .item {
-      font-size: 0;
-      margin-bottom: 71px;
-      @include flex(1, 0);
-      flex-wrap: wrap;
-      counter-increment: item;
-
-      &:last-child {
-        margin-bottom: 0;
+.sec-lesson{
+  // background: rgba(233,233,233,0.5);
+  padding: 70px 0;
+  @include max-screen(767px){padding-bottom: 0;}
+  .wcm{max-width: 920px;}
+  .etr{
+    margin-top: 50px;
+    border-top: 1px dotted rgba(0,0,0,0.3);
+    &__item{
+      width: 100%;flex-wrap: wrap;
+      display: flex;justify-content: space-between;
+      padding: 25px 20px;
+      align-items: center;
+      border-bottom: 1px dotted rgba(0,0,0,0.3);
+      @include max-screen(767px){
+        padding: 20px 10px;
       }
-
-      .img {
-        width: 380px;
-        padding-left: 40px;
-        position: relative;
-
-        @include SP {
+      &--img{
+        width: 330px;
+        @include max-screen(767px){
           width: 100%;
-          padding-left: 0;
-          margin-bottom: 19px;
         }
-
-        &:after {
-          @include absolute('0'counter(item), 110px, 110px, -50px, '', '', 0);
-          @include font(90, 122/90, 0);
-          color: #D35D46;
-          background-color: #fff;
-          border-radius: 50%;
-          text-align: center;
-          @include fontCol;
-
-          @include SP {
-            width: 80px;
-            height: 80px;
-            top: -40px;
-            left: -15px;
-            @include font(62, 86/62, '');
-          }
+        .img{
+          @include aspect-ratio(2,1.2);
+          background-position: center;
+          background-size: cover;
         }
       }
-
-      .content {
-        width: calc(100% - 380px);
-        padding-left: 35px;
-
-        @include SP {
-          width: 100%;
-          padding-left: 0;
+      &--info{
+        width: calc(100% - 360px);
+        @include max-screen(767px){
+          width:100%;
+          padding: 12px 0;
         }
-
-        .content-ttl {
-          @include ffYG;
-          @include font(20, 30/20, 0.1, bold);
-          margin-bottom: 16px;
-
-          @include SP {
-            margin-bottom: 19px;
-          }
-        }
-
-        .content-txt {
-          @include font(15, 24/15, 0.06, 500);
-          @include ffYG;
-        }
-      }
-
-      @include PC {
-        &:nth-child(2n) {
-          flex-direction: row-reverse;
-
-          .img {
-            padding-left: 0;
-            padding-right: 40px;
-
-            &:after {
-              left: auto;
-              right: 0;
+        .ttl{
+          @include font(22,1.5,0.1,600);
+          @include max-screen(767px){
+            font-size: 18px;
+            display: inline-block;
+            position: relative;
+            &:before{
+              content:"";position: absolute;
+              bottom:0px;left:0;
+              width: 100%;height: 10px;
+              background: $purple_bg;
+              opacity: 0.4;
             }
           }
-
-          .content {
-            padding-left: 15px;
-            padding-right: 35px;
-            text-align: right;
-          }
         }
-      }
-      @include SP{
-        &:nth-child(2n) {
-          .img {
-            &:after {
-              left: auto;
-              right: -15px;
-            }
+        .txt{
+          @include font(15,1.7,0.1,400);
+          @include ffYG;
+          padding: 15px 0;
+          @include max-screen(767px){
+            font-size: 14px;line-height: 1.6;
+            padding: 10px 0 0;
           }
         }
       }
     }
   }
 }
-
 .sec-form {
   padding-top: 50px;
   margin-bottom: 110px;
 
   @include SP {
-    margin-bottom: 137px;
+    margin-bottom: 80px;
   }
 
   .the-title{
@@ -1370,7 +1133,7 @@ body {
   margin-bottom: 93px;
 
   @include SP {
-    margin-bottom: 83px;
+    margin-bottom: 50px;
   }
 
   .topic-ttl {
@@ -1417,7 +1180,7 @@ body {
 .sec-thanks {
   margin-bottom: 93px;
   @include SP {
-    margin-bottom: 83px;
+    margin-bottom: 50px;
   }
   .the-title{
     margin-bottom: 71px;

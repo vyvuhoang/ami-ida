@@ -149,7 +149,8 @@ include(APP_PATH.'libs/head.php');
 		<?php //include(APP_PATH.'libs/voice.php'); ?>
 	  <div class="c-voice">
 	  	<div class="wcm">
-		  	<div class="c-voice__item">
+	  		<?php include(APP_PATH.'libs/voice.php'); ?>
+		  	<!-- <div class="c-voice__item">
 		  		<div class="c-voice__item--avatar female">
 		  			<img src="<?php echo APP_ASSETS; ?>img/top/female.svg" alt="Male" width="73">
 		  		</div>
@@ -187,7 +188,7 @@ include(APP_PATH.'libs/head.php');
 		  			</div>
 		  			<div class="btn-more sp"><p>More...</p></div>
 		  		</div>
-		  	</div>
+		  	</div> -->
 		  	<a href="<?php echo APP_URL; ?>studio" class="c-btn">お近くのスタジオを探す</a>
 		  </div>
 		</div>

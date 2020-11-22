@@ -100,7 +100,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-btns">
-      <div class="container-1080">
+      <div class="container-900">
         <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
         <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
@@ -251,7 +251,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-feeling">
-      <div class="container-1080">
+      <div class="container-900">
         <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
         <ul class="lst-feeling">
           <li class="item">
@@ -277,41 +277,12 @@ include(APP_PATH.'libs/head.php');
         <?php } ?>
       </div>
       <div class="container-1080">
-        <ul class="lst-voice">
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="btns">
-          <a href="" class="btn">WEB入会金受付はこちら</a>
-          <a href="" class="btn">体験レッスンへのご参加はこちら</a>
+        <?php include(APP_PATH.'libs/voice.php'); ?>
+      </div>
+      <div class="sec-btns">
+        <div class="container-900">
+          <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
+          <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
         </div>
       </div>
     </div>
@@ -334,37 +305,20 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-lesson">
-    <!--   <div class="bg">
-        <div class="bg-inner" data-parallax='{"y": -70, "smoothness": 10}'></div>
-      </div> -->
-      <div class="container-1170">
-        <div class="outside">
-          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <div class="inside">
-            <ul class="lst-lesson">
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-            </ul>
+      <div class="container-900">
+        <div class="the-title">アミーダ〇〇店レッスンスケジュール</div>
+        <div class="etr">
+          <?php for($i=0;$i<4;$i++){?>
+          <div class="etr__item">
+            <div class="etr__item--img">
+              <div class="img lazy" data-bg="url(<?php echo APP_ASSETS;?>img/studio/img11.jpg)"></div>
+            </div>
+            <div class="etr__item--info">
+              <p class="ttl">レッスンタイトルが入ります</p>
+              <p class="txt">レッスンの内容を説明するテキストがここに入ります。レッスンの内容を説明するテキストレッスンの内容を説明するテキストがここに入ります。</p>
+            </div>
           </div>
+          <?php } ?>
         </div>
       </div>
     </div>
@@ -531,7 +485,9 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <?php include(APP_PATH.'libs/faq.php'); ?>
+    <div class="faq">
+      <?php include(APP_PATH.'libs/faq.php'); ?>
+    </div>
     <div class="sec-ins">
       <div class="container-1080">
         <h3 class="topic-ttl">インスタグラム反映</h3>

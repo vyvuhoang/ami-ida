@@ -284,7 +284,7 @@ CHECK
       padding-left:0;padding-right:0;}
   }
   &__bg{
-    background: rgba(233,233,233,0.6);
+    background: #F5F1F7;//rgba(233,233,233,0.6);
     text-align: right;
     margin-top: 70px;
     position: relative;
@@ -360,7 +360,7 @@ VOICE
 ------------------------------------------------------------*/
 .c-voice{
   background: rgba(233,233,233,0.15) url(../../img/studio/bg_schedule.jpg) bottom right/auto 250px no-repeat;
-  padding: 50px 0 89px;
+  padding: 80px 0 89px;
   margin: auto;
   @include screen(768px,1024px){padding: 45px 0 60px;}
   @include max-screen(767px){
@@ -489,6 +489,17 @@ SLIDE
       background: center/cover no-repeat;
     }
 	}
+  .lst-voice{
+    // padding: 70px 20px 89px;
+    // margin: auto;
+    max-width: 940px;
+    width: 100%;
+    // @include screen(768px,1024px){padding: 45px 0 60px;}
+    // @include max-screen(767px){
+    //   padding: 50px 0;
+      
+    // }
+  }
 }
 /*-----------------------------------------------------------
 VOICE
@@ -708,73 +719,6 @@ INTRO
     margin: 32px auto 0;
     @include screen(768px,1024px){margin-top: 20px;}
     @include max-screen(767px){margin-top: 25px;}
-  }
-}
-/*-----------------------------------------------------------
-INTRO
-------------------------------------------------------------*/
-.faq{
-  background:rgba(233,233,233,0.4);
-  padding: 80px 0;
-  @include max-screen(767px){padding: 40px 0; }
-  .sec-faq {
-    margin-bottom: 0px;
-    .the-title{
-      margin: 50px 0 70px;
-      @include max-screen(767px){
-        margin: 0px 0 40px;
-        font-size: 20px;
-      }
-    }
-    .wcm{max-width: 940px; }
-    .lst-faq {
-      .item {
-        @include ffYM;
-        margin-bottom: 18px;
-        @include SP {margin-bottom: 9px;}
-        .ques {
-          background-color: $purple;
-          @include font(16, 26/16, 0.15, 500);
-          color: #fff;
-          padding: 14px 53px;
-          position: relative;
-          cursor: pointer;
-          transition: 0.5s ease;
-          @include PC {
-            &:hover {opacity: 0.5;}
-          }
-          @include SP {padding: 15px 44px; }
-          &:before,&:after {
-            @include absolute('', 17px, 1px, 50%, '', 20px, '');
-            background-color: #fff;
-            transition: 0.5s ease;
-            @include SP {top: 27px }
-          }
-          &:after {@include transform_c(rotate(90deg));}
-          span {
-            display: block;
-            position: relative;
-            &:before {
-              @include absolute('Q.', '', '', 0, '', '', -35px);
-              @include font(18, 26/18, 0.15, 600);
-              @include SP {left: -30px;}
-            }
-          }
-        }
-        .ans {
-          @include font(15, 24/15, 0.15, 500);
-          padding: 13px 20px;
-          display: none;
-        }
-        &.active {
-          .ques {
-            &:before,&:after {
-              @include transform_c(rotate(180deg));
-            }
-          }
-        }
-      }
-    }
   }
 }
 

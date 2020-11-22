@@ -50,9 +50,6 @@ function create_cat_taxonomy_studioarea () {
     'has_archive'             => true,
     'hierarchical'            => true,
     'show_admin_column'       => true,
-    'capabilities' => array(
-      'show_in_nav_menus' => false,
-    ),
   ));
 }
 add_action ( 'init', 'create_cat_taxonomy_studioarea', '0' );

@@ -59,10 +59,6 @@ $(document).ready(function(){
   calcHeight('.teacher__lst--item .info .txt', 3, 3 );
   calcHeight('.media__lst--item .info .txt', 3, 3 );
   if($(window).width() < 768){
-    $('.c-voice__item--mess .btn-more p').click( function(){
-      $(this).parent().prev().slideDown();
-      $(this).parent().fadeOut();
-    });
     $('.media__lst').slick({
       infinite: true,
       slidesToShow: 1,

@@ -28,6 +28,12 @@ $(window).on('scroll load', function(){
 });
 $(document).ready(function() {
   ParallaxScroll.init();
+  if($(window).width() < 768){
+    $('.lst-voice .btn-more p').click( function(){
+      $(this).parent().prev().slideDown();
+      $(this).parent().fadeOut();
+    });
+  }
 });
 $('.header__menu .header__studio .header__studio--item a').click( function() {
   $('body').removeClass('menu-open');
