@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+@import '../utility/*';
+$border: #9C9C9C;
+body{
+	padding-top: 80px;
+}
+/*-----------------------------------------------------------
+INTRO
+------------------------------------------------------------*/
+.visual{
+	height: 468px;min-height: 1px;
+	.bg{
+		background: #ccc;
+	}
+}

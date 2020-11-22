@@ -28,8 +28,9 @@ INTRO
 	}
 }
 .intro{
-	max-width: 846px;
-	padding: 120px 20px 100px;
+	// max-width: 846px;
+  max-width: 900px;
+	padding: 80px 20px 80px;
 	display: flex;justify-content: space-between;
 	align-items: center;flex-wrap: wrap;
 	@include max-screen(767px){
@@ -52,18 +53,26 @@ INTRO
 	}
 	&__info{
 		width: calc(100% - 362px);
-		padding-left: 8.1%;
+		// padding-left: 8.1%;
+    padding-left: 6%;
 		@include max-screen(767px){
 			order: 1;text-align: center;
 			width:100%;padding-left: 0;
 		}
-		&--ttl{
-			@include font(26,42/26,0.1,600);
-			@include noto;
-			@include max-screen(767px){
-				font-size: 20px;line-height: 1.8;
-			}
-		}
+		// &--ttl{
+		// 	@include font(26,42/26,0.1,600);
+		// 	@include noto;
+		// 	@include max-screen(767px){
+		// 		font-size: 20px;line-height: 1.8;
+		// 	}
+		// }
+    &--ttl{
+      @include font(20,2.2,0.1,600);
+      @include noto;
+      @include max-screen(767px){
+        font-size: 20px;line-height: 1.8;
+      }
+    }
 		&--txt{
 			margin: 16px 0 28px;
 			@include font(15,27/15,0.1,500);
@@ -198,6 +207,7 @@ INTRO
       }
       .img{
         width: 55.67%;
+        min-height: 296px;
         background-size: cover;
         background-position: center;
         @include screen(768px,950px){width: 50%;min-height: 224px;}
@@ -209,11 +219,11 @@ INTRO
       .info{
         text-align: left;
         width: 44.33%;
-        padding: 37px 20px 15px;
+        padding: 30px 20px;
+        display: flex;justify-content: center;
+        align-items: center;
         @include screen(768px,1024px){
           padding: 20px 15px;
-          display: flex;justify-content: center;
-          align-items: center;
         }
         @include screen(768px,950px){
           width: 50%;padding-left: 20px;
@@ -272,7 +282,7 @@ INTRO
 CHECK
 ------------------------------------------------------------*/
 .sec-check{
-  padding: 40px 0;
+  padding: 40px 0 0;
   @include screen(768px,1024px){padding: 0;}
   @include max-screen(767px){padding: 40px 20px 20px;}
   .the-title{
@@ -474,14 +484,13 @@ VOICE
 SLIDE
 ------------------------------------------------------------*/
 .slide{
-	padding-top: 46px;
-	@include max-screen(767px){padding-top: 30px;}
+	// padding-top: 46px;
+	// @include max-screen(767px){padding-top: 30px;}
 	&__img{
 		display: flex;justify-content: center;
-		margin-top: 65px;width:100%;
+		margin-top: 20px;
+    width:100%;
 		overflow: hidden;
-    @include screen(768px,1024px){margin-top: 50px;}
-    @include max-screen(767px){margin-top: 50px;}
     .item {
       max-width: 405px;
       margin-right: 8px;
@@ -489,16 +498,16 @@ SLIDE
       background: center/cover no-repeat;
     }
 	}
+}
+
+.c-voice{
   .lst-voice{
-    // padding: 70px 20px 89px;
-    // margin: auto;
+    margin-top: 70px;
     max-width: 940px;
     width: 100%;
-    // @include screen(768px,1024px){padding: 45px 0 60px;}
-    // @include max-screen(767px){
-    //   padding: 50px 0;
-      
-    // }
+    @include max-screen(767px){
+      margin-top: 50px;
+    }
   }
 }
 /*-----------------------------------------------------------

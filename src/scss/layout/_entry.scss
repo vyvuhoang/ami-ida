@@ -3,7 +3,7 @@
 FEATURE
 ------------------------------------------------------------*/
 .feature{
-	max-width: 1166px;
+	max-width: 1106px;
 	&__lst{
 		margin-top: 76px;
 		display: flex;justify-content: space-between;
@@ -24,7 +24,7 @@ FEATURE
 			.ttl{
 				padding-left: 15px;
 				border-left: 4px solid $purple;
-				@include font(20,34/20,0.05,600);
+				@include font(22,34/20,0.1,600);
 				@include noto;
 				margin: 23px 0 13px;
 				@include max-screen(767px){
@@ -276,8 +276,8 @@ FEATURE
       }
 
       &:before {
-        @include absolute('', 120%, 120%, -10%, '', '', -10%);
-        background: url(../img/studio/img08.png) center/cover no-repeat;
+        // @include absolute('', 120%, 120%, -10%, '', '', -10%);
+        // background: url(../img/studio/img08.png) center/cover no-repeat;
 
       }
     }

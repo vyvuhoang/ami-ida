@@ -10,29 +10,27 @@ include(APP_PATH.'libs/head.php');
 <?php include(APP_PATH.'libs/header.php'); ?>
 <main id="wrap">
 	<div class="visual">
-		<div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
-		<div class="visual">
-			<div class="visual__scroll">
-				<a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
-			</div>
-			<div class="visual__txt">
-		   	<picture>
-   	      <source srcset="<?php echo APP_ASSETS; ?>img/common/visual_txt_sp.svg" media="(max-width: 767px)">
-   	      <img src="<?php echo APP_ASSETS; ?>img/common/visual_txt.svg" alt="Amiida">
-		   	</picture>
-			</div>
-		</div>
+	  <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
+	  <div class="visual">
+	    <div class="visual__scroll">
+	      <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
+	    </div>
+	    <div class="visual__txt">
+	      <picture>
+	        <source srcset="<?php echo APP_ASSETS; ?>img/common/visual_txt_sp.svg" media="(max-width: 767px)">
+	        <img src="<?php echo APP_ASSETS; ?>img/common/visual_txt.svg" alt="Amiida">
+	      </picture>
+	    </div>
+	  </div>
 	</div>
 	<div class="intro wcm" id="intro">
 		<div class="intro__img">
 			<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.png" alt="">
 		</div>
 		<div class="intro__info">
-			<h3 class="intro__info--ttl">Title title title title title title title title title</h3>
-			<p class="intro__info--txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキ</p>
-			<a href="" class="c-btn pc">View more</a>
+			<h3 class="intro__info--ttl">アミーダは、全スタジオが天然溶岩石でつくられた「溶岩石ホットヨガスタジオ」です。<br>あなたの生活に真の美しさを。身体も心も綺麗で溢れる生活を、アミーダで始める。</h3>
+			<!-- <p class="intro__info--txt"></p> -->
 		</div>
-		<a href="" class="c-btn sp">View more</a>
 	</div>
 	<div class="anchor">
 		<div class="wcm">
@@ -139,59 +137,12 @@ include(APP_PATH.'libs/head.php');
 			</div>
 		</div>
 	</div>
-	<div class="slide">
-		<h3 class="the-title wcm">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
-		<div class="slide__img js-voice-slider">
-			<?php for($i=0;$i<10;$i++){ ?>
-		  <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
-			<?php } ?>
-		</div>
-		<?php //include(APP_PATH.'libs/voice.php'); ?>
-	  <div class="c-voice">
-	  	<div class="wcm">
-	  		<?php include(APP_PATH.'libs/voice.php'); ?>
-		  	<!-- <div class="c-voice__item">
-		  		<div class="c-voice__item--avatar female">
-		  			<img src="<?php echo APP_ASSETS; ?>img/top/female.svg" alt="Male" width="73">
-		  		</div>
-		  		<div class="c-voice__item--mess">
-		  			<p class="ttl">アミーダで実現できた”身体”と”心”の美。</p>
-		  			<div class="hide">
-		  				<p class="txt">業の多い会社で仕事に追われる生活をしていました。 入会した目的はダイエット、初月で4キロ減りました。それよりも効果を感じたのは、ストレスが減ったことです。子供にも優しくなれて、周りからも「穏やかになったね！」と言われるようになりました。アミーダで教えてもらったヨーガの考え方を、普段の生活でも意識するようにしています。 ジムや一般的なヨガに通った経験もありますが、私には溶岩ヨガがピッタリ！と感じました。続けやすい環境が整っているのも嬉しいです。</p>
-		  				<p class="name">20代女性｜会社員</p>
-		  			</div>
-		  			<div class="btn-more sp"><p>More...</p></div>
-		  		</div>
-		  	</div>
-		  	<div class="c-voice__item">
-		  		<div class="c-voice__item--avatar male">
-		  			<img src="<?php echo APP_ASSETS; ?>img/top/male.svg" alt="Male" width="73">
-		  		</div>
-		  		<div class="c-voice__item--mess">
-		  			<p class="ttl">アミーダは、なくてはならない生活の一部。</p>
-		  			<div class="hide">
-		  				<p class="txt">友達に誘われて通いはじめましたが、ここまでハマるとは思っていませんでした。毎日の生活で溜まっていくストレスや前日飲みすぎたお酒が、大量の汗と共に流れて心身ともにスッキリ！今では生活の一部でなくてはならない存在になってます。ヨガインストラクターの皆さんは、いつも笑顔でとても暖かい方ばかり。仲の良いアミ友（共にアミーダのレッスンを受講している仲間）が増えていくので続けることが楽しいです。これからも無理なく身体を動かして、アミ活を続けていきたいと思います！</p>
-		  				<p class="name">50代女性 / 主婦 / 常滑店</p>
-		  			</div>
-		  			<div class="btn-more sp"><p>More...</p></div>
-		  		</div>
-		  	</div>
-		  	<div class="c-voice__item">
-		  		<div class="c-voice__item--avatar female">
-		  			<img src="<?php echo APP_ASSETS; ?>img/top/female.svg" alt="Male" width="73">
-		  		</div>
-		  		<div class="c-voice__item--mess">
-		  			<p class="ttl">生活のスタートはすべてアミーダから。</p>
-		  			<div class="hide">
-		  				<p class="txt">アミーダのレッスンに来ると心と身体がスッキリします。余計なことを考えなくなり、悩みもなくなりました。何か新しいことをするときは、まずアミーダに来てから行動するようになりました。ヨガレッスンの後は心身ともに身軽になるので、時間の使い方がとても有意義になります。アミーダのヨガレッスンに参加した日は、一日幸せな気分で過ごすことができます。アミーダに通うことで、自然と心と身体のメンテナンスが出来る様になりました。この時間が、私の生活で唯一自分に集中できて身体の良い状態を保てる場所です。</p>
-		  				<p class="name">40代女性 / 主婦 / 津田沼店</p>
-		  			</div>
-		  			<div class="btn-more sp"><p>More...</p></div>
-		  		</div>
-		  	</div> -->
-		  	<a href="<?php echo APP_URL; ?>studio" class="c-btn">お近くのスタジオを探す</a>
-		  </div>
-		</div>
+  <div class="c-voice">
+  	<div class="wcm">
+			<h3 class="the-title wcm">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
+  		<?php include(APP_PATH.'libs/voice.php'); ?>
+	  	<a href="<?php echo APP_URL; ?>studio" class="c-btn">お近くのスタジオを探す</a>
+	  </div>
 	</div>
 	<div class="teacher wcm">
 		<h3 class="the-title">アミーダ溶岩ホットヨガの特徴</h3>
@@ -288,6 +239,13 @@ include(APP_PATH.'libs/head.php');
   	<a href="<?php echo APP_URL; ?>studio/" class="c-btn">もっとみる</a>
   </div>
 	<?php endif; ?>
+	<div class="slide">
+		<div class="slide__img js-voice-slider">
+			<?php for($i=0;$i<10;$i++){ ?>
+		  <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
+			<?php } ?>
+		</div>
+	</div>
 	<div class="faq">
 		<?php include(APP_PATH.'libs/faq.php'); ?>
 	</div>

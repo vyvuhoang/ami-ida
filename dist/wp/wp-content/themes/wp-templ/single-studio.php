@@ -274,7 +274,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-voice">
-      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
+      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br>選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
         <?php for($i=0;$i<10;$i++){ ?>
           <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
@@ -291,7 +291,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="feature wcm">
-      <h3 class="the-title">アミーダ溶岩ホットヨガの特徴</h3>
+      <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店が選ばれる理由</h3>
       <div class="feature__lst">
         <?php for($i=0;$i<5;$i++){ ?>
         <div class="feature__lst--item">
@@ -304,13 +304,13 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-schedule" id="anchor03">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
         <div class="schedule js-schedule"></div>
       </div>
     </div>
     <div class="sec-lesson">
       <div class="container-900">
-        <div class="the-title">アミーダ〇〇店レッスンスケジュール</div>
+        <div class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</div>
         <div class="etr">
           <?php for($i=0;$i<4;$i++){?>
           <div class="etr__item">
@@ -328,7 +328,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-form" id="anchor04">
       <div class="container-750">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
         <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform">
           <div class="stepImg">
             <picture>
@@ -461,7 +461,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-access" id="anchor02">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
             <iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
