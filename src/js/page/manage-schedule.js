@@ -43,11 +43,7 @@ function addSchedule(){
       inputs.each(function(key, value) {
         var name = $(this).attr('name'),
             val = $(this).val();
-        if(name == 'schedule_delete'){
-          data['schedule_delete'] = '';
-        }else{
-          data[name] = val;
-        }
+        data[name] = val;
       })
     }else{
       inputs = $('.js-lst-schedule').find('input, textarea, select');
@@ -177,9 +173,6 @@ function addNewSchedule(){
     $('.js-form-schedule').addClass('creating');
     setTimeout(function(){
       $('.js-form-schedule').trigger('submit');
-    }, 100);
-    setTimeout(function(){
-      $('.js-form-schedule').removeClass('creating');
     }, 200);
   })
 }

@@ -94,6 +94,9 @@ if($wp_studio->have_posts()){
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   if($flagValidPage) {
     if (isset($_POST) && !empty($_POST)) {
+      if(isset($_POST['is_create']) && $_POST['is_create'] == 1){
+        $_POST['schedule_delete'] = '';
+      }
       foreach ($_POST as $key => $value) {
         switch ($key) {
           case 'schedule':
