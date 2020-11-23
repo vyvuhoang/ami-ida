@@ -4,6 +4,9 @@
 reset
 ------------------------------------------------------------*/
 body,html{height:100%;}
+body{
+	padding-top: 0 !important;
+}
 #wrap{
 	width: 100%;height: 100%;
 	text-align: right;
@@ -13,17 +16,20 @@ body,html{height:100%;}
 	background-size: 50% auto, 50% auto;
 	background-position: bottom left, top left;
 	background-repeat: no-repeat, repeat-y;
+	padding-left: 50%;
 	//background: #F4695F url(../../img/login/bg_login.jpg) bottom left/ 50% auto no-repeat;
 }
 .login{
 	@include font(0,0,0);
-	width: 50%;min-height: 100%;
+	width: 100%;min-height: 100vh;
 	background: #fff;
 	text-align: center;
 	// max-width: 840px;
 	display: inline-block;
 	padding: 15px 25px;
 	position: relative;
+	display: flex;
+	align-items: center;
 	&:before{
 		content: "";position: absolute;
 		width: 27.7%;height: calc(100% + 2px);
@@ -31,9 +37,8 @@ body,html{height:100%;}
 		background: url(../../img/login/bg_white.png) top right /100% 100% no-repeat;
 	}
 	.inner{
-		width: 100%;max-width: 625px;
-		height: 100%;
-		display: inline-block;
+		width: 100%;//max-width: 625px;
+		// height: 100%;
 		padding: 0 20px;
 	}
 	&__logo{
@@ -50,7 +55,7 @@ body,html{height:100%;}
 		margin: auto;
 		padding: 58px 0 163px;
 		&--ttl{
-			@include font(45,60,0.15,bold);
+			@include font(45,60/45,0.15em,bold);
 			@include ffM;
 		}
 		&--field{
@@ -72,7 +77,7 @@ body,html{height:100%;}
 					background: #fff;		
 					width: 100%;
 					padding: 9px 20px 9px 35px;
-					@include font(14,24,0.1,bold);
+					@include font(14,24/14,0.13m,bold);
 					&:-webkit-input-placeholder{color: #767778;}
 					&:-ms-input-placeholder{color: #767778;}
 					&:placeholder{color: #767778;}
@@ -110,7 +115,7 @@ body,html{height:100%;}
 				padding-left: 35px;
 				position: relative;
 				color: #767778;
-				@include font(14,24,0.1,bold);
+				@include font(14,24/14,0.1em,bold);
 				display: inline-block;
 				&:before{
 					content: "";position: absolute;
@@ -130,7 +135,7 @@ body,html{height:100%;}
 				display: inline-block;
 				background: $main;
 				color: #fff;
-				@include font(17,30,0.1,bold);
+				@include font(17,30/17,0.1em,bold);
 				padding: 10px 20px;
 				@include add_prefix(appearance, none);
 				@include add_prefix(border,none);

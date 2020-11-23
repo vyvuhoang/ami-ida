@@ -259,7 +259,7 @@ a.btn-viewmore,.btn-viewmore{
 			@include max-screen(767px){width: 100%;padding-top: 3px;}
 			.ttl{
 				@include font(20,1.45,0.06,500);
-				@include noto;
+				@include noto;margin-bottom: 2px;
 				@include screen(768px,990px){margin-top: -5px;}
 				@include max-screen(767px){
 					font-size: 14px;line-height: 25px;
@@ -267,7 +267,6 @@ a.btn-viewmore,.btn-viewmore{
 			}
 			.txt{
 				@include font(12,19px,0.12,500);
-				padding-top: 2px;
 				@include max-screen(767px){
 					font-size: 10px;line-height: 16px;
 				}
@@ -280,7 +279,7 @@ a.btn-viewmore,.btn-viewmore{
 					margin-top: 12px;
 				}
 				@include max-screen(767px){margin-top: 8px;}
-				a{
+				a,p{
 					display: inline-block;
 					width: 100%;max-width: 103px;color: #fff;
 					@include font(12,20/12,0,bold);

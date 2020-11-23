@@ -248,10 +248,16 @@ function add_rewrites_init(){
     $slug = $ar->rewrite['slug'];
     $sgc = get_template_directory() . "/single-" . $posttype . ".php";
     $agr = get_template_directory() . "/archive-" . $posttype . ".php";
+
     if(@file_exists($sgc)){
+      if($posttype == 'studio'){
+        add_rewrite_rule($slug.'/(.*)/confirm/?', 'index.php?post_type='.$posttype.'&name=$matches[1]&actionFlag=confirm', 'top');
+        add_rewrite_rule($slug.'/(.*)/complete/?', 'index.php?post_type='.$posttype.'&name=$matches[1]&actionFlag=complete', 'top');
+      }else{
+        add_rewrite_rule($slug.'/p([0-9]+)?/confirm/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=confirm', 'top');
+        add_rewrite_rule($slug.'/p([0-9]+)?/complete/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=complete', 'top');
+      }
       add_rewrite_rule($slug.'/p([0-9]+)?$', 'index.php?post_type='.$posttype.'&p=$matches[1]', 'top');
-      add_rewrite_rule($slug.'/p([0-9]+)?/confirm/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=confirm', 'top');
-      add_rewrite_rule($slug.'/p([0-9]+)?/complete/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&actionFlag=complete', 'top');
       add_rewrite_rule($slug.'/p([0-9]+)?/([0-9]+)/?', 'index.php?post_type='.$posttype.'&p=$matches[1]&page=$matches[2]', 'top');
     }
     if(@file_exists($agr)){
@@ -300,3 +306,26 @@ function start_session_wp()
     session_start();
   }
 }
+// =================Parentcat radiocheck===================
+function wpse_139269_term_radio_checklist( $args ) {
+  if ( (! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studiocat' ) || ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studiocat'  ) {
+    if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) {
+      if ( ! class_exists( 'WPSE_139269_Walker_Category_Radio_Checklist' ) ) {
+        class WPSE_139269_Walker_Category_Radio_Checklist extends Walker_Category_Checklist {
+          function walk( $elements, $max_depth, $args = array() ) {
+            $output = parent::walk( $elements, $max_depth, $args );
+            $output = str_replace(
+              array( 'type="checkbox"', "type='checkbox'" ),
+              array( 'type="radio"', "type='radio'" ),
+              $output
+            );
+            return $output;
+          }
+        }
+      }
+      $args['walker'] = new WPSE_139269_Walker_Category_Radio_Checklist;
+    }
+  }
+  return $args;
+}
+add_filter( 'wp_terms_checklist_args', 'wpse_139269_term_radio_checklist' );

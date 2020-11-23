@@ -8,7 +8,7 @@
     4 => '★★★★',
     5 => '★★★★★',
   );
-  $html = '';
+  $html = $html_popup = '';
   $lesson = array();
   $arr_dates = array();
 
@@ -27,6 +27,14 @@
   }
 
   $dj = array("日","月","火","水","木","金","土");
+
+  $html_popup .= '
+    <div class="wrap_bg">
+      <div class="wrap_container">
+        <div class="btn_close"></div>
+        <div class="box-info">
+  ';
+
   $html .= '
     <div class="calendar">
       <div class="calendar-head">
@@ -93,24 +101,56 @@
       $lhour = explode(':', $value[$j][0]);
       $lhour = $lhour[0];
       if($lhour != $i){
-        $html .= '<div class="lesson"></div>';
+        $html .= '<div class="lesson empty"></div>';
       }else{
         $html .= '
-          <div class="lesson'.$classDisable.'">
+          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].'">
             <div class="bg">
               <p class="time" data-date="'.$key.'">'.$value[$j][0].'</p>
               <div class="pic" style="background-image: url('.$value[$j][4].');"></div>
               <p class="ttl">'.$value[$j][2].'</p>
               <p class="level">'.$stars[$value[$j][3]].'</p>
             </div>
-          </div>';
+          </div>
+        ';
+        $html_popup .= '
+          <div class="each" data-id="'.$key.'-'.$value[$j][0].'">
+            <div class="img" style="background-image: url('.$value[$j][4].');"></div>
+            <ul class="lst-info">
+              <li class="item">
+                <div class="item-ttl">スタジオ</div>
+                <div class="item-txt">篠崎店</div>
+              </li>
+              <li class="item">
+                <div class="item-ttl">日時</div>
+                <div class="item-txt">'.$key.' '.$value[$j][0].'</div>
+              </li>
+              <li class="item">
+                <div class="item-ttl">インストラクター</div>
+                <div class="item-txt">'.$value[$j][1].'</div>
+              </li>
+              <li class="item">
+                <div class="item-ttl">難易度</div>
+                <div class="item-txt">'.$stars[$value[$j][3]].'</div>
+              </li>
+              <li class="item">
+                <div class="item-ttl">内容</div>
+                <div class="item-txt">リラックスレッスン内容</div>
+              </li>
+            </ul>
+            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][2].'" data-date="'.$key.'" data-time="'.$value[$j][0].'"><span>体験する</span></a>
+          </div>
+        ';
+
         $j++;
       }
     }
     $html .= '</div>';
   }
   $html .= '</div></div></div>';
+  $html_popup .= '</div></div></div>';
   $result = array();
   $result['html'] = $html;
+  $result['html_popup'] = $html_popup;
   echo json_encode($result);
 ?>
