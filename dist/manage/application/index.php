@@ -139,7 +139,70 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <tr>
                     <td><?php echo $key;?></td>
                     <?php foreach($val as $ckey => $cval){?>
-                    <td><?php echo $cval?></td>
+                    <td>
+                    <?php
+                      switch($ckey){
+                        case 0:
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                          echo $cval;
+                          break;
+                        case 6:
+                    ?>
+                      <select name="" id="">
+                        <option value="web検索">web検索</option>
+                        <option value="店舗前看板">店舗前看板</option>
+                        <option value="駅前看板">駅前看板</option>
+                        <option value="チラシ">チラシ</option>
+                        <option value="SNS">SNS</option>
+                        <option value="紹介">紹介</option>
+                        <option value="その他">その他</option>
+                      </select>
+                    <?php
+                          break;
+                        case 7:
+                    ?>
+                      <select name="" id="">
+                        <option value="〇 完了">〇 完了</option>
+                        <option value="× 不通">× 不通</option>
+                      </select>
+                    <?php
+                          break;
+                        case 9:
+                    ?>
+                      <select name="" id="">
+                        <option value="〇 完了">〇 完了</option>
+                        <option value="× 不通">× 不通</option>
+                      </select>
+                    <?php
+                          break;
+                        case 11:
+                    ?>
+                      <select name="" id="">
+                        <option value="入会">入会</option>
+                        <option value="検討中">検討中</option>
+                        <option value="未入会">未入会</option>
+                        <option value="体験キャンセル">体験キャンセル</option>
+                        <option value="不通">不通</option>
+                      </select>
+                    <?php
+                          break;
+                        case 12:
+                    ?>
+                      <textarea name="" id="" cols="30" rows="10"></textarea>
+                    <?php
+                          break;
+                        default:
+                    ?>
+                      <input type="text">
+                    <?php
+                          break;
+                      }
+                    ?>
+                    </td>
                     <?php }?>
                   </tr>
                   <?php

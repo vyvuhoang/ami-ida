@@ -100,3 +100,66 @@ body{
     margin-bottom: 50px;
   }
 }
+
+
+.btn-add-new,
+.btn-edit,
+.btn-delete,
+button{
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.btn-add-new:hover,
+.btn-edit:hover,
+.btn-delete:hover,
+button:hover{
+  opacity: 0.5;
+}
+
+.btn-application,
+a.btn-application,
+.btn-schedule-format,
+a.btn-schedule-format{
+  background: #920783;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+  padding: 12px 20px 12px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.btn-application:hover,
+.btn-schedule-format:hover{
+  opacity: 0.5;
+}
+.btn-schedule-format{
+  margin-left: 10px;
+}
+
+@media (max-width: 767px){
+  .mheader .right{
+    padding-left: 10px;
+  }
+  .btn-application,
+  a.btn-application,
+  .btn-schedule-format,
+  a.btn-schedule-format{
+    font-size: 13px;
+    background-size: 14px 14px;
+    background-position: center left 15px;
+  }
+  .mheader .btn-schedule{
+    margin-right: 0;
+  }
+  .btn-schedule-format{
+    margin-left: 0px;
+    margin-top: 5px;
+  }
+  .btn-setting{
+    width: auto;
+  }
+}

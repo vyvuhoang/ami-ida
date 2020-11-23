@@ -1,0 +1,57 @@
+@charset 'UTF-8';
+@import '../utility/*';
+
+.container-1140 {
+  max-width: 800px;
+}
+.sec-bg {
+  padding: 50px 0;
+}
+.sec-bg .container-1000 {
+  max-width: 400px;
+}
+.login__form--field .item {
+  margin-bottom: 15px;
+}
+.login__form--field input {
+  width: 100%;
+  border: 1px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 10px 10px;
+  @include font(15,26px,'',500);
+  font-size: 15px;
+  line-height: 26px;
+  font-weight: 500;
+  @include ffYG;
+}
+.login__form--btn {
+  text-align: center;
+  margin-top: 10px;
+}
+.login__form--btn .btn-submit {
+  font-size: 15px;
+  line-height: 48px;
+  font-weight: bold;
+  background-color: #920783;
+  max-width: 287px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  border-radius: 8px;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+.login__form--btn .btn-submit:focus {
+  outline: 0;
+}
+.login__form--btn .notify {
+  font-size: 15px;
+  color: #2c7d1a;
+  margin-top: 8px;
+  font-weight: 500;
+}
