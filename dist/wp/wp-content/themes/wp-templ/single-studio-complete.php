@@ -171,7 +171,13 @@ include_once(APP_PATH.'csv/read_write_csv.php');
         "{$reg_hopetime}",
         "{$reg_single_ttl}",
         "{$reg_instructor}",
-        "{$reg_method}{$reg_other_method}",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
       ));
       $ym = explode('/',$reg_hopedate);
       $y = $ym[0];
