@@ -2,8 +2,7 @@
 session_start();
 $thisPageName = 'single-studio';
 
-if($actionFlag == 'send') {
-  require(APP_PATH."libs/form/jphpmailer.php");
+if(!empty($_POST['actionFlag']) && $_POST['actionFlag'] == "send") {
   $aMailto = $aMailtoContact;
   if(count($aBccToContact)) $aBccTo = $aBccToContact;
   $from = $fromContact;
@@ -65,9 +64,8 @@ $email_head_ctm_admin
 
 $msgBody
 
----------------------------------------------------------------
-".$email_body_footer."
----------------------------------------------------------------";
+
+";
 
 //お客様用メッセージ
   $body_user = "
@@ -82,6 +80,11 @@ $msgBody
 ---------------------------------------------------------------
 ".$email_body_footer."
 ---------------------------------------------------------------";
+
+
+include_once(APP_PATH.'csv/read_write_csv.php');
+// csv format
+// reg_single_ttl,reg_hopedate,reg_hopetime,reg_name,reg_nameuser_furigana,reg_age,reg_tel,reg_email,reg_method,reg_content
 
   // ▼ ▼ ▼ START Detect SPAMMER ▼ ▼ ▼ //
   try {
@@ -146,11 +149,11 @@ $msgBody
   }
   // ▲ ▲ ▲ END Detect SPAMMER ▼ ▼ ▼ //
 
-
   if($allow_send_email) {
     //////// メール送信
     mb_language("ja");
     mb_internal_encoding("UTF-8");
+    $timesend = date("Y/m/d",time());
 
     //////// お客様受け取りメール送信
     $email = new JPHPmailer();
@@ -159,7 +162,42 @@ $msgBody
     $email->setSubject($subject_user);
     $email->setBody($body_user);
 
-    if($email->send()) { /*Do you want to debug somthing?*/ }
+    if($email->send()) {
+      $new_csv = new CSVT();
+      $data_ex = array(array(
+        "{$timesend} ",
+        "{$reg_name} ",
+        "{$reg_hopedate}",
+        "{$reg_hopetime}",
+        "{$reg_single_ttl}",
+        "{$reg_instructor}",
+        "{$reg_method}{$reg_other_method}",
+      ));
+      $ym = explode('/',$reg_hopedate);
+      $y = $ym[0];
+      $m = $ym[1];
+      $new_csv->export_csv($reg_studio_slug,$y,$m,$data_ex);
+    }
+    $dataLog = "
+$reg_studio_slug
+$timesend
+$reg_single_ttl
+$reg_hopedate $reg_hopetime
+$reg_name
+$reg_nameuser_furigana
+$reg_age
+$reg_tel
+$reg_email
+$reg_method $reg_other_method
+$reg_content
+";
+    $ret = file_put_contents(APP_PATH.'csv/log/registerData.log', $dataLog, FILE_APPEND | LOCK_EX);
+    if($ret === false) {
+        // die('There was an error writing this file');
+    }
+    else {
+        // echo "$ret bytes written to file";
+    }
 
     //////// メール送信
     $email->clearAddresses();
@@ -174,19 +212,18 @@ $msgBody
   }
 
   $_SESSION['statusFlag'] = 1;
-  header("Location: ".APP_URL."studio/complete/");
+  header("Location: ".get_the_permalink()."complete/");
   exit;
 }
 
-if(!empty($_SESSION['statusFlag'])) unset($_SESSION['statusFlag']);
-else header('location: '.APP_URL);
+if(!empty($_SESSION['statusFlag'])) {
+  unset($_SESSION['statusFlag']);
+  unset($_SESSION['ses_gtime_step2']);
+  unset($_SESSION['ses_from_step2']);
+  unset($_SESSION['ses_step3']);
+} else header('location: '.APP_URL);
 
-$thisPageName = 'single-studio';
 include(APP_PATH."libs/head.php");
-
-unset($_SESSION['ses_gtime_step2']);
-unset($_SESSION['ses_from_step2']);
-unset($_SESSION['ses_step3']);
 ?>
 <meta http-equiv="refresh" content="15; url=<?php echo APP_URL ?>">
 <script type="text/javascript">
@@ -195,7 +232,6 @@ window.onhashchange = function (event) {
   window.location.hash = "#noback";
 };
 </script>
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
 </head>
 <body id="single-studio" class="single-studio indexThx">

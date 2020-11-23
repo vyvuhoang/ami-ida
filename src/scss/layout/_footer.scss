@@ -8,6 +8,7 @@ $gray: rgba(255,255,255,0.5);
     padding: 20px 0;text-align: center;
   }
   .wcm{
+    max-width: 1106px;
     display: flex;justify-content: space-between;flex-wrap:wrap;
   }
   &__left{

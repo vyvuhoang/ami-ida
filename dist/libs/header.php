@@ -44,7 +44,7 @@
 					<?php if($pagename == 'single-studio') { ?>
 					<div class="item">
 						<!-- <p class="ttl">STUDIO</p> -->
-						<div class="header__studio">
+						<div class="header__studio sp">
 							<div class="inner">
 								<div class="header__studio--item"><a href="#anchor01">プラン・料金</a></div>
 								<div class="header__studio--item"><a href="#anchor02">アクセス</a></div>

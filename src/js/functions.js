@@ -40,7 +40,7 @@ function IEdetection() {
 }
 function GoogleFontLoader() {
   WebFontConfig = {
-    google: { families:['Noto+Serif+JP:wght@400;500;600','Sawarabi+Mincho&display=swap&subset=japanese']},
+    google: { families:['Noto+Serif+JP:wght@500;600&display=swap']},
   };
   (function() {
     var wf = document.createElement('script');

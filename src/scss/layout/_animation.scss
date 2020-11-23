@@ -3,6 +3,15 @@ body.menu-open{
 	overflow: hidden;
 	position: fixed;
 	top: 0;left: 0;
+	.header__studio{
+		a{
+			color: #000;
+			&:before{content: none;}
+			@include min-screen(768px){
+			  &:hover{ color: $purple;}
+			}
+		}
+	}
 }
 body.single-studio{
 	.visual .bg{
@@ -47,7 +56,7 @@ body.top,body.single-studio{
 		}
 		&.fixHeader{
 			.header{
-				background: #fff;
+				background: rgba(255,255,255,1);
 				&__logo a{
 					background: url(../img/common/header/logo.png) center/100% 100% no-repeat;
 				}

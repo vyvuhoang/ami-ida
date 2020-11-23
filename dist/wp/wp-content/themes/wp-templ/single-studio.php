@@ -1,6 +1,7 @@
 <?php
 $thisPageName = 'single-studio';
 $thisStudioID = get_the_ID();
+$pslug = $post->post_name;
 if(!empty($_POST['actionFlag'])) {
   include_once('single-studio-confirm.php');
   exit();
@@ -13,7 +14,7 @@ if(!empty($_POST['actionFlag'])) {
 
 include(APP_PATH.'libs/head.php');
 ?>
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/_style.min.css">
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/style.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/form/validationEngine.jquery.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
@@ -21,6 +22,10 @@ include(APP_PATH.'libs/head.php');
 <body id="single-studio" class="single-studio">
 <?php include(APP_PATH.'libs/header.php'); ?>
 <div id="wrap">
+  <?php if (have_posts()) :
+    while (have_posts()) : the_post();
+    $fields = get_fields();
+  ?>
   <main>
     <div class="visual">
       <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
@@ -37,9 +42,11 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="breadcrumb wcm" id="breadcrumb">
-      <li><a href="">TOP</a></li>
-      <li><a href="">店舗情報</a></li>
-      <li><p>xxxxxxxx</p></li>
+      <li><a href="<?php echo APP_URL; ?>">
+        <img src="<?php echo APP_ASSETS; ?>img/common/icon/ico_home.svg" alt="HOME" width="24">
+      </a></li>
+      <li><a href="<?php echo APP_URL; ?>studio/">店舗情報</a></li>
+      <li><p><?php echo get_the_title(); ?></p></li>
     </div>
     <div class="c-news">
       <div class="wcm">
@@ -97,7 +104,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-btns">
-      <div class="container-1080">
+      <div class="container-900">
         <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
         <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
@@ -248,7 +255,7 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-feeling">
-      <div class="container-1080">
+      <div class="container-900">
         <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
         <ul class="lst-feeling">
           <li class="item">
@@ -267,126 +274,62 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <div class="sec-voice">
-      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br class="sp">選ぶお客様のお声</h3>
+      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br>選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
         <?php for($i=0;$i<10;$i++){ ?>
           <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide.jpg);"></div>
         <?php } ?>
       </div>
       <div class="container-1080">
-        <ul class="lst-voice">
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/studio/img07.jpg" alt=""></div>
-            <div class="voice">
-              <div class="bg">
-                <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
-                <p class="voice-txt">ホットヨガ初心者だったので、ついていけないかも…とかなり不安でしたが、行ってみたら他にも初心者の方が何人もいて、インストラクターの方が丁寧にフォローしてくれたので無駄な心配でしたね。初めての身体の温まり方に最初はヘトヘトでしたが、今は汗をかいてるのが快感です！</p>
-                <p class="info">20代女性｜会社員</p>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="btns">
-          <a href="" class="btn">WEB入会金受付はこちら</a>
-          <a href="" class="btn">体験レッスンへのご参加はこちら</a>
+        <?php include(APP_PATH.'libs/voice.php'); ?>
+      </div>
+      <div class="sec-btns">
+        <div class="container-900">
+          <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
+          <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
         </div>
       </div>
     </div>
-    <div class="sec-reason">
-      <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店が<br class="sp">選ばれる理由</h3>
-        <ul class="lst-reason">
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature1.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！！初心者の方が安心して受けられるプログラムが多数。</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature2.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature3.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature4.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-          <li class="item">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/feature5.jpg" alt=""></div>
-            <h4 class="item-ttl">会員様8割がホットヨガ初体験</h4>
-            <p class="item-txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
-          </li>
-        </ul>
+    <div class="feature wcm">
+      <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店が選ばれる理由</h3>
+      <div class="feature__lst">
+        <?php for($i=0;$i<5;$i++){ ?>
+        <div class="feature__lst--item">
+          <img src="<?php echo APP_ASSETS; ?>img/studio/feature<?php echo $i+1; ?>.jpg" alt="会員様8割がホットヨガ初体験">
+          <p class="ttl">会員様8割がホットヨガ初体験</p>
+          <p class="txt">ほとんどの方が0からのスタート。<br>カラダが硬くても大丈夫！</p>
+        </div>
+      <?php } ?>
       </div>
     </div>
     <div class="sec-schedule" id="anchor03">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
         <div class="schedule js-schedule"></div>
       </div>
     </div>
     <div class="sec-lesson">
-      <div class="bg"></div>
-      <div class="container-1170">
-        <div class="outside">
-          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-          <div class="inside">
-            <ul class="lst-lesson">
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-              <li class="item">
-                <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img11.jpg" alt=""></div>
-                <div class="content">
-                  <h4 class="content-ttl">テキストテキストテキストテキストテキストテキテキストテキストテキストテキストテ</h4>
-                  <p class="content-txt">テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストキストテキストキストテキストキストテキストキストテキスト</p>
-                </div>
-              </li>
-            </ul>
+      <div class="container-900">
+        <div class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</div>
+        <div class="etr">
+          <?php for($i=0;$i<4;$i++){?>
+          <div class="etr__item">
+            <div class="etr__item--img">
+              <div class="img lazy" data-bg="url(<?php echo APP_ASSETS;?>img/studio/img11.jpg)"></div>
+            </div>
+            <div class="etr__item--info">
+              <p class="ttl">レッスンタイトルが入ります</p>
+              <p class="txt">レッスンの内容を説明するテキストがここに入ります。レッスンの内容を説明するテキストレッスンの内容を説明するテキストがここに入ります。</p>
+            </div>
           </div>
+          <?php } ?>
         </div>
       </div>
     </div>
     <div class="sec-form" id="anchor04">
       <div class="container-750">
-        <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
-        <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform" onSubmit="return check()">
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
+        <form method="post" class="studioform" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform">
           <div class="stepImg">
             <picture>
               <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step01SP.svg">
@@ -398,16 +341,33 @@ include(APP_PATH.'libs/head.php');
             <tr>
               <th>体験内容</th>
               <td>
+<<<<<<< HEAD
                 <p class="txt js-lesson-ttl">レッスンを選択するとオートコンプリート</p>
                 <input type="hidden" name="single_ttl" id="single_ttl" class="input-lesson" value="">
+=======
+                <input type="hidden" name="studio_slug" id="studio_slug" value="<?php echo $pslug;?>">
+                <input type="hidden" name="instructor" id="instructor" class="input-instructor" value="">
+                <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="" readonly>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
+>>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
               </td>
             </tr>
             <tr>
               <th>体験希望日</th>
               <td>
+<<<<<<< HEAD
                 <p class="txt js-schedule-time">レッスンを選択するとオートコンプリート</p>
                 <input type="hidden" name="hopedate" id="hopedate" class="validate[required] input-date" value="">
                 <input type="hidden" name="hopetime" id="hopetime" class="validate[required] input-time" value="">
+=======
+                <p class="half">
+                  <input placeholder="例) 2020/10/10" type="text" name="hopedate" id="hopedate" class="validate[required] input-date" value="" readonly>
+                </p>
+                <p class="half">
+                  <input placeholder="例) 10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="" readonly>
+                </p>
+                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
+>>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
               </td>
             </tr>
             <tr>
@@ -512,25 +472,28 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-access" id="anchor02">
       <div class="container-1080">
-        <h3 class="the-title">アミーダ〇〇店への<br class="sp">アクセス</h3>
+        <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店への<br class="sp">アクセス</h3>
         <div class="access">
           <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.604743966393!2d139.74546941539734!3d35.7359381345767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d77608f7d37%3A0xe6baada2046b743e!2z5rq25bKp44Ob44OD44OI44Oo44Ks44K544K_44K444KqIOOCouODn-ODvOODgOmnkui-vOW6lw!5e0!3m2!1sen!2s!4v1605192912814!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
           </div>
           <div class="info">
             <div class="inside">
               <div class="row">
                 <div class="th">所在地</div>
-                <div class="td">〒170-0003 <br class="pc">東京都豊島区駒込1-38-2 <br class="pc">駒込TRビル4階</div>
+                <div class="td"><?php echo $fields['access_zipcode'].'<br>'.$fields['access_address01']; ?><?php  if(!empty($fields['access_address02'])){ echo '<br>'.$fields['access_address02'];} ?></div>
               </div>
+              <?php if(!empty($fields['access_tel'])){ ?>
               <div class="row">
                 <div class="th">TEL</div>
-                <div class="td">03-5981-9027</div>
+                <div class="td"><?php echo $fields['access_tel']; ?></div>
               </div>
+              <?php } if(!empty($fields['access_fax'])){ ?>
               <div class="row">
                 <div class="th">FAX</div>
-                <div class="td">03-5981-9028</div>
+                <div class="td"><?php echo $fields['access_fax']; ?></div>
               </div>
+              <?php } ?>
               <div class="row">
                 <div class="th"></div>
                 <div class="td">最寄駅		1<br>最寄駅		2<br>最寄駅		3</div>
@@ -540,7 +503,9 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <?php include(APP_PATH.'libs/faq.php'); ?>
+    <div class="faq">
+      <?php include(APP_PATH.'libs/faq.php'); ?>
+    </div>
     <div class="sec-ins">
       <div class="container-1080">
         <h3 class="topic-ttl">インスタグラム反映</h3>
@@ -557,8 +522,10 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
   </main>
+<?php endwhile;endif; ?>
 </div>
 
+<<<<<<< HEAD
 <div class="sec-schedule-popup js-popup" data-popup="schedule">
   <!-- <div class="wrap_bg">
     <div class="wrap_container">
@@ -619,6 +586,9 @@ include(APP_PATH.'libs/head.php');
     </div>
   </div> -->
 </div>
+=======
+<div class="sec-schedule-popup js-popup" data-popup="schedule"></div>
+>>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/form/jquery.validationEngine.js"></script>
@@ -635,12 +605,6 @@ include(APP_PATH.'libs/head.php');
       scrollOffset: ($('.header').outerHeight() + 5),
     });
   })
-  function check() {
-    if (!document.form1.check1.checked) {
-      window.alert('「個人情報保護方針に同意する」にチェックを入れて下さい');
-      return false;
-    }
-  }
 </script>
 </body>
 </html>

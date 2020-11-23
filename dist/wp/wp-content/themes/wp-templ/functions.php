@@ -308,7 +308,7 @@ function start_session_wp()
 }
 // =================Parentcat radiocheck===================
 function wpse_139269_term_radio_checklist( $args ) {
-  if ( (! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studiocat' ) || ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studiocat'  ) {
+  if ( (! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studioarea' ) || ! empty( $args['taxonomy'] ) && $args['taxonomy'] === 'studioarea'  ) {
     if ( empty( $args['walker'] ) || is_a( $args['walker'], 'Walker' ) ) {
       if ( ! class_exists( 'WPSE_139269_Walker_Category_Radio_Checklist' ) ) {
         class WPSE_139269_Walker_Category_Radio_Checklist extends Walker_Category_Checklist {

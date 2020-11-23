@@ -46,8 +46,11 @@ function price(){
 }
 
 function deleteEmptyRow(){
+  console.log('haha');
   var num_lesson = $('.js-calendar .col:first-child').find('.lesson').length,
-      num_col = $('.js-calendar .col').length;
+      num_col = $('.js-calendar .col').length,
+      empty_rows = [],
+      nth_child = '';
   for(i=1;i<=num_lesson;i++){
     j = 0;
     $('.js-calendar .col').each(function(){
@@ -56,9 +59,14 @@ function deleteEmptyRow(){
       }
     })
     if(j==num_col){
-      $('.js-calendar .col .lesson:nth-child('+i+')').remove();
+      empty_rows.push(i);
     }
   }
+  $.each(empty_rows, function(k, v){
+    nth_child += ':nth-child('+v+'),';
+  })
+  nth_child = nth_child.slice(0, -1);
+  $('.js-calendar .col .lesson').filter(nth_child).remove();
 }
 
 function getAjax(_post_id, _date_start){
@@ -174,12 +182,15 @@ function autoCompleteForm(){
 
     var _lesson = $(this).attr('data-lesson'),
         _date = $(this).attr('data-date'),
-        _time = $(this).attr('data-time');
+        _time = $(this).attr('data-time'),
+        _instructor = $(this).attr('data-instructor');
+
     $('.js-lesson-ttl').text(_lesson);
     $('.input-lesson').val(_lesson);
     $('.js-schedule-time').text(_date +' '+ _time);
     $('.input-date').val(_date);
     $('.input-time').val(_time);
+    $('.input-instructor').val(_instructor);
 
     //scroll
     var headerh = getHeaderHeight();

@@ -7,7 +7,7 @@ body{
   }
 }
 .header{
-  background: #fff;
+  background: rgba(255,255,255,1);
   position: fixed;
   top:0;left:0;
   z-index: 99999;
@@ -19,7 +19,7 @@ body{
   >.inner{
     width: 100%;padding: 0 0 0 20px;
     display: flex;justify-content: space-between;
-    align-items: center;
+    align-items: center;position: relative;
     box-shadow: 0 3px 6px rgba(0,0,0,0.05);
     @include screen(768px,950px){padding-left: 10px;}
     @include max-screen(767px){
@@ -27,12 +27,18 @@ body{
     }
   }
   &__studio{
-    width: calc(100% - 395px);
+    position: fixed;
+    top: 0;right: 240px;height: 80px;
+    z-index:99999;
+    width: calc(100% - 415px);
     display: flex;justify-content: flex-end;
+    align-items: center;
     @include screen(768px,950px){width: calc(100% - 305px);}
     @include max-screen(767px){
-      width: 100%;
-      margin: 0 0 -25px;
+      width: 100%; display: block;
+      position: static !important;
+      padding: 0;
+      margin: 0 0 -20px;height: auto;
     }
     .inner{
       text-align: right;
@@ -71,7 +77,7 @@ body{
        }
       &:before{
         content:"";position: absolute;
-        width: 0;height: 2px;
+        width: 0;height: 1.5px;
         bottom:-10px;left: 50%;
         @include transform_c(translateX(-50%));
         background: #fff;
