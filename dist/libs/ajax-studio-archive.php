@@ -1,13 +1,13 @@
 <?php
   include('../wp/wp-load.php');
 // if( !empty($_POST['key']) ) {$_id = $_GET['c'];}else{$_id="";}
-//   $key = $_POST['key'];  
-//   $area = $_POST['area'];  
+//   $key = $_POST['key'];
+//   $area = $_POST['area'];
   $html = '';
   if( (!empty($_POST['key']) ) && (!empty($_POST['area']) ) ){
-    $key = $_POST['key'];  
-    $area = $_POST['area'];  
-    $studio = new WP_Query(array(        
+    $key = $_POST['key'];
+    $area = $_POST['area'];
+    $studio = new WP_Query(array(
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
@@ -22,8 +22,8 @@
         )
     ));
   } else if( (!empty($_POST['key']) ) && (empty($_POST['area']) ) ){
-    $key = $_POST['key'];  
-    $studio = new WP_Query(array(        
+    $key = $_POST['key'];
+    $studio = new WP_Query(array(
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
@@ -31,8 +31,8 @@
       's'               => $key,
     ));
   } else if( (empty($_POST['key']) ) && (!empty($_POST['area']) ) ){
-    $area = $_POST['area'];  
-    $studio = new WP_Query(array(        
+    $area = $_POST['area'];
+    $studio = new WP_Query(array(
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
@@ -46,7 +46,7 @@
         )
     ));
   } else{
-    $studio = new WP_Query(array(        
+    $studio = new WP_Query(array(
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
@@ -54,11 +54,11 @@
     ));
   }
 
-  
+
   if ($studio->have_posts()) {
   while ($studio->have_posts()) : $studio->the_post();
   $post = get_post($id);
-  $ttl=$post->post_title; 
+  $ttl=$post->post_title;
   $fields = get_fields();
   $link = get_the_permalink();
   $address01 = strip_tags($fields['access_address01']);

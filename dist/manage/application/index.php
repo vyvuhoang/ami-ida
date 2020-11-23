@@ -40,22 +40,11 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
     }
   }
   $cur_date = date('Y/m/d');
-  $notExpired = 0;
   if($flagValidPage) {
     if($urlYM) {
-      $csv = [];
-      $csv_pname = APP_PATH.'csv/'.$studio_slug.'/'.$urlYM.'/data_entry.csv';
-      if (file_exists($csv_pname)) {
-        $file = fopen($csv_pname, 'r');
-        while (($line = fgetcsv($file)) !== FALSE) {
-          $csv[] = $line;
-          if (DateTime::createFromFormat('Y/m/d', $line[2]) !== FALSE) {
-            if(strtotime($line[2]) >= strtotime($cur_date)){
-              $notExpired++;
-            }
-          }
-        }
-        fclose($file);
+      if(isset($_POST) && !empty($_POST['field_key'])){
+        update_field($_POST['field_key'], $_POST['field_value'], $_POST['post_id']);
+        return;
       }
       include(APP_PATH.'libs/head.php');
 ?>
@@ -94,6 +83,66 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               </div>
             </div>
           </div>
+          <?php
+            $appl_query_all = new WP_Query( array(
+              'post_type' => 'application',
+              'posts_per_page' => '-1',
+              'post_status' => 'publish',
+              'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                  'key' => 'app_studio',
+                  'value' => $studio_id,
+                  'compare' => '=',
+                ),
+                array(
+                  'key' => 'desired_date',
+                  'value' => date("Y/m/d", strtotime($urlYM.'/1')),
+                  'compare' => '>=',
+                  'type' => 'DATE',
+                ),
+                array(
+                  'key' => 'desired_date',
+                  'value' => date("Y/m/t", strtotime($urlYM.'/1')),
+                  'compare' => '<=',
+                  'type' => 'DATE',
+                )
+              )
+            ));
+            $appl_query_condition = new WP_Query( array(
+              'post_type' => 'application',
+              'posts_per_page' => '-1',
+              'post_status' => 'publish',
+              'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                  'key' => 'app_studio',
+                  'value' => $studio_id,
+                  'compare' => '=',
+                ),
+                array(
+                  'key' => 'desired_date',
+                  'value' => date("Y/m/d"),
+                  'compare' => '>=',
+                  'type' => 'DATE',
+                ),
+                array(
+                  'key' => 'desired_date',
+                  'value' => date("Y/m/d", strtotime($urlYM.'/1')),
+                  'compare' => '>=',
+                  'type' => 'DATE',
+                ),
+                array(
+                  'key' => 'desired_date',
+                  'value' => date("Y/m/t", strtotime($urlYM.'/1')),
+                  'compare' => '<=',
+                  'type' => 'DATE',
+                )
+              )
+            ));
+            $total_appl = $appl_query_all->found_posts;
+            $condition_appl = $appl_query_condition->found_posts;
+          ?>
           <div class="sec-num-application">
             <h3 class="ttl">体験予約状況</h3>
             <div class="boxes">
@@ -101,7 +150,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 <div class="box-bg">
                   <h4 class="box-ttl">体験レッスン申込み数 </h4>
                   <p class="box-num">
-                    <span class="num"><?php echo count($csv) == 0 ? count($csv) : count($csv) - 1;?></span>
+                    <span class="num"><?php echo $total_appl;?></span>
                     <span class="unit">人</span>
                   </p>
                 </div>
@@ -111,7 +160,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 <div class="box-bg">
                   <h4 class="box-ttl">体験レッスン予定人数 </h4>
                   <p class="box-num">
-                    <span class="num"><?php echo $notExpired;?></span>
+                    <span class="num"><?php echo $condition_appl;?></span>
                     <span class="unit">人</span>
                   </p>
                 </div>
@@ -119,98 +168,119 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               </div>
             </div>
           </div>
+          <?php
+            $appl_fields_form = array(
+              'appl_date',
+              'cus_name',
+              'desired_date',
+              'desired_time',
+              'lesson_name',
+              'instructor',
+            );
+            $appl_fields_edit = array(
+              'via',
+              'thankyou_phone',
+              'in_charge1',
+              'confirm_phone',
+              'in_charge2',
+              'status',
+              'memo'
+            );
+            if ( $appl_query_condition->have_posts() ) :
+            $i = 0;?>
           <div class="sec-data">
             <h3 class="ttl">体験予約者 管理ボード</h3>
             <div class="tbl-outside">
-              <table class="tbl-data">
-                <?php
-                foreach($csv as $key => $val){
-                  if($key == 0){
+              <div class="tbl-data">
+                <div class="row">
+                  <div class="th">NO</div>
+                  <div class="th">申込み日時</div>
+                  <div class="th">お名前</div>
+                  <div class="th">体験予約日</div>
+                  <div class="th">開始時間</div>
+                  <div class="th">レッスン名</div>
+                  <div class="th">インストラクター</div>
+                  <div class="th">経由</div>
+                  <div class="th">当日お礼電話</div>
+                  <div class="th">- 担当</div>
+                  <div class="th">2日前確認電話</div>
+                  <div class="th">- 担当</div>
+                  <div class="th">ステータス</div>
+                  <div class="th">備考・メモ</div>
+                </div>
+                <?php while ( $appl_query_condition->have_posts() ) :
+                  $i++;
+                  $appl_query_condition->the_post();
                 ?>
-                  <tr>
-                    <th>No.</th>
-                    <?php foreach($val as $ckey => $cval){?>
-                    <th><?php echo $cval?></th>
-                    <?php }?>
-                  </tr>
+                <div class="row js-row" data-post-id="<?php echo get_the_ID();?>">
+                  <div class="td"><?php echo $i;?></div>
+                  <?php foreach($appl_fields_form as $val){?>
+                    <div class="td"><?php echo get_field($val);?></div>
+                  <?php }?>
+                  <?php foreach($appl_fields_edit as $val){ ?>
+                    <div class="td">
                   <?php
-                    }else{
+                      switch($val){
+                        case 'via':
+                          $via_arr = array('web検索', '店舗前看板', '駅前看板', 'チラシ', 'SNS', '紹介', 'その他');
+                          $via_val = get_field($val);
                   ?>
-                  <tr>
-                    <td><?php echo $key;?></td>
-                    <?php foreach($val as $ckey => $cval){?>
-                    <td>
-                    <?php
-                      switch($ckey){
-                        case 0:
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                        case 5:
-                          echo $cval;
-                          break;
-                        case 6:
-                    ?>
-                      <select name="" id="">
-                        <option value="web検索">web検索</option>
-                        <option value="店舗前看板">店舗前看板</option>
-                        <option value="駅前看板">駅前看板</option>
-                        <option value="チラシ">チラシ</option>
-                        <option value="SNS">SNS</option>
-                        <option value="紹介">紹介</option>
-                        <option value="その他">その他</option>
+                      <select name="<?php echo $val;?>" id="<?php echo $val;?>">
+                        <option value="">choose one</option>
+                        <?php foreach($via_arr as $vval){
+                          $selected = $via_val == $vval ? ' selected' : '';
+                        ?>
+                          <option value="<?php echo $vval;?>"<?php echo $selected;?>><?php echo $vval;?></option>
+                        <?php }?>
                       </select>
-                    <?php
+                  <?php
                           break;
-                        case 7:
-                    ?>
-                      <select name="" id="">
-                        <option value="〇 完了">〇 完了</option>
-                        <option value="× 不通">× 不通</option>
-                      </select>
-                    <?php
+                        case 'thankyou_phone':
+                        case 'confirm_phone':
+                          $phone_arr = array('〇 完了', '× 不通');
+                          $phone_val = get_field($val);
+                  ?>
+                    <select name="<?php echo $val;?>" id="<?php echo $val;?>">
+                      <option value="">choose one</option>
+                      <?php foreach($phone_arr as $pval){
+                        $selected = $phone_val == $pval ? ' selected' : '';
+                      ?>
+                        <option value="<?php echo $pval;?>"<?php echo $selected;?>><?php echo $pval;?></option>
+                      <?php }?>
+                    </select>
+                  <?php
                           break;
-                        case 9:
-                    ?>
-                      <select name="" id="">
-                        <option value="〇 完了">〇 完了</option>
-                        <option value="× 不通">× 不通</option>
-                      </select>
-                    <?php
+                        case 'status':
+                          $status_arr = array('入会', '検討中', '未入会', '体験キャンセル', '不通');
+                          $status_val = get_field($val);
+                  ?>
+                    <select name="<?php echo $val;?>" id="<?php echo $val;?>">
+                      <option value="">choose one</option>
+                      <?php foreach($status_arr as $sval){
+                        $selected = $status_val == $sval ? ' selected' : '';
+                      ?>
+                        <option value="<?php echo $sval;?>"<?php echo $selected;?>><?php echo $sval;?></option>
+                      <?php }?>
+                    </select>
+                  <?php
                           break;
-                        case 11:
-                    ?>
-                      <select name="" id="">
-                        <option value="入会">入会</option>
-                        <option value="検討中">検討中</option>
-                        <option value="未入会">未入会</option>
-                        <option value="体験キャンセル">体験キャンセル</option>
-                        <option value="不通">不通</option>
-                      </select>
-                    <?php
-                          break;
-                        case 12:
-                    ?>
-                      <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <?php
+                        case 'memo':
+                  ?>
+                    <textarea name="<?php echo $val;?>" id="<?php echo $val;?>" cols="30" rows="10"><?php echo get_field($val);?></textarea>
+                  <?php
                           break;
                         default:
-                    ?>
-                      <input type="text">
-                    <?php
-                          break;
-                      }
-                    ?>
-                    </td>
-                    <?php }?>
-                  </tr>
-                  <?php
-                  }?>
-                <?php  }?>
-              </table>
+                  ?>
+                    <input type="text" id="<?php echo $val;?>" name="<?php echo $val;?>" value="<?php echo get_field($val);?>">
+                  <?php }?>
+                  </div>
+                <?php }?>
+                </div>
+                <?php endwhile;?>
+              </div>
             </div>
           </div>
+          <?php endif;?>
         </div>
       </div>
     </div>
@@ -219,6 +289,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   <script>
     $(document).ready(function() {
       selectRedirect();
+      ajaxUpdate();
     })
     function selectRedirect(){
       $('.js-select-redirect').on('change', function () {
@@ -228,6 +299,26 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         }
         return false;
       });
+    }
+
+    function ajaxUpdate(){
+      $('.js-row').find('input, select, textarea').on('change', function(){
+        var _post_id = $(this).closest('.js-row').attr('data-post-id'),
+            _field_key = $(this).attr('name'),
+            _field_value = $(this).val();
+        $.ajax({
+          method: 'POST',
+          dataType: 'json',
+          data: {
+            post_id: _post_id,
+            field_key: _field_key,
+            field_value: _field_value,
+          }
+        }).success(function(data) {
+        }).error(function(xhr, status, error) {
+          console.log(xhr + status + error);
+        })
+      })
     }
   </script>
 </body>
