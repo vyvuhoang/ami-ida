@@ -173,6 +173,7 @@ a.btn-viewmore,.btn-viewmore{
 			@include min-screen(768px){
 				&:hover{
 					opacity: 1;
+					background: rgba(255,255,255,0.3);
 					&:before{
 						bottom: 8px;
 					}

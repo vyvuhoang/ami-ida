@@ -5,27 +5,23 @@ $border: #9C9C9C;
 /*-----------------------------------------------------------
 INTRO
 ------------------------------------------------------------*/
-
 .visual{
-	height: 540px;
 	background: none;
 	overflow: hidden;
 	position: relative;
-	.bg{
-		width:100%;
-		height: calc(100% + 70px);
-		background: url(../../img/top/visual1.jpg) center/cover no-repeat;
-		position: absolute;top:0;left:0;
-    &:before{
-      content:"";position: absolute;
-      width: 100%;height: 100%;
-      background: rgba(0,0,0,0.1);
-      top:0;left:0;
-    }
-		@include max-screen(767px){
-			background-image: url(../../img/top/visual1.jpg);
-		}
-	}
+	&:before{
+    content:"";position: absolute;
+    width: 100%;height: 100%;
+    background: url(../../img/top/mv_filter.png) top left/cover repeat;
+    top:0;left:0;
+    z-index: 0;
+  }
+  video{
+    min-width:100vw;height:100vh;
+    position: absolute;
+    top:50%;left:50%;
+    @include transform_c(translate(-50%,-50%));
+  }
 }
 .intro{
 	// max-width: 846px;
@@ -34,13 +30,14 @@ INTRO
 	display: flex;justify-content: space-between;
 	align-items: center;flex-wrap: wrap;
 	@include max-screen(767px){
-		padding-top: 38px;
+		padding-top: 50px;
 		padding-bottom: 45px;
 	}
 	&__img{
 		width: 362px;
 		img{width: 100%;}
 		@include max-screen(767px){
+      margin-top: 40px;
 			order: 2;width:100%;
 			text-align: center;
 			img{max-width: 300px;}
@@ -70,7 +67,8 @@ INTRO
       @include font(20,2.2,0.1,600);
       @include noto;
       @include max-screen(767px){
-        font-size: 20px;line-height: 1.8;
+        font-size: 17px;line-height: 1.8;
+        font-weight: normal;
       }
     }
 		&--txt{
@@ -89,7 +87,7 @@ INTRO
 	background: #E9E9E9;
 	padding: 50px 0;
 	@include max-screen(767px){
-		padding: 30px 0;
+		padding: 30px 10px;
 	}
 	.wcm{
 		max-width: 1120px;
@@ -113,7 +111,6 @@ INTRO
       z-index: 1;
     }
     &:after{
-      // background: $purple;
       background-image: linear-gradient(to bottom, transparent , $purple);
       opacity: 0;
       z-index: 2;
@@ -130,10 +127,16 @@ INTRO
 			&:not(:last-child){margin-bottom: 16px;}
 			background-position: top center;
 		}
-    .img{@include aspect-ratio(340,194);display: block;width:100%;}
+    .img{
+      @include aspect-ratio(340,194);
+      display: block;width:100%;
+      background-position: center;
+      background-size: cover;
+    }
 		*{color: #fff;}
 		.inner{
-			width:100%;text-align: center;display:block;
+			width:100%;text-align: center;
+      display:block;
 			position: absolute;
 			top: 50%;left: 0;z-index:3;
 			@include transform_c(translateY(-50%));
@@ -780,6 +783,126 @@ INTRO
 /*-----------------------------------------------------------
 INTRO
 ------------------------------------------------------------*/
+.c-banner{
+  padding: 60px 0;
+  @include max-screen(767px){padding: 0px 0 20px;}
+  .wcm{max-width: 1010px;}
+  .img{
+    display: inline-block;
+    width: 100%;position: relative;
+    @include transition_c( opacity 0.3s);
+    cursor: pointer;
+    &:hover{
+      opacity: 0.6;
+    }
+    .js-popup,a{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top:0;left:0;
+      z-index: 2;
+    }
+  }
+}
+.popup{
+  display: none;
+  &-inner{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top:0;left:0;bottom:0;right:0;
+    z-index: 999999;
+    background: rgba(0,0,0,0.7);
+    display: flex;justify-content: center;
+    align-items: center;
+    padding: 20px;
+    overflow: auto;
+  }
+  .wcm{
+    max-width: 882px;
+    position: relative;
+    padding: 20px;
+  }
+  .btn_close{
+    width: 50px;height: 50px;
+    background: rgba(146,7,131,0.7);
+    position: absolute;
+    border-radius: 50%;
+    top:0;right:0;
+    z-index: 1;
+    cursor: pointer;
+    @include transition_c(background 0.3s);
+    &:before,&:after{
+      content:"";position: absolute;
+      width: 24px;height: 2px;
+      background: #fff;
+      top: calc(50% - 1px);left: calc(50% - 12px);
+    }
+    &:before{
+      @include transform_c(rotate(45deg));
+    }
+    &:after{
+      @include transform_c(rotate(-45deg));
+    }
+    &:hover{
+      background: rgba(146,7,131,1);
+    }
+  }
+  &__cont{
+    @include aspect-ratio(842,595);
+    &--item{
+      position: absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      @include transition_c(opacity 0.4s);
+      img{width:100%;}
+      opacity: 0;
+      &.active{
+        opacity: 1;
+      }
+    }
+  }
+  &__nav{
+    &--prev,&--next{
+      width: 50px;height: 50px;
+      position: absolute;
+      z-index: 1;display: inline-block;
+      top: calc(50% - 25px);
+      background: rgba(0,0,0,0.5);
+      cursor: pointer;
+      &:before{
+        content:"";position: absolute;
+        width: 20px;height: 20px;
+        border-top: 3px solid #fff;
+        border-right: 3px solid #fff;
+        top: calc(50% - 10px);
+        @include transition_c(all 0.3s);
+      }
+    }
+    &--prev{
+      left: 20px;
+      &:before{
+        @include transform_c(rotate(-135deg));
+        left:calc(50% - 5px);
+      }
+      &:hover:before{left: calc(50% - 10px);}
+    }
+    &--next{
+      right: 20px;
+      &:before{
+        @include transform_c(rotate(45deg));
+        left:calc(50% - 15px);
+      }
+      &:hover:before{left:calc(50% - 10px);}
+    }
+  }
+  &__cap{
+    text-align: center;
+    color: #fff;
+    @include font(14,1,0,bold);
+    padding: 10px;
+  }
+}
 /*-----------------------------------------------------------
 INTRO
 ------------------------------------------------------------*/

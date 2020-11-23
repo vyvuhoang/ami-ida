@@ -10,7 +10,7 @@ include(APP_PATH.'libs/head.php');
 <?php include(APP_PATH.'libs/header.php'); ?>
 <main id="wrap">
 	<div class="visual">
-	  <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
+		<video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/top/mainvisual.mp4"></video>
 	  <div class="visual">
 	    <div class="visual__scroll">
 	      <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
@@ -75,6 +75,18 @@ include(APP_PATH.'libs/head.php');
 					<p class="cat"><em>お知らせ</em></p>
 					<p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
 				</a>
+			</div>
+		</div>
+	</div>
+	<div class="c-banner">
+		<div class="wcm">
+			<div class="img">
+				<div class="js-popup pc"></div>
+				<picture>
+				  <source srcset="<?php echo APP_ASSETS; ?>img/top/bn_measures-sp.jpg" media="(max-width: 767px)">
+				  <img src="<?php echo APP_ASSETS; ?>img/top/bn_measures.jpg" alt="">
+				</picture>
+				<a target="_blank" href="<?php echo APP_URL; ?>assets/img/top/measure.pdf" class="sp"></a>
 			</div>
 		</div>
 	</div>
@@ -203,13 +215,7 @@ include(APP_PATH.'libs/head.php');
   	<a href="<?php echo APP_URL; ?>studio/" class="c-btn">もっとみる</a>
   </div>
 	<?php endif; ?>
-	<div class="slide">
-		<div class="slide__img js-voice-slider">
-			<?php for($i=1;$i<8;$i++){ ?>
-		  <div class="item" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide<?php echo $i; ?>.jpg);"></div>
-			<?php } ?>
-		</div>
-	</div>
+	<?php include(APP_PATH.'libs/slider.php'); ?>
 	<div class="faq">
 		<?php include(APP_PATH.'libs/faq.php'); ?>
 	</div>
@@ -220,12 +226,46 @@ include(APP_PATH.'libs/head.php');
 			<a href="" class="grBtn__item twitter"><p>Twitter</p></a>
 		</div>
 	</div>
+	<div class="popup">
+		<div class="popup-inner">
+			<div class="wcm">
+				<div class="btn_close"></div>
+				<div class="popup__cont">
+					<div class="popup__cont--item item1 active">
+						<img src="<?php echo APP_ASSETS; ?>img/top/banner01.jpg" alt="">
+					</div>
+					<div class="popup__cont--item item1">
+						<img src="<?php echo APP_ASSETS; ?>img/top/banner02.jpg" alt="">
+					</div>
+					<div class="popup__cont--item item1">
+						<img src="<?php echo APP_ASSETS; ?>img/top/banner03.jpg" alt="">
+					</div>
+				</div>
+				<div class="popup__nav">
+					<div class="popup__nav--next"></div>
+					<div class="popup__nav--prev"></div>
+				</div>
+				<div class="popup__cap">1 / 3</div>
+			</div>
+		</div>
+	</div>
 </main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS ?>js/page/top.min.js"></script>
 <script>
 	var _url = "<?php echo APP_URL; ?>";
+	$('body').on('click', '.js-popup', function(){
+		$('.popup').fadeIn();
+		$('body').css('top', -st);
+		$('body').addClass('menu-open');
+	});
+
+  $(".popup").on("click", function(e){
+    if (e.target !== this)
+      return;
+    $('.btn_close').trigger('click');
+  });
 </script>
 </body>
 </html>

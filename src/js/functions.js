@@ -51,6 +51,7 @@ function GoogleFontLoader() {
     s.parentNode.insertBefore(wf, s);
   })();
 }
+GoogleFontLoader();
 var offset_menu = 0;
 $(window).bind("load resize",function(e){
   $('a[href^="#"]').on('click', function (e) {

@@ -86,7 +86,7 @@ SEARCH
 	}
 }
 .lst-studio{
-	@include transition_c(all 0.1s);
+	// @include transition_c(all 0.1s);
 	display: flex;justify-content: flex-start;
 	flex-wrap: wrap;margin-top: 20px;
 	@include max-screen(767px){margin-top: 40px;}
