@@ -15,6 +15,7 @@ $reg_url          = (!empty($_POST['url'])) ? htmlspecialchars($_POST['url']) : 
 
 //お問い合わせフォーム内容
 $reg_studio_slug = (!empty($_POST['studio_slug'])) ? htmlspecialchars($_POST['studio_slug']) : '';
+$reg_studio_id = (!empty($_POST['studio_id'])) ? htmlspecialchars($_POST['studio_id']) : '';
 $reg_single_ttl = (!empty($_POST['single_ttl'])) ? htmlspecialchars($_POST['single_ttl']) : '';
 $reg_instructor = (!empty($_POST['instructor'])) ? htmlspecialchars($_POST['instructor']) : '';
 $reg_hopedate = (!empty($_POST['hopedate'])) ? htmlspecialchars($_POST['hopedate']) : '';
@@ -129,6 +130,7 @@ if($actionFlag == "confirm") {
             </table>
 
             <input type="hidden" name="studio_slug" value="<?php echo $reg_studio_slug ?>">
+            <input type="hidden" name="studio_id" value="<?php echo $reg_studio_id ?>">
             <input type="hidden" name="single_ttl" value="<?php echo $reg_single_ttl ?>">
             <input type="hidden" name="instructor" value="<?php echo $reg_instructor ?>">
             <input type="hidden" name="hopedate" value="<?php echo $reg_hopedate ?>">

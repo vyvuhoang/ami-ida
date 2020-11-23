@@ -143,11 +143,7 @@
         $html .= '<div class="lesson empty"></div>';
       }else{
         $html .= '
-<<<<<<< HEAD
-          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].'">
-=======
           <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
->>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
             <div class="bg">
               <p class="time" data-date="'.$key.'">'.$value[$j][0].' - '.$value[$j][1].'</p>
               <div class="pic" style="background-image: url('.$value[$j][4].');"></div>
@@ -157,11 +153,7 @@
           </div>
         ';
         $html_popup .= '
-<<<<<<< HEAD
-          <div class="each" data-id="'.$key.'-'.$value[$j][0].'">
-=======
           <div class="each" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
->>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
             <div class="img" style="background-image: url('.$value[$j][4].');"></div>
             <ul class="lst-info">
               <li class="item">
@@ -170,11 +162,7 @@
               </li>
               <li class="item">
                 <div class="item-ttl">日時</div>
-<<<<<<< HEAD
-                <div class="item-txt">'.$key.' '.$value[$j][0].'</div>
-=======
                 <div class="item-txt">'.$key.' '.$value[$j][0].' - '.$value[$j][1].'</div>
->>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
               </li>
               <li class="item">
                 <div class="item-ttl">インストラクター</div>
@@ -182,22 +170,14 @@
               </li>
               <li class="item">
                 <div class="item-ttl">難易度</div>
-<<<<<<< HEAD
-                <div class="item-txt">'.$stars[$value[$j][3]].'</div>
-=======
                 <div class="item-txt">'.$stars[$value[$j][4]].'</div>
->>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
               </li>
               <li class="item">
                 <div class="item-ttl">内容</div>
                 <div class="item-txt">リラックスレッスン内容</div>
               </li>
             </ul>
-<<<<<<< HEAD
-            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][2].'" data-date="'.$key.'" data-time="'.$value[$j][0].'"><span>体験する</span></a>
-=======
             <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][3].'" data-date="'.$key.'" data-instructor="'.$value[$j][2].'" data-time="'.$value[$j][0].' - '.$value[$j][1].'"><span>体験する</span></a>
->>>>>>> af926e10b4a5089146587881c72096ead3cd2f71
           </div>
         ';
 
