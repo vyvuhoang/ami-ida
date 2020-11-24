@@ -73,34 +73,39 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-intro">
       <div class="container-1080">
-        <div class="inside">
-          <h3 class="the-title">９月限定！<br class="sp"><?php echo get_the_title(); ?>店の入会特典 12月限定!<br>ゆめタウン博多店の入会特典</h3>
-          <ul class="lst-intro">
-            <li class="item">
-              <div class="txt">
-                <p class="txt01">入会特典<br>月額会費</p>
-                <p class="txt02">半額</p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="txt">
-                <p class="txt01">入会特典<br>入会金</p>
-                <p class="price">
-                  <span class="number">0</span>
-                  <span class="unit">円</span>
-                </p>
-              </div>
-            </li>
-            <li class="item">
-              <div class="txt">
-                <p class="txt01">入会特典<br>水素飲み放題</p>
-                <p class="price">
-                  <span class="number">0</span>
-                  <span class="unit">円</span>
-                </p>
-              </div>
-            </li>
-          </ul>
+        <h3 class="the-title">９月限定！<br><?php echo get_the_title(); ?>店の入会特典 12月限定!<br>ゆめタウン博多店の入会特典</h3>
+        <div class="gr">
+          <div class="inside">
+            <ul class="lst-intro">
+              <li class="item">
+                <div class="txt">
+                  <p class="txt01">入会特典<br>月額会費</p>
+                  <p class="txt02">半額</p>
+                </div>
+              </li>
+              <li class="item">
+                <div class="txt">
+                  <p class="txt01">入会特典<br>入会金</p>
+                  <p class="price">
+                    <span class="number">0</span>
+                    <span class="unit">円</span>
+                  </p>
+                </div>
+              </li>
+              <li class="item">
+                <div class="txt">
+                  <p class="txt01">入会特典<br>水素飲み放題</p>
+                  <p class="price">
+                    <span class="number">0</span>
+                    <span class="unit">円</span>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bg">
+            <img class="lazy img" data-src="<?php echo APP_ASSETS; ?>img/studio/img_yoga.jpg" alt="">
+          </div>
         </div>
       </div>
     </div>

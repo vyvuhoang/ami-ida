@@ -5,9 +5,6 @@
 //   src: url(../../font/CollectionFree.otf);
 // }
 
-@mixin fontCol {
-  font-family: CollectionFree;
-}
 @mixin notoserif {
   font-family: 'Noto Serif JP', serif;
 }
@@ -52,10 +49,11 @@ body {
   margin: 0 auto;
 }
 .sec-intro {
-  background: url(../../img/studio/img01.png) bottom 28% right 5%/auto 75.9% no-repeat, url(../../img/studio/bg01.jpg) center/cover no-repeat;
+  padding: 70px 5px 50px;
+  background: url(../../img/studio/bg01.jpg) center/cover no-repeat;
   overflow: hidden;
   @include SP {
-    background: url(../../img/studio/img01.png) bottom 30px center/calc(100% - 55px) auto no-repeat, #F8EDF1;
+    background: #F8EDF1;
     position: relative;
 
     &:before {
@@ -66,19 +64,35 @@ body {
       @include transform_c(translate(-50%, -50%));
     }
   }
+  .gr{
+    display: flex;width:100%;
+    justify-content: space-between;
+    align-items: center;flex-wrap: wrap;
+  }
   .inside {
-    max-width: 725px;
-    padding: 119px 0 174px;
+    width: 60%;
     @include SP {
-      padding: 65px 0 290px;
+      width:100%;
+      padding: 65px 0 30px;
       position: relative;
       z-index: 1;
     }
   }
+  .bg{
+    width: 37%;
+    @include max-screen(767px){width:100%;}
+    .img{
+      width: 100%;display: block;
+      @include aspect-ratio(400,300);
+      background-size: cover;
+      background-position: center;
+    }
+  }
   .the-title {
-    margin-bottom: 76px;
+    margin-bottom: 50px;
+    font-weight: 500;
     @include SP {
-      margin-bottom: 42px;
+      margin-bottom: 0px;
     }
   }
   .lst-intro {
@@ -111,9 +125,13 @@ body {
       }
       .txt01 {
         @include font(24, 40/24, 0.15, 500);
+        @include screen(951px,1024px){font-size: 20px;}
+        @include screen(768px,950px){font-size: 16px;}
       }
       .txt02 {
         @include font(42, 63/42, 0.06, 500);
+        @include screen(768px,1024px){font-size: 34px;}
+        @include screen(768px,950px){font-size: 30px;}
       }
       .price {
         .number,.unit {
@@ -122,9 +140,13 @@ body {
         }
         .number {
           @include font(68, 68/68, 0.06, 500);
+          @include screen(951px,1024px){font-size: 56px;}
+          @include screen(768px,950px){font-size: 40px;}
         }
         .unit {
           @include font(32, 51/32, 0.06, 500);
+          @include screen(951px,1024px){font-size: 30px;}
+          @include screen(768px,950px){font-size: 24px;}
         }
       }
     }
@@ -174,12 +196,10 @@ body {
   }
 }
 .sec-charge {
-  padding-top: 51px;
+  padding-top: 80px;
   margin-bottom: 140px;
-  margin-top: 100px;
   @include SP {
-    margin-top: 40px;
-    padding-top: 37px;
+    padding-top: 45px;
     margin-bottom: 50px;
   }
   .the-title {
@@ -217,6 +237,9 @@ body {
         .txt01 {
           @include font(18, '', 0.1, 600);
           @include noto;
+          @include max-screen(767px){
+            font-size: 16px;
+          }
         }
         .txt02 {
           @include font(15, '', 0.1, bold);
@@ -224,7 +247,7 @@ body {
           @include SP {
             margin-left: 0;
             margin-top: 3px;
-            display: block;
+            // display: block;
           }
         }
       }
@@ -245,6 +268,9 @@ body {
             display: inline-block;
             vertical-align: top;
             @include font(15, '', 0.1, bold);
+            @include max-screen(767px){
+              font-size: 14px;
+            }
           }
           .td {
             display: inline-block;
@@ -255,12 +281,13 @@ body {
             width: 250px;
             text-align: center;
             border-bottom: 1px solid $pinkpurple;
-            @include SP {width: 120px;}
+            @include SP {width: 145px;}
           }
           .td {
             width: calc(100% - 250px);
             @include SP {
-              width: calc(100% - 120px)
+              width: calc(100% - 145px);
+              padding-left: 15px;
             }
           }
           .td01 {
@@ -275,7 +302,7 @@ body {
           .td02 {
             width: calc(100% - 200px);
             font-weight: normal;
-            @include SP {width: 100%;}
+            @include SP {width: 100%;font-size: 12px;}
           }
           &:last-child {
             .th,.td {
