@@ -119,6 +119,7 @@ body{
           &:before{content:"CLOSE";}
           span{
             background: transparent;
+            right: calc(50% - 16px);
             &:before{
               @include transform_c(rotateZ(-35deg) translate(-3px,0px));
               top: 0;width: calc(100% - 5px);

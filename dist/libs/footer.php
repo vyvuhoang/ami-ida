@@ -23,7 +23,7 @@
 						<a href="" class="facebook">
 							<img src="<?php echo APP_ASSETS; ?>img/common/header/ico_fb.svg" alt="Facebook">
 						</a>
-						<a href="" class="ins">
+						<a href="https://www.instagram.com/amiida_official/?hl=ja" class="ins">
 							<img src="<?php echo APP_ASSETS; ?>img/common/header/ico_ins.svg" alt="Instagram">
 						</a>
 					</div>
