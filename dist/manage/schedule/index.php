@@ -209,7 +209,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
                 <div class="item item--last">
-                  <h3 class="item-ttl item-ttl--nopad">担当インストラクター名</h3>
+                  <h3 class="item-ttl">担当インストラクター名</h3>
                   <div class="item-field">
                     <input type="text" id="schedule_0_instructor" name="schedule_0_instructor" class="schedule_0_instructor">
                   </div>
