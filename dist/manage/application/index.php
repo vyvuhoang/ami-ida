@@ -48,6 +48,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
       }
       include(APP_PATH.'libs/head.php');
 ?>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/lib/simplebar.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_application.min.css">
 </head>
@@ -190,7 +191,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
             $i = 0;?>
           <div class="sec-data">
             <h3 class="ttl">体験予約者 管理ボード</h3>
-            <div class="tbl-outside">
+            <div class="tbl-outside js-tbl-outside">
               <div class="tbl-data">
                 <div class="row">
                   <div class="th">NO</div>
@@ -213,12 +214,12 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   $appl_query_condition->the_post();
                 ?>
                 <div class="row js-row" data-post-id="<?php echo get_the_ID();?>">
-                  <div class="td"><?php echo $i;?></div>
+                  <div class="td"><p class="txt"><?php echo $i;?></p></div>
                   <?php foreach($appl_fields_form as $val){?>
-                    <div class="td"><?php echo get_field($val);?></div>
+                    <div class="td"><p class="txt"><?php echo get_field($val);?></p></div>
                   <?php }?>
                   <?php foreach($appl_fields_edit as $val){ ?>
-                    <div class="td">
+                    <div class="td td--edit">
                   <?php
                       switch($val){
                         case 'via':
@@ -226,7 +227,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $via_val = get_field($val);
                   ?>
                       <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                        <option value="">choose one</option>
+                        <option value="">一つ選択しる</option>
                         <?php foreach($via_arr as $vval){
                           $selected = $via_val == $vval ? ' selected' : '';
                         ?>
@@ -241,7 +242,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $phone_val = get_field($val);
                   ?>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                      <option value="">choose one</option>
+                      <option value="">一つ選択しる</option>
                       <?php foreach($phone_arr as $pval){
                         $selected = $phone_val == $pval ? ' selected' : '';
                       ?>
@@ -255,7 +256,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $status_val = get_field($val);
                   ?>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                      <option value="">choose one</option>
+                      <option value="">一つ選択しる</option>
                       <?php foreach($status_arr as $sval){
                         $selected = $status_val == $sval ? ' selected' : '';
                       ?>
@@ -266,7 +267,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           break;
                         case 'memo':
                   ?>
-                    <textarea name="<?php echo $val;?>" id="<?php echo $val;?>" cols="30" rows="10"><?php echo get_field($val);?></textarea>
+                    <textarea name="<?php echo $val;?>" id="<?php echo $val;?>"><?php echo get_field($val);?></textarea>
                   <?php
                           break;
                         default:
@@ -286,41 +287,8 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
     </div>
   </main>
   <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      selectRedirect();
-      ajaxUpdate();
-    })
-    function selectRedirect(){
-      $('.js-select-redirect').on('change', function () {
-        var url = $(this).val();
-        if (url) {
-          window.location = url;
-        }
-        return false;
-      });
-    }
-
-    function ajaxUpdate(){
-      $('.js-row').find('input, select, textarea').on('change', function(){
-        var _post_id = $(this).closest('.js-row').attr('data-post-id'),
-            _field_key = $(this).attr('name'),
-            _field_value = $(this).val();
-        $.ajax({
-          method: 'POST',
-          dataType: 'json',
-          data: {
-            post_id: _post_id,
-            field_key: _field_key,
-            field_value: _field_value,
-          }
-        }).success(function(data) {
-        }).error(function(xhr, status, error) {
-          console.log(xhr + status + error);
-        })
-      })
-    }
-  </script>
+  <script src="<?php echo APP_ASSETS; ?>js/lib/simplebar.min.js"></script>
+  <script src="<?php echo APP_ASSETS; ?>js/page/manage-application.min.js"></script>
 </body>
 </html>
 <?php
