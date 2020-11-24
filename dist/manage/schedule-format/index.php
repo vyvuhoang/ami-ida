@@ -72,7 +72,7 @@ include(APP_PATH.'libs/head.php');
                         <textarea name="postContent" id="postContent" rows="8" cols="30"><?php echo strip_tags($content); ?></textarea>
                       </div>
                       <div class="item">
-                        <label for="postLevel">レッスン難易度</label>
+                        <label for="postLevel">レッスン強度</label>
                         <select name="postLevel" id="postLevel">
                           <?php for($i=1;$i<=5;$i++){
                             echo '<option value="'.$i.'" '.(($level==$i)?'selected':'').'>★'.$i.'</option>';
@@ -81,7 +81,7 @@ include(APP_PATH.'libs/head.php');
                       </div>
                     </div>
                     <div class="sec-btn-submit">
-                      <a href="<?php echo APP_URL ?>manage/schedule-format/" class="btn-new">新しいページを追加</a>
+                      <a href="<?php echo APP_URL ?>manage/schedule-format/" class="btn-new">新しくレッスンを追加</a>
                       <input type="hidden" name="submitted" id="submitted" value="true" />
                       <button type="submit">投稿を更新</button>
                     </div>
@@ -101,7 +101,7 @@ include(APP_PATH.'libs/head.php');
                         <textarea name="postContent" id="postContent" rows="8" cols="30"></textarea>
                       </div>
                       <div class="item">
-                        <label for="postLevel">レッスン難易度</label>
+                        <label for="postLevel">レッスン強度</label>
                         <select name="postLevel" id="postLevel">
                           <option value="1">★ 1</option>
                           <option value="2">★ 2</option>

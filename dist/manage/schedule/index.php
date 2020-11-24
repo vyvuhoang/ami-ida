@@ -150,7 +150,7 @@ include(APP_PATH.'libs/head.php');
                 <div class="item item--date">
                   <p class="item-ttl">月を選択</p>
                   <select name="" id="" class="js-select-redirect">
-                    <option value="">時間を選択してください</option>
+                    <option value="">月を選択してください</option>
                     <?php for ($i=1;$i<=12;$i++) {
                       $ym = date("Y").'/'.$i;
                       $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
@@ -186,7 +186,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl item-ttl--nopad">レッスン難易度<span class="note">※自動反映</span></h3>
+                  <h3 class="item-ttl item-ttl--nopad">レッスン強度<span class="note">※自動反映</span></h3>
                   <div class="item-field">
                     <p class="txt txt-small-field js-lesson-level"></p>
                   </div>
@@ -198,7 +198,7 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl">日程</h3>
+                  <h3 class="item-ttl">レッスン開始/終了</h3>
                   <div class="item-field">
                     <div class="half">
                       <input type="text" name="schedule_0_time_start" id="schedule_0_time_start">

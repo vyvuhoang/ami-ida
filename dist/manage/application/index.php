@@ -227,7 +227,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $via_val = get_field($val);
                   ?>
                       <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                        <option value="">一つ選択しる</option>
+                        <option value="">選択する</option>
                         <?php foreach($via_arr as $vval){
                           $selected = $via_val == $vval ? ' selected' : '';
                         ?>
@@ -242,7 +242,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $phone_val = get_field($val);
                   ?>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                      <option value="">一つ選択しる</option>
+                      <option value="">※未入力</option>
                       <?php foreach($phone_arr as $pval){
                         $selected = $phone_val == $pval ? ' selected' : '';
                       ?>
@@ -256,7 +256,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $status_val = get_field($val);
                   ?>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
-                      <option value="">一つ選択しる</option>
+                      <option value="">選択する</option>
                       <?php foreach($status_arr as $sval){
                         $selected = $status_val == $sval ? ' selected' : '';
                       ?>
