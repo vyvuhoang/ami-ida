@@ -749,41 +749,6 @@ INTRO
 /*-----------------------------------------------------------
 INTRO
 ------------------------------------------------------------*/
-.sns{
-  padding: 47px 0 76px;
-  @include max-screen(767px){
-    padding: 40px 0
-  }
-  .grBtn{
-    display: flex;justify-content: space-between;
-    width: 100%;max-width: 540px;
-    margin: 50px auto 0;flex-wrap: wrap;
-    @include max-screen(767px){padding: 0 20px;margin-top: 40px;}
-    &__item{
-      width: calc(50% - 10px);
-      border: 2px solid #444;
-      @include font(16,1,0.05,600);
-      display: block;text-align: center;
-      @include max-screen(767px){
-        width: 100%;
-        &:first-child{margin-bottom: 15px;}
-      }
-      p{
-        display: inline-block;
-        padding: 20px 0 20px 38px;
-      }
-      &.ins p{
-        background: url(../../img/common/icon/ico_ins.svg) left center/25px auto no-repeat;
-      }
-      &.twitter p{
-        background: url(../../img/common/icon/ico_twitter.svg) left center/25px auto no-repeat;
-      }
-    }
-  }
-}
-/*-----------------------------------------------------------
-INTRO
-------------------------------------------------------------*/
 .c-banner{
   padding: 60px 0;
   @include max-screen(767px){padding: 0px 0 20px;}
