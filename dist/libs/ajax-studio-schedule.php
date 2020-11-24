@@ -154,7 +154,6 @@
         ';
         $html_popup .= '
           <div class="each" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
-            <div class="img" style="background-image: url('.$value[$j][4].');"></div>
             <ul class="lst-info">
               <li class="item">
                 <div class="item-ttl">スタジオ</div>
