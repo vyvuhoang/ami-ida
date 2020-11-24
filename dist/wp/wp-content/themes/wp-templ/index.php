@@ -40,7 +40,7 @@ include(APP_PATH.'libs/head.php');
 					<p class="anchor__item--txt">Ami-ida life</p>
 				</span>
 			</a>
-			<a href="#feature" class="anchor__item">
+			<a href="https://www.ami-ida.com/yoganyogalp/" class="anchor__item">
 				<span class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/anchor02.jpg)"></span>
 				<span class="inner">
 					<p class="anchor__item--ttl">溶岩ホットヨガの特徴</p>
