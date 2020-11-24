@@ -39,6 +39,7 @@ function faq(){
 
 function price(){
   $('.js-lst-price .item:first-child').addClass('active').find('.js-price-tbl').slideToggle();
+  $('.js-lst-price .item:nth-child(2)').addClass('active').find('.js-price-tbl').slideToggle();
   $('body').on('click', '.js-price-ttl', function(){
     $(this).siblings('.js-price-tbl').slideToggle()
     .parent().toggleClass('active');
