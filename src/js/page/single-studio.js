@@ -81,6 +81,7 @@ function getAjax(_post_id, _date_start){
   }).success(function(data) {
     schedule.html(data.html);
     schedule_popup.html(data.html_popup);
+    simplebartbl();
   }).error(function (xhr, ajaxOptions, thrownError) {
     console.log(xhr.status);
     console.log(thrownError);
@@ -203,4 +204,8 @@ function autoCompleteForm(){
       }, 300, 'swing', function () {});
     }
   })
+}
+
+function simplebartbl(){
+  new SimpleBar($('.js-out-lst')[0], { autoHide: false })
 }

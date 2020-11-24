@@ -43,7 +43,7 @@
         <span class="next js-next"></span>
       </div>
     </div>
-    <div class="out-lst">
+    <div class="out-lst js-out-lst">
       <div class="lst-schedule">
         <ul class="lst-date">';
 
