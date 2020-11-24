@@ -74,7 +74,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">
-          <h3 class="the-title">９月限定！<br class="sp"><?php echo get_the_title(); ?>店の入会特典</h3>
+          <h3 class="the-title">９月限定！<br class="sp"><?php echo get_the_title(); ?>店の入会特典 12月限定!<br>ゆめタウン博多店の入会特典</h3>
           <ul class="lst-intro">
             <li class="item">
               <div class="txt">
@@ -116,115 +116,124 @@ include(APP_PATH.'libs/head.php');
         <ul class="lst-price js-lst-price">
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">マンスリーオプション</span>
-              <span class="txt02">※一部店舗</span>
+              <span class="txt01">料金プラン</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">月額会費</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
-                </div>
-              </div>
-              <div class="row">
-                <p class="th">タオル</p>
-                <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
-                </div>用可能</p>
-              </div>
-              <div class="row">
-                <p class="th">水素水</p>
-                <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">19,800円 </p>
+                  <p class="td02">※通い放題&溶岩浴利用も可能</p>
                 </div>
               </div>
             </div>
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">オプション</span>
+              <span class="txt01">オプションサービス</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">水素水</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
+                  <p class="td01">1,000円/月</p>
                   <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
                 </div>
               </div>
               <div class="row">
                 <p class="th">タオル</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
+                  <p class="td01">1,000円/月</p>
+                  <p class="td02"> 1日1回、バスタオル1枚とフェイスタオル1枚がご利用可能
                 </div>用可能</p>
               </div>
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">マットお預かり、</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">1,000円/月</p>
+                  <p class="td02">ヨガマットお預かり</p>
                 </div>
               </div>
             </div>
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">オプション（アミ―ダオリジナルウェア）</span>
-              <span class="txt02">※一部店舗</span>
+              <span class="txt01">購入できるもの</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">溶岩ヨガ専用マット</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">12,000円</p>
+                  <p class="td02">(サイズ 174cm×61cm×5cm)</p>
                 </div>
               </div>
               <div class="row">
-                <p class="th">タオル</p>
+                <p class="th">ラグ</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
-                </div>用可能</p>
+                  <p class="td01">3,900円</p>
+                </div>
               </div>
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">マットトラップ</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">900円</p>
+                </div>
+              </div>
+              <div class="row">
+                <p class="th">アミーダセット</p>
+                <div class="td">
+                  <p class="td01">13,500円</p>
+                </div>
+              </div>
+              <div class="row">
+                <p class="th">水素水ボトル</p>
+                <div class="td">
+                  <p class="td01">800円</p>
                 </div>
               </div>
             </div>
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">レンタル</span>
-              <span class="txt02">※一部店舗</span>
+              <span class="txt01">水素水ボトル レンタルできるもの</span>
+              <span class="txt02">(※一部店舗)</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">ウェアー(上)</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">6,800円/月</p>
                 </div>
               </div>
               <div class="row">
-                <p class="th">タオル</p>
+                <p class="th">ウェアー(下)</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">1日1回、バスタオル1枚とフェイスタオル1枚がご利
-                </div>用可能</p>
+                  <p class="td01">6,800円/月</p>
+                </div>
               </div>
               <div class="row">
-                <p class="th">水素水</p>
+                <p class="th">ウェアー上下セット</p>
                 <div class="td">
-                  <p class="td01">1,000円</p>
-                  <p class="td02">水素水飲み放題。専用ボトルにてご利用可能</p>
+                  <p class="td01">13,600円/月・750円/日</p>
+                </div>
+              </div>
+              <div class="row">
+                <p class="th">アミーダセット <br>+ウェアー上下セット</p>
+                <div class="td">
+                  <p class="td01">28,100円</p>
+                </div>
+              </div>
+              <div class="row">
+                <p class="th">タオルセット <br>(フェイスタオル・バスタオル)</p>
+                <div class="td">
+                  <p class="td01">350円</p>
+                </div>
+              </div>
+              <div class="row">
+                <p class="th">ヨガマット</p>
+                <div class="td">
+                  <p class="td01">300円</p>
                 </div>
               </div>
             </div>
