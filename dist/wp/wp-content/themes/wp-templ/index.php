@@ -24,14 +24,14 @@ include(APP_PATH.'libs/head.php');
 	  </div>
 	</div>
 	<div class="intro wcm" id="intro">
-		<div class="intro__img">
+		<div class="intro__img inview fadeInBottom">
 			<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.png" alt="">
 		</div>
-		<div class="intro__info">
+		<div class="intro__info inview fadeInBottom fadeInBottomDelay">
 			<h3 class="intro__info--ttl">アミーダは、全スタジオが天然溶岩石でつくられた「溶岩石ホットヨガスタジオ」です。<br>あなたの生活に真の美しさを。身体も心も綺麗で溢れる生活を、アミーダで始める。</h3>
 		</div>
 	</div>
-	<div class="anchor">
+	<div class="anchor inview fadeInBottom">
 		<div class="wcm">
 			<a href="<?php echo APP_URL; ?>amiida_life/" class="anchor__item">
 				<span class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/anchor01.jpg)"></span>
@@ -56,7 +56,7 @@ include(APP_PATH.'libs/head.php');
 			</a>
 		</div>
 	</div>
-	<div class="c-news">
+	<div class="c-news inview fadeInBottom">
 		<div class="wcm">
 			<p class="c-news__ttl">NEWS</p>
 			<div class="c-news__lst">
@@ -78,7 +78,7 @@ include(APP_PATH.'libs/head.php');
 			</div>
 		</div>
 	</div>
-	<div class="c-banner">
+	<div class="c-banner inview fadeInBottom">
 		<div class="wcm">
 			<div class="img">
 				<div class="js-popup pc"></div>
@@ -92,9 +92,9 @@ include(APP_PATH.'libs/head.php');
 	</div>
 	<div class="feature1" id="feature">
 		<div class="wcm">
-			<h3 class="the-title">アミーダ溶岩ホット<br class="sp">ヨガの特徴</h3>
+			<h3 class="the-title inview fadeInBottom">アミーダ溶岩ホット<br class="sp">ヨガの特徴</h3>
 			<div class="feature1__lst">
-				<div class="feature1__lst--item">
+				<div class="feature1__lst--item inview fadeInBottom">
 					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature1.jpg)"></div>
 					<div class="info">
 						<div class="inner">
@@ -103,7 +103,7 @@ include(APP_PATH.'libs/head.php');
 						</div>
 					</div>
 				</div>
-				<div class="feature1__lst--item">
+				<div class="feature1__lst--item inview fadeInBottom">
 					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature2.jpg)"></div>
 					<div class="info">
 						<div class="inner">
@@ -112,7 +112,7 @@ include(APP_PATH.'libs/head.php');
 						</div>
 					</div>
 				</div>
-				<div class="feature1__lst--item">
+				<div class="feature1__lst--item inview fadeInBottom">
 					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature1.jpg)"></div>
 					<div class="info">
 						<div class="inner">
@@ -121,7 +121,7 @@ include(APP_PATH.'libs/head.php');
 						</div>
 					</div>
 				</div>
-				<div class="feature1__lst--item">
+				<div class="feature1__lst--item inview fadeInBottom">
 					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature4.jpg)"></div>
 					<div class="info">
 						<div class="inner">
@@ -134,8 +134,8 @@ include(APP_PATH.'libs/head.php');
 		</div>
 	</div>
 	<div class="sec-check">
-		<div class="the-title wcm">アミーダはこんな方の<br class="sp">ライフスタイルを<br class="pc">整えるための、<br class="sp">溶岩ホットヨガスタジオです。</div>
-		<div class="sec-check__bg">
+		<div class="the-title wcm inview fadeInBottom">アミーダはこんな方の<br class="sp">ライフスタイルを<br class="pc">整えるための、<br class="sp">溶岩ホットヨガスタジオです。</div>
+		<div class="sec-check__bg inview fadeInBottom">
 			<div class="sec-check__bg--lst">
 				<div class="wcm">
 					<ul>
@@ -153,9 +153,9 @@ include(APP_PATH.'libs/head.php');
 	</div>
   <div class="c-voice">
   	<div class="wcm">
-			<h3 class="the-title wcm">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
+			<h3 class="the-title wcm inview fadeInBottom">アミーダの溶岩ホットヨガを選ぶお客様のお声</h3>
   		<?php include(APP_PATH.'libs/voice.php'); ?>
-	  	<a href="<?php echo APP_URL; ?>studio" class="c-btn">お近くのスタジオを探す</a>
+	  	<a href="<?php echo APP_URL; ?>studio" class="c-btn inview fadeInBottom">お近くのスタジオを探す</a>
 	  </div>
 	</div>
   <?php $studioarea = array(
@@ -167,7 +167,7 @@ include(APP_PATH.'libs/head.php');
       'pad_counts'              => false,
   );
   $categories = get_categories( $studioarea );?>
-  <?php $studio = new WP_Query(array(        
+  <?php $studio = new WP_Query(array(
     'post_type'       => 'studio',
     'showposts'       => 6,
     'post_status'     => 'publish',
@@ -175,9 +175,9 @@ include(APP_PATH.'libs/head.php');
   ));
   if ($studio->have_posts()) :?>
   <div class="studio wcm">
-  	<h3 class="the-title">体験レッスン受付中の<br class="sp">スタジオ一覧</h3>
-  	<p class="studio__txt">※店舗により体験内容・キャンペーン内容が異なります。<br>詳細は、 各店舗ページをご覧ください。</p>
-  	<div class="studio__select">
+  	<h3 class="the-title inview fadeInBottom">体験レッスン受付中の<br class="sp">スタジオ一覧</h3>
+  	<p class="studio__txt inview fadeInBottom">※店舗により体験内容・キャンペーン内容が異なります。<br>詳細は、 各店舗ページをご覧ください。</p>
+  	<div class="studio__select inview fadeInBottom">
   		<select>
   			<option value="">All</option>
   			<?php foreach($categories as $cat){ ?>
@@ -185,7 +185,7 @@ include(APP_PATH.'libs/head.php');
   			<?php } ?>
   		</select>
   	</div>
-  	<div class="lst-studio" id="list-studio">
+  	<div class="lst-studio inview fadeInBottom" id="list-studio">
 			<?php while ($studio->have_posts()) : $studio->the_post();
 	       $fields = get_fields();
 	    ?>
@@ -212,7 +212,7 @@ include(APP_PATH.'libs/head.php');
   		</div>
   		<?php endwhile; ?>
   	</div>
-  	<a href="<?php echo APP_URL; ?>studio/" class="c-btn">もっとみる</a>
+  	<a href="<?php echo APP_URL; ?>studio/" class="c-btn inview fadeInBottom">もっとみる</a>
   </div>
 	<?php endif; ?>
 	<?php include(APP_PATH.'libs/slider.php'); ?>
@@ -220,8 +220,8 @@ include(APP_PATH.'libs/head.php');
 		<?php include(APP_PATH.'libs/faq.php'); ?>
 	</div>
 	<div class="sns wcm">
-		<h3 class="the-title">SNS</h3>
-		<div class="grBtn">
+		<h3 class="the-title inview fadeInBottom">SNS</h3>
+		<div class="grBtn inview fadeInBottom">
 			<a target="_blank" href="https://www.instagram.com/amiida_official/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
 			<a target="_blank" href="https://twitter.com/yoga_amiida" class="grBtn__item twitter"><p>Twitter</p></a>
 		</div>

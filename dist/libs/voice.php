@@ -1,7 +1,7 @@
 <ul class="lst-voice">
   <li class="item">
-    <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_02.jpg" alt=""></div>
-    <div class="voice">
+    <div class="avatar inview fadeInBottom"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_02.jpg" alt=""></div>
+    <div class="voice inview fadeInBottom fadeInBottomDelay">
       <div class="bg">
         <h4 class="voice-ttl">アミーダで実現できた”身体”と”心”の美。</h4>
         <div class="hide">
@@ -15,8 +15,8 @@
     </div>
   </li>
   <li class="item">
-    <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_03.jpg" alt=""></div>
-    <div class="voice">
+    <div class="avatar inview fadeInBottom"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_03.jpg" alt=""></div>
+    <div class="voice inview fadeInBottom fadeInBottomDelay">
       <div class="bg">
         <h4 class="voice-ttl">アミーダは、なくてはならない生活の一部。</h4>
         <div class="hide">
@@ -30,8 +30,8 @@
     </div>
   </li>
   <li class="item">
-    <div class="avatar"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_01.jpg" alt=""></div>
-    <div class="voice">
+    <div class="avatar inview fadeInBottom"><img src="<?php echo APP_ASSETS;?>img/common/review_icon_01.jpg" alt=""></div>
+    <div class="voice inview fadeInBottom fadeInBottomDelay">
       <div class="bg">
         <h4 class="voice-ttl">生活のスタートはすべてアミーダから。</h4>
         <div class="hide">

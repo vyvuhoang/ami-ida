@@ -34,6 +34,7 @@ $(document).ready(function() {
       $(this).parent().fadeOut();
     });
   }
+  inView();
 });
 $('.header__menu .header__studio .header__studio--item a').click( function() {
   $('body').removeClass('menu-open');
@@ -41,3 +42,11 @@ $('.header__menu .header__studio .header__studio--item a').click( function() {
   $('body').css('top', -st);
   $('.header__menu').fadeOut();
 })
+
+function inView(){
+  $('.inview').on('inview', function(event, isInView) {
+      if (isInView) {
+        $(this).addClass('on');
+      }
+  });
+}
