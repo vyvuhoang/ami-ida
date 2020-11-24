@@ -247,7 +247,7 @@ include(APP_PATH.'libs/head.php');
         <p class="script">※体験料以外の表示価格は全て税抜きとなります。水素水のみ消費税8％</p>
       </div>
     </div>
-    <div class="sec-stuff">
+<!--     <div class="sec-stuff">
       <div class="container-1080">
         <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
         <ul class="lst-stuff">
@@ -268,7 +268,7 @@ include(APP_PATH.'libs/head.php');
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
 <!--     <div class="sec-feeling">
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
