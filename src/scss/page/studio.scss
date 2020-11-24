@@ -4,9 +4,12 @@ $border: #9C9C9C;
 /*-----------------------------------------------------------
 SEARCH
 ------------------------------------------------------------*/
+.breadcrumb.wcm{
+	padding-top: 10px;
+}
 .std{
-	padding: 40px 0 72px;
-	@include max-screen(767px){padding: 10px 0 56px;}
+	padding: 0px 0 72px;
+	@include max-screen(767px){padding: 0px 0 56px;}
 }
 .wcm{
 	width: 100%;max-width: 1106px;

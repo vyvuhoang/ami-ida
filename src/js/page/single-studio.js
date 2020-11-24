@@ -143,6 +143,12 @@ function popup(){
         "touch-action": "none",
         "overflow": "hidden",
     });
+  })
+
+  $(".js-popup").on("click", function(e){
+    if (e.target !== this)
+      return;
+    $('.btn_close').trigger('click');
   });
 
   $('body').on('click', '.btn_close', function(){

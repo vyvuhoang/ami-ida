@@ -13,7 +13,7 @@ include(APP_PATH.'libs/head.php');
 		<video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/top/mainvisual.mp4"></video>
 	  <div class="visual">
 	    <div class="visual__scroll">
-	      <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
+	      <a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
 	    </div>
 	    <div class="visual__txt">
 	      <picture>
@@ -222,8 +222,8 @@ include(APP_PATH.'libs/head.php');
 	<div class="sns wcm">
 		<h3 class="the-title">SNS</h3>
 		<div class="grBtn">
-			<a href="" class="grBtn__item ins"><p>Instagram</p></a>
-			<a href="" class="grBtn__item twitter"><p>Twitter</p></a>
+			<a target="_blank" href="https://www.instagram.com/amiida_official/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
+			<a target="_blank" href="https://twitter.com/yoga_amiida" class="grBtn__item twitter"><p>Twitter</p></a>
 		</div>
 	</div>
 	<div class="popup">

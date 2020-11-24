@@ -45,7 +45,7 @@ include(APP_PATH.'libs/head.php');
       <li><a href="<?php echo APP_URL; ?>">
         <img src="<?php echo APP_ASSETS; ?>img/common/icon/ico_home.svg" alt="HOME" width="24">
       </a></li>
-      <li><a href="<?php echo APP_URL; ?>studio/">店舗情報</a></li>
+      <li><a href="<?php echo APP_URL; ?>studio/">店舗ページ</a></li>
       <li><p><?php echo get_the_title(); ?></p></li>
     </div>
     <div class="c-news">
@@ -73,7 +73,7 @@ include(APP_PATH.'libs/head.php');
     <div class="sec-intro">
       <div class="container-1080">
         <div class="inside">
-          <h3 class="the-title">９月限定！<br class="sp">〇〇店の入会特典</h3>
+          <h3 class="the-title">９月限定！<br class="sp"><?php echo get_the_title(); ?>店の入会特典</h3>
           <ul class="lst-intro">
             <li class="item">
               <div class="txt">

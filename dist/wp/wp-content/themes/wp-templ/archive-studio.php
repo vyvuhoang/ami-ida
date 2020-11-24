@@ -15,6 +15,12 @@ include(APP_PATH.'libs/head.php');
 	    <img src="<?php echo APP_ASSETS; ?>img/studio/banner_txt.svg" alt="AMIIDALIFE" width="178">
 	  </div>
 	</div>
+	<div class="breadcrumb wcm" id="breadcrumb">
+	  <li><a href="<?php echo APP_URL; ?>">
+	    <img src="<?php echo APP_ASSETS; ?>img/common/icon/ico_home.svg" alt="HOME" width="24">
+	  </a></li>
+	  <li><p>店舗ページ</p></li>
+	</div>
 	<div class="std">
 			<div class="c-search">
 				<!-- <h1 class="the-title">体験レッスン受付中の<br class="sp">スタジオ一覧</h1> -->
@@ -38,7 +44,7 @@ include(APP_PATH.'libs/head.php');
 						<select class="c-search__filter--select js-select">
 							<option value="">All</option>
 							<?php foreach($categories as $cat){ ?>
-							<option value="<?php echo $cat->name; ?>"><?php echo $cat->name; ?></option>
+							<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東京'){echo "selected";} ?>><?php echo $cat->name; ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -46,7 +52,7 @@ include(APP_PATH.'libs/head.php');
 			</div>
 			<?php $studio = new WP_Query(array(        
 		    'post_type'       => 'studio',
-		    'showposts'       => -1,
+		    'showposts'       => 6,
 		    'post_status'     => 'publish',
 		    'orderby'         =>'date',
 		  ));
