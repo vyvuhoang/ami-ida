@@ -14,6 +14,7 @@ if(!empty($_POST['actionFlag'])) {
 
 include(APP_PATH.'libs/head.php');
 ?>
+<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/lib/simplebar.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/style.min.css">
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/form/validationEngine.jquery.css">
@@ -311,17 +312,35 @@ include(APP_PATH.'libs/head.php');
       <div class="container-900">
         <div class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</div>
         <div class="etr">
-          <?php for($i=0;$i<4;$i++){?>
+          <?php $lesson_master_arr = array();
+            $wp_lesson_master = new WP_Query();
+            $param_lesson_master = array(
+              'post_type'=>'lesson_master',
+              'order' => 'DESC',
+              'posts_per_page' => '-1',
+            );
+            $wp_lesson_master->query($param_lesson_master);
+            if($wp_lesson_master->have_posts()){
+              while($wp_lesson_master->have_posts()){
+                $wp_lesson_master->the_post();
+                // $i++;
+                // $lesson_master_arr[$i] = array(
+                //   'id' => get_the_id(),
+                //   'ttl' => get_the_title(),
+                //   'content' => get_field('lesson_content'),
+                //   'level' => get_field('lesson_level'),
+                // );
+          ?>
           <div class="etr__item">
             <div class="etr__item--img">
               <div class="img lazy" data-bg="url(<?php echo APP_ASSETS;?>img/studio/img11.jpg)"></div>
             </div>
             <div class="etr__item--info">
-              <p class="ttl">レッスンタイトルが入ります</p>
-              <p class="txt">レッスンの内容を説明するテキストがここに入ります。レッスンの内容を説明するテキストレッスンの内容を説明するテキストがここに入ります。</p>
+              <p class="ttl"><?php echo get_the_title();?></p>
+              <p class="txt"><?php echo get_field('lesson_content');?></p>
             </div>
           </div>
-          <?php } ?>
+          <?php }} ?>
         </div>
       </div>
     </div>
@@ -512,6 +531,7 @@ include(APP_PATH.'libs/head.php');
 </div>
 <div class="sec-schedule-popup js-popup" data-popup="schedule"></div>
 <?php include(APP_PATH.'libs/footer.php'); ?>
+<script src="<?php echo APP_ASSETS; ?>js/lib/simplebar.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/form/jquery.validationEngine.js"></script>
 <script src="<?php echo APP_ASSETS; ?>js/form/languages/jquery.validationEngine-ja.js"></script>

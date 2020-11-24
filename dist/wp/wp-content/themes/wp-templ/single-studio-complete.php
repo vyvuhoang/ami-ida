@@ -183,6 +183,27 @@ include_once(APP_PATH.'csv/read_write_csv.php');
       $y = $ym[0];
       $m = $ym[1];
       $new_csv->export_csv($reg_studio_slug,$y,$m,$data_ex);
+
+
+      //import new application to wp
+      $new_appl = wp_insert_post(
+        array(
+          'post_type' => 'application',
+        )
+      );
+      wp_update_post(array(
+        'ID' => $new_appl,
+        'post_title' => $reg_name,
+        'post_status' => 'publish',
+      ));
+      update_field('app_studio', $reg_studio_id, $new_appl);
+      update_field('appl_date', $timesend, $new_appl);
+      update_field('cus_name', $reg_name, $new_appl);
+      update_field('desired_date', $reg_hopedate, $new_appl);
+      update_field('desired_time', $reg_hopetime, $new_appl);
+      update_field('lesson_name', $reg_single_ttl, $new_appl);
+      update_field('instructor', $reg_instructor, $new_appl);
+
     }
 $dataLog = "
 $reg_studio_slug
@@ -197,25 +218,6 @@ $reg_email
 $reg_method $reg_other_method
 $reg_content
 ";
-
-//import new application to wp
-$new_appl = wp_insert_post(
-  array(
-    'post_type' => 'application',
-  )
-);
-wp_update_post(array(
-  'ID' => $new_appl,
-  'post_title' => $reg_name,
-  'post_status' => 'publish',
-));
-update_field('app_studio', $reg_studio_id, $new_appl);
-update_field('appl_date', $timesend, $new_appl);
-update_field('cus_name', $reg_name, $new_appl);
-update_field('desired_date', $reg_hopedate, $new_appl);
-update_field('desired_time', $reg_hopetime, $new_appl);
-update_field('lesson_name', $reg_single_ttl, $new_appl);
-update_field('instructor', $reg_instructor, $new_appl);
 
     $ret = file_put_contents(APP_PATH.'csv/log/registerData.log', $dataLog, FILE_APPEND | LOCK_EX);
     if($ret === false) {

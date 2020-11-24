@@ -482,10 +482,15 @@ body {
 
 .sec-schedule{
   background: rgba(233,233,233,0.15) url(../../img/studio/bg_schedule.jpg) bottom right/auto 250px no-repeat;
-  padding: 50px 20px 150px;
+  padding: 50px 0px 150px;
   min-height: 580px;
   @include SP{
     padding-top: 30px;
+  }
+  .container-1080{
+    @include SP{
+      padding: 0
+    }
   }
   .the-title{
     margin-bottom: 46px;
@@ -497,8 +502,8 @@ body {
     background: #fff;
     @include notosans;
     @include SP{
-      width: calc(100% + 30px);
-      margin: 0 -15px;
+      // width: calc(100% + 30px);
+      // margin: 0 -15px;
     }
     .calendar-head{
       font-size: 0;
@@ -567,11 +572,18 @@ body {
     }
   }
   .out-lst{
-    overflow: auto;
+    // overflow: auto;
     width: 100%;
+    padding-bottom: 30px;
     @include SP{
-      width: calc(100% + 30px);
-      margin: 0 -15px;
+      // width: calc(100% + 30px);
+      // margin: 0 -15px;
+    }
+    .simplebar-track.simplebar-horizontal{
+      height: 5px;
+      .simplebar-scrollbar{
+        height: 3px;
+      }
     }
   }
   .lst-schedule{
@@ -609,7 +621,7 @@ body {
           @include font(13,'',0.1em);
           order: 2;color: #fff;
           background: $purple_bg;
-          padding: 1px 10px 3px;
+          padding: 1px 5px 3px;
           border-radius: 4px;
           margin: 10px auto 5px;
           @include SP{

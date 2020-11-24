@@ -148,18 +148,22 @@
     font-weight: bold;
     margin-bottom: 15px;
   }
-  .tbl-outside{
-    overflow: auto;
-  }
+}
+
+.tbl-outside{
+  padding-bottom: 30px;
   .tbl-data{
     width: 2000px;
     border-collapse: collapse;
-    tr{
-      th, td{
+    display: table;
+    table-layout: fixed;
+    .row{
+      display: table-row;
+      .th, .td{
+        display: table-cell;
         border: 1px solid #E2E2E2;
         text-align: center;
         vertical-align: middle;
-        padding: 5px 5px;
         @include font(14,22px,'',500);
         &:nth-child(1){
           width: 50px;
@@ -168,16 +172,16 @@
           width: 100px;
         }
         &:nth-child(3){
-          width: 100px;
+          width: 150px;
         }
         &:nth-child(4){
           width: 100px;
         }
         &:nth-child(5){
-          width: 100px;
+          width: 150px;
         }
         &:nth-child(6){
-          width: 200px;
+          width: 180px;
         }
         &:nth-child(7){
           width: 150px;
@@ -186,31 +190,76 @@
           width: 150px;
         }
         &:nth-child(9){
-          width: 150px;
+          width: 125px;
         }
         &:nth-child(10){
-          width: 100px;
+          width: 135px;
         }
         &:nth-child(11){
-          width: 150px;
+          width: 125px;
         }
         &:nth-child(12){
-          width: 100px;
+          width: 135px;
         }
         &:nth-child(13){
           width: 150px;
         }
         &:nth-child(14){
-          width: 400px;
+          width: 300px;
         }
       }
-      th{
+      .th{
         background-color: #3C3C3C;
         color: #fff;
+        padding: 10px 5px;
+        font-weight: bold;
       }
-      td{
+      .td{
+        &:not(.td--edit){
+          background-color: #f0f0f0;
+        }
+        &:nth-child(7n){
+          border-right-color: #000;
+        }
+        &--edit{
+          border-color: #000;
+        }
+        .txt{
+          padding: 10px 5px;
 
+        }
+        input,
+        select,
+        textarea{
+          border: 0;
+          @include add_prefix(appearance, none);
+          border-radius: 0;
+          display: block;
+          min-height: 40px;
+          @include font(15,24px,'',500);
+          @include ffYG;
+        }
+        input{
+          padding: 5px 10px;
+        }
+        select{
+          width: 100%;
+          background: url(../../img/common/icon/ard_grey.svg) center right 7px/12px 7px no-repeat;
+          padding: 5px 10px;
+        }
+        textarea{
+          width: 100%;
+          border: 0;
+          padding: 5px 10px;
+        }
       }
     }
+  }
+  .simplebar-track.simplebar-horizontal{
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  .simplebar-scrollbar:before{
+    background-color: #555;
   }
 }
