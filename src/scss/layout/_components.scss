@@ -292,3 +292,46 @@ a.btn-viewmore,.btn-viewmore{
     }
   }
 }
+
+.inview {
+  opacity: 0;
+  transition-delay: .3s;
+  transition: all .8s;
+  position: relative;
+  &.on {
+      opacity: 1;
+  }
+  &.fadeInLeft {
+      transform : translateX(-100px);-o-transform : translateX(-100px);-ms-transform : translateX(-100px);-moz-transform : translateX(-100px);-webkit-transform : translateX(-100px);
+      &.on {
+          transform : translateX(0);-o-transform : translateX(0);-ms-transform : translateX(0);-moz-transform : translateX(0);-webkit-transform : translateX(0);
+      }
+  }
+  &.fadeInRight {
+      transform : translateX(100px);-o-transform : translateX(100px);-ms-transform : translateX(100px);-moz-transform : translateX(100px);-webkit-transform : translateX(100px);
+      &.on {
+          transform : translateX(0);-o-transform : translateX(0);-ms-transform : translateX(0);-moz-transform : translateX(0);-webkit-transform : translateX(0);
+      }
+  }
+  &.fadeInBottom {
+      opacity: 0;
+      transform : translateY(40px);-o-transform : translateY(40px);-ms-transform : translateY(40px);-moz-transform : translateY(40px);-webkit-transform : translateY(40px);
+      &.on {
+          opacity: 1;
+          transform : translateY(0);-o-transform : translateY(0);-ms-transform : translateY(0);-moz-transform : translateY(0);-webkit-transform : translateY(0);
+      }
+  }
+  &.fadeInBottomDelay {
+      transform : translateY(40px);-o-transform : translateY(40px);-ms-transform : translateY(40px);-moz-transform : translateY(40px);-webkit-transform : translateY(40px);
+      transition-delay: 0.3s;
+      &.on {
+          transform : translateY(0);-o-transform : translateY(0);-ms-transform : translateY(0);-moz-transform : translateY(0);-webkit-transform : translateY(0);
+      }
+  }
+  &.fadeInTop {
+      transform : translateY(-100px);-o-transform : translateY(-100px);-ms-transform : translateY(-100px);-moz-transform : translateY(-100px);-webkit-transform : translateY(-100px);
+      &.on {
+          transform : translateY(0);-o-transform : translateY(0);-ms-transform : translateY(0);-moz-transform : translateY(0);-webkit-transform : translateY(0);
+      }
+  }
+}

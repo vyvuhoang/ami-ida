@@ -938,14 +938,18 @@ body {
         }
 
         .row {
-          &--other {
-            margin-top: 10px;
-            margin-bottom: 30px;
-
-            @include SP {
-              margin-bottom: 20px;
-            }
+          margin-top: 24px;
+          @include SP{
+            margin-top: 20px;
           }
+          // &--other {
+          //   margin-top: 10px;
+          //   margin-bottom: 30px;
+
+          //   @include SP {
+          //     margin-bottom: 20px;
+          //   }
+          // }
         }
 
         .half {

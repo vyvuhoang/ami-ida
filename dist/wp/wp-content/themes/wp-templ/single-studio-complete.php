@@ -47,9 +47,6 @@ $reg_tel
 
 ■メールアドレス
 $reg_email
-
-■アミーダを知ったきっかけ
-$reg_method $reg_other_method
 $reg_content";
 
 //お問い合わせメッセージ送信
@@ -84,7 +81,7 @@ $msgBody
 
 include_once(APP_PATH.'csv/read_write_csv.php');
 // csv format
-// reg_single_ttl,reg_hopedate,reg_hopetime,reg_name,reg_nameuser_furigana,reg_age,reg_tel,reg_email,reg_method,reg_content
+// reg_single_ttl,reg_hopedate,reg_hopetime,reg_name,reg_nameuser_furigana,reg_age,reg_tel,reg_email,reg_content
 
   // ▼ ▼ ▼ START Detect SPAMMER ▼ ▼ ▼ //
   try {
@@ -215,7 +212,6 @@ $reg_nameuser_furigana
 $reg_age
 $reg_tel
 $reg_email
-$reg_method $reg_other_method
 $reg_content
 ";
 

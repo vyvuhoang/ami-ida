@@ -25,8 +25,6 @@ $reg_nameuser_furigana         = (!empty($_POST['nameuser_furigana'])) ? htmlspe
 $reg_age = (!empty($_POST['age'])) ? htmlspecialchars($_POST['age']) : '';
 $reg_tel          = (!empty($_POST['tel'])) ? htmlspecialchars($_POST['tel']) : '';
 $reg_email        = (!empty($_POST['email'])) ? htmlspecialchars($_POST['email']) : '';
-$reg_method        = (!empty($_POST['method'])) ? htmlspecialchars($_POST['method']) : '';
-$reg_other_method        = (!empty($_POST['other_method'])) ? htmlspecialchars($_POST['other_method']) : '';
 $reg_content = (!empty($_POST['content'])) ? $_POST['content'] : '';
 $br_reg_content   = nl2br($reg_content);
 
@@ -116,15 +114,9 @@ if($actionFlag == "confirm") {
                 <th>メールアドレス</th>
                 <td>
                   <p class="txt"><?php echo $reg_email;?></p>
-                </td>
-              </tr>
-              <tr>
-                <th>アミーダを知った<br class="pc">きっかけ</th>
-                <td>
-                    <p class="txt"><?php echo $reg_method.' '.$reg_other_method;?></p>
-                    <?php if($reg_content){?>
-                      <p class="txt"><?php echo $br_reg_content;?></p>
-                    <?php }?>
+                  <?php if($reg_content){?>
+                    <p class="txt"><?php echo $br_reg_content;?></p>
+                  <?php }?>
                 </td>
               </tr>
             </table>
@@ -140,8 +132,6 @@ if($actionFlag == "confirm") {
             <input type="hidden" name="age" value="<?php echo $reg_age ?>">
             <input type="hidden" name="tel" value="<?php echo $reg_tel ?>">
             <input type="hidden" name="email" value="<?php echo $reg_email ?>">
-            <input type="hidden" name="method" value="<?php echo $reg_method ?>">
-            <input type="hidden" name="other_method" value="<?php echo $reg_other_method ?>">
 						<input type="hidden" name="content" value="<?php echo $reg_content ?>">
 						<!-- always keep this -->
 						<input type="hidden" name="url" value="<?php echo $reg_url ?>">

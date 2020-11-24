@@ -21,7 +21,7 @@ include(APP_PATH.'libs/head.php');
   <div class="amiidalife wcm">
     <div class="amiidalife-lst">
       <?php for($i=0;$i<4;$i++){ ?>
-      <div class="item">
+      <div class="item inview fadeInBottom">
         <div class="item__img">
           <div class="item--ttl sp">
             <a href="" class="ttl1"><em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日</a>
