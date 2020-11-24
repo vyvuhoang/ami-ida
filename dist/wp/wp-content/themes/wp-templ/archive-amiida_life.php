@@ -19,26 +19,28 @@ include(APP_PATH.'libs/head.php');
     <li><p>アミーダライフ </p></li>
   </div>
   <div class="amiidalife wcm">
-    <!-- <h2 class="the-title pc">体験レッスン受付中のスタジオ一覧</h2> -->
     <div class="amiidalife-lst">
-      <?php for($i=0;$i<5;$i++){ ?>
+      <?php for($i=0;$i<4;$i++){ ?>
       <div class="item">
         <div class="item__img">
-          <a href="" class="item__info--ttl sp">
-            <p class="ttl1">ここに、アミーダの<br>あるライフスタイルを</p>
-            <p class="ttl2">引き立てるようなキャッチが入ります。</p>
-          </a>
-          <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img1.jpg)"></div>
+          <div class="item--ttl sp">
+            <a href="" class="ttl1"><em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日</a>
+          </div>
+          <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img<?php echo $i+1; ?>.jpg)"></div>
         </div>
         <div class="item__info">
-          <div class="item__info--space"></div>
-          <a href="" class="item__info--ttl pc">
-            <p class="ttl1">ここに、アミーダの<br>あるライフスタイルを</p>
-            <p class="ttl2">引き立てるようなキャッチが入ります。</p>
-          </a>
+          <div class="item--ttl pc">
+            <a href="" class="ttl1"><em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日</a>
+          </div>
           <div class="item__info--space"></div>
           <div class="item__info--img">
-            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img2.jpg)"></div>
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img<?php echo ($i+1).'_'.($i+1); ?>.jpg)"></div>
+          </div>
+        </div>
+        <div class="line">
+          <div class="space"> </div>
+          <div class="inner">
+            <div class="circle1"></div><div class="circle2"></div>
           </div>
         </div>
       </div>
