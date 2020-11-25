@@ -353,3 +353,5 @@ function load_admin_media_styles(){
     echo "<link rel='stylesheet' id='admin_styles_for_media-css' href='".$admin_media_styles_url."' type='text/css' media='all' />";
   }
 }
+
+add_filter( 'disable_captions', '__return_true' );

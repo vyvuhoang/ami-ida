@@ -149,19 +149,6 @@ include(APP_PATH.'libs/head.php');
             </li>
           <?php endwhile; endif; ?>
         </ul>
-        <!-- <table>
-          <?php
-          if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-          <tr>
-            <td><?php echo get_the_title(); ?></td>
-            <td><?php echo get_field('lesson_content'); ?></td>
-            <td>
-              <a href="<?php echo APP_URL ?>manage/schedule-format/?post=<?php echo get_the_ID() ?>&action=edit">Edit</a>
-              <a href="<?php echo APP_URL ?>manage/schedule-format/?post=<?php echo get_the_ID() ?>&action=delete">Delete</a>
-            </td>
-          </tr>
-          <?php endwhile; endif; ?>
-        </table> -->
       </div>
     </div>
   </main>
