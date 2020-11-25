@@ -633,7 +633,7 @@ body {
         }
         .bg{
           background: #fff;
-          padding: 15px 5px 10px;
+          padding: 10px 5px;
           text-align: center;
           border: 2px solid #ccc;
           position: relative;
@@ -645,12 +645,9 @@ body {
           }
         }
         .time{
-          @include font(13,'',0.1em);
-          order: 2;color: #fff;
-          background: $purple_bg;
-          padding: 1px 5px 3px;
-          border-radius: 4px;
-          margin: 10px auto 5px;
+          @include font(13,'',0.1em, 500);
+          order: 2;
+          margin: 7px auto 5px;
           @include SP{
             font-size: 12px;
             margin-bottom: 7px;
@@ -658,7 +655,11 @@ body {
         }
         .ttl{
           @include font(14,1.4,0.05,600);
+          color: #fff;
+          border-radius: 4px;
+          padding: 3px 5px;
           @include noto;
+          background: $purple_bg;
           order: 1;
           @include SP{
             font-size: 12px;
@@ -666,7 +667,7 @@ body {
         }
         .level{
           order: 3;
-          margin-top:3px;
+          // margin-top:3px;
           color: #FFC700;
           @include font(12,'',0.05);
           @include SP{font-size: 10px;}

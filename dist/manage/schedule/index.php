@@ -150,13 +150,17 @@ include(APP_PATH.'libs/head.php');
                 <div class="item item--date">
                   <p class="item-ttl">月を選択</p>
                   <select name="" id="" class="js-select-redirect">
-                    <option value="">時間を選択してください</option>
+                    <option value="">月を選択してください</option>
                     <?php for ($i=1;$i<=12;$i++) {
                       $ym = date("Y").'/'.$i;
                       $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
-                      <option value="<?php echo $cur_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected; ?>><?php echo date("Y").'/'.$i?></option>
-                    <?php
-                } ?>
+                      <option value="<?php echo $cur_url.'?ym='.$ym?>"<?php echo $isSelected; ?>><?php echo $ym;?></option>
+                    <?php } ?>
+                    <?php for ($i=1;$i<=12;$i++) {
+                      $ym = date('Y', strtotime('+1 year')).'/'.$i;
+                      $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
+                      <option value="<?php echo $cur_url.'?ym='.$ym?>"<?php echo $isSelected; ?>><?php echo $ym;?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
@@ -186,30 +190,60 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl item-ttl--nopad">レッスン難易度<span class="note">※自動反映</span></h3>
+                  <h3 class="item-ttl item-ttl--nopad">レッスン強度<span class="note">※自動反映</span></h3>
                   <div class="item-field">
                     <p class="txt txt-small-field js-lesson-level"></p>
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl">レッスン内容</h3>
+                  <h3 class="item-ttl">レッスンの日程</h3>
                   <div class="item-field">
                     <input type="text" id="schedule_0_date" name="schedule_0_date" class="js-datepicker ip-datepicker restrict" placeholder="日付を選択してください" readonly>
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl">日程</h3>
+                  <h3 class="item-ttl">レッスンの時間</h3>
                   <div class="item-field">
                     <div class="half">
-                      <input type="text" name="schedule_0_time_start" id="schedule_0_time_start">
+                      <select name="schedule_0_time_start" id="schedule_0_time_start" class="js-start-time">
+                        <?php for ($i = 6; $i <= 22; $i++){
+                          for ($j = 0; $j <= 45; $j+=15){
+                            if($i < 10 && $j < 10){
+                              $each15 = '0'.$i.':0'.$j;
+                            }else if($i < 10 && $j >= 10){
+                              $each15 = '0'.$i.':'.$j;
+                            }else if($i >= 10 && $j < 10){
+                              $each15 = $i.':0'.$j;
+                            }else{
+                              $each15 = $i.':'.$j;
+                            }
+                            echo '<option value="'.$each15.'">'.$each15.'</option>';
+                          }
+                        }?>
+                      </select>
                     </div>
                     <div class="half">
-                      <input type="text" name="schedule_0_time_end" id="schedule_0_time_end">
+                      <select name="schedule_0_time_end" id="schedule_0_time_end" class="js-end-time">
+                        <?php for ($i = 6; $i <= 22; $i++){
+                          for ($j = 0; $j <= 45; $j+=15){
+                            if($i < 10 && $j < 10){
+                              $each15 = '0'.$i.':0'.$j;
+                            }else if($i < 10 && $j >= 10){
+                              $each15 = '0'.$i.':'.$j;
+                            }else if($i >= 10 && $j < 10){
+                              $each15 = $i.':0'.$j;
+                            }else{
+                              $each15 = $i.':'.$j;
+                            }
+                            echo '<option value="'.$each15.'">'.$each15.'</option>';
+                          }
+                        }?>
+                      </select>
                     </div>
                   </div>
                 </div>
                 <div class="item item--last">
-                  <h3 class="item-ttl item-ttl--nopad">担当インストラクター名</h3>
+                  <h3 class="item-ttl">担当インストラクター名</h3>
                   <div class="item-field">
                     <input type="text" id="schedule_0_instructor" name="schedule_0_instructor" class="schedule_0_instructor">
                   </div>
@@ -286,6 +320,7 @@ include(APP_PATH.'libs/head.php');
   </main>
   <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
   <script src="<?php echo APP_ASSETS; ?>js/page/manage-schedule.min.js"></script>
 </body>
 </html>

@@ -11,14 +11,20 @@ $(document).ready(function() {
   yearMonthFilter();
   selectRedirect();
   // reverseListSchedule();
+  validateCreate();
 })
 function addDatePicker(){
-  $('body').on('focus', '.js-datepicker', function(){
-    $(this).datepicker({
+  var dateToday = new Date();
+  var options = $.extend({},
+    $.datepicker.regional["ja"], {
       changeMonth: true,
       changeYear: true,
+      minDate: dateToday,
       dateFormat: 'yy/mm/dd',
-    })
+    }
+  );
+  $('body').on('focus', '.js-datepicker', function(){
+    $(this).datepicker(options)
   });
 }
 function addSchedule(){
@@ -224,3 +230,20 @@ var getUrlParameter = function getUrlParameter(sParam) {
     }
   }
 };
+
+
+function validateCreate(){
+  $('.js-start-time').on('change', function(){
+    var selected = $(this)[0].selectedIndex;
+    if($('.js-end-time').val() == '' || $('.js-end-time')[0].selectedIndex <= selected){
+      $('.js-end-time option:nth-child('+(selected+2)+')').prop('selected', 'true');
+    }
+    $('.js-end-time option').each(function(){
+      if($(this).index() <= selected){
+        $(this).prop('disabled', 'true');
+      }else{
+        $(this).removeAttr('disabled');
+      }
+    })
+  })
+}

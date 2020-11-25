@@ -102,6 +102,7 @@
       if ($lesson_master) {
           $lesson_ttl = $lesson_master->post_title;
           $lesson_level = get_field('lesson_level', $lesson_master->ID);
+          $lesson_content = get_field('lesson_content', $lesson_master->ID);
       }
       $lesson_time_start = get_sub_field('time_start');
       $lesson_time_end = get_sub_field('time_end');
@@ -115,9 +116,9 @@
       }
       $lesson_instructor = get_sub_field('instructor');
       if (!empty($lesson[$lesson_date])) {
-          array_push($lesson[$lesson_date], [$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level]);
+          array_push($lesson[$lesson_date], [$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_content]);
       } else {
-          $lesson[$lesson_date] = [[$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level]];
+          $lesson[$lesson_date] = [[$lesson_time_start, $lesson_time_end, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_content]];
       }
     }
   }
@@ -165,15 +166,15 @@
               </li>
               <li class="item">
                 <div class="item-ttl">インストラクター</div>
-                <div class="item-txt">'.$value[$j][1].'</div>
+                <div class="item-txt">'.$value[$j][2].'</div>
               </li>
               <li class="item">
-                <div class="item-ttl">難易度</div>
+                <div class="item-ttl">レッズン強度</div>
                 <div class="item-txt">'.$stars[$value[$j][4]].'</div>
               </li>
               <li class="item">
-                <div class="item-ttl">内容</div>
-                <div class="item-txt">リラックスレッスン内容</div>
+                <div class="item-ttl">レッズン内容</div>
+                <div class="item-txt">'.$value[$j][5].'</div>
               </li>
             </ul>
             <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][3].'" data-date="'.$key.'" data-instructor="'.$value[$j][2].'" data-time="'.$value[$j][0].' - '.$value[$j][1].'"><span>体験する</span></a>
