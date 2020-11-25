@@ -155,7 +155,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                     <span class="unit">人</span>
                   </p>
                 </div>
-                <span class="note">※体験レッスンの当月の申込み総数を表示</span>
+                <span class="note">※今月の体験申込み総数</span>
               </div>
               <div class="box">
                 <div class="box-bg">
@@ -165,7 +165,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                     <span class="unit">人</span>
                   </p>
                 </div>
-                <span class="note">※体験レッスンの当月の予定者数を表示</span>
+                <span class="note">※今月の来店予定者数</span>
               </div>
             </div>
           </div>
@@ -202,7 +202,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <div class="th">レッスン名</div>
                   <div class="th">インストラクター</div>
                   <div class="th">経由</div>
-                  <div class="th">当日お礼電話</div>
+                  <div class="th">予約確認電話</div>
                   <div class="th">- 担当</div>
                   <div class="th">2日前確認電話</div>
                   <div class="th">- 担当</div>

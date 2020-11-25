@@ -192,13 +192,13 @@ include(APP_PATH.'libs/head.php');
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl">レッスン内容</h3>
+                  <h3 class="item-ttl">レッスンの日程</h3>
                   <div class="item-field">
                     <input type="text" id="schedule_0_date" name="schedule_0_date" class="js-datepicker ip-datepicker restrict" placeholder="日付を選択してください" readonly>
                   </div>
                 </div>
                 <div class="item">
-                  <h3 class="item-ttl">レッスン開始/終了</h3>
+                  <h3 class="item-ttl">レッスンの時間</h3>
                   <div class="item-field">
                     <div class="half">
                       <input type="text" name="schedule_0_time_start" id="schedule_0_time_start">
