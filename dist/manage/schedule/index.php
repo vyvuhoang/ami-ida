@@ -154,9 +154,13 @@ include(APP_PATH.'libs/head.php');
                     <?php for ($i=1;$i<=12;$i++) {
                       $ym = date("Y").'/'.$i;
                       $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
-                      <option value="<?php echo $cur_url.'?ym='.date("Y").'/'.$i?>"<?php echo $isSelected; ?>><?php echo date("Y").'/'.$i?></option>
-                    <?php
-                } ?>
+                      <option value="<?php echo $cur_url.'?ym='.$ym?>"<?php echo $isSelected; ?>><?php echo $ym;?></option>
+                    <?php } ?>
+                    <?php for ($i=1;$i<=12;$i++) {
+                      $ym = date('Y', strtotime('+1 year')).'/'.$i;
+                      $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
+                      <option value="<?php echo $cur_url.'?ym='.$ym?>"<?php echo $isSelected; ?>><?php echo $ym;?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>
@@ -201,10 +205,40 @@ include(APP_PATH.'libs/head.php');
                   <h3 class="item-ttl">レッスンの時間</h3>
                   <div class="item-field">
                     <div class="half">
-                      <input type="text" name="schedule_0_time_start" id="schedule_0_time_start">
+                      <select name="schedule_0_time_start" id="schedule_0_time_start" class="js-start-time">
+                        <?php for ($i = 6; $i <= 22; $i++){
+                          for ($j = 0; $j <= 45; $j+=15){
+                            if($i < 10 && $j < 10){
+                              $each15 = '0'.$i.':0'.$j;
+                            }else if($i < 10 && $j >= 10){
+                              $each15 = '0'.$i.':'.$j;
+                            }else if($i >= 10 && $j < 10){
+                              $each15 = $i.':0'.$j;
+                            }else{
+                              $each15 = $i.':'.$j;
+                            }
+                            echo '<option value="'.$each15.'">'.$each15.'</option>';
+                          }
+                        }?>
+                      </select>
                     </div>
                     <div class="half">
-                      <input type="text" name="schedule_0_time_end" id="schedule_0_time_end">
+                      <select name="schedule_0_time_end" id="schedule_0_time_end" class="js-end-time">
+                        <?php for ($i = 6; $i <= 22; $i++){
+                          for ($j = 0; $j <= 45; $j+=15){
+                            if($i < 10 && $j < 10){
+                              $each15 = '0'.$i.':0'.$j;
+                            }else if($i < 10 && $j >= 10){
+                              $each15 = '0'.$i.':'.$j;
+                            }else if($i >= 10 && $j < 10){
+                              $each15 = $i.':0'.$j;
+                            }else{
+                              $each15 = $i.':'.$j;
+                            }
+                            echo '<option value="'.$each15.'">'.$each15.'</option>';
+                          }
+                        }?>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -286,6 +320,7 @@ include(APP_PATH.'libs/head.php');
   </main>
   <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
   <script src="<?php echo APP_ASSETS; ?>js/page/manage-schedule.min.js"></script>
 </body>
 </html>
