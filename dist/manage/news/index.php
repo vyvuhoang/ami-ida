@@ -139,7 +139,14 @@ include(APP_PATH.'libs/head.php');
               $query = new WP_Query( array(
                 'post_type' => 'news',
                 'posts_per_page' => '-1',
-                'post_status' => 'publish'
+                'post_status' => 'publish',
+                'meta_query' => array(
+                  array(
+                    'key' => 'studio',
+                    'value' => $studio_id,
+                    'compare' => '=',
+                  )
+                )
               ) );
               ?>
               <ul class="lst-post">
