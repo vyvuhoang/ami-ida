@@ -131,6 +131,12 @@ a.btn-schedule-format{
   text-align: center;
   cursor: pointer;
   transition: 0.5s ease;
+  &:not(:first-child){
+    margin-left: 10px;
+    @include SP{
+      margin-top: 10px;
+    }
+  }
 }
 .btn-application:hover,
 .btn-schedule-format:hover{
