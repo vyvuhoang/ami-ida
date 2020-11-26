@@ -62,6 +62,19 @@ include(APP_PATH.'libs/head.php');
                 <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/schedule/" class="btn js-btn">管理ボードを開く</a>
               </div>
             </div>
+            <div class="item">
+              <h3 class="ttl">お知らせ 登録・管理ボード</h3>
+              <div class="select">
+                <p class="lbl">店舗を選択</p>
+                <select name="" id="" class="js-choose-studio">
+                  <option value="">スタジオをお選びください</option>
+                  <?php foreach($studio_arr as $studio_key => $studio_val){?>
+                    <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
+                  <?php }?>
+                </select>
+                <a href="javascript:void(0)" data-url="<?php echo APP_URL?>manage/studio_slug/news/" class="btn js-btn">管理ボードを開く</a>
+              </div>
+            </div>
             <div class="item item--spec">
               <h3 class="ttl">レッスン内容　登録・管理ボード</h3>
               <div class="select">

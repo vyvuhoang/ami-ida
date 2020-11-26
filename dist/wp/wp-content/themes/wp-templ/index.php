@@ -43,7 +43,7 @@ include(APP_PATH.'libs/head.php');
 			<a href="https://www.ami-ida.com/yoganyogalp/" class="anchor__item">
 				<span class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/anchor02.jpg)"></span>
 				<span class="inner">
-					<p class="anchor__item--ttl">溶岩ホットヨガの特徴</p>
+					<p class="anchor__item--ttl">溶岩石ホットヨガとは</p>
 					<p class="anchor__item--txt">Features</p>
 				</span>
 			</a>
@@ -170,6 +170,13 @@ include(APP_PATH.'libs/head.php');
     'showposts'       => 6,
     'post_status'     => 'publish',
     'orderby'         =>'date',
+    'tax_query' => array(
+      array(
+        'taxonomy' => 'studioarea',
+        'field' => 'name',
+        'terms' => '東北',
+        )
+      )
   ));
   if ($studio->have_posts()) :?>
   <div class="studio wcm">
@@ -179,7 +186,7 @@ include(APP_PATH.'libs/head.php');
   		<select>
   			<option value="">All</option>
   			<?php foreach($categories as $cat){ ?>
-  			<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東京'){echo "selected";} ?>><?php echo $cat->name; ?></option>
+  			<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
   			<?php } ?>
   		</select>
   	</div>

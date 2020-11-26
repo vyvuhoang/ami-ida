@@ -197,10 +197,10 @@ body {
 }
 .sec-charge {
   padding-top: 80px;
-  margin-bottom: 140px;
+  margin-bottom: 40px;
   @include SP {
     padding-top: 45px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   .the-title {
     margin-bottom: 54px;
@@ -331,9 +331,12 @@ body {
   }
 }
 .sec-stuff {
+  background: rgba(233,233,233,0.4);
+  padding: 80px 0 60px;
   // margin-bottom: 122px;
   @include SP {
-    margin-bottom: 22px;
+    padding: 50px 0 0px;
+    // margin-top: 22px;
   }
   .the-title {
     margin-bottom: 88px;
@@ -633,7 +636,7 @@ body {
         }
         .bg{
           background: #fff;
-          padding: 15px 5px 10px;
+          padding: 10px 5px;
           text-align: center;
           border: 2px solid #ccc;
           position: relative;
@@ -645,12 +648,9 @@ body {
           }
         }
         .time{
-          @include font(13,'',0.1em);
-          order: 2;color: #fff;
-          background: $purple_bg;
-          padding: 1px 5px 3px;
-          border-radius: 4px;
-          margin: 10px auto 5px;
+          @include font(13,'',0.1em, 500);
+          order: 2;
+          margin: 7px auto 5px;
           @include SP{
             font-size: 12px;
             margin-bottom: 7px;
@@ -658,7 +658,11 @@ body {
         }
         .ttl{
           @include font(14,1.4,0.05,600);
+          color: #fff;
+          border-radius: 4px;
+          padding: 3px 5px;
           @include noto;
+          background: $purple_bg;
           order: 1;
           @include SP{
             font-size: 12px;
@@ -666,7 +670,7 @@ body {
         }
         .level{
           order: 3;
-          margin-top:3px;
+          // margin-top:3px;
           color: #FFC700;
           @include font(12,'',0.05);
           @include SP{font-size: 10px;}
@@ -724,13 +728,13 @@ body {
             font-size: 18px;
             display: inline-block;
             position: relative;
-            &:before{
-              content:"";position: absolute;
-              bottom:0px;left:0;
-              width: 100%;height: 10px;
-              background: $purple_bg;
-              opacity: 0.4;
-            }
+            // &:before{
+            //   content:"";position: absolute;
+            //   bottom:0px;left:0;
+            //   width: 100%;height: 10px;
+            //   background: $purple_bg;
+            //   opacity: 0.4;
+            // }
           }
         }
         .txt{
@@ -751,7 +755,7 @@ body {
   margin-bottom: 110px;
 
   @include SP {
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   }
 
   .the-title{
@@ -1053,11 +1057,12 @@ body {
 }
 
 .sec-access {
-  padding-top: 50px;
-  margin-bottom: 146px;
+  padding-top: 70px;
+  margin-bottom: 100px;
 
   @include SP {
-    margin-bottom: 90px;
+    padding-top: 50px;
+    margin-bottom: 40px;
   }
 
   .the-title {

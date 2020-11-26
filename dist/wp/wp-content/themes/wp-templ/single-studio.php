@@ -73,7 +73,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-intro inview fadeInBottom">
       <div class="container-1080">
-        <h3 class="the-title">９月限定！<br><?php echo get_the_title(); ?>店の入会特典 12月限定!<br>ゆめタウン博多店の入会特典</h3>
+        <h3 class="the-title">12月限定！<br><?php echo get_the_title(); ?>店の入会特典!</h3>
         <div class="gr">
           <div class="inside">
             <ul class="lst-intro">
@@ -153,7 +153,7 @@ include(APP_PATH.'libs/head.php');
                 </div>用可能</p>
               </div>
               <div class="row">
-                <p class="th">マットお預かり、</p>
+                <p class="th">マットお預かり</p>
                 <div class="td">
                   <p class="td01">1,000円/月</p>
                   <p class="td02">ヨガマットお預かり</p>
@@ -163,7 +163,7 @@ include(APP_PATH.'libs/head.php');
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">購入できるもの</span>
+              <span class="txt01">購入できるもの(※一部店舗)</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
@@ -201,7 +201,7 @@ include(APP_PATH.'libs/head.php');
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">水素水ボトル レンタルできるもの</span>
+              <span class="txt01">レンタルできるもの</span>
               <span class="txt02">(※一部店舗)</span>
             </h4>
             <div class="tbl js-price-tbl">
@@ -247,28 +247,7 @@ include(APP_PATH.'libs/head.php');
         <p class="script">※体験料以外の表示価格は全て税抜きとなります。水素水のみ消費税8％</p>
       </div>
     </div>
-<!--     <div class="sec-stuff">
-      <div class="container-1080">
-        <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
-        <ul class="lst-stuff">
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
-            <h4 class="item-ttl">手ぶらでOK</h4>
-            <p class="item-txt">必要なものは全てご用意しています。 身軽だから気軽に通いやすいのが特徴です。<br>※キャミソール(カップ付き)かTシャツのいずれかになります。 ※店舗により異なります。<br>ロレンタルウェア上下 セバスタオル<br>フェイスタオル 四水550ml×2本 四ヨガマット</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img03.jpg" alt="好きな時間に 通えます"></div>
-            <h4 class="item-ttl">好きな時間に 通えます</h4>
-            <p class="item-txt">昼間に自由時間がある方にも、 仕事で遅くなりがちな方にも、 通いやすいのが魅力です。<br>※レッスン時間はスタジオ・曜日によって異なります。<br>詳しくはスタジオ詳細でご確認ください。</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img04.jpg" alt="女性専用 スタジオ"></div>
-            <h4 class="item-ttl">女性専用 スタジオ</h4>
-            <p class="item-txt">女性だけのスタジオだから、 気兼ねなく、たくさん汗かいたり ポーズを取ったりできるのも、 支持されている理由のひとつです。</p>
-          </li>
-        </ul>
-      </div>
-    </div> -->
+
 <!--     <div class="sec-feeling">
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
@@ -289,12 +268,12 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div> -->
     <div class="sec-voice">
-      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br>選ぶお客様のお声</h3>
       <div class="slider js-voice-slider">
         <?php for($i=0;$i<7;$i++){ ?>
           <div class="item inview fadeInBottom" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide<?php echo $i+1; ?>.jpg);"></div>
         <?php } ?>
       </div>
+      <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br>選ぶお客様のお声</h3>
       <div class="container-1080">
         <?php include(APP_PATH.'libs/voice.php'); ?>
       </div>
@@ -324,7 +303,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-lesson">
       <div class="container-900">
-        <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</div>
+        <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスン内容</div>
         <div class="etr">
           <?php $lesson_master_arr = array();
             $wp_lesson_master = new WP_Query();
@@ -353,7 +332,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-form" id="anchor04">
       <div class="container-750">
-        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
+        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>体験レッスン申込みフォーム</h3>
         <form method="post" class="studioform inview fadeInBottom" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform">
           <div class="stepImg">
             <picture>
@@ -371,7 +350,7 @@ include(APP_PATH.'libs/head.php');
                 <input type="hidden" name="studio_id" id="studio_id" value="<?php echo $thisStudioID;?>">
                 <input type="hidden" name="instructor" id="instructor" class="input-instructor" value="">
                 <input placeholder="例) 初心者レッスン" type="text" name="single_ttl" id="single_ttl" class="input-lesson validate[required]" value="" readonly>
-                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
+                <span class="note">※レッスンスケジュールから、体験するレッスンを選択してください</span>
               </td>
             </tr>
             <tr>
@@ -383,7 +362,7 @@ include(APP_PATH.'libs/head.php');
                 <p class="half">
                   <input placeholder="例) 10:00 - 10:45" type="text" name="hopetime" id="hopetime" class="validate[required] input-time" value="" readonly>
                 </p>
-                <span class="note">※このフィールドを自動入力するスケジュールを選択してください</span>
+                <span class="note">※レッスンスケジュールから、体験するレッスンを選択してください</span>
               </td>
             </tr>
             <tr>
@@ -426,10 +405,32 @@ include(APP_PATH.'libs/head.php');
             </tr>
           </table>
           <p class="btn-row">
-            <button id="btnConfirm" class="btn-confirm"><span>確認画面へ</span></button>
+            <button id="btnConfirm" class="btn-confirm"><span>体験申込み 確認画面へ</span></button>
             <input type="hidden" name="actionFlag" value="confirm">
           </p>
         </form>
+      </div>
+    </div>
+    <div class="sec-stuff">
+      <div class="container-1080">
+        <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
+        <ul class="lst-stuff">
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
+            <h4 class="item-ttl">手ぶらでOK</h4>
+            <p class="item-txt">必要なものは全てご用意しています。 身軽だから気軽に通いやすいのが特徴です。<br>※キャミソール(カップ付き)かTシャツのいずれかになります。 ※店舗により異なります。<br>ロレンタルウェア上下 セバスタオル<br>フェイスタオル 四水550ml×2本 四ヨガマット</p>
+          </li>
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img03.jpg" alt="好きな時間に 通えます"></div>
+            <h4 class="item-ttl">好きな時間に 通えます</h4>
+            <p class="item-txt">昼間に自由時間がある方にも、 仕事で遅くなりがちな方にも、 通いやすいのが魅力です。<br>※レッスン時間はスタジオ・曜日によって異なります。<br>詳しくはスタジオ詳細でご確認ください。</p>
+          </li>
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img04.jpg" alt="女性専用 スタジオ"></div>
+            <h4 class="item-ttl">女性専用 スタジオ</h4>
+            <p class="item-txt">女性だけのスタジオだから、 気兼ねなく、たくさん汗かいたり ポーズを取ったりできるのも、 支持されている理由のひとつです。</p>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="sec-access" id="anchor02">
@@ -457,7 +458,7 @@ include(APP_PATH.'libs/head.php');
               </div>
               <?php }  if(!empty($fields['access_station'])){ ?>
               <div class="row">
-                <div class="th">最寄駅の設定</div>
+                <div class="th">最寄駅/アクセス</div>
                 <div class="td"><?php echo $fields['access_station']; ?></div>
               </div>
               <?php } ?>

@@ -329,3 +329,30 @@ function wpse_139269_term_radio_checklist( $args ) {
   return $args;
 }
 add_filter( 'wp_terms_checklist_args', 'wpse_139269_term_radio_checklist' );
+
+add_action( 'wp_head', 'load_admin_media_styles', 10);
+function load_admin_media_styles(){
+  global $thisPageName;
+  if(isset($thisPageName) && $thisPageName == 'manage-news'){
+    // list all style libs the post page of wp-admin loaded, but we may only need to load 2 of them
+    $ary_libs = array(
+      'common','forms',
+      // 'dashicons', 'admin-bar','buttons','media-views',
+      // 'admin-menu','dashboard','list-tables','edit','revisions','media','themes','about','nav-menu',
+      // 's','wp-pointer','widgets','site-icon','l10n','wp-auth-check','wp-color-picker'
+    );
+    $admin_media_styles_url = add_query_arg(
+      array(
+        'c' => 0,
+        'dir' => 'ltr',
+        'load[]' => implode(',', $ary_libs),
+        'ver' => get_bloginfo('version'),
+      ),
+      admin_url().'load-styles.php'
+    );
+    echo "<link rel='stylesheet' id='admin_styles_for_media-css' href='".$admin_media_styles_url."' type='text/css' media='all' />";
+  }
+}
+
+add_filter( 'disable_captions', '__return_true' );
+add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );

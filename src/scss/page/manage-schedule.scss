@@ -124,9 +124,9 @@
     }
     .item-ttl{
       font-size: 15px;
-      width: 170px;
+      width: 190px;
       padding-top: 10px;
-      padding-right: 50px;
+      padding-right: 20px;
       @include SP{
         width: 100%;
         margin-bottom: 7px;
@@ -142,7 +142,7 @@
       }
     }
     .item-field{
-      width: calc(100% - 170px);
+      width: calc(100% - 190px);
       @include SP{
         width: 100%;
       }
@@ -347,6 +347,7 @@
           padding: 5px 5px 5px 25px;
           border-radius: 8px;
           text-align: center;
+          margin-top: 6px;
           @include SP{
             margin-top: 15px;
           }

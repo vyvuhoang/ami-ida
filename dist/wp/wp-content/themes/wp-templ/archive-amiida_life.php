@@ -20,17 +20,18 @@ include(APP_PATH.'libs/head.php');
   </div>
   <div class="amiidalife wcm">
     <div class="amiidalife-lst">
-      <?php for($i=0;$i<4;$i++){ ?>
+      <?php $ttl= array("<em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日","ふと、イライラしている自分に気付く。<br>ワタシ、<em>心にゆとり</em>がなくなって<br>しまっている、、？","最近通い始めたアミーダは、<br>溶岩石で<em>身体を温める</em>ヨガ。<br>忙しい日々の中でも、<br>なぜか<em>通い続ける</em>ことができている","アミーダの溶岩ヨガで習った、<br><em>“呼吸”</em>が、心のバランスを<br>整えることを知った。<br>ストレスを感じづらくなったのは<br>呼吸のおかげかもしれない。","アミーダの溶岩石には、<br>保温と発汗作用の効果がある。<br>「<em>深い呼吸</em>」が身体だけでなく、<br>毎日の心まで健康にしてくれた。");
+      for($i=0;$i<count($ttl);$i++){ ?>
       <div class="item inview fadeInBottom">
         <div class="item__img">
           <div class="item--ttl sp">
-            <a href="" class="ttl1"><em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日</a>
+            <a href="" class="ttl1"><?php echo $ttl[$i]; ?></a>
           </div>
           <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img<?php echo $i+1; ?>.jpg)"></div>
         </div>
         <div class="item__info">
           <div class="item--ttl pc">
-            <a href="" class="ttl1"><em>仕事に子育て</em>など、、<br>追われるように過ぎていく<br>あっという間の毎日</a>
+            <a href="" class="ttl1"><?php echo $ttl[$i]; ?></a>
           </div>
           <div class="item__info--space"></div>
           <div class="item__info--img">
