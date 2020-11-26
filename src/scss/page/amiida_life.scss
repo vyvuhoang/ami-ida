@@ -14,7 +14,7 @@ LST
 ------------------------------------------------------------*/
 .amiidalife{
   padding: 36px 20px;
-  max-width: 968px;
+  max-width: 988px;
   @include max-screen(767px){max-width: 600px;padding: 0 25px 30px;}
   &-lst{
     margin-top: 75px;
@@ -37,7 +37,7 @@ LST
           &:before{content: none;}
         }
         .ttl1{
-          @include font(14,22/14,0.06,600);
+          @include font(14,22/14,0.02,600);
           @include noto;color: #000;
           position: relative;display: inline-block;
           @include max-screen(767px){
@@ -46,13 +46,13 @@ LST
           }
           em{
             font-style: normal;
-            font-size: 25px;
+            font-size: 25px;vertical-align: middle;
             @include max-screen(767px){font-size: 22px;}
           }
         }
       }
       &__img{
-        width: calc(73.28% - 130px);
+        width: calc(73.28% - 140px);
         @include max-screen(767px){
           width: 100%;
         }
@@ -65,7 +65,7 @@ LST
         }
       }
       &__info{
-        width: 260px;
+        width: 290px;
         @include max-screen(767px){
           width: 100%;margin-top: -25%;
         }

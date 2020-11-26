@@ -197,10 +197,10 @@ body {
 }
 .sec-charge {
   padding-top: 80px;
-  margin-bottom: 140px;
+  margin-bottom: 40px;
   @include SP {
     padding-top: 45px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   .the-title {
     margin-bottom: 54px;
@@ -331,9 +331,12 @@ body {
   }
 }
 .sec-stuff {
+  background: rgba(233,233,233,0.4);
+  padding: 80px 0 60px;
   // margin-bottom: 122px;
   @include SP {
-    margin-bottom: 22px;
+    padding: 50px 0 0px;
+    // margin-top: 22px;
   }
   .the-title {
     margin-bottom: 88px;
@@ -725,13 +728,13 @@ body {
             font-size: 18px;
             display: inline-block;
             position: relative;
-            &:before{
-              content:"";position: absolute;
-              bottom:0px;left:0;
-              width: 100%;height: 10px;
-              background: $purple_bg;
-              opacity: 0.4;
-            }
+            // &:before{
+            //   content:"";position: absolute;
+            //   bottom:0px;left:0;
+            //   width: 100%;height: 10px;
+            //   background: $purple_bg;
+            //   opacity: 0.4;
+            // }
           }
         }
         .txt{
@@ -752,7 +755,7 @@ body {
   margin-bottom: 110px;
 
   @include SP {
-    margin-bottom: 30px;
+    margin-bottom: 70px;
   }
 
   .the-title{
@@ -1054,11 +1057,12 @@ body {
 }
 
 .sec-access {
-  padding-top: 50px;
-  margin-bottom: 146px;
+  padding-top: 70px;
+  margin-bottom: 100px;
 
   @include SP {
-    margin-bottom: 90px;
+    padding-top: 50px;
+    margin-bottom: 40px;
   }
 
   .the-title {

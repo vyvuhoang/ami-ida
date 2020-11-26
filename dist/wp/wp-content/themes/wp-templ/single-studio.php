@@ -247,28 +247,7 @@ include(APP_PATH.'libs/head.php');
         <p class="script">※体験料以外の表示価格は全て税抜きとなります。水素水のみ消費税8％</p>
       </div>
     </div>
-<!--     <div class="sec-stuff">
-      <div class="container-1080">
-        <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
-        <ul class="lst-stuff">
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
-            <h4 class="item-ttl">手ぶらでOK</h4>
-            <p class="item-txt">必要なものは全てご用意しています。 身軽だから気軽に通いやすいのが特徴です。<br>※キャミソール(カップ付き)かTシャツのいずれかになります。 ※店舗により異なります。<br>ロレンタルウェア上下 セバスタオル<br>フェイスタオル 四水550ml×2本 四ヨガマット</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img03.jpg" alt="好きな時間に 通えます"></div>
-            <h4 class="item-ttl">好きな時間に 通えます</h4>
-            <p class="item-txt">昼間に自由時間がある方にも、 仕事で遅くなりがちな方にも、 通いやすいのが魅力です。<br>※レッスン時間はスタジオ・曜日によって異なります。<br>詳しくはスタジオ詳細でご確認ください。</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img04.jpg" alt="女性専用 スタジオ"></div>
-            <h4 class="item-ttl">女性専用 スタジオ</h4>
-            <p class="item-txt">女性だけのスタジオだから、 気兼ねなく、たくさん汗かいたり ポーズを取ったりできるのも、 支持されている理由のひとつです。</p>
-          </li>
-        </ul>
-      </div>
-    </div> -->
+
 <!--     <div class="sec-feeling">
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
@@ -430,6 +409,28 @@ include(APP_PATH.'libs/head.php');
             <input type="hidden" name="actionFlag" value="confirm">
           </p>
         </form>
+      </div>
+    </div>
+    <div class="sec-stuff">
+      <div class="container-1080">
+        <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
+        <ul class="lst-stuff">
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
+            <h4 class="item-ttl">手ぶらでOK</h4>
+            <p class="item-txt">必要なものは全てご用意しています。 身軽だから気軽に通いやすいのが特徴です。<br>※キャミソール(カップ付き)かTシャツのいずれかになります。 ※店舗により異なります。<br>ロレンタルウェア上下 セバスタオル<br>フェイスタオル 四水550ml×2本 四ヨガマット</p>
+          </li>
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img03.jpg" alt="好きな時間に 通えます"></div>
+            <h4 class="item-ttl">好きな時間に 通えます</h4>
+            <p class="item-txt">昼間に自由時間がある方にも、 仕事で遅くなりがちな方にも、 通いやすいのが魅力です。<br>※レッスン時間はスタジオ・曜日によって異なります。<br>詳しくはスタジオ詳細でご確認ください。</p>
+          </li>
+          <li class="item inview fadeInBottom">
+            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img04.jpg" alt="女性専用 スタジオ"></div>
+            <h4 class="item-ttl">女性専用 スタジオ</h4>
+            <p class="item-txt">女性だけのスタジオだから、 気兼ねなく、たくさん汗かいたり ポーズを取ったりできるのも、 支持されている理由のひとつです。</p>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="sec-access" id="anchor02">
