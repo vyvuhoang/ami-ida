@@ -80,14 +80,12 @@ include(APP_PATH.'libs/head.php');
 	</div>
 	<div class="c-banner inview fadeInBottom">
 		<div class="wcm">
-			<div class="img">
-				<div class="js-popup pc"></div>
+			<a href="<?php echo APP_URL; ?>corona/" class="img">
 				<picture>
 				  <source srcset="<?php echo APP_ASSETS; ?>img/top/bn_measures-sp.jpg" media="(max-width: 767px)">
 				  <img src="<?php echo APP_ASSETS; ?>img/top/bn_measures.jpg" alt="">
 				</picture>
-				<a target="_blank" href="<?php echo APP_URL; ?>assets/img/top/measure.pdf" class="sp"></a>
-			</div>
+			</a>
 		</div>
 	</div>
 	<div class="feature1" id="feature">
@@ -225,47 +223,12 @@ include(APP_PATH.'libs/head.php');
 			<a target="_blank" href="https://www.instagram.com/amiida_official/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
 			<a target="_blank" href="https://twitter.com/yoga_amiida" class="grBtn__item twitter"><p>Twitter</p></a>
 		</div>
-	</div>
-	<div class="popup">
-		<div class="popup-inner">
-			<div class="wcm">
-				<div class="btn_close"></div>
-				<div class="popup__cont">
-					<div class="popup__cont--item item1 active">
-						<img src="<?php echo APP_ASSETS; ?>img/top/banner01.jpg" alt="">
-					</div>
-					<div class="popup__cont--item item1">
-						<img src="<?php echo APP_ASSETS; ?>img/top/banner02.jpg" alt="">
-					</div>
-					<div class="popup__cont--item item1">
-						<img src="<?php echo APP_ASSETS; ?>img/top/banner03.jpg" alt="">
-					</div>
-				</div>
-				<div class="popup__nav">
-					<div class="popup__nav--next"></div>
-					<div class="popup__nav--prev"></div>
-				</div>
-				<div class="popup__cap">1 / 3</div>
-			</div>
-		</div>
-	</div>
-</main>
+	</div></main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS ?>js/page/top.min.js"></script>
 <script>
 	var _url = "<?php echo APP_URL; ?>";
-	$('body').on('click', '.js-popup', function(){
-		$('.popup').fadeIn();
-		$('body').css('top', -st);
-		$('body').addClass('menu-open');
-	});
-
-  $(".popup").on("click", function(e){
-    if (e.target !== this)
-      return;
-    $('.btn_close').trigger('click');
-  });
 </script>
 </body>
 </html>
