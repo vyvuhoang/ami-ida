@@ -355,3 +355,4 @@ function load_admin_media_styles(){
 }
 
 add_filter( 'disable_captions', '__return_true' );
+add_filter( 'wp_default_editor', create_function('', 'return "tinymce";') );

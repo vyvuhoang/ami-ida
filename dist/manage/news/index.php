@@ -117,54 +117,56 @@ include(APP_PATH.'libs/head.php');
                     <label for="postTitle">お知らせタイトル</label>
                     <input type="text" name="postTitle" id="postTitle" class="required">
                   </div>
-                  <div class="">
+                  <div class="item-editor">
                     <label for="postContent">お知らせの内容</label>
-                    <?php wp_editor( wpautop(''), $editor_id, $settings );?>
+                    <div class="wp-editor">
+                      <?php wp_editor( wpautop(''), $editor_id, $settings );?>
+                    </div>
                   </div>
                 </div>
                 <div class="sec-btn-submit">
                   <input type="hidden" name="submitted" id="submitted" value="true">
-                  <button type="submit">登録する</button>
+                  <button type="submit" class="btn-add-new js-add-new">登録する</button>
                 </div>
               </form>
             </div>
-            <div class="sec-lst">
-              <h3 class="ttl">登録されているお知らせ</h3>
-              <ul class="lst-ttl">
-                <li class="item">レッスンタイトル</li>
-                <li class="item">レッスン内容</li>
-                <li class="item"></li>
-              </ul>
-              <?php
-              $query = new WP_Query( array(
-                'post_type' => 'news',
-                'posts_per_page' => '-1',
-                'post_status' => 'publish',
-                'meta_query' => array(
-                  array(
-                    'key' => 'studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  )
-                )
-              ) );
-              ?>
-              <ul class="lst-post">
-                <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
-                  <li class="item js-row">
-                    <input type="hidden" name="post_id" id="post_id" value="<?php echo get_the_ID();?>">
-                    <div class="item-content"><input type="text" name="postDateEdit" id="postDateEdit" value="<?php echo get_field('date'); ?>" class="js-datepicker" disabled></div>
-                    <div class="item-ttl"><input type="text" name="postTitleEdit" id="postTitleEdit" value="<?php echo get_the_title(); ?>" disabled></div>
-                    <div class="item-btns">
-                      <div class="btn-edit js-edit-row">修正する</div>
-                      <div class="btn-delete js-delete-row">削除する</div>
-                    </div>
-                  </li>
-                <?php endwhile; endif; ?>
-              </ul>
-            </div>
           </div>
         </div>
+      </div>
+      <div class="sec-lst">
+        <h3 class="ttl">登録されているお知らせ</h3>
+        <ul class="lst-ttl">
+          <li class="item">日付</li>
+          <li class="item">お知らせのタイトル</li>
+          <li class="item"></li>
+        </ul>
+        <?php
+        $query = new WP_Query( array(
+          'post_type' => 'news',
+          'posts_per_page' => '-1',
+          'post_status' => 'publish',
+          'meta_query' => array(
+            array(
+              'key' => 'studio',
+              'value' => $studio_id,
+              'compare' => '=',
+            )
+          )
+        ) );
+        ?>
+        <ul class="lst-post">
+          <?php if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+            <li class="item js-row">
+              <input type="hidden" name="post_id" id="post_id" value="<?php echo get_the_ID();?>">
+              <div class="item-content"><input type="text" name="postDateEdit" id="postDateEdit" value="<?php echo get_field('date'); ?>" class="js-datepicker" disabled></div>
+              <div class="item-ttl"><input type="text" name="postTitleEdit" id="postTitleEdit" value="<?php echo get_the_title(); ?>" disabled></div>
+              <div class="item-btns">
+                <div class="btn-edit js-edit-row">修正する</div>
+                <div class="btn-delete js-delete-row">削除する</div>
+              </div>
+            </li>
+          <?php endwhile; endif; ?>
+        </ul>
       </div>
     </div>
   </main>
