@@ -8,6 +8,8 @@ $request_uri = $_SERVER['REQUEST_URI'];
 $uri_parts = explode("/",$request_uri);
 
 $studio_slug = $_GET['studio_slug'];
+$urlYM = isset($_GET['ym']) && !empty($_GET['ym']) ? $_GET['ym'] : '';
+$defaultYM = date("Y/m");
 
 $cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 $studio_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[1].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[2].'/';
@@ -143,8 +145,7 @@ include(APP_PATH.'libs/head.php');
                     <?php foreach ($studio_arr as $studio_key => $studio_val) {
                     $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
                       <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/schedule/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
-                    <?php
-                } ?>
+                    <?php } ?>
                   </select>
                 </div>
                 <div class="item item--date">
@@ -174,7 +175,8 @@ include(APP_PATH.'libs/head.php');
                 <input type="hidden" name="is_create" id="is_create" value="1">
                 <div class="item">
                   <h3 class="item-ttl">レッスンタイトル</h3>
-                  <div class="item-field">
+                  <div class="item-field item-field--inse">
+                    <input type="text" name="schedule_0_custom_lesson_title" id="schedule_0_custom_lesson_title">
                     <select name="schedule_0_lesson_master" id="schedule_0_lesson_master" class="js-create-select">
                       <option value="">レッスンを選択してください</option>
                       <?php foreach($lesson_master_arr as $lesson_master_key => $lesson_master_val){?>
@@ -186,13 +188,22 @@ include(APP_PATH.'libs/head.php');
                 <div class="item">
                   <h3 class="item-ttl item-ttl--nopad">レッスン内容<span class="note">※自動反映</span></h3>
                   <div class="item-field">
-                    <p class="txt textarea js-lesson-content"></p>
+                    <textarea name="schedule_0_custom_lesson_content" id="schedule_0_custom_lesson_content" class="txt textarea js-lesson-content"></textarea>
                   </div>
                 </div>
                 <div class="item">
                   <h3 class="item-ttl item-ttl--nopad">レッスン強度<span class="note">※自動反映</span></h3>
                   <div class="item-field">
-                    <p class="txt txt-small-field js-lesson-level"></p>
+                    <select name="schedule_0_custom_lesson_level" id="schedule_0_custom_lesson_level" class="txt txt-small-field js-lesson-level">
+                      <option value="1">★ 1</option>
+                      <option value="1.5">★ 1.5</option>
+                      <option value="2">★ 2</option>
+                      <option value="2.5">★ 2.5</option>
+                      <option value="3">★ 3</option>
+                      <option value="3.5">★ 3.5</option>
+                      <option value="4">★ 4</option>
+                      <option value="5">★ 5</option>
+                    </select>
                   </div>
                 </div>
                 <div class="item">

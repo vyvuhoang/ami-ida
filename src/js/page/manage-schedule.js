@@ -146,7 +146,7 @@ function deleteRow(){
 }
 
 function addNewSchedule(){
-  var stars = ['★', '★★', '★★★', '★★★★', '★★★★★'];
+  var stars = ['★ 1', '★ 1.5', '★★ 2', '★★ 2.5', '★★★ 3', '★★★ 3.5', '★★★★ 4', '★★★★★ 5'];
   $('.js-create-select').on('change', function(){
     var option = $('option:selected', this),
         data_id = option.attr('data-id'),
@@ -157,7 +157,7 @@ function addNewSchedule(){
         el_content = $('.js-lesson-content'),
         el_level = $('.js-lesson-level');
     el_content.html('').append($.parseHTML(data_content));
-    el_level.text(stars[(parseInt(data_level) - 1)]);
+    el_level.find('option[value='+data_level+']').prop('selected', true);
   })
 
   var size = $('.js-rp .js-row').length,

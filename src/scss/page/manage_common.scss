@@ -64,6 +64,12 @@ body{
       margin-bottom: 7px;
       padding-left: 38px;
     }
+    &:not(:first-child){
+      margin-left: 10px;
+      @include SP{
+        margin-top: 8px;
+      }
+    }
   }
   .btn-setting{
     background: url(../../img/common/icon/ico_setting.svg) center left 24px/18px 18px no-repeat, $pinkpurple;
@@ -134,7 +140,7 @@ a.btn-schedule-format{
   &:not(:first-child){
     margin-left: 10px;
     @include SP{
-      margin-top: 10px;
+      margin-top: 8px;
     }
   }
 }

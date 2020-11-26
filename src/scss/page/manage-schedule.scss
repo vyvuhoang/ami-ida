@@ -161,6 +161,28 @@
           }
         }
       }
+      &--inse{
+        font-size: 0;
+        input,
+        select{
+          display: inline-block;
+          vertical-align: top;
+        }
+        input{
+          width: calc(100% - 46px);
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        select{
+          width: 46px;
+          height: 46px;
+          font-size: 0;
+          padding: 0;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          border-left: 0;
+        }
+      }
     }
     .txt{
       display: block;
@@ -200,7 +222,6 @@
     }
     select{
       width: 100%;
-      margin-right: 23px;
       border: 1px solid #E2E2E2;
       border-radius: 8px;
       font-size: 15px;
