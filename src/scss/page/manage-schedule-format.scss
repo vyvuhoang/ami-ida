@@ -66,7 +66,7 @@
         height: 46px;
       }
       textarea{
-        height: 150px;
+        // height: 150px;
       }
       select{
         width: 122px;
@@ -86,6 +86,57 @@
           background-size: 10px 6px;
           background-position: center right 10px;
         }
+      }
+    }
+    .item-image{
+      font-size: 0;
+      margin-bottom: 25px;
+      @include SP{
+        margin-bottom: 15px;
+      }
+      label,
+      .content{
+        display: inline-block;
+        vertical-align: top;
+        @include add_prefix(appearance, none);
+        @include SP{
+          display: block;
+        }
+      }
+      label{
+        font-size: 15px;
+        width: 170px;
+        padding-top: 10px;
+        @include SP{
+          width: 100%;
+          margin-bottom: 7px;
+        }
+      }
+      .content{
+        width: calc(100% - 170px);
+        min-height: 46px;
+        font-size: 0;
+        @include SP{
+          width: 100%;
+        }
+      }
+      .img{
+        width: calc(70% - 50px);
+        @include SP{
+          width: 100%;
+        }
+        img{
+          margin-top: 10px;
+        }
+      }
+      button{
+        margin-top: 3px;
+        @include add_prefix(appearance, none);
+        border: 0;
+        width: 30px;
+        height: 30px;
+        image-rendering: -webkit-optimize-contrast;
+        background: url(../../img/common/icon/ico_add_image.png) center/30px 30px no-repeat;
       }
     }
   }
@@ -193,10 +244,10 @@
           display: block;
         }
       }
-      .item-ttl,
-      .item-content{
-        @include font(15,26px,'',500);
-      }
+      // .item-ttl,
+      // .item-content{
+      //   @include font(15,26px,'',500);
+      // }
       .item-ttl{
         @include PC{
           width: calc(48.54% - 111px);
@@ -212,7 +263,7 @@
       .item-content{
         @include PC{
           width: calc(51.46% - 111px);
-          padding-right: 60px;
+          padding-right: 30px;
         }
         @include SP{
           margin-bottom: 20px;
@@ -244,6 +295,31 @@
           color: #E5749B;
           background: url(../../img/common/icon/ico_delete.svg) center left 15px/12px 15px no-repeat, #FFDEE5;
         }
+      }
+      input, textarea{
+        @include add_prefix(appearance, none);
+        border: 1px solid #E2E2E2;
+        border-radius: 8px;
+        background-color: transparent;
+        display: inline-block;
+        font-size: 15px;
+        padding: 10px 10px;
+        color: #000;
+        @include ffYG;
+        box-shadow: inherit;
+        width: 100%;
+        transition: 0s;
+        @include SP{
+          margin: 0;
+          margin-bottom: 5px;
+          text-align: left;
+        }
+        &:disabled{
+          border: 0;
+        }
+      }
+      textarea{
+        height: 43px;
       }
     }
   }

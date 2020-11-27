@@ -2,7 +2,7 @@
   <div class="container-1140">
     <div class="ttl"><a href="<?php echo APP_URL;?>manage/"><?php echo $page_ttl?></a></div>
     <div class="right">
-      <?php if($thisPageName == 'manage-news'){?>
+      <?php if($thisPageName == 'manage-news' || $thisPageName == 'manage-schedule' || $thisPageName == 'manage-application'){?>
         <a href="<?php echo APP_URL;?>manage/" class="btn-application">管理画面TOP</a>
       <?php }?>
       <?php if($thisPageName == 'manage-schedule'){?>
