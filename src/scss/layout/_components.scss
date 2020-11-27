@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 .the-title{
-	@include font(28,1.6,0.1,500);
+	@include font(28,1.6,0.1,600);
 	padding-bottom: 18px;
 	@include noto;text-align: center;
 	position: relative;
@@ -10,7 +10,7 @@
 	}
 	&:before,&:after{
 		content: "";position:absolute;
-		background: $purple;height: 1px;
+		background: $purple;height: 1.5px;
 	}
 	&:before{
 		width: 70px;left: calc(50% - 35px);

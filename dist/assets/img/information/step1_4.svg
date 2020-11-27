@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="130" height="130" viewBox="0 0 130 130">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8069" data-name="Rectangle 8069" width="130" height="130" transform="translate(-3855 -4815)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_3" data-name="Mask Group 3" transform="translate(3855 4815)" clip-path="url(#clip-path)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-3823 -4790.909)">
+      <g id="文字アイコン">
+        <path id="Path_352867" data-name="Path 352867" d="M48.64,57.07v14.4H4.75V12.92H48.64V42.4l4.75-4.52V11.09a2.68,2.68,0,0,0-2.67-2.67h-48A2.68,2.68,0,0,0,0,11.09v62.2A2.68,2.68,0,0,0,2.67,76H50.72a2.68,2.68,0,0,0,2.67-2.67V52.55Z" fill="#727171"/>
+        <rect id="Rectangle_8064" data-name="Rectangle 8064" width="21.9" height="9.43" rx="3.4" transform="translate(15.75 4.48)" fill="#727171"/>
+        <circle id="Ellipse_46" data-name="Ellipse 46" cx="5.36" cy="5.36" r="5.36" transform="translate(20.261 9.349) rotate(-76.86)" fill="#727171"/>
+        <rect id="Rectangle_8065" data-name="Rectangle 8065" width="7.67" height="7.67" transform="translate(9.54 18.9)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.51"/>
+        <line id="Line_346" data-name="Line 346" x2="21.62" transform="translate(21 26.24)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.08"/>
+        <path id="Path_352868" data-name="Path 352868" d="M11,20.55a44,44,0,0,0,2.38,4.27l6.45-5.16-6.17,2.68Z" fill="#727171"/>
+        <rect id="Rectangle_8066" data-name="Rectangle 8066" width="7.67" height="7.67" transform="translate(9.54 37.25)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.51"/>
+        <line id="Line_347" data-name="Line 347" x2="21.62" transform="translate(21 44.6)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.08"/>
+        <path id="Path_352869" data-name="Path 352869" d="M11,38.83a42.6,42.6,0,0,0,2.38,4.27L19.79,38l-6.17,2.68Z" fill="#727171"/>
+        <rect id="Rectangle_8067" data-name="Rectangle 8067" width="7.67" height="7.67" transform="translate(9.54 55.6)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.51"/>
+        <line id="Line_348" data-name="Line 348" x2="21.62" transform="translate(21 62.95)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="1.08"/>
+        <path id="Path_352870" data-name="Path 352870" d="M11,57.19a42.6,42.6,0,0,0,2.38,4.27l6.45-5.15L13.62,59Z" fill="#727171"/>
+        <rect id="Rectangle_8068" data-name="Rectangle 8068" width="27.84" height="7.95" transform="translate(40.406 51.748) rotate(-43.6)" fill="#727171"/>
+        <path id="Path_352871" data-name="Path 352871" d="M45.43,57.73,37.68,59.5l2.44-7.27Z" fill="#727171"/>
+        <path id="Path_352872" data-name="Path 352872" d="M64.12,29.54l-3,2.82,2.56,2.69,2.55,2.68,3-2.82c1.68-1.6,1.25-3.6-.1-5S65.8,27.94,64.12,29.54Z" fill="#727171"/>
+      </g>
+    </g>
+  </g>
+</svg>

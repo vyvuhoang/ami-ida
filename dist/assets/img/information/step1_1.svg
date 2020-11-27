@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="140" height="140" viewBox="0 0 140 140">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8057" data-name="Rectangle 8057" width="140" height="140" transform="translate(-3848 -5039)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(3848 5039)" clip-path="url(#clip-path)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-3824.09 -5017.09)">
+      <g id="文字アイコン">
+        <path id="SVGID" d="M57.65,29.84,64,36.16l6.31-6.32a11.63,11.63,0,0,1,5.3,9.73v5.87H52.35V39.57a11.63,11.63,0,0,1,5.3-9.73Z" fill="#727171"/>
+        <circle id="Ellipse_45" data-name="Ellipse 45" cx="7.93" cy="7.93" r="7.93" transform="translate(56.03 13.04)" fill="#727171"/>
+        <rect id="Rectangle_8053" data-name="Rectangle 8053" width="84.24" height="26.09" transform="translate(3.89 67.98)" fill="#727171" stroke="#727171" stroke-miterlimit="10" stroke-width="4.17"/>
+        <rect id="Rectangle_8054" data-name="Rectangle 8054" width="84.24" height="47.15" transform="translate(3.89 2.09)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="4.17"/>
+        <rect id="Rectangle_8055" data-name="Rectangle 8055" width="87.84" height="8.53" rx="2.83" transform="translate(2.09 59.45)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="4.17"/>
+        <line id="Line_327" data-name="Line 327" x1="17.25" y2="17.24" transform="translate(12.45 9.12)" fill="none" stroke="#231916" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.09"/>
+        <line id="Line_328" data-name="Line 328" x1="17.25" y2="17.24" transform="translate(13.59 18.32)" fill="none" stroke="#231916" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.09"/>
+        <line id="Line_329" data-name="Line 329" x1="17.25" y2="17.24" transform="translate(12.45 9.12)" fill="none" stroke="#b9e2f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.15"/>
+        <line id="Line_330" data-name="Line 330" x1="17.25" y2="17.24" transform="translate(13.59 18.32)" fill="none" stroke="#b9e2f2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.15"/>
+        <rect id="Rectangle_8056" data-name="Rectangle 8056" width="23.22" height="6.75" transform="translate(52.35 52.56)" fill="#727171"/>
+        <path id="Path_352848" data-name="Path 352848" d="M56.74,45.44A3.45,3.45,0,0,0,55.89,44l-9.57-9.57a3.36,3.36,0,0,0-4.75,4.75l6.31,6.31Z" fill="#727171"/>
+      </g>
+    </g>
+  </g>
+</svg>

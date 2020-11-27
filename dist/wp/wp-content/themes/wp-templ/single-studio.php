@@ -326,7 +326,7 @@ include(APP_PATH.'libs/head.php');
               <p class="txt"><?php echo get_field('lesson_content');?></p>
             </div>
           </div>
-          <?php }} ?>
+          <?php }}  wp_reset_postdata();?>
         </div>
       </div>
     </div>

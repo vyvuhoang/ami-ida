@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="120" viewBox="0 0 120 120">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8091" data-name="Rectangle 8091" width="120" height="120" transform="translate(-4005 -4257)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_11" data-name="Mask Group 11" transform="translate(4005 4257)" clip-path="url(#clip-path)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-3979.669 -4231.15)">
+      <g id="design">
+        <rect id="Rectangle_8090" data-name="Rectangle 8090" width="18.53" height="18.53" rx="3.01" transform="translate(18.08 24.6)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="3.33"/>
+        <path id="Path_352928" data-name="Path 352928" d="M6.67,67.66a5,5,0,0,1-5-5.08c.1-5.39.42-10.85,1-16.22C4,33.28,4.42,17.24,4.42,6.6A4.94,4.94,0,0,1,9.36,1.67H48.09A4.93,4.93,0,0,1,53,6.6v17a4.91,4.91,0,0,1-4.08,4.85L35.07,30.94a10.51,10.51,0,0,0-8.6,8.75,178.2,178.2,0,0,0-2,23.07,5,5,0,0,1-5,4.9Z" fill="#fff" stroke="#727171" stroke-miterlimit="10" stroke-width="3.33"/>
+        <line id="Line_364" data-name="Line 364" y2="28.46" transform="translate(44.67 1.15)" fill="none" stroke="#727171" stroke-miterlimit="10" stroke-width="3.33"/>
+        <path id="Path_352929" data-name="Path 352929" d="M32.45,20H16.64a4.58,4.58,0,0,1-4.58-4.58h0a4.58,4.58,0,0,1,4.58-4.57H32.45A4.57,4.57,0,0,1,37,15.38h0A4.57,4.57,0,0,1,32.45,20Z" fill="#727171"/>
+        <path id="Path_352930" data-name="Path 352930" d="M69.41,1.72a19.3,19.3,0,0,1,0,27.3" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.33"/>
+        <path id="Path_352931" data-name="Path 352931" d="M65,6.17A13,13,0,0,1,65,24.6" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.33"/>
+        <path id="Path_352932" data-name="Path 352932" d="M60.52,10.61a6.73,6.73,0,0,1,.04,9.54" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.33"/>
+      </g>
+    </g>
+  </g>
+</svg>

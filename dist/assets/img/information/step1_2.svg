@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="170" height="170" viewBox="0 0 170 170">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_8061" data-name="Rectangle 8061" width="170" height="170" transform="translate(-3534 -5018)" fill="none" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_1" data-name="Mask Group 1" transform="translate(3534 5018)" clip-path="url(#clip-path)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(-3508.68 -4959.68)">
+      <g id="文字アイコン">
+        <rect id="Rectangle_8060" data-name="Rectangle 8060" width="72.66" height="50.71" transform="translate(23.09 1.68)" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.36"/>
+        <line id="Line_331" data-name="Line 331" y1="50.71" transform="translate(29.44 1.68)" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68"/>
+        <line id="Line_332" data-name="Line 332" y2="50.71" transform="translate(89.4 1.68)" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68"/>
+        <line id="Line_333" data-name="Line 333" x2="58.36" transform="translate(30.24 27.03)" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68"/>
+        <path id="Path_352849" data-name="Path 352849" d="M30.24,11.15,57.65,9.66a34.827,34.827,0,0,1,3.54,0L88.6,11.15" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68"/>
+        <path id="Path_352850" data-name="Path 352850" d="M30.24,42.92l27.41,1.49a34.826,34.826,0,0,0,3.54,0L88.6,42.92" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.68"/>
+        <path id="Path_352851" data-name="Path 352851" d="M95.75,4.86s21.41-9.24,21.41,7.78c0,21.15-21.41,36.57-21.41,36.57" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.36"/>
+        <path id="Path_352852" data-name="Path 352852" d="M23.09,4.86S1.68-4.38,1.68,12.64c0,21.15,21.41,36.57,21.41,36.57" fill="none" stroke="#727171" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.36"/>
+      </g>
+    </g>
+  </g>
+</svg>
