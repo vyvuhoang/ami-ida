@@ -12,6 +12,15 @@ if(!empty($_POST['actionFlag'])) {
   } else header('location: '.get_the_permalink());
 }
 
+
+// var_dump(get_field('schedule'));
+$this_studio_lesson_master = array();
+
+foreach(get_field('schedule') as $k=>$v){
+  if(isset($v['lesson_master']->ID) && $v['lesson_master']->ID && !in_array($v['lesson_master']->ID, $this_studio_lesson_master)){
+    array_push($this_studio_lesson_master, $v['lesson_master']->ID);
+  }
+}
 include(APP_PATH.'libs/head.php');
 ?>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/lib/simplebar.css">
@@ -49,28 +58,42 @@ include(APP_PATH.'libs/head.php');
       <li><a href="<?php echo APP_URL; ?>studio/">店舗ページ</a></li>
       <li><p><?php echo get_the_title(); ?></p></li>
     </div>
+    <?php
+      $wp_news = new WP_Query();
+      $param_news = array(
+        'post_type'=>'news',
+        'order' => 'DESC',
+        'posts_per_page' => '3',
+        'meta_key' => 'date',
+        'orderby' => 'meta_value',
+        'order' => 'DESC',
+        'meta_query' => array(
+          array(
+            'key' => 'studio',
+            'value' => $thisStudioID,
+            'compare' => '='
+          )
+        )
+      );
+      $wp_news->query($param_news);
+      if($wp_news->have_posts()){
+    ?>
     <div class="c-news inview fadeInBottom">
       <div class="wcm">
         <p class="c-news__ttl">NEWS</p>
         <div class="c-news__lst">
-          <a href="" class="c-news__lst--item">
-            <p class="date">2020/10/10</p>
-            <p class="cat"><em>お知らせ</em></p>
-            <p class="ttl"><em>【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】</em></p>
-          </a>
-          <a href="" class="c-news__lst--item">
-            <p class="date">2020/10/09</p>
-            <p class="cat"><em>お知らせ</em></p>
-            <p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
-          </a>
-          <a href="" class="c-news__lst--item">
-            <p class="date">2020/10/08</p>
-            <p class="cat"><em>お知らせ</em></p>
-            <p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
-          </a>
+        <?php while($wp_news->have_posts()){
+          $wp_news->the_post();?>
+            <a href="" class="c-news__lst--item">
+              <p class="date"><?php echo date('Y/m/d', strtotime(get_field('date')));?></p>
+              <p class="cat"><em>お知らせ</em></p>
+              <p class="ttl"><em><?php echo get_the_title();?></em></p>
+            </a>
+          <?php } ?>
         </div>
       </div>
     </div>
+    <?php } wp_reset_postdata();?>
     <div class="sec-intro inview fadeInBottom">
       <div class="container-1080">
         <h3 class="the-title">12月限定！<br><?php echo get_the_title(); ?>店の入会特典!</h3>
@@ -305,28 +328,17 @@ include(APP_PATH.'libs/head.php');
       <div class="container-900">
         <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスン内容</div>
         <div class="etr">
-          <?php $lesson_master_arr = array();
-            $wp_lesson_master = new WP_Query();
-            $param_lesson_master = array(
-              'post_type'=>'lesson_master',
-              'order' => 'DESC',
-              'posts_per_page' => '-1',
-            );
-            $wp_lesson_master->query($param_lesson_master);
-            if($wp_lesson_master->have_posts()){
-              while($wp_lesson_master->have_posts()){
-                $wp_lesson_master->the_post();
-          ?>
+          <?php foreach ($this_studio_lesson_master as $each) : ?>
           <div class="etr__item inview fadeInBottom">
             <div class="etr__item--img">
-              <div class="img lazy" data-bg="url(<?php echo APP_ASSETS;?>img/studio/img11.jpg)"></div>
+              <div class="img lazy" data-bg="url(<?php echo get_field('lesson_image', $each)['url'];?>)"></div>
             </div>
             <div class="etr__item--info">
-              <p class="ttl"><?php echo get_the_title();?></p>
-              <p class="txt"><?php echo get_field('lesson_content');?></p>
+              <p class="ttl"><?php echo get_the_title($each);?></p>
+              <p class="txt"><?php echo get_field('lesson_content', $each);?></p>
             </div>
           </div>
-          <?php }}  wp_reset_postdata();?>
+          <?php endforeach;?>
         </div>
       </div>
     </div>

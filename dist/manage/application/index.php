@@ -41,12 +41,11 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   }
   $cur_date = date('Y/m/d');
   if($flagValidPage) {
-    if($urlYM) {
-      if(isset($_POST) && !empty($_POST['field_key'])){
-        update_field($_POST['field_key'], $_POST['field_value'], $_POST['post_id']);
-        return;
-      }
-      include(APP_PATH.'libs/head.php');
+    if(isset($_POST) && !empty($_POST['field_key'])){
+      update_field($_POST['field_key'], $_POST['field_value'], $_POST['post_id']);
+      return;
+    }
+    include(APP_PATH.'libs/head.php');
 ?>
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/lib/simplebar.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
@@ -73,7 +72,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               <div class="item item--date">
                 <p class="item-ttl">月を選択</p>
                 <select name="" id="" class="js-select-redirect">
-                  <option value="">時間を選択してください</option>
+                  <option value="<?php echo $cur_url; ?>">すべて</option>
                   <?php for ($i=1;$i<=12;$i++) {
                     $ym = date("Y").'/'.$i;
                     $isSelected = ($urlYM == $ym) ? ' selected' : ''; ?>
@@ -85,62 +84,97 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
             </div>
           </div>
           <?php
-            $appl_query_all = new WP_Query( array(
-              'post_type' => 'application',
-              'posts_per_page' => '-1',
-              'post_status' => 'publish',
-              'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                  'key' => 'app_studio',
-                  'value' => $studio_id,
-                  'compare' => '=',
-                ),
-                array(
-                  'key' => 'desired_date',
-                  'value' => date("Y/m/d", strtotime($urlYM.'/1')),
-                  'compare' => '>=',
-                  'type' => 'DATE',
-                ),
-                array(
-                  'key' => 'desired_date',
-                  'value' => date("Y/m/t", strtotime($urlYM.'/1')),
-                  'compare' => '<=',
-                  'type' => 'DATE',
+            if($urlYM) {
+              $appl_query_all = new WP_Query( array(
+                'post_type' => 'application',
+                'posts_per_page' => '-1',
+                'post_status' => 'publish',
+                'meta_query' => array(
+                  'relation' => 'AND',
+                  array(
+                    'key' => 'app_studio',
+                    'value' => $studio_id,
+                    'compare' => '=',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/d", strtotime($urlYM.'/1')),
+                    'compare' => '>=',
+                    'type' => 'DATE',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/t", strtotime($urlYM.'/1')),
+                    'compare' => '<=',
+                    'type' => 'DATE',
+                  )
                 )
-              )
-            ));
-            $appl_query_condition = new WP_Query( array(
-              'post_type' => 'application',
-              'posts_per_page' => '-1',
-              'post_status' => 'publish',
-              'meta_query' => array(
-                'relation' => 'AND',
-                array(
-                  'key' => 'app_studio',
-                  'value' => $studio_id,
-                  'compare' => '=',
-                ),
-                array(
-                  'key' => 'desired_date',
-                  'value' => date("Y/m/d"),
-                  'compare' => '>=',
-                  'type' => 'DATE',
-                ),
-                array(
-                  'key' => 'desired_date',
-                  'value' => date("Y/m/d", strtotime($urlYM.'/1')),
-                  'compare' => '>=',
-                  'type' => 'DATE',
-                ),
-                array(
-                  'key' => 'desired_date',
-                  'value' => date("Y/m/t", strtotime($urlYM.'/1')),
-                  'compare' => '<=',
-                  'type' => 'DATE',
+              ));
+              $appl_query_condition = new WP_Query( array(
+                'post_type' => 'application',
+                'posts_per_page' => '-1',
+                'post_status' => 'publish',
+                'meta_query' => array(
+                  'relation' => 'AND',
+                  array(
+                    'key' => 'app_studio',
+                    'value' => $studio_id,
+                    'compare' => '=',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/d"),
+                    'compare' => '>=',
+                    'type' => 'DATE',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/d", strtotime($urlYM.'/1')),
+                    'compare' => '>=',
+                    'type' => 'DATE',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/t", strtotime($urlYM.'/1')),
+                    'compare' => '<=',
+                    'type' => 'DATE',
+                  )
                 )
-              )
-            ));
+              ));
+            }else{
+              $appl_query_all = new WP_Query( array(
+                'post_type' => 'application',
+                'posts_per_page' => '-1',
+                'post_status' => 'publish',
+                'meta_query' => array(
+                  'relation' => 'AND',
+                  array(
+                    'key' => 'app_studio',
+                    'value' => $studio_id,
+                    'compare' => '=',
+                  ),
+                )
+              ));
+              $appl_query_condition = new WP_Query( array(
+                'post_type' => 'application',
+                'posts_per_page' => '-1',
+                'post_status' => 'publish',
+                'meta_query' => array(
+                  'relation' => 'AND',
+                  array(
+                    'key' => 'app_studio',
+                    'value' => $studio_id,
+                    'compare' => '=',
+                  ),
+                  array(
+                    'key' => 'desired_date',
+                    'value' => date("Y/m/d"),
+                    'compare' => '>=',
+                    'type' => 'DATE',
+                  ),
+                )
+              ));
+            }
             $total_appl = $appl_query_all->found_posts;
             $condition_appl = $appl_query_condition->found_posts;
           ?>
@@ -226,6 +260,8 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $via_arr = array('web検索', '店舗前看板', '駅前看板', 'チラシ', 'SNS', '紹介', 'その他');
                           $via_val = get_field($val);
                   ?>
+
+                      <span class="temp-val js-temp-val"></span>
                       <select name="<?php echo $val;?>" id="<?php echo $val;?>">
                         <option value="">選択する</option>
                         <?php foreach($via_arr as $vval){
@@ -241,6 +277,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $phone_arr = array('〇 完了', '× 不通');
                           $phone_val = get_field($val);
                   ?>
+                    <span class="temp-val js-temp-val"></span>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
                       <option value="">※未入力</option>
                       <?php foreach($phone_arr as $pval){
@@ -255,6 +292,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           $status_arr = array('入会', '検討中', '未入会', '体験キャンセル', '不通');
                           $status_val = get_field($val);
                   ?>
+                    <span class="temp-val js-temp-val"></span>
                     <select name="<?php echo $val;?>" id="<?php echo $val;?>">
                       <option value="">選択する</option>
                       <?php foreach($status_arr as $sval){
@@ -267,11 +305,13 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           break;
                         case 'memo':
                   ?>
-                    <textarea name="<?php echo $val;?>" id="<?php echo $val;?>"><?php echo get_field($val);?></textarea>
+                    <span class="temp-val js-temp-val"></span>
+                    <input name="<?php echo $val;?>" id="<?php echo $val;?>" value="<?php echo get_field($val);?>">
                   <?php
                           break;
                         default:
                   ?>
+                    <span class="temp-val js-temp-val"></span>
                     <input type="text" id="<?php echo $val;?>" name="<?php echo $val;?>" value="<?php echo get_field($val);?>">
                   <?php }?>
                   </div>
@@ -289,12 +329,39 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script src="<?php echo APP_ASSETS; ?>js/lib/simplebar.min.js"></script>
   <script src="<?php echo APP_ASSETS; ?>js/page/manage-application.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      autoWidthTable();
+    })
+    function autoWidthTable(){
+      $('.js-tbl-outside').find('input, textarea').each(function(){
+        var thisVal = $(this).val(),
+            span = $(this).siblings('.js-temp-val');
+        span.text(thisVal);
+        $(this).width(span.width() + 20);
+        $(this).on('input', function(){
+          thisVal = $(this).val();
+          span.text(thisVal);
+          $(this).width(span.width() + 20);
+        })
+      })
+
+      $('.js-tbl-outside').find('select').each(function(){
+        var thisVal = $(this).find('option:selected').text(),
+            span = $(this).siblings('.js-temp-val');
+        span.text(thisVal);
+        $(this).width(span.width() + 10);
+        $(this).on('change', function(){
+          thisVal = $(this).find('option:selected').text();
+          span.text(thisVal);
+          $(this).width(span.width() + 10);
+        })
+      })
+    }
+  </script>
 </body>
 </html>
 <?php
-    }else{
-      header('Location: '.$cur_url.'?ym='.$defaultYM);
-    }
   }else{
     header('Location: '.APP_URL.'manage/');
   }
