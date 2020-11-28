@@ -176,8 +176,8 @@
         select{
           width: 46px;
           height: 46px;
-          font-size: 0;
-          padding: 0;
+          // font-size: 0;
+          padding: 0 22px 0 23px;
           border-top-left-radius: 0;
           border-bottom-left-radius: 0;
           border-left: 0;
@@ -235,7 +235,6 @@
         width: 100%;
         margin-right: 0;
         background-size: 10px 6px;
-        background-position: center right 10px;
       }
     }
     &--last{

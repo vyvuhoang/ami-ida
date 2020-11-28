@@ -2,11 +2,14 @@
   include_once(dirname(__DIR__) . '/app_config.php');
   include_once(APP_PATH.'wp/wp-load.php');
   $stars = array(
-    1 => '★',
-    2 => '★★',
-    3 => '★★★',
-    4 => '★★★★',
-    5 => '★★★★★',
+    '1' => '★',
+    '1.5' => '★ 1.5',
+    '2' => '★★',
+    '2.5' => '★★ 2.5',
+    '3' => '★★★',
+    '3.5' => '★★★ 3.5',
+    '4' => '★★★★',
+    '5' => '★★★★★',
   );
   $html = $html_popup = '';
   $lesson = array();
@@ -56,42 +59,6 @@
   $min_hour = 24;
   $max_hour = 0;
 
-  // while( have_rows('schedule', $post_id) ){
-  //   the_row();
-  //   $lesson_date = get_sub_field('schedule_date');
-
-  //   if (in_array($lesson_date, $arr_dates)){
-  //     $lesson[$lesson_date] = [];
-  //     while( have_rows('lesson', $post_id) ){
-  //       the_row();
-  //       $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
-  //       $lesson_master = get_sub_field('lesson_master');
-  //       if($lesson_master){
-  //         $lesson_ttl = $lesson_master->post_title;
-  //         $lesson_level = get_field('lesson_level', $lesson_master->ID);
-  //       }
-  //       $lesson_picture = get_sub_field('lesson_picture');
-  //       $lesson_picture = $lesson_picture['url'];
-  //       $lesson_time = get_sub_field('lesson_time');
-  //       $lesson_status = get_sub_field('lesson_status');
-  //       $time_arr = explode(':', $lesson_time);
-  //       $start_hour = $time_arr[0];
-  //       if(intval($start_hour) < $min_hour){
-  //         $min_hour = intval($start_hour);
-  //       }
-  //       if(intval($start_hour) > $max_hour){
-  //         $max_hour = intval($start_hour);
-  //       }
-  //       $lesson_instructor = get_sub_field('lesson_instructor');
-  //       if(!empty($lesson[$lesson_date])){
-  //         array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]);
-  //       }else{
-  //         $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]];
-  //       }
-  //     }
-  //   }
-  // }
-
   while( have_rows('schedule', $post_id) ){
     the_row();
     $lesson_date = get_sub_field('date');
@@ -100,9 +67,13 @@
       $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
       $lesson_master = get_sub_field('lesson_master');
       if ($lesson_master) {
-          $lesson_ttl = $lesson_master->post_title;
-          $lesson_level = get_field('lesson_level', $lesson_master->ID);
-          $lesson_content = get_field('lesson_content', $lesson_master->ID);
+        $lesson_ttl = $lesson_master->post_title;
+        $lesson_level = get_field('lesson_level', $lesson_master->ID);
+        $lesson_content = get_field('lesson_content', $lesson_master->ID);
+      }else{
+        $lesson_ttl = get_sub_field('custom_lesson_title');
+        $lesson_level = get_sub_field('custom_lesson_level');
+        $lesson_content = get_sub_field('custom_lesson_content');
       }
       $lesson_time_start = get_sub_field('time_start');
       $lesson_time_end = get_sub_field('time_end');

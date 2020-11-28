@@ -176,11 +176,11 @@ include(APP_PATH.'libs/head.php');
                 <div class="item">
                   <h3 class="item-ttl">レッスンタイトル</h3>
                   <div class="item-field item-field--inse">
-                    <input type="text" name="schedule_0_custom_lesson_title" id="schedule_0_custom_lesson_title">
+                    <input type="text" name="schedule_0_custom_lesson_title" id="schedule_0_custom_lesson_title" class="js-custom-title">
                     <select name="schedule_0_lesson_master" id="schedule_0_lesson_master" class="js-create-select">
                       <option value="">レッスンを選択してください</option>
                       <?php foreach($lesson_master_arr as $lesson_master_key => $lesson_master_val){?>
-                        <option value="<?php echo $lesson_master_val['id'];?>" data-id="<?php echo $lesson_master_val['id'];?>" data-ttl="<?php echo $lesson_master_val['ttl'];?>" data-content="<?php echo $lesson_master_val['content'];?>" data-level="<?php echo $lesson_master_val['level'];?>"><?php echo $lesson_master_val['ttl'];?></option>
+                        <option value="<?php echo $lesson_master_val['id'];?>" data-id="<?php echo $lesson_master_val['id'];?>" data-ttl="<?php echo $lesson_master_val['ttl'];?>" data-content="<?php echo strip_tags($lesson_master_val['content']);?>" data-level="<?php echo $lesson_master_val['level'];?>"><?php echo $lesson_master_val['ttl'];?></option>
                       <?php }?>
                     </select>
                   </div>
@@ -290,7 +290,7 @@ include(APP_PATH.'libs/head.php');
                         case 'lesson_master':
                       ?>
                       <select name="<?php echo $key.'_'.$i.'_'.$rp_key?>" id="<?php echo $key.'_'.$i.'_'.$rp_key?>" class="restrict" disabled>
-                        <option value="">Choose a lesson</option>
+                      <?php if(!get_sub_field($rp_key, $studio_id)->ID){?><option value=""><?php echo get_sub_field('custom_lesson_title', $studio_id)?></option><?php }?>
                         <?php foreach($lesson_master_arr as $lesson_master_key => $lesson_master_val){
                           $selected = (get_sub_field($rp_key, $studio_id)->ID) == $lesson_master_val['id'] ? ' selected' : '';
                           ?>
@@ -332,7 +332,7 @@ include(APP_PATH.'libs/head.php');
   <script src="<?php echo APP_ASSETS; ?>js/common.min.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.1/i18n/jquery-ui-i18n.min.js"></script>
-  <script src="<?php echo APP_ASSETS; ?>js/page/manage-schedule.min.js"></script>
+  <script src="<?php echo APP_ASSETS; ?>js/page/manage-schedule-notgulp.min.js"></script>
 </body>
 </html>
 <?php
