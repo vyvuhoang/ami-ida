@@ -101,6 +101,7 @@ $gray: rgba(255,255,255,0.5);
   .footer__left--copy{
     @include font(12,2,0.15,500);
     color: $gray;
+    @include screen(768px,950px){font-size: 10px;letter-spacing: 0.05em;}
     @include max-screen(767px){
       text-align: center;
       width:100%;font-size: 12px;

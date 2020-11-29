@@ -29,7 +29,7 @@
 					</div>
 				</li>
 			</ul>
-			<a href="" class="btn-ctc">ウェブサイト・<br class="sp">プライバシーポリシー</a>
+			<a href="https://www.artvivant.net/policy/webpra/" target="_blank" class="btn-ctc">ウェブサイト・<br class="sp">プライバシーポリシー</a>
 		</div>
 		<p class="footer__left--copy sp">Copyright © AMI-IDA All Rights Reserved.</p>
 	</div>

@@ -7,14 +7,14 @@ body{
   }
 }
 .header{
-  background: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,1);
   position: fixed;
   top:0;left:0;
   z-index: 99999;
   width: 100%;
   height: 80px;
   @include transition_c(background 0.4s);
-  @include screen(768px,950px){height: 60px;}
+  @include screen(768px,950px){height: 65px;}
   @include max-screen(767px){height: 60px;}
   >.inner{
     width: 100%;padding: 0 0 0 20px;
@@ -33,13 +33,17 @@ body{
     width: calc(100% - 415px);
     display: flex;justify-content: flex-end;
     align-items: center;
-    @include screen(768px,950px){width: calc(100% - 305px);}
+    @include screen(768px,950px){
+      width: calc(100% - 305px);
+      right: 195px;height: 65px;
+    }
     @include max-screen(767px){
       width: 100%; display: block;
       position: static !important;
       padding: 0;
       margin: 0 0 -20px;height: auto;
     }
+    @include max-screen(370px){margin-top: 10px;}
     .inner{
       text-align: right;
       width:100%;
@@ -70,11 +74,12 @@ body{
         font-size: 14px;font-weight: 600;
         line-height: 1.5;
         border: 1px solid #fff;
-        padding: 7px 10px;min-height: 46px;
+        padding: 5px 10px 9px;min-height: 46px;
         display: flex;justify-content: center;
         align-items: center;
         a{color: #fff !important;}
        }
+       @include max-screen(370px){font-size: 13px;}
       &:before{
         content:"";position: absolute;
         width: 0;height: 1.5px;
@@ -119,7 +124,8 @@ body{
           &:before{content:"CLOSE";}
           span{
             background: transparent;
-            right: calc(50% - 16px);
+            // right: calc(50% - 120px);
+            @include screen(768px,950px){right: calc(50% - 18px);}
             &:before{
               @include transform_c(rotateZ(-35deg) translate(-3px,0px));
               top: 0;width: calc(100% - 5px);
@@ -137,9 +143,9 @@ body{
           text-align: center;
           @include font(13,20/14,0.1,bold);
           @include noto;
-          @include screen(768px,950px){top: 41px;font-size: 12px;}
+          @include screen(768px,950px){top: 40px;font-size: 12px;}
           @include max-screen(767px){
-            font-size:10px;top: 41px;
+            font-size:10px;top: 40px;
           }
         }
         span{
@@ -150,7 +156,7 @@ body{
           @include screen(768px,950px){top: 23px;}
           @include max-screen(767px){
             width: 35px;right: calc(50% - 18px);
-            top: 23px;
+            top: 22px;
           }
           &:before,&:after{
             content:"";position: absolute;
@@ -180,6 +186,7 @@ body{
     @include max-screen(767px){
       width: 102px;padding: 0;
     }
+    @include max-screen(370px){padding-top: 8px;}
     a{
       @include transition_c(background 0.1s);
       display: inline-block;width:100%;
@@ -203,6 +210,7 @@ body{
     -o-overflow-scrolling: touch;
     overflow-scrolling: touch;
     -webkit-overflow-style: none;
+    @include screen(768px,950px){top: 65px;}
     &::-webkit-scrollbar { 
         display: none; 
     }
@@ -211,7 +219,7 @@ body{
     @include max-screen(767px){
       top: 60px;padding: 50px 10px 84px;
     }
-    @include max-screen(370px){padding: 50px 5px 80px;}
+    @include max-screen(370px){padding: 40px 5px 80px;}
     &--nav{
       width:100%;height:100%;
       @include min-screen(768px){
@@ -227,7 +235,8 @@ body{
       text-align: center;
       @include font(18,1.6,0.1,bold);
       .item{
-        padding: 20px 0px;
+        padding: 17px 0px;
+        @include max-screen(370px){padding:12px 0;}
       }
     }
     .header-lst{
@@ -238,7 +247,6 @@ body{
         color: #fff;@include font(14,1.5,0.05,bold);
         @include noto;
         padding: 5px;
-        // border: 1px solid $border;
         background: $purple_bg url(../img/common/header/ico_header.png) center top 16px/40px auto no-repeat;
         p{
           border: 1px solid #fff;
@@ -270,6 +278,7 @@ body{
       background: $purple url(../img/common/icon/ico_ar.svg) right 15px center/17px 5px no-repeat;
       color: #fff;
       padding: 15px 10px;
+      @include max-screen(370px){margin-top: 10px;}
       span{
         display: inline-block;
         padding: 0 10px 2px 40px;
@@ -279,7 +288,8 @@ body{
     }
     .header-social{
       text-align: center;
-      margin: 30px auto 50px;
+      margin: 20px auto 40px;
+      @include max-screen(370px){margin-bottom: 25px;}
       a{
         display: inline-block;
         vertical-align: middle;
@@ -300,7 +310,7 @@ body{
     @include screen(768px,950px){padding-top: 41px;font-size: 12px;}
     @include max-screen(767px){
       font-size: 10px;
-      padding-top: 41px;
+      padding-top: 40px;
     }
   }
   .btn-recruit{

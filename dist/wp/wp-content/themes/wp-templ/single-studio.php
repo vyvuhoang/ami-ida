@@ -15,10 +15,11 @@ if(!empty($_POST['actionFlag'])) {
 
 // var_dump(get_field('schedule'));
 $this_studio_lesson_master = array();
-
-foreach(get_field('schedule') as $k=>$v){
-  if(isset($v['lesson_master']->ID) && $v['lesson_master']->ID && !in_array($v['lesson_master']->ID, $this_studio_lesson_master)){
-    array_push($this_studio_lesson_master, $v['lesson_master']->ID);
+if(get_field('schedule')){
+  foreach(get_field('schedule') as $k=>$v){
+    if(isset($v['lesson_master']->ID) && $v['lesson_master']->ID && !in_array($v['lesson_master']->ID, $this_studio_lesson_master)){
+      array_push($this_studio_lesson_master, $v['lesson_master']->ID);
+    }
   }
 }
 include(APP_PATH.'libs/head.php');
@@ -134,7 +135,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-btns inview fadeInBottom">
       <div class="container-900">
-        <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
+        <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会金受付はこちら</span></a>
         <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
@@ -302,7 +303,7 @@ include(APP_PATH.'libs/head.php');
       </div>
       <div class="sec-btns inview fadeInBottom">
         <div class="container-900">
-          <a href="" class="btn"><span>WEB入会金受付はこちら</span></a>
+          <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会金受付はこちら</span></a>
           <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
         </div>
       </div>
@@ -320,18 +321,22 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-schedule" id="anchor03">
       <div class="container-1080">
-        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
+        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br class="pc">レッスンスケジュール</h3>
         <div class="schedule js-schedule inview fadeInBottom"></div>
       </div>
     </div>
+    <?php if ($this_studio_lesson_master){ ?>
     <div class="sec-lesson">
       <div class="container-900">
         <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスン内容</div>
         <div class="etr">
-          <?php foreach ($this_studio_lesson_master as $each) : ?>
+          <?php foreach ($this_studio_lesson_master as $each) :
+            $img = get_field('lesson_image', $each)['url'];
+            if(empty($img)){ $img = APP_ASSETS.'img/common/other/nophoto.jpg';}
+          ?>
           <div class="etr__item inview fadeInBottom">
             <div class="etr__item--img">
-              <div class="img lazy" data-bg="url(<?php echo get_field('lesson_image', $each)['url'];?>)"></div>
+              <div class="img lazy" data-bg="url(<?php echo $img; ?>)"></div>
             </div>
             <div class="etr__item--info">
               <p class="ttl"><?php echo get_the_title($each);?></p>
@@ -342,6 +347,7 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
+    <?php } ?>
     <div class="sec-form" id="anchor04">
       <div class="container-750">
         <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>体験レッスン申込みフォーム</h3>
@@ -423,7 +429,7 @@ include(APP_PATH.'libs/head.php');
         </form>
       </div>
     </div>
-    <div class="sec-stuff">
+  <!--   <div class="sec-stuff">
       <div class="container-1080">
         <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
         <ul class="lst-stuff">
@@ -444,10 +450,32 @@ include(APP_PATH.'libs/head.php');
           </li>
         </ul>
       </div>
+    </div> -->
+    <div class="stuff">
+      <div class="wcm">
+        <h3 class="the-title inview fadeInBottom">溶岩ヨガ体験レッスンに必要な持ち物リスト</h3>
+        <div class="stuff__lst">
+          <div class="stuff__lst--item">
+            <div class="info">
+              <ul>
+                <li>運動しやすいウェア</li>
+                <li>着替え用の下着</li>
+                <li>水分補給用のお水<br class="sp">（1リットル程度）</li>
+                <li>汗拭き用のフェイスタオル</li>
+                <li>シャワー用のバスタオル</li>
+              </ul>
+            </div>
+            <div class="img">
+              <div class="img1 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
+              <div class="img2 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
+            </div>
+          </div>
+        </div>            
+      </div>
     </div>
     <div class="sec-access" id="anchor02">
       <div class="container-1080">
-        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店への<br class="sp">アクセス</h3>
+        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店へのアクセス</h3>
         <div class="access">
           <div class="map inview fadeInBottom">
             <iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=<?php echo $fields['access_zipcode'].$fields['access_address01']; ?>&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
@@ -487,7 +515,6 @@ include(APP_PATH.'libs/head.php');
       <h3 class="the-title">SNS</h3>
       <div class="grBtn">
         <a target="_blank" href="https://www.instagram.com/<?php echo $fields['access_instagram']; ?>/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
-        <a target="_blank" href="https://twitter.com/yoga_amiida" class="grBtn__item twitter"><p>Twitter</p></a>
       </div>
     </div>
     <?php } ?>
