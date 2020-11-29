@@ -22,8 +22,6 @@ Class CSVT{
     $listd['P'] = $reg_studio_slug;
 		$listd['Y'] = $y;
 		$listd['m'] = $m;
-		// $listd['Y'] = date('Y',$time);
-    // $listd['m'] = date('m',$time);
 		return $this->check_mdir($listd);
 	}
 	public function check_mdir($listd = array()){
@@ -40,22 +38,23 @@ Class CSVT{
 			if(!(@is_dir($this->folder_root."/".$listd['P']."/".$listd['Y']."/".$listd['m']))){
         mkdir($this->folder_root."/".$listd['P']."/".$listd['Y']."/".$listd['m'], 0777);
 				$file = fopen($this->folder_root."/".$listd['P']."/".$listd['Y']."/".$listd['m']."/".$this->file_name,"a");
-        fputcsv($file,array(
-          "申込み日時",
-          "お名前",
-          "体験予約日",
-          "開始時間",
-          "レッスン名",
-          "インストラクター",
-          "経由",
-          "当日お礼電話",
-          "- 担当",
-          "2日前確認電話",
-          "- 担当",
-          "ステータス",
-          "備考・メモ",
-          )
-        );
+        // fputcsv($file,array(
+				// 	'NO',
+				// 	'申込み日時',
+				// 	'お名前',
+				// 	'体験予約日',
+				// 	'開始時間',
+				// 	'レッスン名',
+				// 	'インストラクター',
+				// 	'経由',
+				// 	'予約確認電話',
+				// 	'- 担当',
+				// 	'2日前確認電話',
+				// 	'- 担当',
+				// 	'ステータス',
+				// 	'備考・メモ'
+        //   )
+        // );
         fclose($file);
 			}
     }
@@ -65,12 +64,37 @@ Class CSVT{
 		if(empty($this->datalist)){
 			return;
 		}
-		$file = fopen($file_path."/".$this->file_name,"a");
+		$file = fopen($file_path."/".$this->file_name,"w");
 		// echo '<pre class="preanhtn">'; print_r($this->datalist); echo '</pre>';
 		foreach ($this->datalist as $line){
 			fputcsv($file,$line);
 		}
 		fclose($file);
+	}
+
+	//export csv all
+	public function export_csv_all($reg_studio_slug = '', $list = array()){
+		if(empty($list)){
+			return;
+		}
+		$this->datalist = $list;
+		$this->write_file($this->create_month_all($reg_studio_slug));
+	}
+	public function create_month_all($reg_studio_slug){
+    $listd = array();
+    $listd['P'] = $reg_studio_slug;
+		return $this->check_mdir_all($listd);
+	}
+	public function check_mdir_all($listd = array()){
+		if(!@is_dir($this->folder_root)){
+			mkdir($this->folder_root, 0777);
+		}
+		if(!empty($listd)){
+			if(!(@is_dir($this->folder_root."/".$listd['P']))){
+				mkdir($this->folder_root."/".$listd['P'], 0777);
+      }
+    }
+		return $this->folder_root."/".$listd['P'];
 	}
 
 	public function download_csv(){

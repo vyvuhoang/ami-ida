@@ -14,6 +14,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
   $cur_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0];
   $studio_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[1].'/'.explode('/', explode('?', $_SERVER['REQUEST_URI'], 2)[0])[2].'/';
 
+  $csv_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0].'csv.php?'.explode('?', $_SERVER['REQUEST_URI'], 2)[1];
+
+
   $flagValidPage = 0;
   //get studio
   $wp_studio = new WP_Query();
@@ -320,6 +323,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 <?php endwhile;?>
               </div>
             </div>
+            <a href="<?php echo $csv_url;?>" class="btn-download" target="_blank">Download CSV</a>
           </div>
           <?php endif;?>
         </div>
