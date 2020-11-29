@@ -323,7 +323,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 <?php endwhile;?>
               </div>
             </div>
-            <a href="<?php echo $csv_url;?>" class="btn-download" target="_blank">Download CSV</a>
+            <a href="<?php echo $csv_url;?>" class="btn-download" target="_blank">csvをダウンロード</a>
           </div>
           <?php endif;?>
         </div>
