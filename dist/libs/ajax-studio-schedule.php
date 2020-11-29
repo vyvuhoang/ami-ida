@@ -106,7 +106,6 @@
   $lesson = array_slice($lesson, $keyIndex, $keyIndex + 7);
   foreach($lesson as $key => $value){
     $j = 0;
-    $classDisable = ($value[$j][5] && $value[$j][5] == 'unavailable') ? ' disabled' : '';
     $html .= '<div class="col">';
     for($i=$min_hour;$i<=$max_hour;$i++){
       $lhour = explode(':', $value[$j][0]);
@@ -114,8 +113,25 @@
       if($lhour != $i){
         $html .= '<div class="lesson empty"></div>';
       }else{
+        $date = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+        $timestamp_now = strtotime($date->format('Y/m/d H:i:s'));
+
+        $dateStr = $key.' '.$value[$j][0].':00';
+        $timestamp_this = strtotime($dateStr);
+
+        $time_dif = ($timestamp_this - $timestamp_now)/60;
+
+        $classDisable =  ($time_dif < 60) ? ' disabled' : ' js-lesson';
+        // echo nl2br('<br>----<br>');
+        // var_dump($date->format('Y/m/d H:i:s'));
+        // echo nl2br('<br>');
+        // var_dump($dateStr);
+        // echo nl2br('<br>----<br>');
+        // var_dump($time_dif);
+        // echo nl2br('<br>----<br>');
+        // echo nl2br('<br>----<br>');
         $html .= '
-          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
+          <div class="lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'" data-y="'.$timestamp_now.'" data-z="'.$timestamp_this.'" data-x="'.$time_dif.'">
             <div class="bg">
               <p class="time" data-date="'.$key.'">'.$value[$j][0].' - '.$value[$j][1].'</p>
               <div class="pic" style="background-image: url('.$value[$j][4].');"></div>

@@ -627,7 +627,7 @@ body {
       .lesson{
         padding: 0 5px;
         margin-bottom: 10px;
-        &:not(.empty){
+        &:not(.empty):not(.disabled){
           cursor: pointer;
           transition: 0.5s ease;
           &:hover{
