@@ -65,7 +65,7 @@ INTRO
 		// 	}
 		// }
     &--ttl{
-      @include font(20,2.2,0.1,600);
+      @include font(20,2.2,0.1,500);
       @include noto;
       @include max-screen(767px){
         font-size: 17px;line-height: 1.8;
@@ -90,6 +90,7 @@ INTRO
 	@include max-screen(767px){
 		padding: 30px 10px;
 	}
+  @include max-screen(370px){padding: 20px 0;}
 	.wcm{
 		max-width: 1120px;
 		display: flex;justify-content: space-between;
@@ -144,6 +145,7 @@ INTRO
 		}
 		&--ttl{
 			@include font(22,32/22,0.1,600);
+      @include max-screen(370px){font-size: 20px;}
 		}
 		&--txt{
 			@include font(13,1,0.1,600);
@@ -178,6 +180,7 @@ INTRO
 			&--item{
 				padding-bottom: 11px;
 				margin-bottom: 18px;
+        @include max-screen(370px){margin-bottom: 11px;}
 			}
 		}
 	}
@@ -227,7 +230,7 @@ INTRO
         background-position: center;
         @include screen(768px,950px){width: 50%;min-height: 224px;}
         @include max-screen(767px){
-          width:100%;
+          width:100%;min-height: 1px;
           @include aspect-ratio(400,260);
         }
       }  
@@ -306,7 +309,11 @@ CHECK
     }
     @include max-screen(767px){
       font-size: 20px;line-height: 1.8;
-      padding-left:0;padding-right:0;}
+      padding-left:0;padding-right:0;
+    }
+    @include max-screen(370px){
+      br{display:none;}
+    }
   }
   &__bg{
     background: #F5F1F7;//rgba(233,233,233,0.6);
@@ -370,6 +377,7 @@ CHECK
             }
             @include max-screen(767px){
               font-size: 14px;
+              font-weight: 500;
               padding-left: 34px;
               background-size: 18px auto;
               background-position: top 8px left;
@@ -390,6 +398,7 @@ VOICE
   @include screen(768px,1024px){padding: 45px 0 60px;}
   @include max-screen(767px){
     padding: 50px 0;
+    .the-title{padding-right:0;padding-left: 0;}
   }
   .wcm{max-width: 1000px;}
   &__item{
@@ -713,6 +722,9 @@ INTRO
     padding-top: 17px;
     @include max-screen(767px){
       padding-top: 15px;font-size: 13px;letter-spacing: 0;
+    }
+    @include max-screen(370px){
+      br{display: none;}
     }
 	}
 	&__select{

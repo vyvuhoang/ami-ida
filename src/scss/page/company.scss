@@ -1,0 +1,63 @@
+@charset 'UTF-8';
+@import '../utility/*';
+$border: #9C9C9C;
+/*-----------------------------------------------------------
+ETR
+------------------------------------------------------------*/
+.company{
+	>main>.wcm{max-width:940px;}
+	.the-title{
+		margin: 50px auto 60px;
+		@include max-screen(767px){margin: 30px auto 40px;}
+		@include max-screen(370px){margin: 20px auto 30px;}
+	}
+	.etr{
+		width: 100%;margin-bottom: 80px;
+		border-top: 1px solid $border;
+		@include max-screen(767px){margin-bottom: 40px;}
+		&__row{
+			display: flex;justify-content: space-between;
+			align-items: center;
+			border-bottom: 1px solid $border;
+			@include font(16,1.6,0.1,500);
+			@include max-screen(767px){
+				font-size: 15px;
+				align-items: flex-start;
+			}
+			@include max-screen(370px){font-size: 13px;}
+			&--th,&--td{
+				padding: 20px 20px 20px 50px;
+				@include max-screen(767px){
+					padding: 10px;
+				}
+				@include max-screen(370px){padding: 10px 0;}
+			}
+			&--th{
+				width: 200px;
+				font-weight: bold;
+				@include max-screen(767px){
+					width: 90px;
+				}
+				@include max-screen(370px){width: 80px;}
+			}
+			&--td{
+				width: calc(100% - 200px);
+				@include max-screen(767px){width: calc(100% - 90px);}
+				@include max-screen(370px){width: calc(100% - 80px);}
+			}
+		}
+	}
+	.map{
+		width: 100%;
+		height: 400px;
+		position: relative;
+		margin-bottom: 80px;
+		@include max-screen(767px){
+			height: 200px;margin-bottom: 50px;
+		}
+		iframe{
+			width:100%;
+			height: 100%;
+		}
+	}
+}

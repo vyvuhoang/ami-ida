@@ -20,6 +20,13 @@ FEATURE
 			@include aspect-ratio(345,230);
 			background-size: cover;
 			background-position: top center;
+			@include screen(768px,1000px){
+				margin: 0 0 20px;
+				width: calc(33.33% - 13.33px);
+				&:not(:nth-child(3n)){
+					margin-right: 20px;
+				}
+			}
 			&:after{
 				content: "";position: absolute;
 				width: 100%;height: 100%;
@@ -42,9 +49,11 @@ FEATURE
 				width:100%;
 				z-index: 1;
 				@include transform_c(translate(-50%,-50%));
+				@include screen(768px,1000px){font-size: 18px;}
 				@include max-screen(767px){
-					font-size: 20px;
+					font-size: 22px;
 				}
+				@include max-screen(370px){font-size: 18px;}
 			}
 		}
 	}
@@ -189,6 +198,7 @@ NEWS
 		@include max-screen(767px){
 			width: 100%;margin-top: 25px;
 		}
+		@include max-screen(370px){margin-top: 20px;}
 		&--item{
 			width: 100%;margin-bottom: 6.5px;
 			display: flex;justify-content: space-between;
@@ -198,6 +208,7 @@ NEWS
 				border-bottom: 1px dotted rgba(0,0,0,0.43);
 				padding-bottom: 22px;margin-bottom: 22px;
 			}
+			@include max-screen(370px){margin-bottom: 11px;padding-bottom: 11px;}
 			.date{
 				width: 117px;
 			}
@@ -225,6 +236,7 @@ NEWS
 				@include max-screen(767px){
 					width: 100%;margin-top: 10px;
 				}
+				@include max-screen(370px){margin-top: 5px;}
 			}
 		}
 	}
@@ -367,7 +379,6 @@ FEATURE
     	@include PC {
         .avatar {
           margin-left: 0;
-          margin-right: 39px;
         }
 
         .voice {
@@ -455,12 +466,13 @@ INTRO
     padding: 40px 0;
   }
   .grBtn{
-    display: flex;justify-content: space-between;
+    display: flex;justify-content: center;
     width: 100%;max-width: 540px;
     margin: 50px auto 0;flex-wrap: wrap;
     @include max-screen(767px){padding: 0 20px;margin-top: 40px;}
     &__item{
       width: calc(50% - 10px);
+      margin: 0 5px;
       border: 2px solid #444;
       @include font(16,1,0.05,600);
       display: block;text-align: center;
