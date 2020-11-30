@@ -62,7 +62,7 @@ if($actionFlag == "confirm") {
 		<main>
       <div class="sec-form">
         <div class="container-750">
-          <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+          <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
           <form method="post" class="studioform" id="studioform" action="?g=<?php echo $gtime ?>" name="studioform">
             <div class="stepImg">
               <picture>
@@ -115,7 +115,7 @@ if($actionFlag == "confirm") {
                 <td>
                   <p class="txt"><?php echo $reg_email;?></p>
                   <?php if($reg_content){?>
-                    <p class="txt"><?php echo $br_reg_content;?></p>
+                   <p class="txt"><br><?php echo $br_reg_content;?></p>
                   <?php }?>
                 </td>
               </tr>

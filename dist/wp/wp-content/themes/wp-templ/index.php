@@ -172,14 +172,14 @@ include(APP_PATH.'libs/head.php');
   $categories = get_categories( $studioarea );?>
   <?php $studio = new WP_Query(array(
     'post_type'       => 'studio',
-    'showposts'       => 6,
+    'showposts'       => -1,
     'post_status'     => 'publish',
     'orderby'         =>'date',
     'tax_query' => array(
       array(
         'taxonomy' => 'studioarea',
         'field' => 'name',
-        'terms' => '東北',
+        'terms' => '東京',
         )
       )
   ));
@@ -191,7 +191,7 @@ include(APP_PATH.'libs/head.php');
   		<select>
   			<option value="">All</option>
   			<?php foreach($categories as $cat){ ?>
-  			<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
+  			<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東京'){echo "selected";} ?>><?php echo $cat->name; ?></option>
   			<?php } ?>
   		</select>
   	</div>

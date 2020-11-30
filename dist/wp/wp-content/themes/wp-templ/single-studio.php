@@ -469,7 +469,7 @@ include(APP_PATH.'libs/head.php');
               </ul>
             </div>
             <div class="img">
-              <div class="img1 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
+              <div class="img1 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff2.jpg)"></div>
               <div class="img2 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
             </div>
           </div>

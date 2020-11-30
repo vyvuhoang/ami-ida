@@ -262,7 +262,7 @@ window.onhashchange = function (event) {
   <?php include(APP_PATH."libs/header.php") ?>
   <div class="sec-thanks">
     <div class="container-750">
-      <h3 class="the-title">アミーダ〇〇店<br class="sp">レッスンスケジュール</h3>
+      <h3 class="the-title">アミーダ<?php echo get_the_title(); ?>店<br>レッスンスケジュール</h3>
       <div class="stepImg">
         <picture>
           <source media="(max-width: 767px)" srcset="<?php echo APP_ASSETS; ?>img/common/form/img_step03SP.svg">
