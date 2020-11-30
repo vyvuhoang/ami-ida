@@ -36,6 +36,9 @@
 						<a href="<?php echo APP_URL; ?>">HOME</a>
 					</div>
 					<div class="item">
+						<a href="<?php echo APP_URL; ?>company/">COMPANY</a>
+					</div>
+					<div class="item">
 						<a href="<?php echo APP_URL; ?>amiida_life/">AMI-IDA LIFE</a>
 					</div>
 					<div class="item">

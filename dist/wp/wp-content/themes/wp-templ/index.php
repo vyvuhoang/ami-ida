@@ -80,7 +80,7 @@ include(APP_PATH.'libs/head.php');
 	</div>
 	<div class="c-banner inview fadeInBottom">
 		<div class="wcm">
-			<a href="<?php echo APP_URL; ?>corona/" class="img">
+			<a href="<?php echo APP_URL; ?>information/" class="img">
 				<picture>
 				  <source srcset="<?php echo APP_ASSETS; ?>img/top/bn_measures-sp.jpg" media="(max-width: 767px)">
 				  <img src="<?php echo APP_ASSETS; ?>img/top/bn_measures.jpg" alt="">
@@ -111,7 +111,7 @@ include(APP_PATH.'libs/head.php');
 					</div>
 				</div>
 				<div class="feature1__lst--item inview fadeInBottom">
-					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature1.jpg)"></div>
+					<div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/top/feature3.jpg)"></div>
 					<div class="info">
 						<div class="inner">
 							<p class="ttl">”美”と”健康”への高い効果</p>
@@ -228,7 +228,6 @@ include(APP_PATH.'libs/head.php');
 		<h3 class="the-title inview fadeInBottom">SNS</h3>
 		<div class="grBtn inview fadeInBottom">
 			<a target="_blank" href="https://www.instagram.com/amiida_official/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
-			<a target="_blank" href="https://twitter.com/yoga_amiida" class="grBtn__item twitter"><p>Twitter</p></a>
 		</div>
 	</div></main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
