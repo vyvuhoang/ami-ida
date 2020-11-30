@@ -2,14 +2,14 @@
   include_once(dirname(__DIR__) . '/app_config.php');
   include_once(APP_PATH.'wp/wp-load.php');
   $stars = array(
-    1 => '★',
-    1.5 => '★',
-    2 => '★★',
-    2.5 => '★★',
-    3 => '★★★',
-    3.5 => '★★★',
-    4 => '★★★★',
-    5 => '★★★★★',
+    '1' => '★',
+    '1.5' => '★',
+    '2' => '★★',
+    '2.5' => '★★',
+    '3' => '★★★',
+    '3.5' => '★★★',
+    '4' => '★★★★',
+    '5' => '★★★★★',
   );
   $html = $html_popup = '';
   $lesson = array();
@@ -59,42 +59,6 @@
   $min_hour = 24;
   $max_hour = 0;
 
-  // while( have_rows('schedule', $post_id) ){
-  //   the_row();
-  //   $lesson_date = get_sub_field('schedule_date');
-
-  //   if (in_array($lesson_date, $arr_dates)){
-  //     $lesson[$lesson_date] = [];
-  //     while( have_rows('lesson', $post_id) ){
-  //       the_row();
-  //       $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
-  //       $lesson_master = get_sub_field('lesson_master');
-  //       if($lesson_master){
-  //         $lesson_ttl = $lesson_master->post_title;
-  //         $lesson_level = get_field('lesson_level', $lesson_master->ID);
-  //       }
-  //       $lesson_picture = get_sub_field('lesson_picture');
-  //       $lesson_picture = $lesson_picture['url'];
-  //       $lesson_time = get_sub_field('lesson_time');
-  //       $lesson_status = get_sub_field('lesson_status');
-  //       $time_arr = explode(':', $lesson_time);
-  //       $start_hour = $time_arr[0];
-  //       if(intval($start_hour) < $min_hour){
-  //         $min_hour = intval($start_hour);
-  //       }
-  //       if(intval($start_hour) > $max_hour){
-  //         $max_hour = intval($start_hour);
-  //       }
-  //       $lesson_instructor = get_sub_field('lesson_instructor');
-  //       if(!empty($lesson[$lesson_date])){
-  //         array_push($lesson[$lesson_date], [$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]);
-  //       }else{
-  //         $lesson[$lesson_date] = [[$lesson_time, $lesson_instructor, $lesson_ttl, $lesson_level, $lesson_picture, $lesson_status]];
-  //       }
-  //     }
-  //   }
-  // }
-
   while( have_rows('schedule', $post_id) ){
     the_row();
     $lesson_date = get_sub_field('date');
@@ -103,9 +67,13 @@
       $lesson_master = $lesson_ttl = $lesson_level = $lesson_time = $lesson_instructor = $lesson_picture = $lesson_status = '';
       $lesson_master = get_sub_field('lesson_master');
       if ($lesson_master) {
-          $lesson_ttl = $lesson_master->post_title;
-          $lesson_level = get_field('lesson_level', $lesson_master->ID);
-          $lesson_content = get_field('lesson_content', $lesson_master->ID);
+        $lesson_ttl = $lesson_master->post_title;
+        $lesson_level = get_field('lesson_level', $lesson_master->ID);
+        $lesson_content = get_field('lesson_content', $lesson_master->ID);
+      }else{
+        $lesson_ttl = get_sub_field('custom_lesson_title');
+        $lesson_level = get_sub_field('custom_lesson_level');
+        $lesson_content = get_sub_field('custom_lesson_content');
       }
       $lesson_time_start = get_sub_field('time_start');
       $lesson_time_end = get_sub_field('time_end');
@@ -138,7 +106,6 @@
   $lesson = array_slice($lesson, $keyIndex, $keyIndex + 7);
   foreach($lesson as $key => $value){
     $j = 0;
-    $classDisable = ($value[$j][5] && $value[$j][5] == 'unavailable') ? ' disabled' : '';
     $html .= '<div class="col">';
     for($i=$min_hour;$i<=$max_hour;$i++){
       $lhour = explode(':', $value[$j][0]);
@@ -146,8 +113,25 @@
       if($lhour != $i){
         $html .= '<div class="lesson empty"></div>';
       }else{
+        $date = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+        $timestamp_now = strtotime($date->format('Y/m/d H:i:s'));
+
+        $dateStr = $key.' '.$value[$j][0].':00';
+        $timestamp_this = strtotime($dateStr);
+
+        $time_dif = ($timestamp_this - $timestamp_now)/60;
+
+        $classDisable =  ($time_dif < 60) ? ' disabled' : ' js-lesson';
+        // echo nl2br('<br>----<br>');
+        // var_dump($date->format('Y/m/d H:i:s'));
+        // echo nl2br('<br>');
+        // var_dump($dateStr);
+        // echo nl2br('<br>----<br>');
+        // var_dump($time_dif);
+        // echo nl2br('<br>----<br>');
+        // echo nl2br('<br>----<br>');
         $html .= '
-          <div class="lesson js-lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'">
+          <div class="lesson'.$classDisable.'" data-popup="schedule" data-id="'.$key.'-'.$value[$j][0].' - '.$value[$j][1].'" data-y="'.$timestamp_now.'" data-z="'.$timestamp_this.'" data-x="'.$time_dif.'">
             <div class="bg">
               <p class="time" data-date="'.$key.'">'.$value[$j][0].' - '.$value[$j][1].'</p>
               <div class="pic" style="background-image: url('.$value[$j][4].');"></div>

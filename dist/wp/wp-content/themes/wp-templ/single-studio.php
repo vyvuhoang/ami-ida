@@ -473,7 +473,7 @@ include(APP_PATH.'libs/head.php');
               <div class="img2 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
             </div>
           </div>
-        </div>
+        </div>            
       </div>
     </div>
     <div class="sec-access" id="anchor02">

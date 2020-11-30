@@ -243,7 +243,6 @@ include(APP_PATH.'libs/head.php');
 <script src="<?php echo APP_ASSETS ?>js/page/top.min.js"></script>
 <script>
 	var _url = "<?php echo APP_URL; ?>";
-	$('.c-news ')
 </script>
 </body>
 </html>
