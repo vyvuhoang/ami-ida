@@ -85,11 +85,11 @@ include(APP_PATH.'libs/head.php');
         <div class="c-news__lst">
         <?php while($wp_news->have_posts()){
           $wp_news->the_post();?>
-            <a href="" class="c-news__lst--item">
+            <div data-id="<?php echo get_the_ID(); ?>" class="c-news__lst--item">
               <p class="date"><?php echo date('Y/m/d', strtotime(get_field('date')));?></p>
               <p class="cat"><em>お知らせ</em></p>
               <p class="ttl"><em><?php echo get_the_title();?></em></p>
-            </a>
+            </div>
           <?php } ?>
         </div>
       </div>
@@ -271,7 +271,6 @@ include(APP_PATH.'libs/head.php');
         <p class="script">※体験料以外の表示価格は全て税抜きとなります。水素水のみ消費税8％</p>
       </div>
     </div>
-
 <!--     <div class="sec-feeling">
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
@@ -328,19 +327,23 @@ include(APP_PATH.'libs/head.php');
     <?php if ($this_studio_lesson_master){ ?>
     <div class="sec-lesson">
       <div class="container-900">
-        <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>レッスン内容</div>
+        <div class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br class="pc">レッスン内容</div>
         <div class="etr">
           <?php foreach ($this_studio_lesson_master as $each) :
             $img = get_field('lesson_image', $each)['url'];
             if(empty($img)){ $img = APP_ASSETS.'img/common/other/nophoto.jpg';}
           ?>
-          <div class="etr__item inview fadeInBottom">
-            <div class="etr__item--img">
-              <div class="img lazy" data-bg="url(<?php echo $img; ?>)"></div>
-            </div>
-            <div class="etr__item--info">
-              <p class="ttl"><?php echo get_the_title($each);?></p>
-              <p class="txt"><?php echo get_field('lesson_content', $each);?></p>
+          <div class="etr__item">
+            <p class="etr__item--ttl"><?php echo get_the_title($each);?></p>
+            <div class="js-hide">
+              <div class="etr__item--cont">
+                <div class="image">
+                  <div class="img lazy" data-bg="url(<?php echo $img; ?>)"></div>
+                </div>
+                <div class="info">
+                  <p class="txt"><?php echo get_field('lesson_content', $each);?></p>
+                </div>
+              </div>
             </div>
           </div>
           <?php endforeach;?>
@@ -518,6 +521,8 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
     <?php } ?>
+    <div class="popup popup-new">
+    </div>
   </main>
 <?php endwhile;endif; ?>
 </div>
@@ -529,6 +534,7 @@ include(APP_PATH.'libs/head.php');
 <script src="<?php echo APP_ASSETS; ?>js/form/languages/jquery.validationEngine-ja.js"></script>
 <script>
   var _date = '<?php echo date("Y/m/d");?>',
+      _url = '<?php echo APP_URL; ?>';
       _post_id = '<?php echo $thisStudioID?>';
 </script>
 <script src="<?php echo APP_ASSETS ?>js/page/single-studio.min.js"></script>
@@ -538,6 +544,14 @@ include(APP_PATH.'libs/head.php');
       promptPosition: "topLeft",
       scrollOffset: ($('.header').outerHeight() + 5),
     });
+  });
+  $('.sec-lesson .etr__item--ttl').click( function(){
+    $(this).parent().toggleClass('active');
+    if ($(this).parent().hasClass('active') === true) {
+      $(this).next().slideDown();
+    } else {
+      $(this).next().slideUp();
+    }
   })
 </script>
 </body>

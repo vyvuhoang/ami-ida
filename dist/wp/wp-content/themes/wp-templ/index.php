@@ -56,28 +56,33 @@ include(APP_PATH.'libs/head.php');
 			</a>
 		</div>
 	</div>
+	<?php
+	  $wp_news = new WP_Query();
+	  $param_news = array(
+	    'post_type'=>'news',
+	    'order' => 'DESC',
+	    'showposts' => '3',
+	    'orderby' => 'date',
+	  );
+	  $wp_news->query($param_news);
+	  if($wp_news->have_posts()){
+	?>
 	<div class="c-news inview fadeInBottom">
-		<div class="wcm">
-			<p class="c-news__ttl">NEWS</p>
-			<div class="c-news__lst">
-				<a href="" class="c-news__lst--item">
-					<p class="date">2020/10/10</p>
-					<p class="cat"><em>お知らせ</em></p>
-					<p class="ttl"><em>【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】【本社へのお問合せにつきまして】</em></p>
-				</a>
-				<a href="" class="c-news__lst--item">
-					<p class="date">2020/10/09</p>
-					<p class="cat"><em>お知らせ</em></p>
-					<p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
-				</a>
-				<a href="" class="c-news__lst--item">
-					<p class="date">2020/10/08</p>
-					<p class="cat"><em>お知らせ</em></p>
-					<p class="ttl"><em>【本社へのお問合せにつきまして】</em></p>
-				</a>
-			</div>
-		</div>
+	  <div class="wcm">
+	    <p class="c-news__ttl">NEWS</p>
+	    <div class="c-news__lst">
+	    <?php while($wp_news->have_posts()){
+	      $wp_news->the_post();?>
+	        <div data-id="<?php echo get_the_ID(); ?>" class="c-news__lst--item">
+	          <p class="date"><?php echo date('Y/m/d', strtotime(get_field('date')));?></p>
+	          <p class="cat"><em>お知らせ</em></p>
+	          <p class="ttl"><em><?php echo get_the_title();?></em></p>
+	        </div>
+	      <?php } ?>
+	    </div>
+	  </div>
 	</div>
+	<?php } wp_reset_postdata();?>
 	<div class="c-banner inview fadeInBottom">
 		<div class="wcm">
 			<a href="<?php echo APP_URL; ?>information/" class="img">
@@ -229,12 +234,16 @@ include(APP_PATH.'libs/head.php');
 		<div class="grBtn inview fadeInBottom">
 			<a target="_blank" href="https://www.instagram.com/amiida_official/?hl=ja" class="grBtn__item ins"><p>Instagram</p></a>
 		</div>
-	</div></main>
+	</div>
+	<div class="popup popup-new">
+	</div>
+</main>
 <?php include(APP_PATH.'libs/footer.php'); ?>
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="<?php echo APP_ASSETS ?>js/page/top.min.js"></script>
 <script>
 	var _url = "<?php echo APP_URL; ?>";
+	$('.c-news ')
 </script>
 </body>
 </html>
