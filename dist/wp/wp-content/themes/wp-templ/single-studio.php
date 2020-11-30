@@ -109,7 +109,7 @@ include(APP_PATH.'libs/head.php');
               </li>
               <li class="item">
                 <div class="txt">
-                  <p class="txt01">入会特典<br>入会金</p>
+                  <p class="txt01">入会特典<br>入会</p>
                   <p class="price">
                     <span class="number">0</span>
                     <span class="unit">円</span>
@@ -135,7 +135,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-btns inview fadeInBottom">
       <div class="container-900">
-        <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会金受付はこちら</span></a>
+        <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会受付はこちら</span></a>
         <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
@@ -250,19 +250,19 @@ include(APP_PATH.'libs/head.php');
               <div class="row">
                 <p class="th">アミーダセット <br>+ウェアー上下セット</p>
                 <div class="td">
-                  <p class="td01">28,100円</p>
+                  <p class="td01">28,100円/月</p>
                 </div>
               </div>
               <div class="row">
                 <p class="th">タオルセット <br>(フェイスタオル・バスタオル)</p>
                 <div class="td">
-                  <p class="td01">350円</p>
+                  <p class="td01">350円/日</p>
                 </div>
               </div>
               <div class="row">
                 <p class="th">ヨガマット</p>
                 <div class="td">
-                  <p class="td01">300円</p>
+                  <p class="td01">300円/日</p>
                 </div>
               </div>
             </div>
@@ -302,7 +302,7 @@ include(APP_PATH.'libs/head.php');
       </div>
       <div class="sec-btns inview fadeInBottom">
         <div class="container-900">
-          <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会金受付はこちら</span></a>
+          <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会受付はこちら</span></a>
           <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
         </div>
       </div>
@@ -473,7 +473,7 @@ include(APP_PATH.'libs/head.php');
               <div class="img2 lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/stuff1.jpg)"></div>
             </div>
           </div>
-        </div>            
+        </div>
       </div>
     </div>
     <div class="sec-access" id="anchor02">

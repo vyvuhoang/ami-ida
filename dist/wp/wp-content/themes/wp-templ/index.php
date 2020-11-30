@@ -28,7 +28,7 @@ include(APP_PATH.'libs/head.php');
 			<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.png" alt="">
 		</div>
 		<div class="intro__info inview fadeInBottom fadeInBottomDelay">
-			<h3 class="intro__info--ttl">アミーダは、全スタジオが天然溶岩石でつくられた「溶岩石ホットヨガスタジオ」です。<br>あなたの生活に真の美しさを。身体も心も綺麗で溢れる生活を、アミーダで始める。</h3>
+			<h3 class="intro__info--ttl">アミーダは、全スタジオが天然溶岩石でつくられた「溶岩石ホットヨガスタジオ」です。<br>あなたの生活を "芯" から美しく。<br>身体と心が綺麗で溢れる日常を、アミーダでから。</h3>
 		</div>
 	</div>
 	<div class="anchor inview fadeInBottom">
