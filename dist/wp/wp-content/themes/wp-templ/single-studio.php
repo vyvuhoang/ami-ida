@@ -64,7 +64,7 @@ include(APP_PATH.'libs/head.php');
       $param_news = array(
         'post_type'=>'news',
         'order' => 'DESC',
-        'posts_per_page' => '3',
+        'showposts' => 3,
         'meta_key' => 'date',
         'orderby' => 'meta_value',
         'order' => 'DESC',

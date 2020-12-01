@@ -78,7 +78,7 @@ include(APP_PATH.'libs/head.php');
 			</div>
 		</div>
 	</div>
-	<div class="c-banner inview fadeInBottom">
+	<div class="c-banner inview fadeInBottom on">
 		<div class="wcm">
 			<a href="<?php echo APP_URL; ?>information/" class="img">
 				<picture>
