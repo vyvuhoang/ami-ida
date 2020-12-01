@@ -42,6 +42,10 @@ ETR
 			}
 			&--td{
 				width: calc(100% - 200px);
+				em{
+					font-style: normal;
+					font-size: 14px;
+				}
 				@include max-screen(767px){width: calc(100% - 90px);}
 				@include max-screen(370px){width: calc(100% - 80px);}
 			}

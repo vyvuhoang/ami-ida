@@ -40,11 +40,11 @@ include(APP_PATH.'libs/head.php');
         </div>
         <div class="etr__row">
           <p class="etr__row--th">従業員数</p>
-          <p class="etr__row--td">社員153名 / アルバイト79名<br>（2018年3月末時点）</p>
+          <p class="etr__row--td">205名（社員151名・アルバイト54名）<br><em>2020年10月末時点</em></p>
         </div>
         <div class="etr__row">
           <p class="etr__row--th">事業内容</p>
-          <p class="etr__row--td">リゾート事業及び健康産業事業</p>
+          <p class="etr__row--td">ホットヨガスタジオ・フィットネスクラブ等の運営</p>
         </div>
         <div class="etr__row">
           <p class="etr__row--th">所在地</p>

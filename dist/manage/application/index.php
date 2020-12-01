@@ -260,7 +260,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <?php
                       switch($val){
                         case 'via':
-                          $via_arr = array('web検索', '店舗前看板', '駅前看板', 'チラシ', 'SNS', '紹介', 'その他');
+                          $via_arr = array('Google検索', 'Yahoo検索', 'LINE', 'Instagram', 'Twitter', 'YouTube', 'ホットペッパービューティー', '楽天ビューティー', 'フィットサーチ', '駅広告', '店舗前広告', 'チラシ（新聞折込）', 'チラシ（ポスティング）', 'ハガキ', 'ラジオ', '雑誌・情報誌・フリーペッパー', '紹介', '再入会', 'その他' );
                           $via_val = get_field($val);
                   ?>
 

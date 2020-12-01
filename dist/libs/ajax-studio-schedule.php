@@ -3,11 +3,11 @@
   include_once(APP_PATH.'wp/wp-load.php');
   $stars = array(
     '1' => '★',
-    '1.5' => '★ 1.5',
+    '1.5' => '★',
     '2' => '★★',
-    '2.5' => '★★ 2.5',
+    '2.5' => '★★',
     '3' => '★★★',
-    '3.5' => '★★★ 3.5',
+    '3.5' => '★★★',
     '4' => '★★★★',
     '5' => '★★★★★',
   );
@@ -156,7 +156,7 @@
                 <div class="item-txt">'.$stars[$value[$j][4]].'</div>
               </li>
               <li class="item">
-                <div class="item-ttl">レッズン内容</div>
+                <div class="item-ttl">レッスン内容</div>
                 <div class="item-txt">'.$value[$j][5].'</div>
               </li>
             </ul>

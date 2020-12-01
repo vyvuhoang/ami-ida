@@ -274,3 +274,14 @@
     @include font(15,24px,'',500);
   }
 }
+a.btn-download {
+  display: inline-block;
+  background: #920783;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 8px 20px;
+  margin-top: 20px;
+  border-radius: 4px;
+}
