@@ -152,11 +152,7 @@
                 <div class="item-txt">'.$key.' '.$value[$j][0].' - '.$value[$j][1].'</div>
               </li>
               <li class="item">
-                <div class="item-ttl">インストラクター</div>
-                <div class="item-txt">'.$value[$j][2].'</div>
-              </li>
-              <li class="item">
-                <div class="item-ttl">レッスン強度</div>
+                <div class="item-ttl">レッズン強度</div>
                 <div class="item-txt">'.$stars[$value[$j][4]].'</div>
               </li>
               <li class="item">

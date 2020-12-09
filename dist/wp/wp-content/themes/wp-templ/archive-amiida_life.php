@@ -25,13 +25,13 @@ include(APP_PATH.'libs/head.php');
       <div class="item inview fadeInBottom">
         <div class="item__img">
           <div class="item--ttl sp">
-            <a href="" class="ttl1"><?php echo $ttl[$i]; ?></a>
+            <p class="ttl1"><?php echo $ttl[$i]; ?></p>
           </div>
           <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/amiidalife/img<?php echo $i+1; ?>.jpg)"></div>
         </div>
         <div class="item__info">
           <div class="item--ttl pc">
-            <a href="" class="ttl1"><?php echo $ttl[$i]; ?></a>
+            <p class="ttl1"><?php echo $ttl[$i]; ?></p>
           </div>
           <div class="item__info--space"></div>
           <div class="item__info--img">
