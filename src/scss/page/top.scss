@@ -68,9 +68,11 @@ INTRO
       @include font(24,2.2,0.1,500);
       @include noto;
       @include max-screen(767px){
-        font-size: 17px;line-height: 1.8;
+        font-size: 20px;line-height: 1.8;
         font-weight: normal;
+        br{display:none;}
       }
+      @include max-screen(370px){font-size: 18px;}
     }
 		&--txt{
 			margin: 16px 0 28px;
@@ -199,7 +201,7 @@ INTRO
   }
   @include max-screen(767px){
     background-size: 160px auto;
-    padding-top: 60px;
+    padding-top: 40px;
   }
   .wcm{
      max-width: 1010px;
@@ -262,6 +264,7 @@ INTRO
               font-size: 18px;line-height: 1.2;
               padding-left: 6px;
             }
+            @include max-screen(370px){letter-spacing: 0;}
             &:before{
               content:"";position: absolute;
               bottom: 4px;left:0;
@@ -382,6 +385,7 @@ CHECK
               background-size: 18px auto;
               background-position: top 8px left;
             }
+            @include max-screen(370px){margin-bottom: 5px;}
           }
         }
       }

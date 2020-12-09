@@ -187,7 +187,8 @@ include(APP_PATH.'libs/head.php');
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">購入できるもの(※一部店舗)</span>
+              <span class="txt01">購入できるもの</span>
+              <span class="txt02">(※一部店舗)</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
@@ -348,7 +349,7 @@ include(APP_PATH.'libs/head.php');
     <?php } ?>
     <div class="sec-form" id="anchor04">
       <div class="container-750">
-        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br>体験レッスン申込みフォーム</h3>
+        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br class="pc">体験レッスン申込みフォーム</h3>
         <form method="post" class="studioform inview fadeInBottom" id="studioform" action="confirm/?g=<?php echo time() ?>" name="studioform">
           <div class="stepImg">
             <picture>
