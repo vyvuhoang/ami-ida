@@ -11,10 +11,12 @@ $(document).ready(function() {
 function editRow(){
   $('body').on('click', '.js-edit-row', function(){
     fields = $(this).closest('.js-row').find('input, textarea');
+    button = $(this).closest('.js-row').find('button');
     if($(this).is('.editing')){
       $(this).text('修正する');
       $(this).removeClass('editing');
       fields.prop('disabled', true);
+      button.prop('disabled', true);
 
       fields.each(function(key, value) {
         var name = $(this).attr('name'),
@@ -34,6 +36,7 @@ function editRow(){
       $(this).text('セーブする');
       $(this).addClass('editing');
       fields.prop('disabled', false);
+      button.prop('disabled', false);
     }
   })
 }
@@ -85,7 +88,7 @@ jQuery(document).ready(function() {
         var id = button.prev();
         wp.media.editor.send.attachment = function(props, attachment) {
           id.val(attachment.id);
-          $('.js-img').html('<img src="'+attachment.url+'" alt="">');
+          button.siblings('.js-img').html('<img src="'+attachment.url+'" alt="">');
         };
         wp.media.editor.open(button);
         return false;

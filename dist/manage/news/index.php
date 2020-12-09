@@ -32,6 +32,9 @@ if($wp_studio->have_posts()){
     if($studio_slug == $post->post_name){
       $flagValidPage = 1;
       $studio_id = get_the_id();
+    }else if($studio_slug == 'top'){
+      $flagValidPage = 1;
+      $studio_id = '';
     }
   }
 }
@@ -95,6 +98,8 @@ include(APP_PATH.'libs/head.php');
                 <div class="item item--studio">
                   <p class="item-ttl">店舗を選択</p>
                   <select name="" id="" class="js-select-redirect">
+                    <?php $isSelectedTop = $studio_slug == 'top' ? ' selected' : '';?>
+                    <option value="<?php echo APP_URL.'manage/top/news/'; ?>"<?php echo $isSelectedTop; ?>>TOP</option>
                     <?php foreach ($studio_arr as $studio_key => $studio_val) {
                     $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
                       <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/news/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>

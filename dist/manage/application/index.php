@@ -16,7 +16,6 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
 
   $csv_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0].'csv.php?'.explode('?', $_SERVER['REQUEST_URI'], 2)[1];
 
-
   $flagValidPage = 0;
   //get studio
   $wp_studio = new WP_Query();
@@ -224,7 +223,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               'status',
               'memo'
             );
-            if ( $appl_query_condition->have_posts() ) :
+            if ( $appl_query_all->have_posts() ) :
             $i = 0;?>
           <div class="sec-data">
             <h3 class="ttl">体験予約者 管理ボード</h3>
@@ -246,9 +245,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <div class="th">ステータス</div>
                   <div class="th">備考・メモ</div>
                 </div>
-                <?php while ( $appl_query_condition->have_posts() ) :
+                <?php while ( $appl_query_all->have_posts() ) :
                   $i++;
-                  $appl_query_condition->the_post();
+                  $appl_query_all->the_post();
                 ?>
                 <div class="row js-row" data-post-id="<?php echo get_the_ID();?>">
                   <div class="td"><p class="txt"><?php echo $i;?></p></div>
