@@ -223,12 +223,12 @@
         &:not(.td--edit){
           background-color: #f0f0f0;
         }
-        &:nth-child(7n){
-          border-right-color: #000;
-        }
-        &--edit{
-          border-color: #000;
-        }
+        // &:nth-child(7n){
+        //   border-right-color: #000;
+        // }
+        // &--edit{
+        //   border-color: #000;
+        // }
         .txt{
           padding: 10px 5px;
 
