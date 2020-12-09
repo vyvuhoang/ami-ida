@@ -49,7 +49,7 @@ if(isIpad()) document.querySelectorAll('meta[name="viewport"]')[0].setAttribute(
 <!--/css-->
 
 <!-- Favicons, uncomment out when you get the project's favicon -->
-<!-- <link rel="icon" href="<?php echo APP_ASSETS; ?>img/common/icon/favicon.ico" type="image/vnd.microsoft.icon"> -->
+<link rel="icon" href="<?php echo APP_ASSETS; ?>img/common/icon/favico.ico" type="image/vnd.microsoft.icon">
 
 <?php
 // include_once(APP_PATH.'wp/wp-load.php');

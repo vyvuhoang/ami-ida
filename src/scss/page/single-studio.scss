@@ -265,6 +265,7 @@ body {
           @include font(15, '', 0.1, bold);
           margin-left: 7px;
           @include SP {
+            font-size: 13px;
             margin-left: 0;
             margin-top: 3px;
             // display: block;
@@ -510,6 +511,7 @@ body {
   @include SP{
     margin-bottom: 40px;
   }
+  @include max-screen(370px){padding:0 10px;}
   .the-title {
     margin-bottom: 80px;
     @include SP {
@@ -707,6 +709,7 @@ body {
       align-items: center;
       &:not(:last-child){
         margin-bottom: 20px;
+        @include max-screen(370px){margin-bottom: 15px;}
       }
       &.active{
         .etr__item--ttl:before{
@@ -745,6 +748,7 @@ body {
           padding: 12px 20px;
           display: block;
         }
+        @include max-screen(370px){padding: 10px 18px;font-size: 15px;}
       }
       .js-hide{
         display: none;
@@ -1202,53 +1206,6 @@ body {
   }
 }
 
-.sec-ins {
-  padding: 70px 0;
-  @include SP {
-    padding: 50px 0;
-  }
-
-  .topic-ttl {
-    padding-top: 47px;
-    background: url(../../img/studio/ico_ins.svg) top center/29px 29px no-repeat;
-    margin-bottom: 70px;
-
-    @include PC {
-      letter-spacing: 0;
-      margin-bottom: 40px;
-    }
-
-    @include SP {
-      padding-top: 40px;
-      margin-bottom: 40px;
-    }
-  }
-
-  .lst-ins {
-    font-size: 0;
-
-    .item {
-      width: calc(25% - 18px);
-      display: inline-block;
-      margin-bottom: 24px;
-
-      @include PC {
-        &:not(:nth-child(4n+1)) {
-          margin-left: 24px;
-        }
-      }
-
-      @include SP {
-        width: calc(50% - 5px);
-        margin-bottom: 10px;
-
-        &:nth-child(2n) {
-          margin-left: 10px;
-        }
-      }
-    }
-  }
-}
 
 .sec-thanks {
   margin-bottom: 93px;
@@ -1585,9 +1542,15 @@ body {
           @include max-screen(767px){
             padding-left: 30px;
             font-size: 16px;background-size: 16px auto;
-            background-position: left top 34x;
+            background-position: left top 4px;
           }
-          &:not(:last-child){margin-bottom: 20px;}
+          @include max-screen(370px){
+            font-size: 15px;
+          }
+          &:not(:last-child){
+            margin-bottom: 20px;
+            @include max-screen(370px){margin-bottom: 15px;}
+          }
         }
       }
     }

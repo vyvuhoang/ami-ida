@@ -240,7 +240,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <div class="th">経由</div>
                   <div class="th">予約確認電話</div>
                   <div class="th">- 担当</div>
-                  <div class="th">2日前確認電話</div>
+                  <div class="th">事前確認電話(1~2日前)</div>
                   <div class="th">- 担当</div>
                   <div class="th">ステータス</div>
                   <div class="th">備考・メモ</div>

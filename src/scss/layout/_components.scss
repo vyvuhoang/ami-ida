@@ -162,7 +162,7 @@ a.btn-viewmore,.btn-viewmore{
 		@include transform_c(translate(-50%,-50%));
 		@include max-screen(767px){padding: 0 16px 0px;}
 		img{
-			width: 59.55%;
+			width: 49.35%;
 			@include max-screen(767px){width: 100%;}
 		}
 	}

@@ -72,6 +72,6 @@ include(APP_PATH.'libs/head.php');
       </div>
     </div>
   </main>
-  <?php include(APP_PATH.'libs/footer.php');?>
+  <?php include(APP_PATH.'libs/footer.php');?> 
 </body>
 </html>
