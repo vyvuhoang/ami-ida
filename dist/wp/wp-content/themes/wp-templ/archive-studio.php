@@ -44,7 +44,7 @@ include(APP_PATH.'libs/head.php');
 						<select class="c-search__filter--select js-select">
 							<option value="">All</option>
 							<?php foreach($categories as $cat){ ?>
-							<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
+							<option value="<?php echo $cat->name; ?>" <?php //if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -55,13 +55,13 @@ include(APP_PATH.'libs/head.php');
 		    'showposts'       => -1,
 		    'post_status'     => 'publish',
 		    'orderby'         =>'date',
-		    'tax_query' => array(
-		      array(
-		        'taxonomy' => 'studioarea',
-		        'field' => 'slug',
-		        'terms' => '東北',
-		        )
-		      ),
+		    // 'tax_query' => array(
+		    //   array(
+		    //     'taxonomy' => 'studioarea',
+		    //     'field' => 'slug',
+		    //     'terms' => '東北',
+		    //     )
+		    //   ),
 		  ));
 		  if ($studio->have_posts()) :?>
 			<div class="lst-studio wcm" id="list-studio">
