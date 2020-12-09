@@ -38,6 +38,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
       if($studio_slug == $post->post_name){
         $flagValidPage = 1;
         $studio_id = get_the_id();
+      }else if($studio_slug == 'all'){
+        $flagValidPage = 1;
+        $studio_id = '';
       }
     }
   }
@@ -64,6 +67,8 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               <div class="item item--studio">
                 <p class="item-ttl">店舗を選択</p>
                 <select name="" id="" class="js-select-redirect">
+                  <?php $isSelectedAll = $studio_slug == 'all' ? ' selected' : '';?>
+                  <option value="<?php echo APP_URL.'manage/all/application/'; ?>"<?php echo $isSelectedAll; ?>>All</option>
                   <?php foreach ($studio_arr as $studio_key => $studio_val) {
                   $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
                     <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/application/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
@@ -86,6 +91,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
             </div>
           </div>
           <?php
+            $meta_query_studio = '';
+            if($studio_id) {
+              $meta_query_studio = array(
+                'key' => 'app_studio',
+                'value' => $studio_id,
+                'compare' => '=',
+              );
+            }
             if($urlYM) {
               $appl_query_all = new WP_Query( array(
                 'post_type' => 'application',
@@ -93,11 +106,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d", strtotime($urlYM.'/1')),
@@ -118,11 +127,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d"),
@@ -150,11 +155,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                 )
               ));
               $appl_query_condition = new WP_Query( array(
@@ -163,11 +164,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d"),
@@ -231,6 +228,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               <div class="tbl-data">
                 <div class="row">
                   <div class="th">NO</div>
+                  <?php if(!$studio_id) {?>
+                  <div class="th">スタジオ</div>
+                  <?php } ?>
                   <div class="th">申込み日時</div>
                   <div class="th">お名前</div>
                   <div class="th">体験予約日</div>
@@ -251,6 +251,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 ?>
                 <div class="row js-row" data-post-id="<?php echo get_the_ID();?>">
                   <div class="td"><p class="txt"><?php echo $i;?></p></div>
+                  <?php if(!$studio_id) {?>
+                  <div class="td"><p class="txt"><?php echo get_field('app_studio')->post_title;?></p></div>
+                  <?php } ?>
                   <?php foreach($appl_fields_form as $val){?>
                     <div class="td"><p class="txt"><?php echo get_field($val);?></p></div>
                   <?php }?>
