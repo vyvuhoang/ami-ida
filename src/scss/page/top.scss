@@ -26,7 +26,7 @@ INTRO
 }
 .intro{
 	// max-width: 846px;
-  max-width: 900px;
+  max-width: 1000px;
 	padding: 80px 20px 80px;
 	display: flex;justify-content: space-between;
 	align-items: center;flex-wrap: wrap;
@@ -65,7 +65,7 @@ INTRO
 		// 	}
 		// }
     &--ttl{
-      @include font(20,2.2,0.1,500);
+      @include font(24,2.2,0.1,500);
       @include noto;
       @include max-screen(767px){
         font-size: 17px;line-height: 1.8;
@@ -191,8 +191,8 @@ INTRO
 	}
 }
 .feature1{
-  padding-top: 110px;
-  background: url(../../img/common/amiida.png) right top 5px/400px auto no-repeat;
+  padding-top: 80px;
+  // background: url(../../img/common/amiida.png) right top 5px/400px auto no-repeat;
   @include screen(768px,1024px){
     margin-top: 10px;padding-top: 80px;
     background-size: 300px auto;
@@ -762,7 +762,7 @@ INTRO
 INTRO
 ------------------------------------------------------------*/
 .c-banner{
-  padding: 60px 0;
+  padding: 60px 0 0;
   @include max-screen(767px){padding: 0px 0 20px;}
   .wcm{max-width: 1010px;}
   .img{

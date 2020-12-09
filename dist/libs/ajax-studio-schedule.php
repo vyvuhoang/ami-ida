@@ -164,7 +164,7 @@
                 <div class="item-txt">'.$value[$j][5].'</div>
               </li>
             </ul>
-            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][3].'" data-date="'.$key.'" data-instructor="'.$value[$j][2].'" data-time="'.$value[$j][0].' - '.$value[$j][1].'"><span>体験する</span></a>
+            <a href="#anchor04" class="btn-box js-btn-box" data-lesson="'.$value[$j][3].'" data-date="'.$key.'" data-instructor="'.$value[$j][2].'" data-time="'.$value[$j][0].' - '.$value[$j][1].'"><span>体験予約する</span></a>
           </div>
         ';
 

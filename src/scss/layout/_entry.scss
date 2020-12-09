@@ -650,3 +650,54 @@ POPUP
     padding: 10px;
   }
 }
+
+.sec-ins {
+  padding: 70px 0;
+  @include SP {
+    padding: 50px 0;
+  }
+
+  .topic-ttl {
+    padding-top: 47px;
+    background: url(../img/studio/ico_ins.svg) top center/29px 29px no-repeat;
+    margin-bottom: 70px;
+
+    @include PC {
+      letter-spacing: 0;
+      margin-bottom: 40px;
+    }
+
+    @include SP {
+      padding-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .lst-ins {
+    font-size: 0;
+
+    .item {
+      width: calc(25% - 18px);
+      display: inline-block;
+      margin-bottom: 24px;
+
+      @include PC {
+        &:not(:nth-child(4n+1)) {
+          margin-left: 24px;
+        }
+      }
+
+      @include SP {
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+
+        &:nth-child(2n) {
+          margin-left: 10px;
+        }
+      }
+      .img{
+        @include aspect-ratio(1,1);
+      }
+    }
+  }
+}

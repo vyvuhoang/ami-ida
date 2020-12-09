@@ -27,8 +27,8 @@ include(APP_PATH.'libs/head.php');
 				<div class="wcm">
 					<div class="c-search__bar">
 						<div class="btn-clear"></div>
-						<input type="text" placeholder="Search.." id="search_key">
-						<div class="c-search__bar--btn js-search"><span>Search</span></div>
+						<input type="text" placeholder="店舗名を入力して検索" id="search_key">
+						<div class="c-search__bar--btn js-search"><span>検索する</span></div>
 					</div>
 					<?php $studioarea = array(
 					    'post_type'                => 'studio',

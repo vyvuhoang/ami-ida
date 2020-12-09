@@ -135,13 +135,13 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="sec-btns inview fadeInBottom">
       <div class="container-900">
-        <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会受付はこちら</span></a>
+        <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>体験なしで入会される方</span></a>
         <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
       </div>
     </div>
     <div class="sec-charge" id="anchor01">
       <div class="container-900">
-        <h3 class="the-title inview fadeInBottom">プラン・料金のご説明</h3>
+        <h3 class="the-title inview fadeInBottom">料金プラン</h3>
         <ul class="lst-price js-lst-price inview fadeInBottom">
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
@@ -191,7 +191,7 @@ include(APP_PATH.'libs/head.php');
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
-                <p class="th">溶岩ヨガ専用マット</p>
+                <p class="th">アミーダオリジナル溶岩ヨガマット</p>
                 <div class="td">
                   <p class="td01">12,000円</p>
                   <p class="td02">(サイズ 174cm×61cm×5cm)</p>
@@ -210,25 +210,18 @@ include(APP_PATH.'libs/head.php');
                 </div>
               </div>
               <div class="row">
-                <p class="th">アミーダセット</p>
-                <div class="td">
-                  <p class="td01">13,500円</p>
-                </div>
-              </div>
-              <div class="row">
                 <p class="th">水素水ボトル</p>
                 <div class="td">
                   <p class="td01">800円</p>
                 </div>
               </div>
-            </div>
-          </li>
-          <li class="item">
-            <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">レンタルできるもの</span>
-              <span class="txt02">(※一部店舗)</span>
-            </h4>
-            <div class="tbl js-price-tbl">
+              <div class="row">
+                <p class="th">アミーダセット</p>
+                <div class="td">
+                  <p class="td01">15,800円</p>
+                  <p class="td02">アミーダオリジナル溶岩ヨガマット＋ラグ＋マットストラップ</p>
+                </div>
+              </div>
               <div class="row">
                 <p class="th">ウェアー(上)</p>
                 <div class="td">
@@ -240,17 +233,19 @@ include(APP_PATH.'libs/head.php');
                 <div class="td">
                   <p class="td01">6,800円/月</p>
                 </div>
-              </div>
+              </div>              
+            </div>
+          </li>
+          <li class="item">
+            <h4 class="item-ttl js-price-ttl">
+              <span class="txt01">レンタルできるもの</span>
+              <span class="txt02">(※一部店舗)</span>
+            </h4>
+            <div class="tbl js-price-tbl">
               <div class="row">
                 <p class="th">ウェアー上下セット</p>
                 <div class="td">
-                  <p class="td01">13,600円/月・750円/日</p>
-                </div>
-              </div>
-              <div class="row">
-                <p class="th">アミーダセット <br>+ウェアー上下セット</p>
-                <div class="td">
-                  <p class="td01">28,100円/月</p>
+                  <p class="td01">750円/日</p>
                 </div>
               </div>
               <div class="row">
@@ -302,7 +297,7 @@ include(APP_PATH.'libs/head.php');
       </div>
       <div class="sec-btns inview fadeInBottom">
         <div class="container-900">
-          <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>WEB入会受付はこちら</span></a>
+          <a href="https://www.helloweb.jp/Admission/User/652911/Introduction.aspx" class="btn"><span>体験なしで入会される方</span></a>
           <a href="#anchor04" class="btn"><span>体験レッスンへのご参加はこちら</span></a>
         </div>
       </div>
