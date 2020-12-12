@@ -212,12 +212,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               'instructor',
             );
             $appl_fields_edit = array(
+              'via02',
               'via',
               'thankyou_phone',
               'in_charge1',
               'confirm_phone',
               'in_charge2',
               'status',
+              'cancelling',
               'memo'
             );
             if ( $appl_query_all->have_posts() ) :
@@ -237,12 +239,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <div class="th">開始時間</div>
                   <div class="th">レッスン名</div>
                   <div class="th">インストラクター</div>
-                  <div class="th">経由</div>
+                  <div class="th">経由①</div>
+                  <div class="th">経由②</div>
                   <div class="th">予約確認電話</div>
                   <div class="th">- 担当</div>
                   <div class="th">事前確認電話(1~2日前)</div>
                   <div class="th">- 担当</div>
                   <div class="th">ステータス</div>
+                  <div class="th">キャンセル対応</div>
                   <div class="th">備考・メモ</div>
                 </div>
                 <?php while ( $appl_query_all->have_posts() ) :
@@ -261,6 +265,22 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                     <div class="td td--edit">
                   <?php
                       switch($val){
+                        case 'via02':
+                          $via02_arr = array('WEB', '電話', '来店');
+                          $via02_val = get_field($val);
+                  ?>
+
+                      <span class="temp-val js-temp-val"></span>
+                      <select name="<?php echo $val;?>" id="<?php echo $val;?>">
+                        <option value="">選択する</option>
+                        <?php foreach($via02_arr as $vval){
+                          $selected = $via02_val == $vval ? ' selected' : '';
+                        ?>
+                          <option value="<?php echo $vval;?>"<?php echo $selected;?>><?php echo $vval;?></option>
+                        <?php }?>
+                      </select>
+                  <?php
+                          break;
                         case 'via':
                           $via_arr = array('Google検索', 'Yahoo検索', 'LINE', 'Instagram', 'Twitter', 'YouTube', 'ホットペッパービューティー', '楽天ビューティー', 'フィットサーチ', '駅広告', '店舗前広告', 'チラシ（新聞折込）', 'チラシ（ポスティング）', 'ハガキ', 'ラジオ', '雑誌・情報誌・フリーペッパー', '紹介', '再入会', 'その他' );
                           $via_val = get_field($val);
@@ -279,6 +299,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           break;
                         case 'thankyou_phone':
                         case 'confirm_phone':
+                        case 'cancelling':
                           $phone_arr = array('〇 完了', '× 不通');
                           $phone_val = get_field($val);
                   ?>

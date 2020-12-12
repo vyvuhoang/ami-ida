@@ -103,12 +103,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         '開始時間',
         'レッスン名',
         'インストラクター',
-        '経由',
+        '経由①',
+        '経由②',
         '予約確認電話',
         '- 担当',
         '事前確認電話(1~2日前)',
         '- 担当',
         'ステータス',
+        'キャンセル対応',
         '備考・メモ'));
       }else{
         $data_ex = array(array('NO',
@@ -119,12 +121,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         '開始時間',
         'レッスン名',
         'インストラクター',
-        '経由',
+        '経由①',
+        '経由②',
         '予約確認電話',
         '- 担当',
         '事前確認電話(1~2日前)',
         '- 担当',
         'ステータス',
+        'キャンセル対応',
         '備考・メモ'));
       }
 
@@ -140,12 +144,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         $desired_time = get_field('desired_time');
         $lesson_name = get_field('lesson_name');
         $instructor = get_field('instructor');
+        $via02 = get_field('via02');
         $via = get_field('via');
         $thankyou_phone = get_field('thankyou_phone');
         $in_charge1 = get_field('in_charge1');
         $confirm_phone = get_field('confirm_phone');
         $in_charge2 = get_field('in_charge2');
         $status = get_field('status');
+        $cancelling = get_field('cancelling');
         $memo = get_field('memo');
 
         if($studio_id){
@@ -158,12 +164,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               "{$desired_time}",
               "{$lesson_name}",
               "{$instructor}",
+              "{$via02}",
               "{$via}",
               "{$thankyou_phone}",
               "{$in_charge1}",
               "{$confirm_phone}",
               "{$in_charge2}",
               "{$status}",
+              "{$cancelling}",
               "{$memo}",
             )
           );
@@ -178,12 +186,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               "{$desired_time}",
               "{$lesson_name}",
               "{$instructor}",
+              "{$via02}",
               "{$via}",
               "{$thankyou_phone}",
               "{$in_charge1}",
               "{$confirm_phone}",
               "{$in_charge2}",
               "{$status}",
+              "{$cancelling}",
               "{$memo}",
             )
           );
