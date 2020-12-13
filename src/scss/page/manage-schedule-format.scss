@@ -129,15 +129,15 @@
           margin-top: 10px;
         }
       }
-      button{
-        margin-top: 3px;
-        @include add_prefix(appearance, none);
-        border: 0;
-        width: 30px;
-        height: 30px;
-        image-rendering: -webkit-optimize-contrast;
-        background: url(../../img/common/icon/ico_add_image.png) center/30px 30px no-repeat;
-      }
+      // button{
+      //   margin-top: 3px;
+      //   @include add_prefix(appearance, none);
+      //   border: 0;
+      //   width: 30px;
+      //   height: 30px;
+      //   image-rendering: -webkit-optimize-contrast;
+      //   background: url(../../img/common/icon/ico_add_image.png) center/30px 30px no-repeat;
+      // }
     }
   }
 
@@ -235,7 +235,8 @@
       }
       .item-ttl,
       .item-content,
-      .item-btns{
+      .item-btns,
+      .item-image{
         @include PC{
           display: inline-block;
           vertical-align: top;
@@ -244,15 +245,19 @@
           display: block;
         }
       }
+      .item-ttl,
+      .item-content,
+      .item-image{
+        @include PC{
+          width: calc(33.33% - 74px);
+          padding-right: 30px;
+        }
+      }
       // .item-ttl,
       // .item-content{
       //   @include font(15,26px,'',500);
       // }
       .item-ttl{
-        @include PC{
-          width: calc(48.54% - 111px);
-          padding-right: 30px;
-        }
         @include SP{
           font-weight: bold;
           padding-left: 10px;
@@ -261,10 +266,11 @@
         }
       }
       .item-content{
-        @include PC{
-          width: calc(51.46% - 111px);
-          padding-right: 30px;
+        @include SP{
+          margin-bottom: 20px;
         }
+      }
+      .item-image{
         @include SP{
           margin-bottom: 20px;
         }
@@ -323,4 +329,14 @@
       }
     }
   }
+}
+
+.button-add-image {
+  margin-top: 3px;
+  @include add_prefix(appearance, none);
+  border: 0;
+  width: 30px;
+  height: 30px;
+  image-rendering: -webkit-optimize-contrast;
+  background: url('../../img/common/icon/ico_add_image.png') center/30px 30px no-repeat;
 }

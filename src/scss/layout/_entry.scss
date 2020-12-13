@@ -424,11 +424,13 @@ INTRO
             &:hover {opacity: 0.5;}
           }
           @include SP {padding: 15px 44px; }
+          @include max-screen(370px){font-size: 15px;padding: 12px 40px;}
           &:before,&:after {
             @include absolute('', 17px, 1px, 50%, '', 20px, '');
             background-color: #fff;
             transition: 0.5s ease;
             @include SP {top: 27px }
+            @include max-screen(370px){right:12px;}
           }
           &:after {@include transform_c(rotate(90deg));}
           span {
@@ -445,6 +447,9 @@ INTRO
           @include font(15, 24/15, 0.15, 500);
           padding: 13px 20px;
           display: none;
+          @include max-screen(370px){
+            padding: 12px 15px;font-size: 14px;
+          }
         }
         &.active {
           .ques {
@@ -721,5 +726,56 @@ POPUP
     color: #fff;
     @include font(14,1,0,bold);
     padding: 10px;
+  }
+}
+
+.sec-ins {
+  padding: 70px 0;
+  @include SP {
+    padding: 50px 0;
+  }
+
+  .topic-ttl {
+    padding-top: 47px;
+    background: url(../img/studio/ico_ins.svg) top center/29px 29px no-repeat;
+    margin-bottom: 70px;
+
+    @include PC {
+      letter-spacing: 0;
+      margin-bottom: 40px;
+    }
+
+    @include SP {
+      padding-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .lst-ins {
+    font-size: 0;
+
+    .item {
+      width: calc(25% - 18px);
+      display: inline-block;
+      margin-bottom: 24px;
+
+      @include PC {
+        &:not(:nth-child(4n+1)) {
+          margin-left: 24px;
+        }
+      }
+
+      @include SP {
+        width: calc(50% - 5px);
+        margin-bottom: 10px;
+
+        &:nth-child(2n) {
+          margin-left: 10px;
+        }
+      }
+      .img{
+        @include aspect-ratio(1,1);
+      }
+    }
   }
 }

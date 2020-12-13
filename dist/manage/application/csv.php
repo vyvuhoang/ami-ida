@@ -43,11 +43,22 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
       if($studio_slug == $post->post_name){
         $flagValidPage = 1;
         $studio_id = get_the_id();
+      }else if($studio_slug == 'all'){
+        $flagValidPage = 1;
+        $studio_id = '';
       }
     }
   }
   $cur_date = date('Y/m/d');
   if($flagValidPage) {
+    $meta_query_studio = '';
+    if($studio_id) {
+      $meta_query_studio = array(
+        'key' => 'app_studio',
+        'value' => $studio_id,
+        'compare' => '=',
+      );
+    }
     if($urlYM) {
       $appl_query_all = new WP_Query( array(
         'post_type' => 'application',
@@ -55,11 +66,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         'post_status' => 'publish',
         'meta_query' => array(
           'relation' => 'AND',
-          array(
-            'key' => 'app_studio',
-            'value' => $studio_id,
-            'compare' => '=',
-          ),
+          $meta_query_studio,
           array(
             'key' => 'desired_date',
             'value' => date("Y/m/d", strtotime($urlYM.'/1')),
@@ -81,68 +88,116 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         'post_status' => 'publish',
         'meta_query' => array(
           'relation' => 'AND',
-          array(
-            'key' => 'app_studio',
-            'value' => $studio_id,
-            'compare' => '=',
-          ),
+          $meta_query_studio,
         )
       ));
     }
 
     if ($appl_query_all->have_posts()){
       $new_csv = new CSVT();
-      $data_ex = array(array('NO',
-      '申込み日時',
-      'お名前',
-      '体験予約日',
-      '開始時間',
-      'レッスン名',
-      'インストラクター',
-      '経由',
-      '予約確認電話',
-      '- 担当',
-      '2日前確認電話',
-      '- 担当',
-      'ステータス',
-      '備考・メモ'));
+      if($studio_id){
+        $data_ex = array(array('NO',
+        '申込み日時',
+        'お名前',
+        '体験予約日',
+        '開始時間',
+        'レッスン名',
+        'インストラクター',
+        '経由①',
+        '経由②',
+        '予約確認電話',
+        '- 担当',
+        '事前確認電話(1~2日前)',
+        '- 担当',
+        'ステータス',
+        'キャンセル対応',
+        '備考・メモ'));
+      }else{
+        $data_ex = array(array('NO',
+        'スタジオ',
+        '申込み日時',
+        'お名前',
+        '体験予約日',
+        '開始時間',
+        'レッスン名',
+        'インストラクター',
+        '経由①',
+        '経由②',
+        '予約確認電話',
+        '- 担当',
+        '事前確認電話(1~2日前)',
+        '- 担当',
+        'ステータス',
+        'キャンセル対応',
+        '備考・メモ'));
+      }
+
       $i = 0;
       while ($appl_query_all->have_posts()){
         $i++;
         $appl_query_all->the_post();
 
+        $appl_studio = get_field('app_studio')->post_title;
         $appl_date = get_field('appl_date');
         $cus_name = get_field('cus_name');
         $desired_date = get_field('desired_date');
         $desired_time = get_field('desired_time');
         $lesson_name = get_field('lesson_name');
         $instructor = get_field('instructor');
+        $via02 = get_field('via02');
         $via = get_field('via');
         $thankyou_phone = get_field('thankyou_phone');
         $in_charge1 = get_field('in_charge1');
         $confirm_phone = get_field('confirm_phone');
         $in_charge2 = get_field('in_charge2');
         $status = get_field('status');
+        $cancelling = get_field('cancelling');
         $memo = get_field('memo');
 
-        array_push($data_ex,
-          array(
-            "{$i} ",
-            "{$appl_date} ",
-            "{$cus_name} ",
-            "{$desired_date}",
-            "{$desired_time}",
-            "{$lesson_name}",
-            "{$instructor}",
-            "{$via}",
-            "{$thankyou_phone}",
-            "{$in_charge1}",
-            "{$confirm_phone}",
-            "{$in_charge2}",
-            "{$status}",
-            "{$memo}",
-          )
-        );
+        if($studio_id){
+          array_push($data_ex,
+            array(
+              "{$i} ",
+              "{$appl_date} ",
+              "{$cus_name} ",
+              "{$desired_date}",
+              "{$desired_time}",
+              "{$lesson_name}",
+              "{$instructor}",
+              "{$via02}",
+              "{$via}",
+              "{$thankyou_phone}",
+              "{$in_charge1}",
+              "{$confirm_phone}",
+              "{$in_charge2}",
+              "{$status}",
+              "{$cancelling}",
+              "{$memo}",
+            )
+          );
+        }else{
+          array_push($data_ex,
+            array(
+              "{$i} ",
+              "{$appl_studio} ",
+              "{$appl_date} ",
+              "{$cus_name} ",
+              "{$desired_date}",
+              "{$desired_time}",
+              "{$lesson_name}",
+              "{$instructor}",
+              "{$via02}",
+              "{$via}",
+              "{$thankyou_phone}",
+              "{$in_charge1}",
+              "{$confirm_phone}",
+              "{$in_charge2}",
+              "{$status}",
+              "{$cancelling}",
+              "{$memo}",
+            )
+          );
+        }
       }
       //create csv
       $ym = explode('/',$urlYM);

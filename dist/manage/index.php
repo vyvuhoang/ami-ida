@@ -42,6 +42,7 @@ include(APP_PATH.'libs/head.php');
                 <p class="lbl">店舗を選択</p>
                 <select name="" id="" class="js-choose-studio">
                   <option value="">スタジオをお選びください</option>
+                  <option value="all">All</option>
                   <?php foreach($studio_arr as $studio_key => $studio_val){?>
                     <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
                   <?php }?>
@@ -68,6 +69,7 @@ include(APP_PATH.'libs/head.php');
                 <p class="lbl">店舗を選択</p>
                 <select name="" id="" class="js-choose-studio">
                   <option value="">スタジオをお選びください</option>
+                  <option value="top">TOP</option>
                   <?php foreach($studio_arr as $studio_key => $studio_val){?>
                     <option value="<?php echo $studio_val['slug'];?>"><?php echo $studio_val['ttl'];?></option>
                   <?php }?>

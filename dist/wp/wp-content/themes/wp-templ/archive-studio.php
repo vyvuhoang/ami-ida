@@ -27,8 +27,8 @@ include(APP_PATH.'libs/head.php');
 				<div class="wcm">
 					<div class="c-search__bar">
 						<div class="btn-clear"></div>
-						<input type="text" placeholder="Search.." id="search_key">
-						<div class="c-search__bar--btn js-search"><span>Search</span></div>
+						<input type="text" placeholder="店舗名を入力して検索" id="search_key">
+						<div class="c-search__bar--btn js-search"><span>検索する</span></div>
 					</div>
 					<?php $studioarea = array(
 					    'post_type'                => 'studio',
@@ -44,7 +44,7 @@ include(APP_PATH.'libs/head.php');
 						<select class="c-search__filter--select js-select">
 							<option value="">All</option>
 							<?php foreach($categories as $cat){ ?>
-							<option value="<?php echo $cat->name; ?>" <?php if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
+							<option value="<?php echo $cat->name; ?>" <?php //if($cat->name == '東北'){echo "selected";} ?>><?php echo $cat->name; ?></option>
 							<?php } ?>
 						</select>
 					</div>
@@ -55,6 +55,13 @@ include(APP_PATH.'libs/head.php');
 		    'showposts'       => -1,
 		    'post_status'     => 'publish',
 		    'orderby'         =>'date',
+		    // 'tax_query' => array(
+		    //   array(
+		    //     'taxonomy' => 'studioarea',
+		    //     'field' => 'slug',
+		    //     'terms' => '東北',
+		    //     )
+		    //   ),
 		  ));
 		  if ($studio->have_posts()) :?>
 			<div class="lst-studio wcm" id="list-studio">

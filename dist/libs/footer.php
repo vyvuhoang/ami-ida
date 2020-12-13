@@ -12,7 +12,7 @@
 					<p class="ttl">Email</p>
 					<a href="mailto:support@ami-ida.com" class="txt">support@ami-ida.com</a>
 					<p class="ttl pc">運営会社</p>
-					<p class="txt pc">TSCホリスティック株式会社</p>
+					<a href="<?php echo APP_URL; ?>company/" class="txt pc">TSCホリスティック株式会社</a>
 				</li>
 				<li class="item">
 					<p class="ttl">所在地</p>

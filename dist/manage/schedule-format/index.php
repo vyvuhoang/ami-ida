@@ -1,8 +1,8 @@
 <?php
-include_once('../../app_config.php');
-include_once(APP_PATH.'wp/wp-load.php');
 $page_ttl = 'レッスン登録フォーム';
 $thisPageName = 'manage-schedule-format';
+include_once('../../app_config.php');
+include_once(APP_PATH.'wp/wp-load.php');
 
 if(isset($_SESSION['logID']) && $_SESSION['logID']){
   wp_head();
@@ -33,6 +33,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
         'post_status' => 'publish',
       ));
       update_field('lesson_content', $_POST['postContentEdit'], $_POST['post_id'] );
+      update_field('lesson_image', $_POST['postImageEdit'], $_POST['post_id']);
       return;
     }
   }
@@ -63,7 +64,7 @@ include(APP_PATH.'libs/head.php');
                     <label for="postContent">レッスン画像</label>
                     <div class="content">
                       <input type="hidden" class="postImage" id="postImage" name="postImage" value="">
-                      <button class="set_custom_logo button" style="vertical-align: middle;"></button>
+                      <button class="set_custom_logo button button-add-image" style="vertical-align: middle;"></button>
                       <div class="img js-img"></div>
                     </div>
                   </div>
@@ -107,6 +108,11 @@ include(APP_PATH.'libs/head.php');
               <input type="hidden" name="post_id" id="post_id" value="<?php echo get_the_ID();?>">
               <div class="item-ttl"><input type="text" name="postTitleEdit" id="postTitleEdit" value="<?php echo get_the_title(); ?>" disabled></div>
               <div class="item-content"><textarea name="postContentEdit" id="postContentEdit" disabled><?php echo strip_tags(get_field('lesson_content')); ?></textarea></div>
+              <div class="item-image">
+                <input type="hidden" class="postImage" id="postImageEdit" name="postImageEdit" value="<?php echo get_field('lesson_image')['id'];?>">
+                <button class="set_custom_logo button button-add-image" style="vertical-align: middle;" disabled></button>
+                <div class="img js-img"><?php if(get_field('lesson_image')){?><img src="<?php echo get_field('lesson_image')['url'];?>" alt=""><?php }?></div>
+              </div>
               <div class="item-btns">
                 <div class="btn-edit js-edit-row">修正する</div>
                 <div class="btn-delete js-delete-row">削除する</div>

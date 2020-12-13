@@ -16,7 +16,6 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
 
   $csv_url = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'].explode('?', $_SERVER['REQUEST_URI'], 2)[0].'csv.php?'.explode('?', $_SERVER['REQUEST_URI'], 2)[1];
 
-
   $flagValidPage = 0;
   //get studio
   $wp_studio = new WP_Query();
@@ -39,6 +38,9 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
       if($studio_slug == $post->post_name){
         $flagValidPage = 1;
         $studio_id = get_the_id();
+      }else if($studio_slug == 'all'){
+        $flagValidPage = 1;
+        $studio_id = '';
       }
     }
   }
@@ -65,6 +67,8 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               <div class="item item--studio">
                 <p class="item-ttl">店舗を選択</p>
                 <select name="" id="" class="js-select-redirect">
+                  <?php $isSelectedAll = $studio_slug == 'all' ? ' selected' : '';?>
+                  <option value="<?php echo APP_URL.'manage/all/application/'; ?>"<?php echo $isSelectedAll; ?>>All</option>
                   <?php foreach ($studio_arr as $studio_key => $studio_val) {
                   $isSelected = $studio_slug == $studio_val['slug'] ? ' selected' : ''; ?>
                     <option value="<?php echo APP_URL.'manage/'.$studio_val['slug'].'/application/'; ?>"<?php echo $isSelected; ?>><?php echo $studio_val['ttl']; ?></option>
@@ -87,6 +91,14 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
             </div>
           </div>
           <?php
+            $meta_query_studio = '';
+            if($studio_id) {
+              $meta_query_studio = array(
+                'key' => 'app_studio',
+                'value' => $studio_id,
+                'compare' => '=',
+              );
+            }
             if($urlYM) {
               $appl_query_all = new WP_Query( array(
                 'post_type' => 'application',
@@ -94,11 +106,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d", strtotime($urlYM.'/1')),
@@ -119,11 +127,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d"),
@@ -151,11 +155,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                 )
               ));
               $appl_query_condition = new WP_Query( array(
@@ -164,11 +164,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                 'post_status' => 'publish',
                 'meta_query' => array(
                   'relation' => 'AND',
-                  array(
-                    'key' => 'app_studio',
-                    'value' => $studio_id,
-                    'compare' => '=',
-                  ),
+                  $meta_query_studio,
                   array(
                     'key' => 'desired_date',
                     'value' => date("Y/m/d"),
@@ -216,15 +212,17 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               'instructor',
             );
             $appl_fields_edit = array(
+              'via02',
               'via',
               'thankyou_phone',
               'in_charge1',
               'confirm_phone',
               'in_charge2',
               'status',
+              'cancelling',
               'memo'
             );
-            if ( $appl_query_condition->have_posts() ) :
+            if ( $appl_query_all->have_posts() ) :
             $i = 0;?>
           <div class="sec-data">
             <h3 class="ttl">体験予約者 管理ボード</h3>
@@ -232,26 +230,34 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
               <div class="tbl-data">
                 <div class="row">
                   <div class="th">NO</div>
+                  <?php if(!$studio_id) {?>
+                  <div class="th">スタジオ</div>
+                  <?php } ?>
                   <div class="th">申込み日時</div>
                   <div class="th">お名前</div>
                   <div class="th">体験予約日</div>
                   <div class="th">開始時間</div>
                   <div class="th">レッスン名</div>
                   <div class="th">インストラクター</div>
-                  <div class="th">経由</div>
+                  <div class="th">経由①</div>
+                  <div class="th">経由②</div>
                   <div class="th">予約確認電話</div>
                   <div class="th">- 担当</div>
-                  <div class="th">2日前確認電話</div>
+                  <div class="th">事前確認電話(1~2日前)</div>
                   <div class="th">- 担当</div>
                   <div class="th">ステータス</div>
+                  <div class="th">キャンセル対応</div>
                   <div class="th">備考・メモ</div>
                 </div>
-                <?php while ( $appl_query_condition->have_posts() ) :
+                <?php while ( $appl_query_all->have_posts() ) :
                   $i++;
-                  $appl_query_condition->the_post();
+                  $appl_query_all->the_post();
                 ?>
                 <div class="row js-row" data-post-id="<?php echo get_the_ID();?>">
                   <div class="td"><p class="txt"><?php echo $i;?></p></div>
+                  <?php if(!$studio_id) {?>
+                  <div class="td"><p class="txt"><?php echo get_field('app_studio')->post_title;?></p></div>
+                  <?php } ?>
                   <?php foreach($appl_fields_form as $val){?>
                     <div class="td"><p class="txt"><?php echo get_field($val);?></p></div>
                   <?php }?>
@@ -259,6 +265,22 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                     <div class="td td--edit">
                   <?php
                       switch($val){
+                        case 'via02':
+                          $via02_arr = array('WEB', '電話', '来店');
+                          $via02_val = get_field($val);
+                  ?>
+
+                      <span class="temp-val js-temp-val"></span>
+                      <select name="<?php echo $val;?>" id="<?php echo $val;?>">
+                        <option value="">選択する</option>
+                        <?php foreach($via02_arr as $vval){
+                          $selected = $via02_val == $vval ? ' selected' : '';
+                        ?>
+                          <option value="<?php echo $vval;?>"<?php echo $selected;?>><?php echo $vval;?></option>
+                        <?php }?>
+                      </select>
+                  <?php
+                          break;
                         case 'via':
                           $via_arr = array('Google検索', 'Yahoo検索', 'LINE', 'Instagram', 'Twitter', 'YouTube', 'ホットペッパービューティー', '楽天ビューティー', 'フィットサーチ', '駅広告', '店舗前広告', 'チラシ（新聞折込）', 'チラシ（ポスティング）', 'ハガキ', 'ラジオ', '雑誌・情報誌・フリーペッパー', '紹介', '再入会', 'その他' );
                           $via_val = get_field($val);
@@ -277,6 +299,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                           break;
                         case 'thankyou_phone':
                         case 'confirm_phone':
+                        case 'cancelling':
                           $phone_arr = array('〇 完了', '× 不通');
                           $phone_val = get_field($val);
                   ?>
