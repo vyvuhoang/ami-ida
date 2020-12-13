@@ -55,13 +55,6 @@ include(APP_PATH.'libs/head.php');
 		    'showposts'       => -1,
 		    'post_status'     => 'publish',
 		    'orderby'         =>'date',
-		    'tax_query' => array(
-		      array(
-		        'taxonomy' => 'studioarea',
-		        'field' => 'slug',
-		        'terms' => '東北',
-		        )
-		      ),
 		  ));
 		  if ($studio->have_posts()) :?>
 			<div class="lst-studio wcm" id="list-studio">

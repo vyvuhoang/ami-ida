@@ -7,12 +7,6 @@
 .breadcrumb{
   padding-bottom: 15px;
 }
-@mixin notoserif {
-  font-family: 'Noto Serif JP', serif;
-}
-@mixin notosans {
-  font-family: 'Noto Sans JP', sans-serif;
-}
 $pinkpurple: #920783;
 $lightpurple: #AE70AC;
 $purple1: #6D2E81;
@@ -534,79 +528,6 @@ body {
     margin-bottom: 46px;
     @include SP{
       margin-bottom: 29px;
-    }
-  }
-  .calendar{
-    background: #fff;
-    @include notosans;
-    @include SP{
-      // width: calc(100% + 30px);
-      // margin: 0 -15px;
-    }
-    .calendar-head{
-      font-size: 0;
-      background: rgba($color: #E9E9E9, $alpha: 0.5);
-      .prev,.next,.txt{
-        display: inline-block;
-        vertical-align: top;
-      }
-      .prev,.next{
-        position: relative;
-        cursor: pointer;
-        transition: 0.5s ease;
-        &:hover:before{border-color: $purple;}
-        &:before{
-          @include absolute('',10px,10px,calc(50% - 4px),'','','');
-          border-top: 3px solid #000;
-          border-left: 3px solid #000;
-          @include SP{
-            @include absolute('',7px,7px,calc(50% - 4px),'','','');
-            border-width: 2px;
-          }
-        }
-      }
-      .prev{
-        width: 47px;
-        height: 47px;
-        &:before{
-          @include transform_c(rotate(-45deg));
-          left: calc(50% - 10px);
-          @include SP{left: calc(50% - 5px);}
-        }
-      }
-      .txt{
-        width: calc(100% - 94px);
-        @include font(15,47/15,0.05em);
-        text-align: center;
-      }
-      .next{
-        width: 47px;
-        height: 47px;
-        &:before{
-          @include transform_c(rotate(135deg));
-          right: calc(50% - 10px);
-          @include SP{right: calc(50% - 5px);}
-        }
-      }
-    }
-  }
-  .lst-date{
-    font-size: 0;
-    margin-bottom: 15px;
-    @include SP{margin-bottom: 9px;}
-    .item{
-      width: 14.28%;
-      color: #fff;
-      text-align: center;
-      background-color: rgba($color: #000, $alpha: 1);
-      display: inline-block;
-      @include font(15,'',0.05);
-      padding: 12px 10px;
-      @include SP{
-        font-size: 12px;
-        padding: 7px 10px;
-      }
-      &:first-child{background-color: $purple;}
     }
   }
   .out-lst{

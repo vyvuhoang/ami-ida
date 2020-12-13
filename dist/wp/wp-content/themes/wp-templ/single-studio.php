@@ -39,10 +39,10 @@ include(APP_PATH.'libs/head.php');
   ?>
   <main>
     <div class="visual">
-      <div class="bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
+      <video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/top/mainvisual.mp4"></video>
       <div class="visual">
         <div class="visual__scroll">
-          <a href="#breadcrumb" class="visual__scroll--btn"><span>scroll</span></a>
+          <a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
         </div>
         <div class="visual__txt">
           <picture>

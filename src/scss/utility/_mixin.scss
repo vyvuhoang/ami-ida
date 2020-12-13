@@ -44,6 +44,12 @@ $browser_prefix: ("-webkit-", "-moz-", "-ms-", "-o-", "");
   font-family: 'Noto Serif JP', serif;
 }
 
+@mixin notoserif {
+  font-family: 'Noto Serif JP', serif;
+}
+@mixin notosans {
+  font-family: 'Noto Sans JP', sans-serif;
+}
 @mixin font-smooth(){
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
