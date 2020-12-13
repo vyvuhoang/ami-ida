@@ -11,8 +11,6 @@ if(!empty($_POST['actionFlag'])) {
     exit();
   } else header('location: '.get_the_permalink());
 }
-
-
 // var_dump(get_field('schedule'));
 $this_studio_lesson_master = array();
 if(get_field('schedule')){
@@ -39,7 +37,7 @@ include(APP_PATH.'libs/head.php');
   ?>
   <main>
     <div class="visual">
-      <video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/top/mainvisual.mp4"></video>
+      <video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/studio/mainvisual.mp4"></video>
       <div class="visual">
         <div class="visual__scroll">
           <a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
@@ -152,7 +150,7 @@ include(APP_PATH.'libs/head.php');
                 <p class="th">月額会費</p>
                 <div class="td">
                   <p class="td01">19,800円 </p>
-                  <p class="td02">※通い放題&溶岩浴利用も可能</p>
+                  <p class="td02">※通い放題&amp;溶岩浴利用も可能</p>
                 </div>
               </div>
             </div>

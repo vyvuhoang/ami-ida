@@ -152,8 +152,6 @@ include(APP_PATH.'libs/head.php');
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage_common.min.css">
 <link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/manage-schedule.min.css">
-<link rel="stylesheet" href="<?php echo APP_ASSETS ?>css/page/single-studio.min.css">
-</head>
 
 <body class="manage manage-schedule">
   <?php include(APP_PATH.'libs/manage_header.php');?>
@@ -309,93 +307,12 @@ include(APP_PATH.'libs/head.php');
               </div>
             </div>
           </div>
-
+          <h3 class="the-title container-1080">登録されているレッスン</h3>
           <div class="sec-schedule" id="anchor03">
             <div class="container-1080">
-              <h3 class="the-title inview fadeInBottom">アミーダ
-                <?php echo get_the_title(); ?>店<br class="pc">レッスンスケジュール
-              </h3>
-              <div class="schedule js-schedule inview fadeInBottom"></div>
+              <div class="schedule js-schedule"></div>
             </div>
           </div>
-
-          <div class="sec-lst-schedule js-lst-schedule">
-            <h3 class="ttl">登録されているレッスン</h3>
-            <ul class="lst-ttl">
-              <li class="item">レッスンタイトル</li>
-              <li class="item">日程</li>
-              <li class="item">開始時間</li>
-              <li class="item">終了時間</li>
-              <li class="item">担当インストラクター</li>
-              <li class="item"></li>
-            </ul>
-            <?php foreach($schedule_fields as $key=> $value){?>
-            <input type="hidden" id="schedule_delete" name="schedule_delete" value="" class="js-val-row-delete">
-            <div class="js-rp rp">
-              <?php $i = 0;
-                if (have_rows($key, $studio_id)) {
-                  while (have_rows($key, $studio_id)) {
-                    the_row();
-              ?>
-              <div class="row js-row" data-row="<?php echo $i; ?>">
-                <div class="inside">
-                  <?php foreach($rp_schedule as $rp_key=>$rp_value){
-                      switch($rp_key){
-                        case 'lesson_master':
-                      ?>
-                  <select name="<?php echo $key.'_'.$i.'_'.$rp_key?>" id="<?php echo $key.'_'.$i.'_'.$rp_key?>"
-                    class="restrict" disabled>
-                    <?php if(!get_sub_field($rp_key, $studio_id)->ID){?>
-                    <option value="">
-                      <?php echo get_sub_field('custom_lesson_title', $studio_id)?>
-                    </option>
-                    <?php }?>
-                    <?php foreach($lesson_master_arr as $lesson_master_key => $lesson_master_val){
-                          $selected = (get_sub_field($rp_key, $studio_id)->ID) == $lesson_master_val['id'] ? ' selected' : '';
-                          ?>
-                    <option value="<?php echo $lesson_master_val['id'];?>" <?php echo $selected;?> data-id="
-                      <?php echo $lesson_master_val['id'];?>" data-ttl="
-                      <?php echo $lesson_master_val['ttl'];?>" data-content="
-                      <?php echo $lesson_master_val['content'];?>" data-level="
-                      <?php echo $lesson_master_val['level'];?>">
-                      <?php echo $lesson_master_val['ttl'];?>
-                    </option>
-                    <?php }?>
-                  </select>
-                  <?php
-                          break;
-                        case 'date':
-                      ?>
-                  <input type="text" id="<?php echo $key.'_'.$i.'_'.$rp_key?>"
-                    name="<?php echo $key.'_'.$i.'_'.$rp_key?>" class="js-datepicker datepicker restrict"
-                    value="<?php echo get_sub_field($rp_key, $studio_id);?>" disabled>
-                  <?php
-                          break;
-                        default:
-                      ?>
-                  <input type="text" name="<?php echo $key.'_'.$i.'_'.$rp_key?>"
-                    id="<?php echo $key.'_'.$i.'_'.$rp_key?>" value="<?php echo get_sub_field($rp_key, $studio_id);?>"
-                    disabled>
-                  <?php
-                          break;
-                      ?>
-                  <?php }
-                    }?>
-                  <div class="btn-edit js-edit-row">修正する</div>
-                  <div class="btn-delete delete-rp js-delete-row">削除する</div>
-                </div>
-              </div>
-              <?php
-                    $i++;
-                  }
-                }
-              ?>
-            </div>
-            <input type="hidden" id="<?php echo $key;?>" name="<?php echo $key;?>" value="<?php echo $i;?>"
-              class="js-number-rp">
-            <?php }?>
-          </div>
-
         </form>
       </div>
     </div>
@@ -411,14 +328,43 @@ include(APP_PATH.'libs/head.php');
                 <div class="rp">
                   <div class="row js-row">
                     <div class="inside inside-popup">
-                      <input name="_lesson_master" class="restrict" id="_popup_course_type" value="" disabled></select>
-                      <input type="text" class="js-datepicker datepicker restrict" id="_popup_course_date" value=""
-                        disabled>
-                      <input type="text" id="_popup_course_time_start" value="" disabled>
-                      <input type="text" id="_popup_course_time_end" value="" disabled>
-                      <input type="text" id="_popup_course_instructor" value="" disabled>
-                      <div class="btn-edit js-edit-row-popup">修正する</div>
-                      <div class="btn-delete delete-rp js-delete-row-popup">削除する</div>
+                      <div class="grInput">
+                        <div class="grInput__row">
+                          <p class="grInput__row--ttl">レッスンタイトル</p>
+                          <div class="grInput__row--input">
+                            <input name="_lesson_master" class="restrict name" id="_popup_course_type" value="" disabled>
+                          </div>
+                        </div>
+                        <div class="grInput__row">
+                          <p class="grInput__row--ttl">日程</p>
+                          <div class="grInput__row--input">
+                            <input type="text" class="js-datepicker datepicker restrict" id="_popup_course_date" value=""
+                            disabled>
+                          </div>
+                        </div>
+                        <div class="grInput__row">
+                          <p class="grInput__row--ttl">開始時間</p>
+                          <div class="grInput__row--input">
+                            <input type="text" id="_popup_course_time_start" value="" disabled>
+                          </div>
+                        </div>
+                        <div class="grInput__row">
+                          <p class="grInput__row--ttl">終了時間</p>
+                          <div class="grInput__row--input">
+                            <input type="text" id="_popup_course_time_end" value="" disabled>
+                          </div>
+                        </div>
+                        <div class="grInput__row">
+                          <p class="grInput__row--ttl">担当インストラクター</p>
+                          <div class="grInput__row--input">
+                            <input type="text" id="_popup_course_instructor" value="" disabled>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="grBtn">
+                        <div class="btn-edit js-edit-row-popup">修正する</div>
+                        <div class="btn-delete delete-rp js-delete-row-popup">削除する</div>
+                      </div>
                     </div>
                   </div>
                 </div>
