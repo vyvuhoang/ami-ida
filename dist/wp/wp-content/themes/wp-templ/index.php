@@ -71,9 +71,18 @@ include(APP_PATH.'libs/head.php');
 	  $wp_news = new WP_Query();
 	  $param_news = array(
 	    'post_type'=>'news',
-	    'order' => 'DESC',
-	    'showposts' => '3',
-	    'orderby' => 'date',
+			'order' => 'DESC',
+			'showposts' => 3,
+			'meta_key' => 'date',
+			'orderby' => 'meta_value',
+			'order' => 'DESC',
+			'meta_query' => array(
+				array(
+					'key' => 'studio',
+					'value' => '',
+					'compare' => '='
+				)
+			)
 	  );
 	  $wp_news->query($param_news);
 	  if($wp_news->have_posts()){
