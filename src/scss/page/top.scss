@@ -17,32 +17,34 @@ INTRO
     z-index: 0;
   }
   video{
+    height: 100%;
     min-width:100vw;min-height:100vh;
-    position: absolute;
-    // top:0;left:0;
-    top:50%;left:50%;
+    position: absolute;    top:50%;left:50%;
     @include transform_c(translate(-50%,-50%));
   }
 }
 .intro{
-	// max-width: 846px;
-  max-width: 1000px;
-	padding: 80px 20px 80px;
-	display: flex;justify-content: space-between;
-	align-items: center;flex-wrap: wrap;
-	@include max-screen(767px){
-		padding-top: 50px;
-		padding-bottom: 45px;
-	}
+  // background: #F5F1F7;
+  >.wcm:nth-child(1){
+    max-width: 1000px;
+    padding: 80px 20px 80px;
+    display: flex;justify-content: space-between;
+    align-items: center;flex-wrap: wrap;
+    @include screen(768px,1000px){padding: 65px 20px 40px;}
+    @include max-screen(767px){padding: 45px 20px;}
+    @include max-screen(370px){padding: 40px 20px;}
+  }
 	&__img{
 		width: 362px;
-		img{width: 100%;}
+		img{width: 100%;border-radius: 50%;}
+    @include screen(768px,1000px){width: 280px;}
 		@include max-screen(767px){
       margin-top: 40px;
 			order: 2;width:100%;
 			text-align: center;
 			img{max-width: 300px;}
 		}
+    @include max-screen(370px){img{width:230px;}}
 	}
 	.c-btn{
 		@include max-screen(767px){
@@ -51,37 +53,78 @@ INTRO
 	}
 	&__info{
 		width: calc(100% - 362px);
-		// padding-left: 8.1%;
     padding-left: 6%;
+    @include screen(768px,1000px){
+      width: calc(100% - 280px);
+      padding-left: 15px;
+    }
 		@include max-screen(767px){
 			order: 1;text-align: center;
 			width:100%;padding-left: 0;
 		}
-		// &--ttl{
-		// 	@include font(26,42/26,0.1,600);
-		// 	@include noto;
-		// 	@include max-screen(767px){
-		// 		font-size: 20px;line-height: 1.8;
-		// 	}
-		// }
     &--ttl{
       @include font(24,2.2,0.1,500);
-      @include noto;
+      @include noto;text-align: center;
+      @include screen(768px,1000px){
+        font-size: 20px;
+        letter-spacing: 0.05em;
+      }
       @include max-screen(767px){
         font-size: 20px;line-height: 1.8;
         font-weight: normal;
         br{display:none;}
       }
-      @include max-screen(370px){font-size: 18px;}
+      @include max-screen(370px){font-size: 17px;}
     }
 		&--txt{
 			margin: 16px 0 28px;
 			@include font(15,27/15,0.1,500);
-			@include max-screen(767px){
-				margin: 26px 0 ;
-			}
+			@include max-screen(767px){margin: 26px 0;}
 		}
 	}
+  &__txt{
+    width:100%;
+    text-align: center;
+    @include noto;
+    @include min-screen(768px){
+      margin-bottom: 50px;
+      .wcm{
+        background: #F5F1F7;
+        padding: 60px 0 70px;
+        max-width: calc(100% - 100px);
+      }
+    }
+    @include screen(768px,1000px){
+      img{width: 100px;}
+    }
+    @include max-screen(767px){
+      background: #F5F1F7;
+      max-width: calc(100% - 30px);
+      margin: 0 auto 30px;
+      padding: 30px 0;
+      img{width: 80px;}
+    }
+    &--ttl{
+      @include font(24,2.2,0.1,500);
+      padding: 20px 0 25px;
+      @include screen(768px,1000px){
+        font-size: 22px;    
+        padding: 15px 0 20px; 
+      }
+      @include max-screen(767px){
+        padding: 10px 0 15px;
+        font-size: 20px;line-height: 1.8;
+        font-weight: normal;
+      }
+      @include max-screen(370px){font-size: 18px;}
+    }
+    &--txt{
+      @include font(18,1.6,0);
+      @include screen(768px,1000px){font-size: 16px;}
+      @include max-screen(767px){font-size: 15px;}
+      @include max-screen(370px){font-size: 14px;}
+    }
+  }
 }
 /*-----------------------------------------------------------
 INTRO
@@ -92,11 +135,12 @@ INTRO
 	@include max-screen(767px){
 		padding: 30px 10px;
 	}
-  @include max-screen(370px){padding: 20px 0;}
+  @include max-screen(370px){padding: 20px 10px;}
 	.wcm{
 		max-width: 1120px;
 		display: flex;justify-content: space-between;
 		align-items: center;flex-wrap: wrap;
+    @include max-screen(767px){padding:0 5px;}
 	}
 	&__item{
 		width: calc(33.33% - 20px);
@@ -125,6 +169,9 @@ INTRO
 				&:after{opacity: 0.5}
 			}
 		}
+    @include screen(768px,1000px){
+      width: calc(33.33% - 15px);
+    }
 		@include max-screen(767px){
 			width: 100%;
 			@include aspect-ratio(343,150);
@@ -147,6 +194,7 @@ INTRO
 		}
 		&--ttl{
 			@include font(22,32/22,0.1,600);
+      @include screen(768px,1000px){font-size: 17px;}
       @include max-screen(370px){font-size: 20px;}
 		}
 		&--txt{

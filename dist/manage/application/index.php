@@ -315,7 +315,7 @@ if(isset($_SESSION['logID']) && $_SESSION['logID']){
                   <?php
                           break;
                         case 'status':
-                          $status_arr = array('入会', '検討中', '未入会', '体験キャンセル', '不通');
+                          $status_arr = array('入会', '検討中', '未入会', '追客対応', '不通');
                           $status_val = get_field($val);
                   ?>
                     <span class="temp-val js-temp-val"></span>
