@@ -780,3 +780,111 @@ POPUP
     }
   }
 }
+
+.feature1{
+  padding-top: 80px;
+  // background: url(../../img/common/amiida.png) right top 5px/400px auto no-repeat;
+  @include screen(768px,1024px){
+    margin-top: 10px;padding-top: 80px;
+    background-size: 300px auto;
+  }
+  @include max-screen(767px){
+    background-size: 160px auto;
+    padding-top: 40px;
+  }
+  .wcm{
+     max-width: 1010px;
+     @include screen(768px,1024px){max-width: 940px;}
+  }
+  &__lst{
+    margin-top: 65px;
+    display: flex;justify-content: space-between;
+    flex-wrap: wrap;
+    @include max-screen(767px){margin-top: 44px;}
+    &--item{
+      margin-bottom: 65px;width: 100%;
+      display: flex; justify-content: space-between;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);flex-wrap: wrap;
+      @include max-screen(767px){
+        width: 100%;margin-bottom: 30px;
+      }
+      &:nth-child(2n){
+        @include min-screen(768px){
+          .img{order: 2;}
+          .info{order: 1;}
+        }
+      }
+      .img{
+        width: 55.67%;
+        min-height: 296px;
+        background-size: cover;
+        background-position: center;
+        @include screen(768px,950px){width: 50%;min-height: 224px;}
+        @include max-screen(767px){
+          width:100%;min-height: 1px;
+          @include aspect-ratio(400,260);
+        }
+      }  
+      .info{
+        text-align: left;
+        width: 44.33%;
+        padding: 30px 20px;
+        display: flex;justify-content: center;
+        align-items: center;
+        @include screen(768px,1024px){
+          padding: 20px 15px;
+        }
+        @include screen(768px,950px){
+          width: 50%;padding-left: 20px;
+        }
+        @include max-screen(767px){
+          width: 100%;
+          padding: 18px 15px;
+        }
+        .inner{
+          width: 100%;max-width: 340px;
+          margin: auto;
+          .ttl{
+            display: inline-block;
+            @include font(22,34/20,0.1,600);
+            @include noto;position: relative;
+            @include screen(768px,950px){font-size: 20px;}
+            @include max-screen(767px){
+              font-size: 18px;line-height: 1.2;
+              padding-left: 6px;
+            }
+            @include max-screen(370px){letter-spacing: 0;}
+            &:before{
+              content:"";position: absolute;
+              bottom: 4px;left:0;
+              width: 100%;height: 10px;
+              background: $purple_bg;
+              opacity: 0.4;
+              @include max-screen(767px){
+                bottom: 0;
+                height: 8px;
+              }
+            }
+          }
+          .txt{
+            padding: 25px 0 2px;
+            @include font(16,30/16,0.1,500);
+            @include screen(951px,1024px){
+              font-size: 15px;
+              padding-top: 20px;
+            }
+            @include screen(768px,950px){
+              font-size: 14px;
+              padding-top: 10px;
+              letter-spacing: 0.05em;
+            }
+            @include max-screen(767px){
+              padding: 15px 0 0;
+              @include font(14,24/14,0.01);
+            }
+          }
+        }
+      }  
+    }
+  }
+}

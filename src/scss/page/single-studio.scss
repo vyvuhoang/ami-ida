@@ -69,6 +69,7 @@ body {
   background: url(../../img/studio/bg01.jpg) center/cover no-repeat;
   overflow: hidden;
   @include SP {
+    padding-top: 50px;
     background: #F8EDF1;
     position: relative;
 
@@ -86,16 +87,17 @@ body {
     align-items: center;flex-wrap: wrap;
   }
   .inside {
-    width: 60%;
+    width: 50%;
+    padding-right: 20px;
     @include SP {
       width:100%;
-      padding: 65px 0 30px;
+      padding: 40px 0 30px;
       position: relative;
       z-index: 1;
     }
   }
   .bg{
-    width: 37%;
+    width: 50%;
     @include max-screen(767px){width:100%;}
     .img{
       width: 100%;display: block;
@@ -112,27 +114,40 @@ body {
     }
   }
   .lst-intro {
+    max-width: 360px;
+    margin: auto;
     font-size: 0;
     @include SP {text-align: center;}
     .item {
-      width: calc(33.33% - 22px);
-      @include aspect-ratio(1, 1);
-      @include ffYM;
-      background-color: $lightpurple;
-      position: relative;
+      width: calc(50% - 15px);
       display: inline-block;
-      border-radius: 50%;
-      color: #fff;
-      box-shadow: 0 10px 0 rgba($color: #E0C0DF, $alpha: 0.5);
-      @include PC {
-        &:not(:first-child) {
-          margin-left: 32px;
+      vertical-align: top;
+      .ttl{
+        text-align: center;
+        @include font(20,1.5,0.05,500);
+        margin-bottom: 8px;
+        @include max-screen(370px){
+          font-size: 18px;
         }
       }
+      .circle{
+        width:100%;
+        @include aspect-ratio(1, 1);
+        @include ffYM;
+        background-color: $lightpurple;
+        position: relative;
+        border-radius: 50%;
+        color: #fff;
+        box-shadow: 0 10px 0 rgba($color: #E0C0DF, $alpha: 0.5);
+      }
+      &:not(:first-child) {
+        margin-left: 30px;
+        @include SP{margin-left: 20px;}
+      }
       @include SP {
-        width: 100%;
+        width: calc(50% - 10px);
         max-width: 220px;
-        margin-bottom: 24px;
+        margin-bottom: 10px;
       }
       .txt {
         @include absolute(0, 100%, auto, 50%, '', '', 0);
@@ -140,14 +155,18 @@ body {
         @include transform_c(translateY(-50%));
       }
       .txt01 {
-        @include font(24, 40/24, 0.15, 500);
+        @include font(20, 40/24, 0, 500);
+        text-decoration: line-through;
         @include screen(951px,1024px){font-size: 20px;}
         @include screen(768px,950px){font-size: 16px;}
+        @include max-screen(370px){font-size: 17px;margin-top:5px;}
       }
       .txt02 {
-        @include font(42, 63/42, 0.06, 500);
+        @include font(38, 63/42, 0.06, 500);
+        color: yellow;
         @include screen(768px,1024px){font-size: 34px;}
         @include screen(768px,950px){font-size: 30px;}
+        @include max-screen(370px){font-size: 30px;}
       }
       .price {
         .number,.unit {
@@ -155,21 +174,84 @@ body {
           vertical-align: bottom;
         }
         .number {
-          @include font(68, 68/68, 0.06, 500);
+          color: yellow;
+          @include font(50, 68/68, 0.06, 500);
           @include screen(951px,1024px){font-size: 56px;}
           @include screen(768px,950px){font-size: 40px;}
+          @include max-screen(370px){font-size: 40px;}
         }
         .unit {
-          @include font(32, 51/32, 0.06, 500);
+          color: yellow;
+          @include font(28, 51/32, 0.06, 500);
           @include screen(951px,1024px){font-size: 30px;}
           @include screen(768px,950px){font-size: 24px;}
+          @include max-screen(370px){font-size: 22px;}
+        }
+      }
+    }
+  }
+  .gr03{
+    width:100%;max-width:500px;
+    margin:30px auto 0;
+    >.ttl{
+      text-align: center;
+       @include font(24,1.5,0.05,600);
+       margin: 0px auto 5px;
+       @include SP{font-size:19px;}
+       @include max-screen(370px){font-size: 16px;}
+       em{
+        color: $purple;
+        font-style: normal;
+       }
+    }
+    &__lst{
+      @include font(0,0,0);
+      @include SP{
+        margin-top: 30px;
+        text-align: center; 
+      }
+      &--item{
+        display: inline-block;
+        vertical-align: top;
+        width: calc(33.33% - 10px);
+        text-align: center;
+        @include SP{
+          width: calc(50% - 10px);
+          margin-bottom: 25px;
+          &:nth-child(2){
+            margin-left: 20px;
+          }
+        }
+        &:not(:last-child){
+          margin-right: 15px;
+          @include SP{margin-right: 0;}
+        }
+        .ttl{
+          @include font(17,1.4,0);
+          @include max-screen(370px){font-size: 16px;}
+        }
+        .circle{
+          margin: 10px 0 15px;
+          max-width:140px;
+          display: inline-block;
+          width:100%;
+          position: relative;
+          border-radius: 50%;
+          color: #fff;
+          box-shadow: 0 10px 0 rgba($color: #E0C0DF, $alpha: 0.5);
+          img{border-radius: 50%;}
+        }
+        .txt{
+          @include font(14,1.4,0);
+          margin-top: 10px;
+          @include max-screen(370px){font-size: 12px;margin-top: 5px;}
         }
       }
     }
   }
 }
 .sec-btns {
-  background: url(../../img/studio/bg02.jpg) center/cover no-repeat;
+  background: $purple;//url(../../img/studio/bg02.jpg) center/cover no-repeat;
   font-size: 0;
   padding: 80px 15px;
   @include SP {
@@ -295,7 +377,7 @@ body {
             font-size: 13px;
             margin-left: 0;
             margin-top: 3px;
-            // display: block;
+            display: block;
           }
         }
       }
@@ -315,7 +397,7 @@ body {
           .th,.td01,.td02 {
             display: inline-block;
             vertical-align: top;
-            @include font(15, '', 0.1, bold);
+            @include font(15, '', 0.05, bold);
             @include max-screen(767px){
               font-size: 14px;
             }
@@ -326,16 +408,16 @@ body {
             border-bottom: 1px solid #E8CFD8;
           }
           .th {
-            width: 250px;
+            width: 260px;
             text-align: center;
             border-bottom: 1px solid $pinkpurple;
             @include SP {width: 145px;}
           }
           .td {
-            width: calc(100% - 250px);
+            width: calc(100% - 260px);
             @include SP {
               width: calc(100% - 145px);
-              padding-left: 15px;
+              padding-left: 10px;
             }
           }
           .td01 {
@@ -482,7 +564,7 @@ body {
   }
 }
 .sec-voice {
-  padding: 90px 0;
+  padding: 90px 0 10px;
   .container-1080{max-width: 1000px;}
   @include SP {
     padding: 50px 0 50px;
@@ -557,6 +639,21 @@ body {
   .container-1080{
     @include SP{
       padding: 0
+    }
+  }
+  .the-txt{
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto 40px;
+    @include font(18,1.8,0);
+    text-align: center;
+    @include SP{font-size: 14px;}
+    em{
+      font-style: normal;
+      font-size: 22px;
+      margin-bottom: -15px;
+      display: block;
+      @include SP{font-size: 18px;}
     }
   }
   .the-title{
@@ -1423,66 +1520,39 @@ body {
     margin: 70px 0 0;
     padding-right: 50px;
     @include screen(768px,1000px){padding-right: 35px;}
-    @include max-screen(767px){margin-top: 40px;padding:0;}
+    @include max-screen(767px){margin-top: 20px;padding:0;}
     &--item{
       width: 100%;background: #fff;
       display: flex;justify-content: space-between;
-      align-items: center;flex-wrap: wrap;
+      flex-wrap: wrap;
       padding: 30px 20px 30px 50px;
       border: 3px solid rgba(0,0,0,0.1);
+      position: relative;
+      &:before{
+        content:"";position: absolute;
+        width:450px;height: 100%;
+        border: 3px solid rgba(0,0,0,0.1);
+        background: url(../../img/studio/water.jpg) center/cover no-repeat;
+        top: 30px;right:-50px;
+        @include screen(768px,1000px){
+          right: -35px;
+          width: 330px;
+        }
+        @include max-screen(767px){
+          position: relative;
+          right: 0;
+          margin: 0 auto -20px;
+          width: calc(100% - 40px);
+          display: block;
+          padding-top: (281 / 375) * 100%;
+        }
+      }
       @include screen(768px,1000px){
         padding: 25px 25px 25px 30px;
       }
       @include max-screen(767px){
-        padding: 0;bordeR:none;
+        padding: 0;border:none;
         background: none;
-      }
-      .img{
-        width: 450px;
-        position: relative;
-        margin-right: -70px;
-        @include clearfix();
-        @include screen(768px,1000px){
-          width: 300px;margin-right: -55px;
-        }
-        @include max-screen(767px){
-          order: 1;width:100%;
-          margin: 0 auto -2px;
-          padding:0 35px;
-          position: relative;
-          &:before{
-            content:"";position: absolute;
-            width:100%;height: 50%;
-            background: #fff;
-            bottom: 0;left:0;
-            border-top: 2px solid rgba(0,0,0,0.1);
-            border-left: 2px solid rgba(0,0,0,0.1);
-            border-right: 2px solid rgba(0,0,0,0.1);;
-          }
-        }
-        @include max-screen(370px){padding: 0 30px;}
-        .img1,.img2{
-          display: block;
-          width: 100%;
-          max-width: 300px;
-          @include aspect-ratio(200,135);
-          background-size: cover;
-          background-position: center;
-          @include screen(768px,1000px){
-            max-width: 240px;
-          }
-          @include max-screen(767px){
-            max-width: calc(100% - 50px);
-            border: 2px solid rgba(0,0,0,0.1);
-          }
-        }
-        .img1{
-          float: right;
-        }
-        .img2{
-          float: left;
-          margin-top: -75px;
-        }
       }
       .info{
         width: calc(100% - 380px);
@@ -1495,14 +1565,14 @@ body {
           border-bottom: 2px solid rgba(0,0,0,0.1);
           border-left: 2px solid rgba(0,0,0,0.1);
           border-right: 2px solid rgba(0,0,0,0.1);;
-          padding: 40px 25px;
+          padding: 70px 25px 40px;
         }
         @include max-screen(370px){padding: 35px 20px;}
         ul>li{
           @include font(20,1.6,0.1,500);
           padding-left: 35px;
           background: url(../../img/top/ico_check.svg) left center/20px 21px no-repeat;           
-          @include screen(768px,1000px){font-size: 18px;}
+          @include screen(768px,1000px){font-size: 17px;}
           @include max-screen(767px){
             padding-left: 30px;
             font-size: 16px;background-size: 16px auto;
@@ -1513,6 +1583,7 @@ body {
           }
           &:not(:last-child){
             margin-bottom: 20px;
+            @include screen(768px,1000px){margin-bottom: 15px;}
             @include max-screen(370px){margin-bottom: 15px;}
           }
         }

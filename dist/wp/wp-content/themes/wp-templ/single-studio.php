@@ -100,30 +100,53 @@ include(APP_PATH.'libs/head.php');
           <div class="inside">
             <ul class="lst-intro">
               <li class="item">
-                <div class="txt">
-                  <p class="txt01">入会特典<br>月額会費</p>
-                  <p class="txt02">半額</p>
+                <div class="ttl">入会金+登録料</div>
+                <div class="circle">
+                  <div class="txt">
+                    <p class="txt01">通常10,000円</p>
+                    <p class="price">
+                      <span class="number">0</span>
+                      <span class="unit">円</span>
+                    </p>
+                  </div>
                 </div>
               </li>
               <li class="item">
-                <div class="txt">
-                  <p class="txt01">入会特典<br>入会</p>
-                  <p class="price">
-                    <span class="number">0</span>
-                    <span class="unit">円</span>
-                  </p>
-                </div>
-              </li>
-              <li class="item">
-                <div class="txt">
-                  <p class="txt01">入会特典<br>水素飲み放題</p>
-                  <p class="price">
-                    <span class="number">0</span>
-                    <span class="unit">円</span>
-                  </p>
+                <p class="ttl">月額会費</p>
+                <div class="circle">
+                  <div class="txt">
+                    <p class="txt01">12月＆1月分</p>
+                    <p class="txt02">半額</p>
+                  </div>
                 </div>
               </li>
             </ul>
+            <div class="gr03">
+              <p class="ttl"><em>＼</em> 更に！入会者全員にプレゼント <em>／</em></p>
+              <div class="gr03__lst">
+                <div class="gr03__lst--item">
+                  <p class="ttl">水素水ボトル</p>
+                  <div class="circle">
+                    <img src="<?php echo APP_ASSETS; ?>img/studio/circle01.jpg" alt="">
+                  </div>
+                  <p class="txt">※水素水飲み放題<br>2ヶ月分無料</p>
+                </div>
+                <div class="gr03__lst--item">
+                  <p class="ttl">ヨガラグ</p>
+                  <div class="circle">
+                    <img src="<?php echo APP_ASSETS; ?>img/studio/circle02.jpg" alt="">
+                  </div>
+                  <p class="txt">※販売価格：3,900円</p>
+                </div>
+                <div class="gr03__lst--item">
+                  <p class="ttl">マットストラップ</p>
+                  <div class="circle">
+                    <img src="<?php echo APP_ASSETS; ?>img/studio/circle03.jpg" alt="">
+                  </div>
+                  <p class="txt">※販売価格：900円</p>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="bg">
             <img class="lazy img" data-src="<?php echo APP_ASSETS; ?>img/studio/img_yoga.jpg" alt="">
@@ -141,7 +164,7 @@ include(APP_PATH.'libs/head.php');
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">料金プラン</h3>
         <ul class="lst-price js-lst-price inview fadeInBottom">
-          <li class="item">
+        <!--   <li class="item">
             <h4 class="item-ttl js-price-ttl">
               <span class="txt01">料金プラン</span>
             </h4>
@@ -154,7 +177,7 @@ include(APP_PATH.'libs/head.php');
                 </div>
               </div>
             </div>
-          </li>
+          </li> -->
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
               <span class="txt01">オプションサービス</span>
@@ -286,8 +309,8 @@ include(APP_PATH.'libs/head.php');
     </div> -->
     <div class="sec-voice">
       <div class="slider js-voice-slider">
-        <?php for($i=0;$i<7;$i++){ ?>
-          <div class="item inview fadeInBottom" style="background-image: url(<?php echo APP_ASSETS; ?>img/top/slide<?php echo $i+1; ?>.jpg);"></div>
+        <?php for($i=0;$i<10;$i++){ ?>
+          <div class="item inview fadeInBottom" style="background-image: url(<?php echo APP_ASSETS; ?>img/studio/slide<?php echo $i+1; ?>.jpg);"></div>
         <?php } ?>
       </div>
       <h3 class="the-title">アミーダの<br class="sp">溶岩ホットヨガを<br>選ぶお客様のお声</h3>
@@ -301,20 +324,73 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-    <div class="feature wcm">
-      <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店が選ばれる理由</h3>
+  <!--   <div class="feature wcm">
+      <h3 class="the-title inview fadeInBottom">アミーダ<?php //echo get_the_title(); ?>店が選ばれる理由</h3>
       <div class="feature__lst">
-        <?php $feature = array("未経験・初心者でも<br>安心の少人数制レッスン","天然溶岩石の<br>スタジオ","通いやすい<br>女性専用スタジオ<br>※有明店を除く","レベルの高い<br>インストラクター","清潔感のある<br>キレイな施設・スタジオ");
-        for($i=0;$i<count($feature);$i++){ ?>
-          <div class="feature__lst--item lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature<?php echo $i+1; ?>.jpg)">
-          <p class="ttl"><?php echo $feature[$i]; ?></p>
+        <?php //$feature = array("未経験・初心者でも<br>安心の少人数制レッスン","天然溶岩石の<br>スタジオ","通いやすい<br>女性専用スタジオ<br>※有明店を除く","レベルの高い<br>インストラクター","清潔感のある<br>キレイな施設・スタジオ");
+        //for($i=0;$i<count($feature);$i++){ ?>
+          <div class="feature__lst--item lazy" data-bg="url(<?php //echo APP_ASSETS; ?>img/studio/feature<?php //echo $i+1; ?>.jpg)">
+          <p class="ttl"><?php //echo $feature[$i]; ?></p>
         </div>
-      <?php } ?>
+      <?php //} ?>
+      </div>
+    </div> -->
+    <div class="feature1">
+      <div class="wcm">
+        <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店が選ばれる理由</h3>
+        <div class="feature1__lst">
+          <div class="feature1__lst--item inview fadeInBottom">
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature1.jpg)"></div>
+            <div class="info">
+              <div class="inner">
+                <p class="ttl">効果を実感できる<br>溶岩ホットヨガスタジオ　</p>
+                <p class="txt">溶岩石の遠赤外線で、身体の芯から自然に温めるので、呼吸もしやすく身体への負担も少ないです。 <br>天然の溶岩石で温めるスタジオで、ミネラルとマイナスイオン、サラサラした大量の汗が噴き出す感覚を是非体感してください。 </p>
+              </div>
+            </div>
+          </div>
+          <div class="feature1__lst--item inview fadeInBottom">
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature2.jpg)"></div>
+            <div class="info">
+              <div class="inner">
+                <p class="ttl">初体験でも安心の<br>パーソナル型サポート　</p>
+                <p class="txt">初心者の方や、身体の固い方、個人のレベルに合わせた様々なプログラムを用意しております。<br>また、一人一人のお悩みに適した「パーソナル型サポート」を実施しておりますのでお気軽にご来店ください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature1__lst--item inview fadeInBottom">
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature3.jpg)"></div>
+            <div class="info">
+              <div class="inner">
+                <p class="ttl">レベルの高いインストラクター　</p>
+                <p class="txt">お客様にご満足いただける良質なプログラムをご提供するために、アミーダのインストラクターは難関な試験を合格した上でプログラムを担当させて頂いております。<br>経験豊富なインストラクターが、サポートさせていただきますのでご安心ください。</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature1__lst--item inview fadeInBottom">
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature4.jpg)"></div>
+            <div class="info">
+              <div class="inner">
+                <p class="ttl">通いやすい女性専用スタジオ　</p>
+                <p class="txt">お仕事帰りや、隙間時間にご利用頂けるよう、パウダールームを併設しております。<br>貸出しグッズ＆お預けサービスもあり、女性専用スタジオなので安心してご利用いただけます。</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature1__lst--item inview fadeInBottom">
+            <div class="img lazy" data-bg="url(<?php echo APP_ASSETS; ?>img/studio/feature5.jpg)"></div>
+            <div class="info">
+              <div class="inner">
+                <p class="ttl">予定が合わせやすい<bR>豊富なレッスンスケジュール　</p>
+                <p class="txt">自分の目的に合わせて、様々なレベル感のレッスンの中から、好きなレッスンに参加していただけます。<br>好きなタイミングで、好きなペースで、無理なく通って頂けます。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="sec-schedule" id="anchor03">
       <div class="container-1080">
         <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店<br class="pc">レッスンスケジュール</h3>
+        <div class="the-txt"><em>＜ オススメのレッスン準備 ＞</em><br>スタジオはレッスンの15分前から入ることができます。<br class="pc">レッスン前の15分間で、溶岩浴で体を温め、呼吸を整え、心を整えることで、45分のレッスンを集中して受けることができ、効果をより実感いただけます。</div>
         <div class="schedule js-schedule inview fadeInBottom"></div>
       </div>
     </div>
@@ -460,6 +536,7 @@ include(APP_PATH.'libs/head.php');
                 <li>水分補給用のお水<br class="sp">（1リットル程度）</li>
                 <li>汗拭き用のフェイスタオル</li>
                 <li>シャワー用のバスタオル</li>
+                <li>身分証明書</li>
               </ul>
             </div>
             <div class="img">

@@ -10,7 +10,8 @@ include(APP_PATH.'libs/head.php');
 <?php include(APP_PATH.'libs/header.php'); ?>
 <main id="wrap">
 	<div class="visual">
-		<video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/studio/mainvisual.mp4"></video>
+		<div class="visual__bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
+		<!-- <video muted="" autoplay="" playsinline="" loop><source src="<?php //echo APP_ASSETS; ?>img/studio/mainvisual.mp4"></video> -->
 	  <div class="visual">
 	    <div class="visual__scroll">
 	      <a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
@@ -34,7 +35,7 @@ include(APP_PATH.'libs/head.php');
 		</div>
 		<div class="intro__txt inview fadeInBottom">
 			<div class="wcm">
-				<img src="<?php echo APP_ASSETS; ?>img/common/logo-pc.png" alt="Amiida" class="logo">
+				<img src="<?php echo APP_ASSETS; ?>img/top/logo.jpg" alt="Amiida" class="logo">
 				<p class="intro__txt--ttl">アミーダの想い</p>
 				<p class="intro__txt--txt">アミーダの名前には「無量の光」という意味が込められています。<br>またロゴにある蓮の花は、泥水の中でも美しい花を咲かせます。<br><br>現代社会で仕事、家事、育児など「ストレス」を感じる事も多く、<br>泥水に浸かってしまうような時もありますが、<br class="pc">アミーダを通じて、心身ともに蓮の花のように美しく輝いていく<br>女性になってほしい、という想いを名前とロゴにこめております。<br><br>「心も、体も、美しく変化した」と思っていただける方を<br class="pc">日本全国に、一人でも多く増やしていきたい。<br><br>それが私たちの想いです。</p>
 			</div>
