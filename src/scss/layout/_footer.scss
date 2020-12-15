@@ -105,7 +105,8 @@ $gray: rgba(255,255,255,0.5);
     @include max-screen(767px){
       text-align: center;
       width:100%;font-size: 12px;
-      padding-top: 23px;
+      padding-top: 23px;letter-spacing: 0.1em;
     }
+    @include max-screen(370px){font-size: 11px;}
   }
 }

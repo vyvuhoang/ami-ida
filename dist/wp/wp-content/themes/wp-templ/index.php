@@ -7,21 +7,10 @@ include(APP_PATH.'libs/head.php');
 </head>
 <body id="top" class='top'>
 <!-- HEADER -->
-<!-- <div class="loading">
-	<div class="loading__inner">
-		<div class="loading__inner--logo">
-			<div class="logo">
-				<?php //for($i=0;$i<9;$i++){?>
-					<img src="<?php //echo APP_ASSETS; ?>img/top/logo<?php //echo $i; ?>.png" alt="">
-				<?php //} ?>
-			</div>
-		</div>
-	</div>
-</div> -->
 <?php include(APP_PATH.'libs/header.php'); ?>
 <main id="wrap">
 	<div class="visual">
-		<video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/top/mainvisual.mp4"></video>
+		<video muted="" autoplay="" playsinline="" loop><source src="<?php echo APP_ASSETS; ?>img/studio/mainvisual.mp4"></video>
 	  <div class="visual">
 	    <div class="visual__scroll">
 	      <a href="#intro" class="visual__scroll--btn"><span>scroll</span></a>
@@ -34,12 +23,21 @@ include(APP_PATH.'libs/head.php');
 	    </div>
 	  </div>
 	</div>
-	<div class="intro wcm" id="intro">
-		<div class="intro__img inview fadeInBottom">
-			<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.png" alt="">
+	<div class="intro" id="intro">
+		<div class="wcm">
+			<div class="intro__img inview fadeInBottom">
+				<img src="<?php echo APP_ASSETS; ?>img/top/img_intro.jpg" alt="">
+			</div>
+			<div class="intro__info inview fadeInBottom fadeInBottomDelay">
+				<h3 class="intro__info--ttl">94%の会員様に、アミーダのヨガを通じて、<br>「心と体の変化」を感じて頂いてます。</h3>
+			</div>
 		</div>
-		<div class="intro__info inview fadeInBottom fadeInBottomDelay">
-			<h3 class="intro__info--ttl">94%の会員様に、アミーダのヨガを通じて、<br>「心と体の変化」を感じて頂いてます。</h3>
+		<div class="intro__txt inview fadeInBottom">
+			<div class="wcm">
+				<img src="<?php echo APP_ASSETS; ?>img/common/logo-pc.png" alt="Amiida" class="logo">
+				<p class="intro__txt--ttl">アミーダの想い</p>
+				<p class="intro__txt--txt">アミーダの名前には「無量の光」という意味が込められています。<br>またロゴにある蓮の花は、泥水の中でも美しい花を咲かせます。<br><br>現代社会で仕事、家事、育児など「ストレス」を感じる事も多く、<br>泥水に浸かってしまうような時もありますが、<br class="pc">アミーダを通じて、心身ともに蓮の花のように美しく輝いていく<br>女性になってほしい、という想いを名前とロゴにこめております。<br><br>「心も、体も、美しく変化した」と思っていただける方を<br class="pc">日本全国に、一人でも多く増やしていきたい。<br><br>それが私たちの想いです。</p>
+			</div>
 		</div>
 	</div>
 	<div class="anchor inview fadeInBottom">
@@ -108,7 +106,7 @@ include(APP_PATH.'libs/head.php');
 			<a href="<?php echo APP_URL; ?>information/" class="img">
 				<picture>
 				  <source srcset="<?php echo APP_ASSETS; ?>img/top/bn_measures-sp.jpg" media="(max-width: 767px)">
-				  <img src="<?php echo APP_ASSETS; ?>img/top/bn_measures.jpg" alt="">
+				  <img src="<?php echo APP_ASSETS; ?>img/top/banner01.jpg" alt="">
 				</picture>
 			</a>
 		</div>
