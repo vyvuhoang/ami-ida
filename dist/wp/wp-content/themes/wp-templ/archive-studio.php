@@ -54,7 +54,8 @@ include(APP_PATH.'libs/head.php');
 		    'post_type'       => 'studio',
 		    'showposts'       => -1,
 		    'post_status'     => 'publish',
-		    'orderby'         =>'date',
+		    'orderby'         => 'menu_order',
+		    'order'           => 'ASC',
 		    // 'tax_query' => array(
 		    //   array(
 		    //     'taxonomy' => 'studioarea',

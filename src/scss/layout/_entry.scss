@@ -842,11 +842,11 @@ POPUP
           padding: 18px 15px;
         }
         .inner{
-          width: 100%;max-width: 340px;
+          width: 100%;max-width: 360px;
           margin: auto;
           .ttl{
             display: inline-block;
-            @include font(22,34/20,0.1,600);
+            @include font(22,34/20,0.05,600);
             @include noto;position: relative;
             @include screen(768px,950px){font-size: 20px;}
             @include max-screen(767px){

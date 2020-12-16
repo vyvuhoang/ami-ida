@@ -556,140 +556,141 @@
     }
   }
 }
-// .sec-lst-schedule{
-//   .ttl{
-//     font-size: 21px;
-//     font-weight: bold;
-//     margin-bottom: 13px;
-//   }
-//   .lst-ttl{
-//     padding: 0 30px;
-//     font-size: 0;
-//     margin-bottom: 10px;
-//     .item{
-//       font-size: 15px;
-//       font-weight: bold;
-//       color: #A0A0A0;
-//       display: inline-block;
-//       vertical-align: top;
-//       @include PC{
-//         text-align: center;
-//         margin: 0 10px;
-//         &:nth-child(2){
-//           width: calc(50% - 306px);
-//           text-align: left;
-//           margin-left: 0;
-//         }
-//         &:nth-child(3){
-//           width: 130px;
-//         }
-//         &:nth-child(4){
-//           width: 80px;
-//         }
-//         &:nth-child(5){
-//           width: 80px;
-//         }
-//         &:nth-child(6){
-//           width: calc(50% - 306px);
-//         }
-//       }
-//       @include SP{
-//         display: none;
-//       }
-//     }
-//   }
-//   .rp{
-//     .row{
-//       background-color: #fff;
-//       border-radius: 18px;
-//       padding: 25px 30px;
-//       margin-bottom: 8px;
-//       @include SP{
-//         padding: 25px 15px;
-//       }
-//       .inside{
-//         font-size: 0;
-//         select, input{
-//           @include add_prefix(appearance, none);
-//           border: 1px solid #E2E2E2;
-//           border-radius: 8px;
-//           background-color: transparent;
-//           display: inline-block;
-//           font-size: 15px;
-//           padding: 10px 10px;
-//           margin: 0 10px;
-//           text-align: center;
-//           color: #000;
-//           @include ffYG;
-//           @include SP{
-//             margin: 0;
-//             margin-bottom: 5px;
-//             text-align: left;
-//           }
-//           &:disabled{
-//             border: 0;
-//           }
-//           @include PC{
-//             &:nth-child(1){
-//               width: calc(50% - 306px);
-//               margin-left: 0;
-//               padding-left: 0;
-//             }
-//             &:nth-child(2){
-//               width: 130px;
-//             }
-//             &:nth-child(3){
-//               width: 80px;
-//             }
-//             &:nth-child(4){
-//               width: 80px;
-//             }
-//             &:nth-child(5){
-//               width: calc(50% - 306px);
-//             }
-//           }
-//           @include SP{
-//             width: 100%;
-//           }
-//         }
-//         select{
-//           @include SP{
-//             font-weight: bold;
-//           }
-//         }
-//         .btn-edit,
-//         .btn-delete{
-//           display: inline-block;
-//           vertical-align: top;
-//           font-size: 13px;
-//           font-weight: bold;
-//           border: 1px solid currentColor;
-//           padding: 5px 5px 5px 25px;
-//           border-radius: 8px;
-//           text-align: center;
-//           margin-top: 6px;
-//           @include SP{
-//             margin-top: 15px;
-//           }
-//         }
-//         .btn-edit{
-//           width: 107px;
-//           margin-right: 12px;
-//           color: #218CE8;
-//           background: url(../../img/common/icon/ico_edit.svg) center left 10px/16px 16px no-repeat, #C3E7FF;
-//           @include SP{
-//             width: calc(50% - 6px);
-//           }
-//         }
-//         .btn-delete{
-//           width: 103px;
-//           color: #E5749B;
-//           background: url(../../img/common/icon/ico_delete.svg) center left 15px/12px 15px no-repeat, #FFDEE5;
-//           @include SP{
-//             width: calc(50% - 6px);
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
+.sec-lst-schedule{
+  margin-top: 50px;
+  .ttl{
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 13px;
+  }
+  .lst-ttl{
+    padding: 0 30px;
+    font-size: 0;
+    margin-bottom: 20px;
+    .item{
+      font-size: 15px;
+      font-weight: bold;
+      color: #A0A0A0;
+      display: inline-block;
+      vertical-align: top;
+      @include PC{
+        text-align: center;
+        margin: 0 10px;
+        &:nth-child(2){
+          width: calc(50% - 306px);
+          text-align: center;
+          margin-left: 0;
+        }
+        &:nth-child(3){
+          width: 130px;
+        }
+        &:nth-child(4){
+          width: 80px;
+        }
+        &:nth-child(5){
+          width: calc(50% - 306px);
+        }
+        &:nth-child(6){
+          width: calc(50% - 306px);
+        }
+      }
+      @include SP{
+        display: none;
+      }
+    }
+  }
+  .rp{
+    .row{
+      background-color: #fff;
+      border-radius: 18px;
+      padding: 25px 30px;
+      margin-bottom: 8px;
+      @include SP{
+        padding: 25px 15px;
+      }
+      .inside{
+        font-size: 0;
+        select, input{
+          @include add_prefix(appearance, none);
+          border: 1px solid #E2E2E2;
+          border-radius: 8px;
+          background-color: transparent;
+          display: inline-block;
+          font-size: 15px;
+          padding: 10px 10px;
+          margin: 0 10px;
+          text-align: center;
+          color: #000;
+          @include ffYG;
+          @include SP{
+            margin: 0;
+            margin-bottom: 5px;
+            text-align: left;
+          }
+          &:disabled{
+            border: 0;
+          }
+          @include PC{
+            &:nth-child(1){
+              width: calc(50% - 306px);
+              margin-left: 0;
+              padding-left: 0;
+            }
+            &:nth-child(2){
+              width: 130px;
+            }
+            &:nth-child(3){
+              width: 80px;
+            }
+            &:nth-child(4){
+              width: 80px;
+            }
+            &:nth-child(5){
+              width: calc(50% - 306px);
+            }
+          }
+          @include SP{
+            width: 100%;
+          }
+        }
+        select{
+          @include SP{
+            font-weight: bold;
+          }
+        }
+        .btn-edit,
+        .btn-delete{
+          display: inline-block;
+          vertical-align: top;
+          font-size: 13px;
+          font-weight: bold;
+          border: 1px solid currentColor;
+          padding: 5px 5px 5px 25px;
+          border-radius: 8px;
+          text-align: center;
+          margin-top: 6px;
+          @include SP{
+            margin-top: 15px;
+          }
+        }
+        .btn-edit{
+          width: 107px;
+          margin-right: 12px;
+          color: #218CE8;
+          background: url(../../img/common/icon/ico_edit.svg) center left 10px/16px 16px no-repeat, #C3E7FF;
+          @include SP{
+            width: calc(50% - 6px);
+          }
+        }
+        .btn-delete{
+          width: 103px;
+          color: #E5749B;
+          background: url(../../img/common/icon/ico_delete.svg) center left 15px/12px 15px no-repeat, #FFDEE5;
+          @include SP{
+            width: calc(50% - 6px);
+          }
+        }
+      }
+    }
+  }
+}

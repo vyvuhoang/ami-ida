@@ -106,8 +106,8 @@ include(APP_PATH.'libs/head.php');
 		<div class="wcm">
 			<a href="<?php echo APP_URL; ?>information/" class="img">
 				<picture>
-				  <source srcset="<?php echo APP_ASSETS; ?>img/top/bn_measures-sp.jpg" media="(max-width: 767px)">
-				  <img src="<?php echo APP_ASSETS; ?>img/top/banner01.jpg" alt="">
+				  <source srcset="<?php echo APP_ASSETS; ?>img/top/banner_corona_sp.png" media="(max-width: 767px)">
+				  <img src="<?php echo APP_ASSETS; ?>img/top/banner_corona.jpg" alt="安全衛生管理について">
 				</picture>
 			</a>
 		</div>
@@ -191,9 +191,10 @@ include(APP_PATH.'libs/head.php');
 	  $categories = get_categories( $studioarea );?>
 	  <?php $studio = new WP_Query(array(
 	    'post_type'       => 'studio',
+	    'orderby'         => 'menu_order',
+	    'order'           => 'ASC',
 	    'showposts'       => -1,
 	    'post_status'     => 'publish',
-	    'orderby'         =>'date',
 	  ));
 	  if ($studio->have_posts()) :?>
 	  <div class="studio wcm">

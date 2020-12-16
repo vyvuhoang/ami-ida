@@ -11,7 +11,8 @@
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
-      'orderby'         =>'date',
+      'orderby'         => 'menu_order',
+      'order'           => 'ASC',
       's' => $key,
       'tax_query' => array(
         array(
@@ -27,7 +28,8 @@
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
-      'orderby'         =>'date',
+      'orderby'         => 'menu_order',
+      'order'           => 'ASC',
       's'               => $key,
     ));
   } else if( (empty($_POST['key']) ) && (!empty($_POST['area']) ) ){
@@ -36,7 +38,8 @@
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
-      'orderby'         =>'date',
+      'orderby'         => 'menu_order',
+      'order'           => 'ASC',
       'tax_query' => array(
         array(
           'taxonomy' => 'studioarea',
@@ -50,7 +53,8 @@
       'post_type'       => 'studio',
       'showposts'       => -1,
       'post_status'     => 'publish',
-      'orderby'         =>'date',
+      'orderby'         => 'menu_order',
+      'order'           => 'ASC',
     ));
   }
 
