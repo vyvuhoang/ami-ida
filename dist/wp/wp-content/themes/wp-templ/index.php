@@ -9,6 +9,7 @@ include(APP_PATH.'libs/head.php');
 <!-- HEADER -->
 <?php include(APP_PATH.'libs/header.php'); ?>
 <main id="wrap">
+	<?php include(APP_PATH.'libs/loading.php'); ?>
 	<div class="visual">
 		<div class="visual__bg" data-parallax='{"y": -70, "smoothness": 10}'></div>
 		<!-- <video muted="" autoplay="" playsinline="" loop><source src="<?php //echo APP_ASSETS; ?>img/studio/mainvisual.mp4"></video> -->

@@ -72,8 +72,11 @@ include(APP_PATH.'libs/head.php');
                     <label for="postLevel">レッスン強度</label>
                     <select name="postLevel" id="postLevel">
                       <option value="1">★ 1</option>
+                      <option value="1">★ 1.5</option>
                       <option value="2">★ 2</option>
+                      <option value="2">★ 2.5</option>
                       <option value="3">★ 3</option>
+                      <option value="3">★ 3.5</option>
                       <option value="4">★ 4</option>
                       <option value="5">★ 5</option>
                     </select>

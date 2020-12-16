@@ -89,11 +89,9 @@ $(window).bind("load",function(e){
   }
 });
 
-Pace.on("done", function() {
-  if ($('.lazy').length > 0) {
-    var ll = new LazyLoad({
-      elements_selector: ".lazy",
-      threshold: 0,
-    });
-  }
-});
+if ($('.lazy').length > 0) {
+  var ll = new LazyLoad({
+    elements_selector: ".lazy",
+    threshold: 0,
+  });
+}

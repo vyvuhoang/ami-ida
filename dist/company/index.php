@@ -21,7 +21,7 @@ include(APP_PATH.'libs/head.php');
     </div>
     <div class="wcm">
       <div class="the-title">会社概要</div>
-      <div class="etr">
+      <div class="etr inview fadeInBottom">
         <div class="etr__row">
           <p class="etr__row--th">正式名称</p>
           <p class="etr__row--td">TSCホリスティック株式会社</p>
@@ -67,7 +67,7 @@ include(APP_PATH.'libs/head.php');
           <p class="etr__row--td">https://www.ami-ida.com</p>
         </div>
       </div>
-      <div class="map">
+      <div class="map inview fadeInBottom">
         <iframe width="100" height="100" frameborder="0" src="https://maps.google.com/maps?q=〒140-0002東京都品川区東品川4-13-14&amp;hl=ja&amp;output=embed" allowfullscreen></iframe>
       </div>
     </div>

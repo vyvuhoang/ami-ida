@@ -165,7 +165,8 @@ include(APP_PATH.'libs/head.php');
       <div class="container-900">
         <h3 class="the-title inview fadeInBottom">料金プラン</h3>
         <ul class="lst-price js-lst-price inview fadeInBottom">
-        <!--   <li class="item">
+        <!-- 12/22リリース時：非掲載
+          <li class="item">
             <h4 class="item-ttl js-price-ttl">
               <span class="txt01">料金プラン</span>
             </h4>
@@ -209,8 +210,7 @@ include(APP_PATH.'libs/head.php');
           </li>
           <li class="item">
             <h4 class="item-ttl js-price-ttl">
-              <span class="txt01">購入できるもの</span>
-              <span class="txt02">(※一部店舗)</span>
+              <span class="txt01">購入できるもの(※一部店舗)</span>
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
@@ -246,15 +246,21 @@ include(APP_PATH.'libs/head.php');
                 </div>
               </div>
               <div class="row">
-                <p class="th">ウェアー(上)</p>
+                <p class="th">アミーダウェアー(上)</p>
                 <div class="td">
-                  <p class="td01">6,800円/月</p>
+                  <p class="td01">6,800円</p>
                 </div>
               </div>
               <div class="row">
-                <p class="th">ウェアー(下)</p>
+                <p class="th">アミーダウェアー(下)</p>
                 <div class="td">
-                  <p class="td01">6,800円/月</p>
+                  <p class="td01">6,800円</p>
+                </div>
+              </div>              
+              <div class="row">
+                <p class="th">アミーダウェアー(セット)</p>
+                <div class="td">
+                  <p class="td01">12,000円</p>
                 </div>
               </div>              
             </div>
@@ -266,7 +272,7 @@ include(APP_PATH.'libs/head.php');
             </h4>
             <div class="tbl js-price-tbl">
               <div class="row">
-                <p class="th">ウェアー上下セット</p>
+                <p class="th">ウェアー（上下）</p>
                 <div class="td">
                   <p class="td01">750円/日</p>
                 </div>
@@ -289,25 +295,6 @@ include(APP_PATH.'libs/head.php');
         <p class="script">※体験料以外の表示価格は全て税抜きとなります。水素水のみ消費税8％</p>
       </div>
     </div>
-<!--     <div class="sec-feeling">
-      <div class="container-900">
-        <h3 class="the-title inview fadeInBottom">アミーダの<br class="sp">溶岩ホットヨガで、<br>感じられている効果</h3>
-        <ul class="lst-feeling">
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php //echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
-            <div class="name">体質・体型が変わった<br>の円グラフ</div>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php //echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
-            <div class="name">体質・体型が変わった<br>の円グラフ</div>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php //echo APP_ASSETS;?>img/studio/img05.png" alt=""></div>
-            <div class="name">体質・体型が変わった<br>の円グラフ</div>
-          </li>
-        </ul>
-      </div>
-    </div> -->
     <div class="sec-voice">
       <div class="slider js-voice-slider">
         <?php for($i=0;$i<10;$i++){ ?>
@@ -325,17 +312,6 @@ include(APP_PATH.'libs/head.php');
         </div>
       </div>
     </div>
-  <!--   <div class="feature wcm">
-      <h3 class="the-title inview fadeInBottom">アミーダ<?php //echo get_the_title(); ?>店が選ばれる理由</h3>
-      <div class="feature__lst">
-        <?php //$feature = array("未経験・初心者でも<br>安心の少人数制レッスン","天然溶岩石の<br>スタジオ","通いやすい<br>女性専用スタジオ<br>※有明店を除く","レベルの高い<br>インストラクター","清潔感のある<br>キレイな施設・スタジオ");
-        //for($i=0;$i<count($feature);$i++){ ?>
-          <div class="feature__lst--item lazy" data-bg="url(<?php //echo APP_ASSETS; ?>img/studio/feature<?php //echo $i+1; ?>.jpg)">
-          <p class="ttl"><?php //echo $feature[$i]; ?></p>
-        </div>
-      <?php //} ?>
-      </div>
-    </div> -->
     <div class="feature1">
       <div class="wcm">
         <h3 class="the-title inview fadeInBottom">アミーダ<?php echo get_the_title(); ?>店が選ばれる理由</h3>
@@ -503,28 +479,6 @@ include(APP_PATH.'libs/head.php');
         </form>
       </div>
     </div>
-  <!--   <div class="sec-stuff">
-      <div class="container-1080">
-        <h3 class="the-title inview fadeInBottom">体験レッスンに<br class="sp">必要な物追加</h3>
-        <ul class="lst-stuff">
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img02.jpg" alt="手ぶらでOK"></div>
-            <h4 class="item-ttl">手ぶらでOK</h4>
-            <p class="item-txt">必要なものは全てご用意しています。 身軽だから気軽に通いやすいのが特徴です。<br>※キャミソール(カップ付き)かTシャツのいずれかになります。 ※店舗により異なります。<br>ロレンタルウェア上下 セバスタオル<br>フェイスタオル 四水550ml×2本 四ヨガマット</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img03.jpg" alt="好きな時間に 通えます"></div>
-            <h4 class="item-ttl">好きな時間に 通えます</h4>
-            <p class="item-txt">昼間に自由時間がある方にも、 仕事で遅くなりがちな方にも、 通いやすいのが魅力です。<br>※レッスン時間はスタジオ・曜日によって異なります。<br>詳しくはスタジオ詳細でご確認ください。</p>
-          </li>
-          <li class="item inview fadeInBottom">
-            <div class="img"><img src="<?php echo APP_ASSETS;?>img/studio/img04.jpg" alt="女性専用 スタジオ"></div>
-            <h4 class="item-ttl">女性専用 スタジオ</h4>
-            <p class="item-txt">女性だけのスタジオだから、 気兼ねなく、たくさん汗かいたり ポーズを取ったりできるのも、 支持されている理由のひとつです。</p>
-          </li>
-        </ul>
-      </div>
-    </div> -->
     <div class="stuff">
       <div class="wcm">
         <h3 class="the-title inview fadeInBottom">溶岩ヨガ体験レッスンに必要な持ち物リスト</h3>
